@@ -30,13 +30,12 @@ Partial Class Administrador
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button_UPD = New System.Windows.Forms.Button()
+        Me.Button_Alta = New System.Windows.Forms.Button()
+        Me.TextBox_ContUS = New System.Windows.Forms.TextBox()
+        Me.TextBox_NombUS = New System.Windows.Forms.TextBox()
+        Me.TextBox_CURP = New System.Windows.Forms.TextBox()
+        Me.TextBox_RFC = New System.Windows.Forms.TextBox()
         Me.TextBox_Nombre = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -50,6 +49,9 @@ Partial Class Administrador
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Panel1.SuspendLayout()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,69 +152,63 @@ Partial Class Administrador
         Me.ListBox1.Size = New System.Drawing.Size(414, 148)
         Me.ListBox1.TabIndex = 38
         '
-        'Button10
+        'Button_UPD
         '
-        Me.Button10.BackColor = System.Drawing.Color.LightYellow
-        Me.Button10.FlatAppearance.BorderSize = 0
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button10.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(975, 142)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(113, 39)
-        Me.Button10.TabIndex = 37
-        Me.Button10.Text = "Modificacion"
-        Me.Button10.UseVisualStyleBackColor = False
+        Me.Button_UPD.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_UPD.FlatAppearance.BorderSize = 0
+        Me.Button_UPD.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_UPD.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_UPD.Location = New System.Drawing.Point(975, 142)
+        Me.Button_UPD.Name = "Button_UPD"
+        Me.Button_UPD.Size = New System.Drawing.Size(113, 39)
+        Me.Button_UPD.TabIndex = 37
+        Me.Button_UPD.Text = "Modificacion"
+        Me.Button_UPD.UseVisualStyleBackColor = False
         '
-        'Button9
+        'Button_Alta
         '
-        Me.Button9.BackColor = System.Drawing.Color.LightYellow
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(984, 82)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(104, 39)
-        Me.Button9.TabIndex = 36
-        Me.Button9.Text = "Alta"
-        Me.Button9.UseVisualStyleBackColor = False
+        Me.Button_Alta.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Alta.FlatAppearance.BorderSize = 0
+        Me.Button_Alta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Alta.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Alta.Location = New System.Drawing.Point(984, 82)
+        Me.Button_Alta.Name = "Button_Alta"
+        Me.Button_Alta.Size = New System.Drawing.Size(104, 39)
+        Me.Button_Alta.TabIndex = 36
+        Me.Button_Alta.Text = "Alta"
+        Me.Button_Alta.UseVisualStyleBackColor = False
         '
-        'MonthCalendar1
+        'TextBox_ContUS
         '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(279, 142)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.TabIndex = 35
+        Me.TextBox_ContUS.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_ContUS.Location = New System.Drawing.Point(772, 306)
+        Me.TextBox_ContUS.Name = "TextBox_ContUS"
+        Me.TextBox_ContUS.Size = New System.Drawing.Size(191, 22)
+        Me.TextBox_ContUS.TabIndex = 31
         '
-        'TextBox8
+        'TextBox_NombUS
         '
-        Me.TextBox8.BackColor = System.Drawing.Color.Beige
-        Me.TextBox8.Location = New System.Drawing.Point(772, 306)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(191, 22)
-        Me.TextBox8.TabIndex = 31
+        Me.TextBox_NombUS.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_NombUS.Location = New System.Drawing.Point(550, 306)
+        Me.TextBox_NombUS.Name = "TextBox_NombUS"
+        Me.TextBox_NombUS.Size = New System.Drawing.Size(182, 22)
+        Me.TextBox_NombUS.TabIndex = 29
         '
-        'TextBox7
+        'TextBox_CURP
         '
-        Me.TextBox7.BackColor = System.Drawing.Color.Beige
-        Me.TextBox7.Location = New System.Drawing.Point(550, 306)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(182, 22)
-        Me.TextBox7.TabIndex = 29
+        Me.TextBox_CURP.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_CURP.Location = New System.Drawing.Point(251, 300)
+        Me.TextBox_CURP.Name = "TextBox_CURP"
+        Me.TextBox_CURP.Size = New System.Drawing.Size(269, 22)
+        Me.TextBox_CURP.TabIndex = 27
         '
-        'TextBox3
+        'TextBox_RFC
         '
-        Me.TextBox3.BackColor = System.Drawing.Color.Beige
-        Me.TextBox3.Location = New System.Drawing.Point(255, 442)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(269, 22)
-        Me.TextBox3.TabIndex = 27
-        '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.Beige
-        Me.TextBox2.Location = New System.Drawing.Point(255, 387)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(269, 22)
-        Me.TextBox2.TabIndex = 32
+        Me.TextBox_RFC.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_RFC.Location = New System.Drawing.Point(251, 245)
+        Me.TextBox_RFC.Name = "TextBox_RFC"
+        Me.TextBox_RFC.Size = New System.Drawing.Size(269, 22)
+        Me.TextBox_RFC.TabIndex = 32
         '
         'TextBox_Nombre
         '
@@ -276,7 +272,7 @@ Partial Class Administrador
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(251, 419)
+        Me.Label10.Location = New System.Drawing.Point(247, 277)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(49, 20)
         Me.Label10.TabIndex = 16
@@ -286,7 +282,7 @@ Partial Class Administrador
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(251, 364)
+        Me.Label8.Location = New System.Drawing.Point(247, 222)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(37, 20)
         Me.Label8.TabIndex = 15
@@ -355,24 +351,54 @@ Partial Class Administrador
         Me.ListBox2.Size = New System.Drawing.Size(516, 137)
         Me.ListBox2.TabIndex = 15
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CalendarForeColor = System.Drawing.Color.LightYellow
+        Me.DateTimePicker1.CalendarMonthBackground = System.Drawing.Color.LightYellow
+        Me.DateTimePicker1.Location = New System.Drawing.Point(251, 159)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(269, 22)
+        Me.DateTimePicker1.TabIndex = 46
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(255, 351)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(214, 20)
+        Me.Label4.TabIndex = 17
+        Me.Label4.Text = "Fecha de Alta o Modificacion"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CalendarForeColor = System.Drawing.Color.LightYellow
+        Me.DateTimePicker2.CalendarMonthBackground = System.Drawing.Color.LightYellow
+        Me.DateTimePicker2.Location = New System.Drawing.Point(255, 394)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(269, 22)
+        Me.DateTimePicker2.TabIndex = 46
+        '
         'Administrador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1100, 580)
+        Me.Controls.Add(Me.DateTimePicker2)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.Button10)
-        Me.Controls.Add(Me.Button9)
-        Me.Controls.Add(Me.MonthCalendar1)
-        Me.Controls.Add(Me.TextBox8)
-        Me.Controls.Add(Me.TextBox7)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.Button_UPD)
+        Me.Controls.Add(Me.Button_Alta)
+        Me.Controls.Add(Me.TextBox_ContUS)
+        Me.Controls.Add(Me.TextBox_NombUS)
+        Me.Controls.Add(Me.TextBox_CURP)
+        Me.Controls.Add(Me.TextBox_RFC)
         Me.Controls.Add(Me.TextBox_Nombre)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label10)
@@ -399,13 +425,12 @@ Partial Class Administrador
     Friend WithEvents PanelMenu As Panel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Button10 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents MonthCalendar1 As MonthCalendar
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Button_UPD As Button
+    Friend WithEvents Button_Alta As Button
+    Friend WithEvents TextBox_ContUS As TextBox
+    Friend WithEvents TextBox_NombUS As TextBox
+    Friend WithEvents TextBox_CURP As TextBox
+    Friend WithEvents TextBox_RFC As TextBox
     Friend WithEvents TextBox_Nombre As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label11 As Label
@@ -422,4 +447,7 @@ Partial Class Administrador
     Friend WithEvents Label3 As Label
     Friend WithEvents Button11 As Button
     Friend WithEvents ListBox2 As ListBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label4 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
 End Class

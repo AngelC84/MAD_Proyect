@@ -30,6 +30,160 @@ Public Class EnlaceBD
 
     End Function
 
+
+    Public Function Reg_Empleado(ByVal CURP As String,
+                           ByVal fecha_nac As Date,
+                           ByVal Nombre As String,
+                           ByVal RFC As String,
+                           ByVal Fecha_Alta_Mod As Date,
+                           ByVal Nomb_Us As String,
+                           ByVal Cont_Us As String) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("EmpleadoReg", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Fecha_Nacimiento", SqlDbType.Date, 15)
+            parametro2.Value = fecha_nac
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50)
+            parametro3.Value = Nombre
+            Dim parametro4 As SqlParameter = comandosql.Parameters.Add("@RFC", SqlDbType.VarChar, 12)
+            parametro4.Value = RFC
+            Dim parametro5 As SqlParameter = comandosql.Parameters.Add("@Fecha_de_Alta_Modificacion", SqlDbType.Date, 15)
+            parametro5.Value = Fecha_Alta_Mod
+            Dim parametro6 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro6.Value = Nomb_Us
+            Dim parametro7 As SqlParameter = comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 50)
+            parametro7.Value = Cont_Us
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+
+
+    Public Function getdataEmplead() As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getdataEmplead"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+
+    Public Function GetEmpleadInactiv() As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "GetEmpleadInActiv"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+
+
+
+    Public Function Activar_Empleado(ByVal Nombre As String
+                           ) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("EmpleadoActivo", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre
+
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+
+
+
+
+    Public Function Upd_Empleado(ByVal CURP As String,
+                           ByVal fecha_nac As Date,
+                           ByVal Nombre As String,
+                           ByVal RFC As String,
+                           ByVal Fecha_Alta_Mod As Date,
+                           ByVal Cont_Us As String) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("EmpleadoUpd", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Fecha_Nacimiento", SqlDbType.Date, 15)
+            parametro2.Value = fecha_nac
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50)
+            parametro3.Value = Nombre
+            Dim parametro4 As SqlParameter = comandosql.Parameters.Add("@RFC", SqlDbType.VarChar, 12)
+            parametro4.Value = RFC
+            Dim parametro5 As SqlParameter = comandosql.Parameters.Add("@Fecha_de_Alta_Modificacion", SqlDbType.Date, 15)
+            parametro5.Value = Fecha_Alta_Mod
+            Dim parametro6 As SqlParameter = comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 50)
+            parametro6.Value = Cont_Us
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+
+
+
     'Public Function Autentificar(ByVal User As String, ByVal Pass As String) As Boolean
     '    Dim estado As Boolean = False
     '    Dim qry As String
