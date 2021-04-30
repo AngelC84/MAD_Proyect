@@ -124,30 +124,31 @@ END
 
 
 CREATE TABLE Administrador(
-Nombre_Usuario			VARCHAR(50)  PRIMARY KEY,
-Contraseña				VARCHAR (15),
-Activo bit
+Nombre_Usuario			VARCHAR(50)  PRIMARY KEY  not null,
+Contraseña				VARCHAR (15) not null,
+Activo bit not null default (1)
 );
 
 
 
 
 CREATE TABLE Usuarios(
-Nombre_Usuario	VARCHAR (50) PRIMARY KEY,
-Contraseña		VARCHAR (15)
+Nombre_Usuario	VARCHAR (50) PRIMARY KEY not null,
+Contraseña		VARCHAR (15) not null
 
 );
 
 
 Create table Empleado(
-CURP VARCHAR (18) PRIMARY KEY,
-Fecha_Nacimiento date,
-Nombre VARCHAR (50),
-RFC VARCHAR (12),
-Fecha_de_Alta_Modificacion date,
-Nombre_Usuario VARCHAR(50),
-Contraseña VARCHAR(50),
+CURP VARCHAR (18) PRIMARY KEY not null,
+Fecha_Nacimiento date not null,
+Nombre VARCHAR (50) not null,
+RFC VARCHAR (12) not null UNIQUE,
+Fecha_de_Alta_Modificacion date not null,
+Nombre_Usuario VARCHAR(50) not null,
+Contraseña VARCHAR(50) not null,
 CONSTRAINT fk_Usuario FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
+genero varchar (25),
 Activo bit not null default (1)
 
 );
@@ -158,19 +159,20 @@ CURP VARCHAR (18) PRIMARY KEY not null,
 Fecha_Nacimiento date null,
 Nombre VARCHAR (50) null,
 Fecha_de_Alta_Modificacion date null,
-
+Genero varchar (20) not null,
+email varchar (30) UNIQUE not null,
+Activo bit not null default (1)
 );
-Alter table Clientes add Activo bit not null default (1)
-Alter table Clientes add Activo bit not null default (1)
+
 
 
 
 
 CREATE TABLE Consumo(
-Numero_Medidor int PRIMARY KEY IDENTITY (153458,1),
-Watts int,
-Periodo date,
-Cliente VARCHAR(18),
+Numero_Medidor int PRIMARY KEY IDENTITY (1000,1) ,
+Watts int not null,
+Periodo date not null,
+Cliente VARCHAR(18) not null,
 CONSTRAINT fk_ClienteCons FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 
 );
@@ -180,53 +182,55 @@ CONSTRAINT fk_ClienteCons FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 
 CREATE TABLE Tarifa(
 Id_Tarifa VARCHAR (20) PRIMARY KEY,
-Precio_Watt_Bajo int,
-Precio_Watt_Medio int,
-Precio_Watt_Excedente int,
-Fecha date,
-Tipo_de_uso bit,
+Precio_Watt_Bajo int not null,
+Precio_Watt_Medio int not null,
+Precio_Watt_Excedente int not null,
+Fecha date not null,
+Tipo_de_uso bit default (1),
 
 
 );
 CREATE TABLE Servicio(
-Numero_de_Servicio	int  PRIMARY KEY,
-Tipo_de_Servicio		VARCHAR (15),
-Numero_Medidor int,
+Numero_de_Servicio	int  PRIMARY KEY ,
+Tipo_de_Servicio		VARCHAR (15) not null,
+Numero_Medidor int not null,
 CONSTRAINT fk_MedidorServ FOREIGN KEY (Numero_Medidor) REFERENCES Consumo (Numero_Medidor),
-Tarifa VARCHAR(20),
+Tarifa VARCHAR(20) not null,
 CONSTRAINT fk_TarifaServ FOREIGN KEY (Tarifa) REFERENCES Tarifa (Id_Tarifa),
-Cliente VARCHAR(18),
+Cliente VARCHAR(18) not null,
 CONSTRAINT fk_ClienteServ FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 );
+
+
 CREATE TABLE Contrato(
-Domicilio VARCHAR (50) PRIMARY KEY ,
-Servicio int,
+Domicilio VARCHAR (50) PRIMARY KEY not null ,
+Servicio int not null,
 CONSTRAINT fk_ServicioCon FOREIGN KEY (Servicio) REFERENCES Servicio (Numero_de_Servicio),
-Fecha date,
-Cliente VARCHAR (18),
+Fecha date not null,
+Cliente VARCHAR (18) not null,
 CONSTRAINT fk_ClienteCon FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
-Activo bit,
-Numero_Medidor int,
+Activo bit default (1),
+Numero_Medidor int not null,
 CONSTRAINT fk_MedidorCon FOREIGN KEY (Numero_Medidor) REFERENCES Consumo (Numero_Medidor),
 
 
 
 );
 CREATE TABLE Recibo(
-Id_Recibo int identity (11564645,1) Primary Key,
+Id_Recibo int identity (1,1) Primary Key,
 
-Iva tinyint,
-Fecha date,
-Watts int,
-Numero_Medidor int,
+Iva tinyint not null,
+Fecha date not null,
+Watts int not null,
+Numero_Medidor int not null,
 CONSTRAINT fk_MedidorRec FOREIGN KEY (Numero_Medidor) REFERENCES Consumo (Numero_Medidor),
-Numero_de_Servicio		int,
+Numero_de_Servicio		int not null,
 CONSTRAINT fk_ServRec FOREIGN KEY (Numero_de_Servicio) REFERENCES Servicio (Numero_de_Servicio),
 Cliente VARCHAR(18),
 CONSTRAINT fk_ClienteRec FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 Tarifa VARCHAR(20),
 CONSTRAINT fk_TarifaRec FOREIGN KEY (Tarifa) REFERENCES Tarifa (Id_Tarifa),
-Subtotal int,
-Total int
+Subtotal int not null,
+Total int not null
 );
 
