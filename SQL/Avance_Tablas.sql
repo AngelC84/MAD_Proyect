@@ -67,6 +67,12 @@ IF EXISTS(SELECT 1 FROM sysconstraints WHERE OBJECT_NAME(constid) = 'fk_Usuario'
 BEGIN
 	ALTER TABLE Empleado DROP CONSTRAINT fk_Usuario;
 END
+
+
+IF EXISTS(SELECT 1 FROM sysconstraints WHERE OBJECT_NAME(constid) = 'fk_UsuarioCliente' AND OBJECT_NAME(id) = 'Clientes')
+BEGIN
+	ALTER TABLE Clientes DROP CONSTRAINT fk_UsuarioCliente;
+END
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -148,6 +154,7 @@ Fecha_de_Alta_Modificacion date not null,
 Nombre_Usuario VARCHAR(50) not null,
 Contraseña VARCHAR(50) not null,
 CONSTRAINT fk_Usuario FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
+genero varchar (25),
 Activo bit not null default (1)
 
 );
@@ -160,13 +167,13 @@ Nombre VARCHAR (50) null,
 Fecha_de_Alta_Modificacion date null,
 Genero varchar (20) not null,
 email varchar (30) UNIQUE not null,
-Activo bit not null default (1),
-
+Nombre_Usuario varchar(50) not null,
+CONSTRAINT fk_UsuarioCliente FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
+Contraseña varchar (25),
+Activo bit not null default (1)
 );
 
-Alter table Clientes ADD Nombre_Usuario VARCHAR(50) not null
-Alter table Clientes add  Contraseña VARCHAR(50) not null
-Alter table Clientes add CONSTRAINT fk_Usuario_Cliente FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario)
+
 
 
 
@@ -189,9 +196,13 @@ Precio_Watt_Medio int not null,
 Precio_Watt_Excedente int not null,
 Fecha date not null,
 Tipo_de_uso bit default (1),
-
-
+Watt_Bajo int default (5000),         /* Por ejemplo consumo de hasta 5000 Watts es consumo bajo, de 5000 a 10000 es consumo medio y de 10001 hacia arriba se considera consumo excedente     */
+Watt_Medio int default (10000),
+Watt_Excedente int,
+ 
 );
+
+
 CREATE TABLE Servicio(
 Numero_de_Servicio	int  PRIMARY KEY ,
 Tipo_de_Servicio		VARCHAR (15) not null,
