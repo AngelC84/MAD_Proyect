@@ -42,8 +42,6 @@ Partial Class Cargas
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -59,6 +57,7 @@ Partial Class Cargas
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -334,28 +333,6 @@ Partial Class Cargas
         Me.Label13.TabIndex = 14
         Me.Label13.Text = "* Actuales Clientes *"
         '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(41, 258)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(55, 21)
-        Me.RadioButton1.TabIndex = 16
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Mes"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(225, 258)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(176, 21)
-        Me.RadioButton2.TabIndex = 16
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Periodo de Facturacion"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
         'ComboBox2
         '
         Me.ComboBox2.BackColor = System.Drawing.Color.BlanchedAlmond
@@ -363,9 +340,9 @@ Partial Class Cargas
         Me.ComboBox2.ForeColor = System.Drawing.Color.PeachPuff
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Nivel Basico", "Nivel Intermedio ", "Nivel Excedente "})
-        Me.ComboBox2.Location = New System.Drawing.Point(160, 303)
+        Me.ComboBox2.Location = New System.Drawing.Point(160, 311)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(269, 24)
+        Me.ComboBox2.Size = New System.Drawing.Size(302, 24)
         Me.ComboBox2.TabIndex = 18
         '
         'Label3
@@ -373,7 +350,7 @@ Partial Class Cargas
         Me.Label3.AutoSize = True
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label3.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(11, 301)
+        Me.Label3.Location = New System.Drawing.Point(11, 309)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(123, 23)
         Me.Label3.TabIndex = 17
@@ -396,7 +373,7 @@ Partial Class Cargas
         Me.Button9.FlatAppearance.BorderSize = 0
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(15, 349)
+        Me.Button9.Location = New System.Drawing.Point(358, 457)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(104, 39)
         Me.Button9.TabIndex = 43
@@ -520,13 +497,12 @@ Partial Class Cargas
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox2.Controls.Add(Me.Button9)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.ListBox3)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.RadioButton2)
-        Me.GroupBox2.Controls.Add(Me.RadioButton1)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
@@ -540,13 +516,20 @@ Partial Class Cargas
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label7.Location = New System.Drawing.Point(102, 236)
+        Me.Label7.Location = New System.Drawing.Point(11, 263)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(258, 24)
+        Me.Label7.Size = New System.Drawing.Size(207, 21)
         Me.Label7.TabIndex = 14
-        Me.Label7.Text = "* OJOOO CHECAR ESTO*"
+        Me.Label7.Text = "Periodo de Facturacion"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(217, 263)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(245, 22)
+        Me.DateTimePicker1.TabIndex = 44
         '
         'Cargas
         '
@@ -577,8 +560,6 @@ Partial Class Cargas
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label1 As Label
@@ -609,4 +590,5 @@ Partial Class Cargas
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Boton_ReporteTarifasyConsum As Button
     Friend WithEvents Boton_GenerarReciboyConsulta As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

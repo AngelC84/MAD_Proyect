@@ -463,7 +463,7 @@ Partial Class EmpleadoGral
         '
         Me.ComboBox_Genero.BackColor = System.Drawing.Color.BlanchedAlmond
         Me.ComboBox_Genero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox_Genero.ForeColor = System.Drawing.Color.PeachPuff
+        Me.ComboBox_Genero.ForeColor = System.Drawing.Color.Black
         Me.ComboBox_Genero.FormattingEnabled = True
         Me.ComboBox_Genero.Items.AddRange(New Object() {"Hombre", "Mujer"})
         Me.ComboBox_Genero.Location = New System.Drawing.Point(230, 228)

@@ -21,3 +21,4 @@ create view ReporteConsumoV as
     group by year(Tarifa.Fecha), month(Tarifa.Fecha), Servicio.Numero_Medidor,Tarifa.Precio_Watt_Bajo, Tarifa.Precio_Watt_Medio, Tarifa.Precio_Watt_Excedente	
 
 go
+

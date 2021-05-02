@@ -189,9 +189,15 @@ Precio_Watt_Medio int not null,
 Precio_Watt_Excedente int not null,
 Fecha date not null,
 Tipo_de_uso bit default (1),
-
+Watt_Bajo int not null,
+Watt_Medio int not null,
+Watt_Excedente int not null
 
 );
+
+
+
+
 CREATE TABLE Servicio(
 Numero_de_Servicio	int  PRIMARY KEY ,
 Tipo_de_Servicio		VARCHAR (15) not null,
