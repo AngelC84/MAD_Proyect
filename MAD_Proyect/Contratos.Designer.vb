@@ -41,7 +41,7 @@ Partial Class Contratos
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.ListBox_Cliente = New System.Windows.Forms.ListBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -49,7 +49,7 @@ Partial Class Contratos
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button_Desbloqueo = New System.Windows.Forms.Button()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.TextBox_Domicilio = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -321,15 +321,15 @@ Partial Class Contratos
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Contratos"
         '
-        'ListBox1
+        'ListBox_Cliente
         '
-        Me.ListBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 16
-        Me.ListBox1.Location = New System.Drawing.Point(254, 82)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(414, 196)
-        Me.ListBox1.TabIndex = 13
+        Me.ListBox_Cliente.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ListBox_Cliente.FormattingEnabled = True
+        Me.ListBox_Cliente.ItemHeight = 16
+        Me.ListBox_Cliente.Location = New System.Drawing.Point(254, 82)
+        Me.ListBox_Cliente.Name = "ListBox_Cliente"
+        Me.ListBox_Cliente.Size = New System.Drawing.Size(414, 196)
+        Me.ListBox_Cliente.TabIndex = 13
         '
         'Label13
         '
@@ -389,7 +389,7 @@ Partial Class Contratos
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.LightGreen
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Button11)
+        Me.GroupBox1.Controls.Add(Me.Button_Desbloqueo)
         Me.GroupBox1.Controls.Add(Me.ListBox2)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
@@ -411,18 +411,18 @@ Partial Class Contratos
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Clientes bloqueados"
         '
-        'Button11
+        'Button_Desbloqueo
         '
-        Me.Button11.BackColor = System.Drawing.Color.LightYellow
-        Me.Button11.FlatAppearance.BorderSize = 0
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button11.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(711, 21)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(116, 39)
-        Me.Button11.TabIndex = 43
-        Me.Button11.Text = "Desbloquear"
-        Me.Button11.UseVisualStyleBackColor = False
+        Me.Button_Desbloqueo.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Desbloqueo.FlatAppearance.BorderSize = 0
+        Me.Button_Desbloqueo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Desbloqueo.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Desbloqueo.Location = New System.Drawing.Point(711, 21)
+        Me.Button_Desbloqueo.Name = "Button_Desbloqueo"
+        Me.Button_Desbloqueo.Size = New System.Drawing.Size(116, 39)
+        Me.Button_Desbloqueo.TabIndex = 43
+        Me.Button_Desbloqueo.Text = "Desbloquear"
+        Me.Button_Desbloqueo.UseVisualStyleBackColor = False
         '
         'ListBox2
         '
@@ -479,7 +479,7 @@ Partial Class Contratos
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.ListBox_Cliente)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.PanelMenu)
         Me.Controls.Add(Me.Panel1)
@@ -501,7 +501,7 @@ Partial Class Contratos
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents ListBox_Cliente As ListBox
     Friend WithEvents Label13 As Label
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label3 As Label
@@ -510,7 +510,7 @@ Partial Class Contratos
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button11 As Button
+    Friend WithEvents Button_Desbloqueo As Button
     Friend WithEvents ListBox2 As ListBox
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Boton_ConsumoHistorico As Button

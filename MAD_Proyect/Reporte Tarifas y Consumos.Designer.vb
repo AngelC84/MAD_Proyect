@@ -42,26 +42,28 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView_Tarifa = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.ListBox3 = New System.Windows.Forms.ListBox()
+        Me.Button_Consul_Tarifa = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView_Consumo = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
-        Me.Button14 = New System.Windows.Forms.Button()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Button_Cons_Consumo = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.DataGridView_Tarifa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView_Consumo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelMenu
@@ -323,12 +325,12 @@ Partial Class Reporte_Tarifas_y_Consumos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.DataGridView_Tarifa)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.ComboBox3)
         Me.GroupBox2.Controls.Add(Me.Button11)
         Me.GroupBox2.Controls.Add(Me.Button10)
-        Me.GroupBox2.Controls.Add(Me.Button9)
-        Me.GroupBox2.Controls.Add(Me.ListBox3)
+        Me.GroupBox2.Controls.Add(Me.Button_Consul_Tarifa)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
         Me.GroupBox2.Location = New System.Drawing.Point(226, 46)
@@ -337,6 +339,17 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.GroupBox2.TabIndex = 47
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Reporte de Tarifas"
+        '
+        'DataGridView_Tarifa
+        '
+        Me.DataGridView_Tarifa.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow
+        Me.DataGridView_Tarifa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_Tarifa.Location = New System.Drawing.Point(18, 82)
+        Me.DataGridView_Tarifa.Name = "DataGridView_Tarifa"
+        Me.DataGridView_Tarifa.RowHeadersWidth = 51
+        Me.DataGridView_Tarifa.RowTemplate.Height = 24
+        Me.DataGridView_Tarifa.Size = New System.Drawing.Size(815, 225)
+        Me.DataGridView_Tarifa.TabIndex = 47
         '
         'Label5
         '
@@ -384,32 +397,18 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button10.Text = "PDF"
         Me.Button10.UseVisualStyleBackColor = False
         '
-        'Button9
+        'Button_Consul_Tarifa
         '
-        Me.Button9.BackColor = System.Drawing.Color.LightYellow
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(417, 21)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(104, 39)
-        Me.Button9.TabIndex = 43
-        Me.Button9.Text = "Consultar"
-        Me.Button9.UseVisualStyleBackColor = False
-        '
-        'ListBox3
-        '
-        Me.ListBox3.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox3.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox3.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.ItemHeight = 27
-        Me.ListBox3.Location = New System.Drawing.Point(18, 69)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(815, 245)
-        Me.ListBox3.TabIndex = 15
+        Me.Button_Consul_Tarifa.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Consul_Tarifa.FlatAppearance.BorderSize = 0
+        Me.Button_Consul_Tarifa.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Consul_Tarifa.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Consul_Tarifa.Location = New System.Drawing.Point(417, 21)
+        Me.Button_Consul_Tarifa.Name = "Button_Consul_Tarifa"
+        Me.Button_Consul_Tarifa.Size = New System.Drawing.Size(104, 39)
+        Me.Button_Consul_Tarifa.TabIndex = 43
+        Me.Button_Consul_Tarifa.Text = "Consultar"
+        Me.Button_Consul_Tarifa.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -424,12 +423,12 @@ Partial Class Reporte_Tarifas_y_Consumos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DataGridView_Consumo)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Button12)
         Me.GroupBox1.Controls.Add(Me.Button13)
-        Me.GroupBox1.Controls.Add(Me.Button14)
-        Me.GroupBox1.Controls.Add(Me.ListBox1)
+        Me.GroupBox1.Controls.Add(Me.Button_Cons_Consumo)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
         Me.GroupBox1.Location = New System.Drawing.Point(226, 377)
@@ -438,6 +437,17 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.GroupBox1.TabIndex = 47
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Reporte de Consumos"
+        '
+        'DataGridView_Consumo
+        '
+        Me.DataGridView_Consumo.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow
+        Me.DataGridView_Consumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_Consumo.Location = New System.Drawing.Point(16, 79)
+        Me.DataGridView_Consumo.Name = "DataGridView_Consumo"
+        Me.DataGridView_Consumo.RowHeadersWidth = 51
+        Me.DataGridView_Consumo.RowTemplate.Height = 24
+        Me.DataGridView_Consumo.Size = New System.Drawing.Size(817, 225)
+        Me.DataGridView_Consumo.TabIndex = 47
         '
         'Label3
         '
@@ -485,32 +495,18 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button13.Text = "PDF"
         Me.Button13.UseVisualStyleBackColor = False
         '
-        'Button14
+        'Button_Cons_Consumo
         '
-        Me.Button14.BackColor = System.Drawing.Color.LightYellow
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button14.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button14.Location = New System.Drawing.Point(417, 21)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(104, 39)
-        Me.Button14.TabIndex = 43
-        Me.Button14.Text = "Consultar"
-        Me.Button14.UseVisualStyleBackColor = False
-        '
-        'ListBox1
-        '
-        Me.ListBox1.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox1.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox1.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 27
-        Me.ListBox1.Location = New System.Drawing.Point(18, 69)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(815, 245)
-        Me.ListBox1.TabIndex = 15
+        Me.Button_Cons_Consumo.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Cons_Consumo.FlatAppearance.BorderSize = 0
+        Me.Button_Cons_Consumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Cons_Consumo.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Cons_Consumo.Location = New System.Drawing.Point(417, 21)
+        Me.Button_Cons_Consumo.Name = "Button_Cons_Consumo"
+        Me.Button_Cons_Consumo.Size = New System.Drawing.Size(104, 39)
+        Me.Button_Cons_Consumo.TabIndex = 43
+        Me.Button_Cons_Consumo.Text = "Consultar"
+        Me.Button_Cons_Consumo.UseVisualStyleBackColor = False
         '
         'Label4
         '
@@ -541,8 +537,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Panel1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.DataGridView_Tarifa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DataGridView_Consumo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -556,16 +554,14 @@ Partial Class Reporte_Tarifas_y_Consumos
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Button11 As Button
     Friend WithEvents Button10 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents ListBox3 As ListBox
+    Friend WithEvents Button_Consul_Tarifa As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button12 As Button
     Friend WithEvents Button13 As Button
-    Friend WithEvents Button14 As Button
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents Button_Cons_Consumo As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
@@ -582,4 +578,6 @@ Partial Class Reporte_Tarifas_y_Consumos
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Boton_ReporteTarifasyConsum As Button
     Friend WithEvents Boton_GenerarReciboyConsulta As Button
+    Friend WithEvents DataGridView_Tarifa As DataGridView
+    Friend WithEvents DataGridView_Consumo As DataGridView
 End Class

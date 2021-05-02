@@ -8,6 +8,7 @@
     End Sub
 
     Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
+
         Dim enlace As New EnlaceBD
         'Dim tablaempl As New DataTable
         Dim Activo_Empl As String

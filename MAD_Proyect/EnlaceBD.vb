@@ -72,6 +72,51 @@ Public Class EnlaceBD
     End Function
 
 
+
+    Public Function Reg_Cliente(ByVal CURP As String,
+                           ByVal fecha_nac As Date,
+                           ByVal Nombre As String,
+                           ByVal Fecha_Alta_Mod As Date,
+                           ByVal Genero As String,
+                           ByVal email As String,
+                           ByVal Nomb_Us As String,
+                           ByVal Cont_Us As String) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("ClientesReg", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Fecha_Nacimiento", SqlDbType.Date, 15)
+            parametro2.Value = fecha_nac
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50)
+            parametro3.Value = Nombre
+            Dim parametro4 As SqlParameter = comandosql.Parameters.Add("@Fecha_de_Alta_Modificacion", SqlDbType.Date, 15)
+            parametro4.Value = Fecha_Alta_Mod
+            Dim parametro5 As SqlParameter = comandosql.Parameters.Add("@Genero ", SqlDbType.VarChar, 20)
+            parametro5.Value = Genero
+            Dim parametro6 As SqlParameter = comandosql.Parameters.Add("@email ", SqlDbType.VarChar, 30)
+            parametro6.Value = email
+            Dim parametro7 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro7.Value = Nomb_Us
+            Dim parametro8 As SqlParameter = comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 50)
+            parametro8.Value = Cont_Us
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+    '-----------------------
+
     Public Function getdataEmplead() As DataTable
         Dim nuevatablaEmpl As New DataTable
         Dim Qry As String
@@ -93,6 +138,28 @@ Public Class EnlaceBD
         Return nuevatablaEmpl
     End Function
 
+    Public Function getdataCliente() As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getdataClientes"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+    '------------------
 
     Public Function GetEmpleadInactiv() As DataTable
         Dim nuevatablaEmpl As New DataTable
@@ -115,11 +182,30 @@ Public Class EnlaceBD
         Return nuevatablaEmpl
     End Function
 
+    Public Function GetClienteInactiv() As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
 
 
+        Try
+            conectar()
+            Qry = "GetClienteInActiv"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
 
-    Public Function Activar_Empleado(ByVal Nombre As String
-                           ) As Boolean
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+    '------------------------------------------
+
+    Public Function Activar_Empleado(ByVal Nombre As String) As Boolean
         Dim estado As Boolean = True
         Try
             conectar()
@@ -143,6 +229,52 @@ Public Class EnlaceBD
     End Function
 
 
+    Public Function ClienteActivo(ByVal Nombre As String) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("ClienteActivo", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre
+
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+
+    Public Function Eliminar_Cliente(ByVal CURP As String) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("EliminarCliente", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+    '------------------------------------------------------
 
 
     Public Function Upd_Empleado(ByVal CURP As String,
@@ -182,7 +314,97 @@ Public Class EnlaceBD
         Return estado
     End Function
 
+    Public Function Upd_Cliente(ByVal CURP As String,
+                           ByVal fecha_nac As Date,
+                           ByVal Nombre As String,
+                           ByVal Fecha_Alta_Mod As Date,
+                           ByVal Genero As String,
+                           ByVal email As String,
+                           ByVal Cont_Us As String) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("ClienteUpd", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
 
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Fecha_Nacimiento", SqlDbType.Date, 15)
+            parametro2.Value = fecha_nac
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@Nombre", SqlDbType.VarChar, 50)
+            parametro3.Value = Nombre
+            Dim parametro4 As SqlParameter = comandosql.Parameters.Add("@Fecha_de_Alta_Modificacion", SqlDbType.Date, 15)
+            parametro4.Value = Fecha_Alta_Mod
+            Dim parametro5 As SqlParameter = comandosql.Parameters.Add("@Genero ", SqlDbType.VarChar, 20)
+            parametro5.Value = Genero
+            Dim parametro6 As SqlParameter = comandosql.Parameters.Add("@email ", SqlDbType.VarChar, 30)
+            parametro6.Value = email
+            Dim parametro7 As SqlParameter = comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 50)
+            parametro7.Value = Cont_Us
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+
+    '-------------------------REPORTE TARIFA -----------------------
+
+    Public Function getInfoTarifa(ByVal anio As Integer) As DataTable
+        Dim tablaaux As New DataTable
+        Dim Qry As String
+        Qry = "GetDatoTarifas"
+        Try
+            conectar()
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@anio", SqlDbType.Int, 8)
+            parametro1.Value = anio
+
+            conexion.Open()
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(tablaaux)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return tablaaux
+    End Function
+
+    '-------------------------REPORTE CONSUMO -----------------------
+
+    Public Function getInfoConsumo(ByVal anio As Integer) As DataTable
+        Dim tablaaux As New DataTable
+        Dim Qry As String
+        Qry = "GetDatoConsumo"
+        Try
+            conectar()
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@anio", SqlDbType.Int, 8)
+            parametro1.Value = anio
+
+            conexion.Open()
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(tablaaux)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return tablaaux
+    End Function
+
+    '-------------------------------
 
     'Public Function Autentificar(ByVal User As String, ByVal Pass As String) As Boolean
     '    Dim estado As Boolean = False

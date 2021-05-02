@@ -41,21 +41,19 @@ Partial Class EmpleadoGral
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.TextBox_Nombre = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button_Bajas_Cliente = New System.Windows.Forms.Button()
+        Me.Button_Alta_Cliente = New System.Windows.Forms.Button()
+        Me.Button_Upd_Cliente = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox_email = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox_CURP = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox_Genero = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -65,10 +63,13 @@ Partial Class EmpleadoGral
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TextBox_Medidor = New System.Windows.Forms.TextBox()
         Me.TextBox_NumServic = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.ListBox3 = New System.Windows.Forms.ListBox()
+        Me.TextBox_Usuario = New System.Windows.Forms.TextBox()
+        Me.TextBox_Contra = New System.Windows.Forms.TextBox()
+        Me.ListBox_Clientes = New System.Windows.Forms.ListBox()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -335,12 +336,6 @@ Partial Class EmpleadoGral
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Alta y modificacion de Clientes "
         '
-        'MonthCalendar1
-        '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(255, 291)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.TabIndex = 39
-        '
         'TextBox_Nombre
         '
         Me.TextBox_Nombre.BackColor = System.Drawing.Color.Beige
@@ -369,54 +364,44 @@ Partial Class EmpleadoGral
         Me.Label1.TabIndex = 36
         Me.Label1.Text = "Fecha de Nacimiento"
         '
-        'Label13
+        'Button_Bajas_Cliente
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(521, 227)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(532, 21)
-        Me.Label13.TabIndex = 40
-        Me.Label13.Text = "* La fecha de alta o modificacion se asignan en automatico *"
+        Me.Button_Bajas_Cliente.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Bajas_Cliente.FlatAppearance.BorderSize = 0
+        Me.Button_Bajas_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Bajas_Cliente.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Bajas_Cliente.Location = New System.Drawing.Point(954, 510)
+        Me.Button_Bajas_Cliente.Name = "Button_Bajas_Cliente"
+        Me.Button_Bajas_Cliente.Size = New System.Drawing.Size(113, 39)
+        Me.Button_Bajas_Cliente.TabIndex = 43
+        Me.Button_Bajas_Cliente.Text = "Bajas"
+        Me.Button_Bajas_Cliente.UseVisualStyleBackColor = False
         '
-        'Button10
+        'Button_Alta_Cliente
         '
-        Me.Button10.BackColor = System.Drawing.Color.LightYellow
-        Me.Button10.FlatAppearance.BorderSize = 0
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button10.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(954, 510)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(113, 39)
-        Me.Button10.TabIndex = 43
-        Me.Button10.Text = "Bajas"
-        Me.Button10.UseVisualStyleBackColor = False
+        Me.Button_Alta_Cliente.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Alta_Cliente.FlatAppearance.BorderSize = 0
+        Me.Button_Alta_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Alta_Cliente.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Alta_Cliente.Location = New System.Drawing.Point(247, 510)
+        Me.Button_Alta_Cliente.Name = "Button_Alta_Cliente"
+        Me.Button_Alta_Cliente.Size = New System.Drawing.Size(104, 39)
+        Me.Button_Alta_Cliente.TabIndex = 42
+        Me.Button_Alta_Cliente.Text = "Alta"
+        Me.Button_Alta_Cliente.UseVisualStyleBackColor = False
         '
-        'Button9
+        'Button_Upd_Cliente
         '
-        Me.Button9.BackColor = System.Drawing.Color.LightYellow
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(247, 510)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(104, 39)
-        Me.Button9.TabIndex = 42
-        Me.Button9.Text = "Alta"
-        Me.Button9.UseVisualStyleBackColor = False
-        '
-        'Button11
-        '
-        Me.Button11.BackColor = System.Drawing.Color.LightYellow
-        Me.Button11.FlatAppearance.BorderSize = 0
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button11.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(386, 510)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(122, 39)
-        Me.Button11.TabIndex = 43
-        Me.Button11.Text = "Modificacion"
-        Me.Button11.UseVisualStyleBackColor = False
+        Me.Button_Upd_Cliente.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Upd_Cliente.FlatAppearance.BorderSize = 0
+        Me.Button_Upd_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Upd_Cliente.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Upd_Cliente.Location = New System.Drawing.Point(386, 510)
+        Me.Button_Upd_Cliente.Name = "Button_Upd_Cliente"
+        Me.Button_Upd_Cliente.Size = New System.Drawing.Size(122, 39)
+        Me.Button_Upd_Cliente.TabIndex = 43
+        Me.Button_Upd_Cliente.Text = "Modificacion"
+        Me.Button_Upd_Cliente.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -428,13 +413,13 @@ Partial Class EmpleadoGral
         Me.Label3.TabIndex = 37
         Me.Label3.Text = "EMAIL"
         '
-        'TextBox2
+        'TextBox_email
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.Beige
-        Me.TextBox2.Location = New System.Drawing.Point(230, 125)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(269, 22)
-        Me.TextBox2.TabIndex = 38
+        Me.TextBox_email.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_email.Location = New System.Drawing.Point(230, 125)
+        Me.TextBox_email.Name = "TextBox_email"
+        Me.TextBox_email.Size = New System.Drawing.Size(269, 22)
+        Me.TextBox_email.TabIndex = 38
         '
         'Label4
         '
@@ -446,13 +431,13 @@ Partial Class EmpleadoGral
         Me.Label4.TabIndex = 37
         Me.Label4.Text = "CURP"
         '
-        'TextBox3
+        'TextBox_CURP
         '
-        Me.TextBox3.BackColor = System.Drawing.Color.Beige
-        Me.TextBox3.Location = New System.Drawing.Point(230, 182)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(269, 22)
-        Me.TextBox3.TabIndex = 38
+        Me.TextBox_CURP.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_CURP.Location = New System.Drawing.Point(230, 182)
+        Me.TextBox_CURP.Name = "TextBox_CURP"
+        Me.TextBox_CURP.Size = New System.Drawing.Size(269, 22)
+        Me.TextBox_CURP.TabIndex = 38
         '
         'Label5
         '
@@ -474,23 +459,23 @@ Partial Class EmpleadoGral
         Me.Label6.TabIndex = 37
         Me.Label6.Text = "Genero"
         '
-        'ComboBox2
+        'ComboBox_Genero
         '
-        Me.ComboBox2.BackColor = System.Drawing.Color.BlanchedAlmond
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.ForeColor = System.Drawing.Color.PeachPuff
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Hombre ", "Mujer"})
-        Me.ComboBox2.Location = New System.Drawing.Point(230, 228)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(269, 24)
-        Me.ComboBox2.TabIndex = 45
+        Me.ComboBox_Genero.BackColor = System.Drawing.Color.BlanchedAlmond
+        Me.ComboBox_Genero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_Genero.ForeColor = System.Drawing.Color.PeachPuff
+        Me.ComboBox_Genero.FormattingEnabled = True
+        Me.ComboBox_Genero.Items.AddRange(New Object() {"Hombre", "Mujer"})
+        Me.ComboBox_Genero.Location = New System.Drawing.Point(230, 228)
+        Me.ComboBox_Genero.Name = "ComboBox_Genero"
+        Me.ComboBox_Genero.Size = New System.Drawing.Size(269, 24)
+        Me.ComboBox_Genero.TabIndex = 45
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(580, 264)
+        Me.Label7.Location = New System.Drawing.Point(580, 313)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(102, 20)
         Me.Label7.TabIndex = 37
@@ -499,7 +484,7 @@ Partial Class EmpleadoGral
         'TextBox4
         '
         Me.TextBox4.BackColor = System.Drawing.Color.Beige
-        Me.TextBox4.Location = New System.Drawing.Point(584, 310)
+        Me.TextBox4.Location = New System.Drawing.Point(584, 359)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(483, 22)
         Me.TextBox4.TabIndex = 38
@@ -508,7 +493,7 @@ Partial Class EmpleadoGral
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(580, 284)
+        Me.Label8.Location = New System.Drawing.Point(580, 333)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(145, 20)
         Me.Label8.TabIndex = 37
@@ -518,7 +503,7 @@ Partial Class EmpleadoGral
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(580, 366)
+        Me.Label9.Location = New System.Drawing.Point(580, 415)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(149, 20)
         Me.Label9.TabIndex = 37
@@ -528,7 +513,7 @@ Partial Class EmpleadoGral
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(881, 366)
+        Me.Label10.Location = New System.Drawing.Point(881, 415)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(146, 20)
         Me.Label10.TabIndex = 37
@@ -538,7 +523,7 @@ Partial Class EmpleadoGral
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(580, 440)
+        Me.Label11.Location = New System.Drawing.Point(226, 343)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(63, 20)
         Me.Label11.TabIndex = 37
@@ -548,7 +533,7 @@ Partial Class EmpleadoGral
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(881, 440)
+        Me.Label14.Location = New System.Drawing.Point(226, 405)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(88, 20)
         Me.Label14.TabIndex = 37
@@ -557,7 +542,7 @@ Partial Class EmpleadoGral
         'TextBox_Medidor
         '
         Me.TextBox_Medidor.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_Medidor.Location = New System.Drawing.Point(584, 394)
+        Me.TextBox_Medidor.Location = New System.Drawing.Point(584, 443)
         Me.TextBox_Medidor.Name = "TextBox_Medidor"
         Me.TextBox_Medidor.Size = New System.Drawing.Size(182, 22)
         Me.TextBox_Medidor.TabIndex = 38
@@ -565,70 +550,97 @@ Partial Class EmpleadoGral
         'TextBox_NumServic
         '
         Me.TextBox_NumServic.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_NumServic.Location = New System.Drawing.Point(885, 394)
+        Me.TextBox_NumServic.Location = New System.Drawing.Point(885, 443)
         Me.TextBox_NumServic.Name = "TextBox_NumServic"
         Me.TextBox_NumServic.Size = New System.Drawing.Size(182, 22)
         Me.TextBox_NumServic.TabIndex = 38
         '
-        'TextBox7
+        'TextBox_Usuario
         '
-        Me.TextBox7.BackColor = System.Drawing.Color.Beige
-        Me.TextBox7.Location = New System.Drawing.Point(584, 463)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(182, 22)
-        Me.TextBox7.TabIndex = 38
+        Me.TextBox_Usuario.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_Usuario.Location = New System.Drawing.Point(230, 366)
+        Me.TextBox_Usuario.Name = "TextBox_Usuario"
+        Me.TextBox_Usuario.Size = New System.Drawing.Size(306, 22)
+        Me.TextBox_Usuario.TabIndex = 38
         '
-        'TextBox8
+        'TextBox_Contra
         '
-        Me.TextBox8.BackColor = System.Drawing.Color.Beige
-        Me.TextBox8.Location = New System.Drawing.Point(885, 463)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(182, 22)
-        Me.TextBox8.TabIndex = 38
+        Me.TextBox_Contra.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_Contra.Location = New System.Drawing.Point(230, 428)
+        Me.TextBox_Contra.Name = "TextBox_Contra"
+        Me.TextBox_Contra.Size = New System.Drawing.Size(306, 22)
+        Me.TextBox_Contra.TabIndex = 38
         '
-        'ListBox3
+        'ListBox_Clientes
         '
-        Me.ListBox3.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox3.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox3.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.ItemHeight = 27
-        Me.ListBox3.Location = New System.Drawing.Point(584, 82)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(483, 137)
-        Me.ListBox3.TabIndex = 46
+        Me.ListBox_Clientes.BackColor = System.Drawing.Color.LemonChiffon
+        Me.ListBox_Clientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ListBox_Clientes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ListBox_Clientes.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox_Clientes.ForeColor = System.Drawing.Color.OliveDrab
+        Me.ListBox_Clientes.FormattingEnabled = True
+        Me.ListBox_Clientes.ItemHeight = 27
+        Me.ListBox_Clientes.Location = New System.Drawing.Point(584, 82)
+        Me.ListBox_Clientes.Name = "ListBox_Clientes"
+        Me.ListBox_Clientes.Size = New System.Drawing.Size(483, 137)
+        Me.ListBox_Clientes.TabIndex = 46
         '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(617, 248)
+        Me.Label15.Location = New System.Drawing.Point(638, 292)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(450, 20)
         Me.Label15.TabIndex = 37
         Me.Label15.Text = "* Dejar ubicacion aqui tambien para poder editarla o quitarla *"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(230, 302)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(306, 22)
+        Me.DateTimePicker1.TabIndex = 47
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CalendarForeColor = System.Drawing.Color.LightYellow
+        Me.DateTimePicker2.CalendarMonthBackground = System.Drawing.Color.LightYellow
+        Me.DateTimePicker2.Location = New System.Drawing.Point(798, 246)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(269, 22)
+        Me.DateTimePicker2.TabIndex = 49
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(578, 248)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(214, 20)
+        Me.Label13.TabIndex = 48
+        Me.Label13.Text = "Fecha de Alta o Modificacion"
         '
         'EmpleadoGral
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1100, 580)
-        Me.Controls.Add(Me.ListBox3)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Button11)
-        Me.Controls.Add(Me.Button10)
-        Me.Controls.Add(Me.Button9)
+        Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.MonthCalendar1)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.ListBox_Clientes)
+        Me.Controls.Add(Me.ComboBox_Genero)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Button_Upd_Cliente)
+        Me.Controls.Add(Me.Button_Bajas_Cliente)
+        Me.Controls.Add(Me.Button_Alta_Cliente)
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.TextBox_NumServic)
-        Me.Controls.Add(Me.TextBox8)
-        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.TextBox_Contra)
+        Me.Controls.Add(Me.TextBox_Usuario)
         Me.Controls.Add(Me.TextBox_Medidor)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.TextBox_CURP)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label8)
@@ -638,7 +650,7 @@ Partial Class EmpleadoGral
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBox_email)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBox_Nombre)
         Me.Controls.Add(Me.Label12)
@@ -661,21 +673,19 @@ Partial Class EmpleadoGral
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents MonthCalendar1 As MonthCalendar
     Friend WithEvents TextBox_Nombre As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Button10 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button11 As Button
+    Friend WithEvents Button_Bajas_Cliente As Button
+    Friend WithEvents Button_Alta_Cliente As Button
+    Friend WithEvents Button_Upd_Cliente As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox_email As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox_CURP As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents ComboBox_Genero As ComboBox
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label8 As Label
@@ -685,9 +695,9 @@ Partial Class EmpleadoGral
     Friend WithEvents Label14 As Label
     Friend WithEvents TextBox_Medidor As TextBox
     Friend WithEvents TextBox_NumServic As TextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents ListBox3 As ListBox
+    Friend WithEvents TextBox_Usuario As TextBox
+    Friend WithEvents TextBox_Contra As TextBox
+    Friend WithEvents ListBox_Clientes As ListBox
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel4 As Panel
@@ -704,4 +714,7 @@ Partial Class EmpleadoGral
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Boton_ReporteGeneral As Button
     Friend WithEvents Label15 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label13 As Label
 End Class

@@ -148,7 +148,6 @@ Fecha_de_Alta_Modificacion date not null,
 Nombre_Usuario VARCHAR(50) not null,
 Contraseña VARCHAR(50) not null,
 CONSTRAINT fk_Usuario FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
-genero varchar (25),
 Activo bit not null default (1)
 
 );
@@ -161,10 +160,13 @@ Nombre VARCHAR (50) null,
 Fecha_de_Alta_Modificacion date null,
 Genero varchar (20) not null,
 email varchar (30) UNIQUE not null,
-Activo bit not null default (1)
+Activo bit not null default (1),
+
 );
 
-
+Alter table Clientes ADD Nombre_Usuario VARCHAR(50) not null
+Alter table Clientes add  Contraseña VARCHAR(50) not null
+Alter table Clientes add CONSTRAINT fk_Usuario_Cliente FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario)
 
 
 
