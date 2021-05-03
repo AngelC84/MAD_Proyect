@@ -19,3 +19,6 @@ D:\MAD_PROY\MAD_Proyect\obj\Debug\MAD_Proyect.GenerarReciboyConsulta.resources
 D:\MAD_PROY\MAD_Proyect\obj\Debug\MAD_Proyect.Pago_de_Recibos.resources
 D:\MAD_PROY\MAD_Proyect\obj\Debug\MAD_Proyect.Reporte_General.resources
 D:\MAD_PROY\MAD_Proyect\obj\Debug\MAD_Proyect.Reporte_Tarifas_y_Consumos.resources
+D:\MAD_PROY\MAD_Proyect\bin\Debug\itextsharp.dll
+D:\MAD_PROY\MAD_Proyect\obj\Debug\MAD_Proyect.vbproj.CopyComplete
+D:\MAD_PROY\MAD_Proyect\bin\Debug\BouncyCastle.Crypto.dll

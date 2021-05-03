@@ -45,16 +45,16 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.DataGridView_Tarifa = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button_Tarifa_CSV = New System.Windows.Forms.Button()
+        Me.Button_Tarifa_PDF = New System.Windows.Forms.Button()
         Me.Button_Consul_Tarifa = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView_Consumo = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button_Consumo_CSV = New System.Windows.Forms.Button()
+        Me.Button_Consumo_Pdf = New System.Windows.Forms.Button()
         Me.Button_Cons_Consumo = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PanelMenu.SuspendLayout()
@@ -328,8 +328,8 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.GroupBox2.Controls.Add(Me.DataGridView_Tarifa)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.ComboBox3)
-        Me.GroupBox2.Controls.Add(Me.Button11)
-        Me.GroupBox2.Controls.Add(Me.Button10)
+        Me.GroupBox2.Controls.Add(Me.Button_Tarifa_CSV)
+        Me.GroupBox2.Controls.Add(Me.Button_Tarifa_PDF)
         Me.GroupBox2.Controls.Add(Me.Button_Consul_Tarifa)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
@@ -371,31 +371,31 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.ComboBox3.Size = New System.Drawing.Size(190, 24)
         Me.ComboBox3.TabIndex = 45
         '
-        'Button11
+        'Button_Tarifa_CSV
         '
-        Me.Button11.BackColor = System.Drawing.Color.LightYellow
-        Me.Button11.FlatAppearance.BorderSize = 0
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button11.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(772, 21)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(61, 39)
-        Me.Button11.TabIndex = 43
-        Me.Button11.Text = "CSV"
-        Me.Button11.UseVisualStyleBackColor = False
+        Me.Button_Tarifa_CSV.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Tarifa_CSV.FlatAppearance.BorderSize = 0
+        Me.Button_Tarifa_CSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Tarifa_CSV.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Tarifa_CSV.Location = New System.Drawing.Point(772, 21)
+        Me.Button_Tarifa_CSV.Name = "Button_Tarifa_CSV"
+        Me.Button_Tarifa_CSV.Size = New System.Drawing.Size(61, 39)
+        Me.Button_Tarifa_CSV.TabIndex = 43
+        Me.Button_Tarifa_CSV.Text = "CSV"
+        Me.Button_Tarifa_CSV.UseVisualStyleBackColor = False
         '
-        'Button10
+        'Button_Tarifa_PDF
         '
-        Me.Button10.BackColor = System.Drawing.Color.LightYellow
-        Me.Button10.FlatAppearance.BorderSize = 0
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button10.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(705, 21)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(61, 39)
-        Me.Button10.TabIndex = 43
-        Me.Button10.Text = "PDF"
-        Me.Button10.UseVisualStyleBackColor = False
+        Me.Button_Tarifa_PDF.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Tarifa_PDF.FlatAppearance.BorderSize = 0
+        Me.Button_Tarifa_PDF.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Tarifa_PDF.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Tarifa_PDF.Location = New System.Drawing.Point(705, 21)
+        Me.Button_Tarifa_PDF.Name = "Button_Tarifa_PDF"
+        Me.Button_Tarifa_PDF.Size = New System.Drawing.Size(61, 39)
+        Me.Button_Tarifa_PDF.TabIndex = 43
+        Me.Button_Tarifa_PDF.Text = "PDF"
+        Me.Button_Tarifa_PDF.UseVisualStyleBackColor = False
         '
         'Button_Consul_Tarifa
         '
@@ -426,8 +426,8 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.GroupBox1.Controls.Add(Me.DataGridView_Consumo)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.Button12)
-        Me.GroupBox1.Controls.Add(Me.Button13)
+        Me.GroupBox1.Controls.Add(Me.Button_Consumo_CSV)
+        Me.GroupBox1.Controls.Add(Me.Button_Consumo_Pdf)
         Me.GroupBox1.Controls.Add(Me.Button_Cons_Consumo)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
@@ -469,31 +469,31 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.ComboBox1.Size = New System.Drawing.Size(190, 24)
         Me.ComboBox1.TabIndex = 45
         '
-        'Button12
+        'Button_Consumo_CSV
         '
-        Me.Button12.BackColor = System.Drawing.Color.LightYellow
-        Me.Button12.FlatAppearance.BorderSize = 0
-        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button12.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button12.Location = New System.Drawing.Point(772, 21)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(61, 39)
-        Me.Button12.TabIndex = 43
-        Me.Button12.Text = "CSV"
-        Me.Button12.UseVisualStyleBackColor = False
+        Me.Button_Consumo_CSV.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Consumo_CSV.FlatAppearance.BorderSize = 0
+        Me.Button_Consumo_CSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Consumo_CSV.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Consumo_CSV.Location = New System.Drawing.Point(772, 21)
+        Me.Button_Consumo_CSV.Name = "Button_Consumo_CSV"
+        Me.Button_Consumo_CSV.Size = New System.Drawing.Size(61, 39)
+        Me.Button_Consumo_CSV.TabIndex = 43
+        Me.Button_Consumo_CSV.Text = "CSV"
+        Me.Button_Consumo_CSV.UseVisualStyleBackColor = False
         '
-        'Button13
+        'Button_Consumo_Pdf
         '
-        Me.Button13.BackColor = System.Drawing.Color.LightYellow
-        Me.Button13.FlatAppearance.BorderSize = 0
-        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button13.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button13.Location = New System.Drawing.Point(705, 21)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(61, 39)
-        Me.Button13.TabIndex = 43
-        Me.Button13.Text = "PDF"
-        Me.Button13.UseVisualStyleBackColor = False
+        Me.Button_Consumo_Pdf.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Consumo_Pdf.FlatAppearance.BorderSize = 0
+        Me.Button_Consumo_Pdf.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Consumo_Pdf.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Consumo_Pdf.Location = New System.Drawing.Point(705, 21)
+        Me.Button_Consumo_Pdf.Name = "Button_Consumo_Pdf"
+        Me.Button_Consumo_Pdf.Size = New System.Drawing.Size(61, 39)
+        Me.Button_Consumo_Pdf.TabIndex = 43
+        Me.Button_Consumo_Pdf.Text = "PDF"
+        Me.Button_Consumo_Pdf.UseVisualStyleBackColor = False
         '
         'Button_Cons_Consumo
         '
@@ -552,15 +552,15 @@ Partial Class Reporte_Tarifas_y_Consumos
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label5 As Label
     Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents Button11 As Button
-    Friend WithEvents Button10 As Button
+    Friend WithEvents Button_Tarifa_CSV As Button
+    Friend WithEvents Button_Tarifa_PDF As Button
     Friend WithEvents Button_Consul_Tarifa As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Button12 As Button
-    Friend WithEvents Button13 As Button
+    Friend WithEvents Button_Consumo_CSV As Button
+    Friend WithEvents Button_Consumo_Pdf As Button
     Friend WithEvents Button_Cons_Consumo As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel4 As Panel

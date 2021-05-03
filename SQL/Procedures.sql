@@ -235,14 +235,31 @@ Select
 anio'Año', 
 mes 'Mes',
 Numero_Medidor 'Medidor',
-Precio_Watt_Bajo 'Basica',
-Precio_Watt_Medio 'Intermedio',
-Precio_Watt_Excedente 'Excedente'
+Watt_Bajo 'Bajo',
+Watt_Medio 'Medio',
+Watt_Excedente 'Excedente'
 
 FROM ReporteConsumoV
 END
 go 
 
+Create Procedure ConsumoHistorico
+@anio int,
+@Numero_Medidor int,
+@Numero_de_Servicio int
+as 
+begin
+Select
+
+Periodo 'Periodo Facturacion',
+Watts 'Consumo de kW', 
+Importe 'Importe', 
+Total 'Pago', 
+Pendiente_Pago  'Pendiente de Pago'
+
+From ConsumoHistoricoV
+end 
+go
 
 
 
@@ -266,9 +283,3 @@ go
 
 
 
-
-SELECT year(Tarifa.Fecha)anio, month(Tarifa.Fecha)mes,Tarifa.Precio_Watt_Bajo, Tarifa.Precio_Watt_Medio, Tarifa.Precio_Watt_Excedente
-	FROM Tarifa 
-	
-	WHERE Tarifa.Id_Tarifa in (select Id_Tarifa from Tarifa)
-    group by year(Tarifa.Fecha), month(Tarifa.Fecha), Tarifa.Precio_Watt_Bajo, Tarifa.Precio_Watt_Medio, Tarifa.Precio_Watt_Excedente

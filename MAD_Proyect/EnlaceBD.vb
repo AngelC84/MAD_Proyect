@@ -380,7 +380,6 @@ Public Class EnlaceBD
     End Function
 
     '-------------------------REPORTE CONSUMO -----------------------
-
     Public Function getInfoConsumo(ByVal anio As Integer) As DataTable
         Dim tablaaux As New DataTable
         Dim Qry As String
@@ -403,6 +402,43 @@ Public Class EnlaceBD
         End Try
         Return tablaaux
     End Function
+
+    '----------------------- CONSUMO HISTORICO ---------------------
+    Public Function getInfoConsumoHistorico(ByVal anio As Integer,
+                                            Numero_Medidor As Integer,
+                                            Numero_de_Servicio As Integer) As DataTable
+        Dim tablaaux As New DataTable
+        Dim Qry As String
+        Qry = "ConsumoHistorico"
+        Try
+            conectar()
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@anio", SqlDbType.Int, 8)
+            parametro1.Value = anio
+
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Numero_Medidor", SqlDbType.Int, 8)
+            parametro2.Value = Numero_Medidor
+
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@Numero_de_Servicio", SqlDbType.Int, 8)
+            parametro3.Value = Numero_de_Servicio
+
+            conexion.Open()
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(tablaaux)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return tablaaux
+
+    End Function
+
+
+
+
 
     '-------------------------------
 

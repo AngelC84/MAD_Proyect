@@ -50,15 +50,16 @@ Partial Class Consumo_Historico
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ListBox3 = New System.Windows.Forms.ListBox()
-        Me.Button9 = New System.Windows.Forms.Button()
+        Me.DataGridView_Consumo = New System.Windows.Forms.DataGridView()
+        Me.Button_Consultar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button_ConsumHist_CSV = New System.Windows.Forms.Button()
+        Me.Button_ConsumHist_pdf = New System.Windows.Forms.Button()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.DataGridView_Consumo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -414,8 +415,8 @@ Partial Class Consumo_Historico
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.ListBox3)
-        Me.GroupBox2.Controls.Add(Me.Button9)
+        Me.GroupBox2.Controls.Add(Me.DataGridView_Consumo)
+        Me.GroupBox2.Controls.Add(Me.Button_Consultar)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.Label3)
@@ -430,37 +431,34 @@ Partial Class Consumo_Historico
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Filtros"
         '
-        'ListBox3
+        'DataGridView_Consumo
         '
-        Me.ListBox3.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox3.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox3.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.ItemHeight = 27
-        Me.ListBox3.Location = New System.Drawing.Point(17, 91)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(815, 245)
-        Me.ListBox3.TabIndex = 52
+        Me.DataGridView_Consumo.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow
+        Me.DataGridView_Consumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_Consumo.Location = New System.Drawing.Point(33, 109)
+        Me.DataGridView_Consumo.Name = "DataGridView_Consumo"
+        Me.DataGridView_Consumo.RowHeadersWidth = 51
+        Me.DataGridView_Consumo.RowTemplate.Height = 24
+        Me.DataGridView_Consumo.Size = New System.Drawing.Size(786, 228)
+        Me.DataGridView_Consumo.TabIndex = 52
         '
-        'Button9
+        'Button_Consultar
         '
-        Me.Button9.BackColor = System.Drawing.Color.LightYellow
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(728, 353)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(104, 39)
-        Me.Button9.TabIndex = 43
-        Me.Button9.Text = "Consultar"
-        Me.Button9.UseVisualStyleBackColor = False
+        Me.Button_Consultar.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_Consultar.FlatAppearance.BorderSize = 0
+        Me.Button_Consultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Consultar.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Consultar.Location = New System.Drawing.Point(728, 353)
+        Me.Button_Consultar.Name = "Button_Consultar"
+        Me.Button_Consultar.Size = New System.Drawing.Size(104, 39)
+        Me.Button_Consultar.TabIndex = 43
+        Me.Button_Consultar.Text = "Consultar"
+        Me.Button_Consultar.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button11)
-        Me.GroupBox1.Controls.Add(Me.Button10)
+        Me.GroupBox1.Controls.Add(Me.Button_ConsumHist_CSV)
+        Me.GroupBox1.Controls.Add(Me.Button_ConsumHist_pdf)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
         Me.GroupBox1.Location = New System.Drawing.Point(226, 464)
         Me.GroupBox1.Name = "GroupBox1"
@@ -469,31 +467,31 @@ Partial Class Consumo_Historico
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Generar como"
         '
-        'Button11
+        'Button_ConsumHist_CSV
         '
-        Me.Button11.BackColor = System.Drawing.Color.LightYellow
-        Me.Button11.FlatAppearance.BorderSize = 0
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button11.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(159, 25)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(104, 39)
-        Me.Button11.TabIndex = 43
-        Me.Button11.Text = "CSV"
-        Me.Button11.UseVisualStyleBackColor = False
+        Me.Button_ConsumHist_CSV.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_ConsumHist_CSV.FlatAppearance.BorderSize = 0
+        Me.Button_ConsumHist_CSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_ConsumHist_CSV.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_ConsumHist_CSV.Location = New System.Drawing.Point(159, 25)
+        Me.Button_ConsumHist_CSV.Name = "Button_ConsumHist_CSV"
+        Me.Button_ConsumHist_CSV.Size = New System.Drawing.Size(104, 39)
+        Me.Button_ConsumHist_CSV.TabIndex = 43
+        Me.Button_ConsumHist_CSV.Text = "CSV"
+        Me.Button_ConsumHist_CSV.UseVisualStyleBackColor = False
         '
-        'Button10
+        'Button_ConsumHist_pdf
         '
-        Me.Button10.BackColor = System.Drawing.Color.LightYellow
-        Me.Button10.FlatAppearance.BorderSize = 0
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button10.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(33, 25)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(104, 39)
-        Me.Button10.TabIndex = 43
-        Me.Button10.Text = "PDF"
-        Me.Button10.UseVisualStyleBackColor = False
+        Me.Button_ConsumHist_pdf.BackColor = System.Drawing.Color.LightYellow
+        Me.Button_ConsumHist_pdf.FlatAppearance.BorderSize = 0
+        Me.Button_ConsumHist_pdf.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_ConsumHist_pdf.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_ConsumHist_pdf.Location = New System.Drawing.Point(33, 25)
+        Me.Button_ConsumHist_pdf.Name = "Button_ConsumHist_pdf"
+        Me.Button_ConsumHist_pdf.Size = New System.Drawing.Size(104, 39)
+        Me.Button_ConsumHist_pdf.TabIndex = 43
+        Me.Button_ConsumHist_pdf.Text = "PDF"
+        Me.Button_ConsumHist_pdf.UseVisualStyleBackColor = False
         '
         'Consumo_Historico
         '
@@ -513,6 +511,7 @@ Partial Class Consumo_Historico
         Me.Panel1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.DataGridView_Consumo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -529,11 +528,10 @@ Partial Class Consumo_Historico
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Button9 As Button
-    Friend WithEvents ListBox3 As ListBox
+    Friend WithEvents Button_Consultar As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Button11 As Button
-    Friend WithEvents Button10 As Button
+    Friend WithEvents Button_ConsumHist_CSV As Button
+    Friend WithEvents Button_ConsumHist_pdf As Button
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Button_Pagar As Button
     Friend WithEvents PictureBox2 As PictureBox
@@ -551,4 +549,5 @@ Partial Class Consumo_Historico
     Friend WithEvents Boton_Cargas As Button
     Friend WithEvents Boton_Contratos As Button
     Friend WithEvents Button_Gestion As Button
+    Friend WithEvents DataGridView_Consumo As DataGridView
 End Class
