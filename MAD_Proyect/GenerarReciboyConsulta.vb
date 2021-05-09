@@ -37,4 +37,6 @@
         Pago_de_Recibos.Show()
         Me.Hide()
     End Sub
+
+
 End Class

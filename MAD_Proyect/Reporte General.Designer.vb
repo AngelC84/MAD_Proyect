@@ -53,15 +53,16 @@ Partial Class Reporte_General
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelMenu
@@ -467,28 +468,14 @@ Partial Class Reporte_General
         Me.Label3.TabIndex = 17
         Me.Label3.Text = "Tipo de Servicio"
         '
-        'ListBox3
-        '
-        Me.ListBox3.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox3.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox3.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.ItemHeight = 27
-        Me.ListBox3.Location = New System.Drawing.Point(254, 195)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(815, 245)
-        Me.ListBox3.TabIndex = 15
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Button11)
         Me.GroupBox1.Controls.Add(Me.Button10)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
-        Me.GroupBox1.Location = New System.Drawing.Point(236, 464)
+        Me.GroupBox1.Location = New System.Drawing.Point(236, 472)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(849, 87)
+        Me.GroupBox1.Size = New System.Drawing.Size(839, 87)
         Me.GroupBox1.TabIndex = 53
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Generar como"
@@ -519,16 +506,26 @@ Partial Class Reporte_General
         Me.Button10.Text = "PDF"
         Me.Button10.UseVisualStyleBackColor = False
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(236, 206)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 51
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(839, 252)
+        Me.DataGridView1.TabIndex = 54
+        '
         'Reporte_General
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1100, 580)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.PanelMenu)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.ListBox3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Reporte_General"
         Me.Text = "Reporte_General"
@@ -539,6 +536,7 @@ Partial Class Reporte_General
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -564,7 +562,6 @@ Partial Class Reporte_General
     Friend WithEvents Button9 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents ListBox3 As ListBox
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
@@ -578,4 +575,5 @@ Partial Class Reporte_General
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Boton_ReporteTarifasyConsum As Button
     Friend WithEvents Boton_GenerarReciboyConsulta As Button
+    Friend WithEvents DataGridView1 As DataGridView
 End Class

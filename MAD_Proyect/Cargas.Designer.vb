@@ -44,25 +44,44 @@ Partial Class Cargas
         Me.Label13 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Precio = New System.Windows.Forms.GroupBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox_Usuario = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.Precio.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelMenu
@@ -339,10 +358,10 @@ Partial Class Cargas
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.ForeColor = System.Drawing.Color.PeachPuff
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Nivel Basico", "Nivel Intermedio ", "Nivel Excedente "})
-        Me.ComboBox2.Location = New System.Drawing.Point(160, 311)
+        Me.ComboBox2.Items.AddRange(New Object() {"Uso Domestico", "Uso Industrial"})
+        Me.ComboBox2.Location = New System.Drawing.Point(160, 467)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(302, 24)
+        Me.ComboBox2.Size = New System.Drawing.Size(186, 24)
         Me.ComboBox2.TabIndex = 18
         '
         'Label3
@@ -350,22 +369,11 @@ Partial Class Cargas
         Me.Label3.AutoSize = True
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label3.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(11, 309)
+        Me.Label3.Location = New System.Drawing.Point(32, 468)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(123, 23)
+        Me.Label3.Size = New System.Drawing.Size(111, 23)
         Me.Label3.TabIndex = 17
-        Me.Label3.Text = "Tipo de Nivel"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 229)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 23)
-        Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Tarifa "
+        Me.Label3.Text = "Tipo de Uso"
         '
         'Button9
         '
@@ -385,7 +393,7 @@ Partial Class Cargas
         Me.Label4.AutoSize = True
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label4.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(113, 27)
+        Me.Label4.Location = New System.Drawing.Point(113, 25)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(179, 23)
         Me.Label4.TabIndex = 17
@@ -395,21 +403,25 @@ Partial Class Cargas
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(68, 53)
+        Me.ComboBox1.Location = New System.Drawing.Point(78, 51)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(269, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(259, 24)
         Me.ComboBox1.TabIndex = 18
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.LightGreen
-        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Button11)
         Me.GroupBox1.Controls.Add(Me.Button10)
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox1.Controls.Add(Me.TextBox7)
+        Me.GroupBox1.Controls.Add(Me.TextBox6)
         Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.ListBox2)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
         Me.GroupBox1.Location = New System.Drawing.Point(718, 61)
@@ -419,26 +431,15 @@ Partial Class Cargas
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consumo"
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label5.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(28, 93)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(183, 23)
-        Me.Label5.TabIndex = 17
-        Me.Label5.Text = "Contratos por cliente"
-        '
         'Button11
         '
         Me.Button11.BackColor = System.Drawing.Color.LightYellow
         Me.Button11.FlatAppearance.BorderSize = 0
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button11.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(233, 305)
+        Me.Button11.Location = New System.Drawing.Point(126, 442)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(104, 39)
+        Me.Button11.Size = New System.Drawing.Size(140, 50)
         Me.Button11.TabIndex = 43
         Me.Button11.Text = "Masiva"
         Me.Button11.UseVisualStyleBackColor = False
@@ -449,37 +450,68 @@ Partial Class Cargas
         Me.Button10.FlatAppearance.BorderSize = 0
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button10.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(32, 305)
+        Me.Button10.Location = New System.Drawing.Point(140, 233)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(104, 39)
         Me.Button10.TabIndex = 43
         Me.Button10.Text = "Unitaria"
         Me.Button10.UseVisualStyleBackColor = False
         '
-        'Label6
+        'DateTimePicker2
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label6.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(13, 268)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(77, 23)
-        Me.Label6.TabIndex = 17
-        Me.Label6.Text = "Asignar"
+        Me.DateTimePicker2.Location = New System.Drawing.Point(78, 205)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(245, 22)
+        Me.DateTimePicker2.TabIndex = 44
         '
-        'ListBox2
+        'TextBox7
         '
-        Me.ListBox2.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox2.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox2.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.ItemHeight = 27
-        Me.ListBox2.Location = New System.Drawing.Point(17, 119)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(347, 137)
-        Me.ListBox2.TabIndex = 15
+        Me.TextBox7.BackColor = System.Drawing.Color.Beige
+        Me.TextBox7.Location = New System.Drawing.Point(190, 141)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(174, 22)
+        Me.TextBox7.TabIndex = 46
+        '
+        'TextBox6
+        '
+        Me.TextBox6.BackColor = System.Drawing.Color.Beige
+        Me.TextBox6.Location = New System.Drawing.Point(190, 103)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(174, 22)
+        Me.TextBox6.TabIndex = 46
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 139)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(165, 23)
+        Me.Label1.TabIndex = 17
+        Me.Label1.Text = "kW/h Consumidos"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label15.Location = New System.Drawing.Point(100, 174)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(207, 21)
+        Me.Label15.TabIndex = 14
+        Me.Label15.Text = "Periodo de Facturacion"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label9.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(12, 101)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(172, 23)
+        Me.Label9.TabIndex = 17
+        Me.Label9.Text = "Watts Consumidos "
         '
         'ListBox3
         '
@@ -490,46 +522,204 @@ Partial Class Cargas
         Me.ListBox3.ForeColor = System.Drawing.Color.OliveDrab
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 27
-        Me.ListBox3.Location = New System.Drawing.Point(15, 57)
+        Me.ListBox3.Location = New System.Drawing.Point(15, 45)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.Size = New System.Drawing.Size(447, 164)
         Me.ListBox3.TabIndex = 15
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.GroupBox3)
+        Me.GroupBox2.Controls.Add(Me.Precio)
         Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox2.Controls.Add(Me.Button9)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.ListBox3)
-        Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
-        Me.GroupBox2.Location = New System.Drawing.Point(233, 57)
+        Me.GroupBox2.Location = New System.Drawing.Point(233, 46)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(472, 510)
+        Me.GroupBox2.Size = New System.Drawing.Size(472, 521)
         Me.GroupBox2.TabIndex = 45
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Tarifas"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.BackColor = System.Drawing.SystemColors.Control
+        Me.GroupBox3.Controls.Add(Me.TextBox3)
+        Me.GroupBox3.Controls.Add(Me.TextBox4)
+        Me.GroupBox3.Controls.Add(Me.TextBox5)
+        Me.GroupBox3.Controls.Add(Me.Label11)
+        Me.GroupBox3.Controls.Add(Me.Label12)
+        Me.GroupBox3.Controls.Add(Me.Label14)
+        Me.GroupBox3.Location = New System.Drawing.Point(15, 312)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(457, 80)
+        Me.GroupBox3.TabIndex = 48
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Consumo"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.BackColor = System.Drawing.Color.Beige
+        Me.TextBox3.Location = New System.Drawing.Point(307, 47)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(133, 22)
+        Me.TextBox3.TabIndex = 47
+        '
+        'TextBox4
+        '
+        Me.TextBox4.BackColor = System.Drawing.Color.Beige
+        Me.TextBox4.Location = New System.Drawing.Point(21, 47)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(128, 22)
+        Me.TextBox4.TabIndex = 45
+        '
+        'TextBox5
+        '
+        Me.TextBox5.BackColor = System.Drawing.Color.Beige
+        Me.TextBox5.Location = New System.Drawing.Point(155, 47)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(146, 22)
+        Me.TextBox5.TabIndex = 46
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label11.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(332, 19)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(96, 23)
+        Me.Label11.TabIndex = 17
+        Me.Label11.Text = "Excedente"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label12.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(188, 19)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(63, 23)
+        Me.Label12.TabIndex = 17
+        Me.Label12.Text = "Medio"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label14.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(47, 19)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(65, 23)
+        Me.Label14.TabIndex = 17
+        Me.Label14.Text = "Basico"
+        '
+        'Precio
+        '
+        Me.Precio.BackColor = System.Drawing.SystemColors.Control
+        Me.Precio.Controls.Add(Me.TextBox2)
+        Me.Precio.Controls.Add(Me.TextBox_Usuario)
+        Me.Precio.Controls.Add(Me.TextBox1)
+        Me.Precio.Controls.Add(Me.Label10)
+        Me.Precio.Controls.Add(Me.Label5)
+        Me.Precio.Controls.Add(Me.Label8)
+        Me.Precio.Location = New System.Drawing.Point(15, 220)
+        Me.Precio.Name = "Precio"
+        Me.Precio.Size = New System.Drawing.Size(457, 86)
+        Me.Precio.TabIndex = 48
+        Me.Precio.TabStop = False
+        Me.Precio.Text = "Precio (kW/h)"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.Beige
+        Me.TextBox2.Location = New System.Drawing.Point(307, 47)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(133, 22)
+        Me.TextBox2.TabIndex = 47
+        '
+        'TextBox_Usuario
+        '
+        Me.TextBox_Usuario.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_Usuario.Location = New System.Drawing.Point(21, 47)
+        Me.TextBox_Usuario.Name = "TextBox_Usuario"
+        Me.TextBox_Usuario.Size = New System.Drawing.Size(128, 22)
+        Me.TextBox_Usuario.TabIndex = 45
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.Beige
+        Me.TextBox1.Location = New System.Drawing.Point(155, 47)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(146, 22)
+        Me.TextBox1.TabIndex = 46
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label10.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(332, 19)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(96, 23)
+        Me.Label10.TabIndex = 17
+        Me.Label10.Text = "Excedente"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label5.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(188, 18)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(63, 23)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Medio"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label8.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(47, 19)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(65, 23)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Basico"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(217, 416)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(245, 22)
+        Me.DateTimePicker1.TabIndex = 44
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label7.Location = New System.Drawing.Point(11, 263)
+        Me.Label7.Location = New System.Drawing.Point(11, 416)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(207, 21)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Periodo de Facturacion"
         '
-        'DateTimePicker1
+        'Label6
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(217, 263)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(245, 22)
-        Me.DateTimePicker1.TabIndex = 44
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label6.Location = New System.Drawing.Point(112, 418)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(173, 21)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Documento Masiva"
         '
         'Cargas
         '
@@ -551,6 +741,10 @@ Partial Class Cargas
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.Precio.ResumeLayout(False)
+        Me.Precio.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -562,16 +756,12 @@ Partial Class Cargas
     Friend WithEvents Label13 As Label
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents Button9 As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label5 As Label
     Friend WithEvents Button11 As Button
     Friend WithEvents Button10 As Button
-    Friend WithEvents Label6 As Label
-    Friend WithEvents ListBox2 As ListBox
     Friend WithEvents ListBox3 As ListBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label7 As Label
@@ -591,4 +781,25 @@ Partial Class Cargas
     Friend WithEvents Boton_ReporteTarifasyConsum As Button
     Friend WithEvents Boton_GenerarReciboyConsulta As Button
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox_Usuario As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Precio As GroupBox
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class

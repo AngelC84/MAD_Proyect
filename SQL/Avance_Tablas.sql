@@ -136,13 +136,12 @@ Activo bit not null default (1)
 );
 
 
-
-
 CREATE TABLE Usuarios(
 Nombre_Usuario	VARCHAR (50) PRIMARY KEY not null,
 Contraseña		VARCHAR (15) not null
-
 );
+Alter table Usuarios add Permiso tinyint not null default(0)
+
 
 
 Create table Empleado(

@@ -23,16 +23,16 @@ Partial Class Login
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.PanelCabecera = New System.Windows.Forms.Panel()
+        Me.Close_Login = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.INGRESAR_LOG = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox_Contraseña = New System.Windows.Forms.TextBox()
+        Me.TextBox_Usuario = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Picture_Log = New System.Windows.Forms.PictureBox()
-        Me.Close_Login = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelCabecera.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -50,13 +50,26 @@ Partial Class Login
         Me.PanelCabecera.Size = New System.Drawing.Size(1100, 73)
         Me.PanelCabecera.TabIndex = 0
         '
+        'Close_Login
+        '
+        Me.Close_Login.FlatAppearance.BorderSize = 0
+        Me.Close_Login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Close_Login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
+        Me.Close_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Close_Login.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_cerrar_FN
+        Me.Close_Login.Location = New System.Drawing.Point(1027, 0)
+        Me.Close_Login.Name = "Close_Login"
+        Me.Close_Login.Size = New System.Drawing.Size(73, 73)
+        Me.Close_Login.TabIndex = 0
+        Me.Close_Login.UseVisualStyleBackColor = True
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DarkSlateGray
         Me.Panel1.Controls.Add(Me.ComboBox1)
         Me.Panel1.Controls.Add(Me.INGRESAR_LOG)
-        Me.Panel1.Controls.Add(Me.TextBox2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.TextBox_Contraseña)
+        Me.Panel1.Controls.Add(Me.TextBox_Usuario)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -92,21 +105,21 @@ Partial Class Login
         Me.INGRESAR_LOG.Text = "INGRESAR"
         Me.INGRESAR_LOG.UseVisualStyleBackColor = False
         '
-        'TextBox2
+        'TextBox_Contraseña
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.Lavender
-        Me.TextBox2.Location = New System.Drawing.Point(51, 326)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(334, 22)
-        Me.TextBox2.TabIndex = 2
+        Me.TextBox_Contraseña.BackColor = System.Drawing.Color.Lavender
+        Me.TextBox_Contraseña.Location = New System.Drawing.Point(51, 326)
+        Me.TextBox_Contraseña.Name = "TextBox_Contraseña"
+        Me.TextBox_Contraseña.Size = New System.Drawing.Size(334, 22)
+        Me.TextBox_Contraseña.TabIndex = 2
         '
-        'TextBox1
+        'TextBox_Usuario
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.Lavender
-        Me.TextBox1.Location = New System.Drawing.Point(51, 262)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(334, 22)
-        Me.TextBox1.TabIndex = 2
+        Me.TextBox_Usuario.BackColor = System.Drawing.Color.Lavender
+        Me.TextBox_Usuario.Location = New System.Drawing.Point(51, 262)
+        Me.TextBox_Usuario.Name = "TextBox_Usuario"
+        Me.TextBox_Usuario.Size = New System.Drawing.Size(334, 22)
+        Me.TextBox_Usuario.TabIndex = 2
         '
         'Label2
         '
@@ -154,19 +167,6 @@ Partial Class Login
         Me.Picture_Log.TabIndex = 0
         Me.Picture_Log.TabStop = False
         '
-        'Close_Login
-        '
-        Me.Close_Login.FlatAppearance.BorderSize = 0
-        Me.Close_Login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Close_Login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
-        Me.Close_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Close_Login.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_cerrar_FN
-        Me.Close_Login.Location = New System.Drawing.Point(1027, 0)
-        Me.Close_Login.Name = "Close_Login"
-        Me.Close_Login.Size = New System.Drawing.Size(73, 73)
-        Me.Close_Login.TabIndex = 0
-        Me.Close_Login.UseVisualStyleBackColor = True
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.MAD_Proyect.My.Resources.Resources.CFE
@@ -203,8 +203,8 @@ Partial Class Login
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Picture_Log As PictureBox
     Friend WithEvents INGRESAR_LOG As Button
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox_Contraseña As TextBox
+    Friend WithEvents TextBox_Usuario As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox

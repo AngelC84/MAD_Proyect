@@ -47,17 +47,18 @@ Partial Class Contratos
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button_Desbloqueo = New System.Windows.Forms.Button()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.TextBox_Domicilio = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ListBox_Contratos_Act = New System.Windows.Forms.ListBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelMenu
@@ -326,7 +327,7 @@ Partial Class Contratos
         Me.ListBox_Cliente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ListBox_Cliente.FormattingEnabled = True
         Me.ListBox_Cliente.ItemHeight = 16
-        Me.ListBox_Cliente.Location = New System.Drawing.Point(254, 82)
+        Me.ListBox_Cliente.Location = New System.Drawing.Point(251, 362)
         Me.ListBox_Cliente.Name = "ListBox_Cliente"
         Me.ListBox_Cliente.Size = New System.Drawing.Size(414, 196)
         Me.ListBox_Cliente.TabIndex = 13
@@ -335,11 +336,11 @@ Partial Class Contratos
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(251, 59)
+        Me.Label13.Location = New System.Drawing.Point(247, 325)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(220, 24)
+        Me.Label13.Size = New System.Drawing.Size(182, 24)
         Me.Label13.TabIndex = 12
-        Me.Label13.Text = "* Actuales Clientes *"
+        Me.Label13.Text = "Actuales Clientes"
         '
         'ComboBox2
         '
@@ -368,7 +369,7 @@ Partial Class Contratos
         Me.Button9.FlatAppearance.BorderSize = 0
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(989, 235)
+        Me.Button9.Location = New System.Drawing.Point(678, 519)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(104, 39)
         Me.Button9.TabIndex = 16
@@ -379,69 +380,16 @@ Partial Class Contratos
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tw Cen MT Condensed", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(614, 59)
+        Me.Label5.Location = New System.Drawing.Point(650, 59)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(443, 20)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "* El servicio domestico se cobra cada dos meses y el industrial cada mes *"
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.LightGreen
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Button_Desbloqueo)
-        Me.GroupBox1.Controls.Add(Me.ListBox2)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
-        Me.GroupBox1.Location = New System.Drawing.Point(255, 303)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(833, 253)
-        Me.GroupBox1.TabIndex = 46
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Desbloquear"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 21)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(183, 23)
-        Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Clientes bloqueados"
-        '
-        'Button_Desbloqueo
-        '
-        Me.Button_Desbloqueo.BackColor = System.Drawing.Color.LightYellow
-        Me.Button_Desbloqueo.FlatAppearance.BorderSize = 0
-        Me.Button_Desbloqueo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button_Desbloqueo.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Desbloqueo.Location = New System.Drawing.Point(711, 21)
-        Me.Button_Desbloqueo.Name = "Button_Desbloqueo"
-        Me.Button_Desbloqueo.Size = New System.Drawing.Size(116, 39)
-        Me.Button_Desbloqueo.TabIndex = 43
-        Me.Button_Desbloqueo.Text = "Desbloquear"
-        Me.Button_Desbloqueo.UseVisualStyleBackColor = False
-        '
-        'ListBox2
-        '
-        Me.ListBox2.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox2.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox2.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.ItemHeight = 27
-        Me.ListBox2.Location = New System.Drawing.Point(10, 68)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(817, 164)
-        Me.ListBox2.TabIndex = 15
-        '
         'TextBox_Domicilio
         '
         Me.TextBox_Domicilio.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_Domicilio.Location = New System.Drawing.Point(678, 194)
+        Me.TextBox_Domicilio.Location = New System.Drawing.Point(678, 224)
         Me.TextBox_Domicilio.Name = "TextBox_Domicilio"
         Me.TextBox_Domicilio.Size = New System.Drawing.Size(415, 22)
         Me.TextBox_Domicilio.TabIndex = 49
@@ -450,7 +398,7 @@ Partial Class Contratos
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(674, 138)
+        Me.Label7.Location = New System.Drawing.Point(674, 168)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(102, 20)
         Me.Label7.TabIndex = 47
@@ -460,26 +408,94 @@ Partial Class Contratos
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(674, 168)
+        Me.Label8.Location = New System.Drawing.Point(674, 198)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(145, 20)
         Me.Label8.TabIndex = 48
         Me.Label8.Text = "Domicilio Completo"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(674, 329)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(163, 20)
+        Me.Label9.TabIndex = 51
+        Me.Label9.Text = "*Numero de Medidor*"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CalendarForeColor = System.Drawing.Color.LightYellow
+        Me.DateTimePicker2.CalendarMonthBackground = System.Drawing.Color.LightYellow
+        Me.DateTimePicker2.Location = New System.Drawing.Point(823, 269)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(269, 22)
+        Me.DateTimePicker2.TabIndex = 55
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(674, 271)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(143, 20)
+        Me.Label1.TabIndex = 54
+        Me.Label1.Text = "Fecha Contratacion"
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Black
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button2.Location = New System.Drawing.Point(968, 505)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(120, 63)
+        Me.Button2.TabIndex = 16
+        Me.Button2.Text = "Cerrar Contrato"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'ListBox_Contratos_Act
+        '
+        Me.ListBox_Contratos_Act.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ListBox_Contratos_Act.FormattingEnabled = True
+        Me.ListBox_Contratos_Act.ItemHeight = 16
+        Me.ListBox_Contratos_Act.Location = New System.Drawing.Point(251, 105)
+        Me.ListBox_Contratos_Act.Name = "ListBox_Contratos_Act"
+        Me.ListBox_Contratos_Act.Size = New System.Drawing.Size(414, 196)
+        Me.ListBox_Contratos_Act.TabIndex = 13
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(247, 60)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(199, 24)
+        Me.Label4.TabIndex = 12
+        Me.Label4.Text = "Contratos vigentes"
         '
         'Contratos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1100, 580)
+        Me.Controls.Add(Me.DateTimePicker2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.TextBox_Domicilio)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.ListBox_Contratos_Act)
         Me.Controls.Add(Me.ListBox_Cliente)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.PanelMenu)
         Me.Controls.Add(Me.Panel1)
@@ -490,8 +506,6 @@ Partial Class Contratos
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -508,10 +522,6 @@ Partial Class Contratos
     Friend WithEvents Button9 As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Button_Desbloqueo As Button
-    Friend WithEvents ListBox2 As ListBox
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Boton_ConsumoHistorico As Button
     Friend WithEvents Panel6 As Panel
@@ -529,4 +539,10 @@ Partial Class Contratos
     Friend WithEvents TextBox_Domicilio As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents ListBox_Contratos_Act As ListBox
+    Friend WithEvents Label4 As Label
 End Class

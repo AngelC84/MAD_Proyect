@@ -12,14 +12,14 @@ Alter proc EmpleadoReg
 
 as
 begin
-insert into Usuarios(Nombre_Usuario, Contraseña) values(@Nombre_Usuario, @Contraseña);
+insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values(@Nombre_Usuario, @Contraseña, 2);
 insert into Empleado(CURP, Fecha_Nacimiento, Nombre, RFC,Fecha_de_Alta_Modificacion,Nombre_Usuario,Contraseña) values
 (@CURP, @Fecha_Nacimiento, @Nombre, @RFC, GETDATE(), @Nombre_Usuario,@Contraseña)
 end
 go
 
 
-Select * from Empleado
+Select * from Usuarios 
 
 
 Alter procedure EmpleadoUpd
@@ -76,7 +76,7 @@ where Activo = 0
 END
 go
 
-Update Clientes set Activo = 1 where Nombre_Usuario = 'Sadrach'
+Update Clientes set Activo = 0 where Nombre_Usuario = 'Sadrach'
 
 
 Create procedure EmpleadoActivo
@@ -96,7 +96,7 @@ GO
  /*Clientes-----------------------------*/
 
  
-Create proc ClientesReg
+Alter proc ClientesReg
 @CURP VARCHAR (18),
 @Fecha_Nacimiento date,
 @Nombre VARCHAR (50),
@@ -108,7 +108,7 @@ Create proc ClientesReg
 
 as
 begin
-insert into Usuarios(Nombre_Usuario, Contraseña) values(@Nombre_Usuario, @Contraseña);
+insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values(@Nombre_Usuario, @Contraseña, 1);
 insert into Clientes(CURP, Fecha_Nacimiento, Nombre,Fecha_de_Alta_Modificacion, Genero, email, Nombre_Usuario,Contraseña) values
 (@CURP, @Fecha_Nacimiento, @Nombre, GETDATE(), @Genero, @email,@Nombre_Usuario,@Contraseña)
 end
@@ -261,13 +261,69 @@ From ConsumoHistoricoV
 end 
 go
 
+/*---------------------LOGIN ------------------------*/
+
+CREATE procedure LoginEmp
+ @Nombre_Usuario varchar (50),
+ @Contraseña varchar(15)
+as 
+begin
+
+IF((select Contraseña from Usuarios where Nombre_Usuario = @Nombre_Usuario) = @Contraseña)
+BEGIN
+   SELECT 1 
+END
+ELSE
+BEGIN
+    SELECT 2
+END
+end
+GO
+
+CREATE procedure LoginPermiso
+@Nombre_Usuario varchar (50)
+as 
+begin
+
+select Permiso from Usuarios where Nombre_Usuario = @Nombre_Usuario
+end
+
+GO
+
+
+CREATE procedure ClienteLogin
+@Nombre_Usuario	varchar(50)
+as
+begin 
+select 
+CURP  
+from Clientes  
+where Nombre_Usuario = @Nombre_Usuario 
+end
+GO
 
 
 
 
+CREATE procedure GetEmpleadoGral
+@Nombre_Usuario	varchar(50)
+AS
+BEGIN
+Select Usuar.Nombre_Usuario  from Usuarios Usuar
+join Empleado Empl
+on Empl.Nombre_Usuario = Usuar.Nombre_Usuario
+where Empl.Nombre_Usuario =@Nombre_Usuario  
+END
+GO
+
+/*-------------------------------*/
+
+select * from Usuarios    
 
 
+insert into Usuarios(Permiso) values(3) 
 
+update Usuarios set Permiso = 1 where Nombre_Usuario = 'Samuel Garcia'
 
 
 

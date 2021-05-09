@@ -2,7 +2,9 @@
 
     'Public Property Modo As Boolean
     Private Property tablacliente As New DataTable
+    Private Property tablaInAct As New DataTable
 
+    Public Property CURP As String
 
     Private Sub Boton_Contratos_Click(sender As Object, e As EventArgs) Handles Boton_Contratos.Click
         ' Contratos.Modo = True
@@ -53,7 +55,7 @@
         End If
     End Sub
 
-    Private Sub TextBox_Medidor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_Medidor.KeyPress
+    Private Sub TextBox_Medidor_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -65,11 +67,11 @@
         End If
     End Sub
 
-    Private Sub TextBox_NumServic_TextChanged(sender As Object, e As EventArgs) Handles TextBox_NumServic.TextChanged
+    Private Sub TextBox_NumServic_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub TextBox_NumServic_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_NumServic.KeyPress
+    Private Sub TextBox_NumServic_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -85,12 +87,19 @@
 
         Dim enlace As New EnlaceBD
         Dim tablaaux As New DataTable
+        Dim tablaInAct As New DataTable
 
         tablaaux = enlace.getdataCliente()
         If (tablaaux.Rows.Count > 0) Then
             ListBox_Clientes.DataSource = tablaaux
             ListBox_Clientes.DisplayMember = "Nombre"
             ListBox_Clientes.ValueMember = "CURP"
+        End If
+
+        tablaInAct = enlace.GetClienteInactiv()
+        If (tablaInAct.Rows.Count > 0) Then
+            ListBox2.DataSource = tablaInAct
+            ListBox2.DisplayMember = "Nombre"
         End If
 
     End Sub
@@ -217,5 +226,29 @@
 
     End Sub
 
+    Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
+        Dim enlace As New EnlaceBD
+        'Dim tablaempl As New DataTable
+        Dim Activo_Clien As String
+        Dim Index As Integer
 
+        Activo_Clien = ListBox2.DataSource.Rows(ListBox2.SelectedIndex).Item(0)
+        tablaInAct = enlace.GetClienteInactiv()
+
+        Index = ListBox2.SelectedIndex
+    End Sub
+
+    Private Sub Button_Desbloqueo_Click(sender As Object, e As EventArgs) Handles Button_Desbloqueo.Click
+        Dim enlace As New EnlaceBD
+        Dim Nombre As String
+
+        Dim result As Boolean = False
+
+        Nombre = ListBox2.DataSource.Rows(ListBox2.SelectedIndex).Item(0)
+        result = enlace.ClienteActivo(Nombre)
+    End Sub
+
+    Private Sub TextBox_Nombre_TextChanged(sender As Object, e As EventArgs) Handles TextBox_Nombre.TextChanged
+
+    End Sub
 End Class

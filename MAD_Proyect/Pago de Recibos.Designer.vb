@@ -38,11 +38,11 @@ Partial Class Pago_de_Recibos
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button9 = New System.Windows.Forms.Button()
-        Me.ListBox3 = New System.Windows.Forms.ListBox()
+        Me.ListBox_RECIBOS = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.ListBox_RecibosPagados = New System.Windows.Forms.ListBox()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -200,7 +200,7 @@ Partial Class Pago_de_Recibos
         Me.GroupBox2.Controls.Add(Me.RadioButton1)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.Button9)
-        Me.GroupBox2.Controls.Add(Me.ListBox3)
+        Me.GroupBox2.Controls.Add(Me.ListBox_RECIBOS)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
@@ -214,7 +214,7 @@ Partial Class Pago_de_Recibos
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(640, 31)
+        Me.RadioButton2.Location = New System.Drawing.Point(590, 31)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(73, 21)
         Me.RadioButton2.TabIndex = 45
@@ -225,7 +225,7 @@ Partial Class Pago_de_Recibos
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(506, 29)
+        Me.RadioButton1.Location = New System.Drawing.Point(493, 31)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(78, 21)
         Me.RadioButton1.TabIndex = 45
@@ -237,7 +237,7 @@ Partial Class Pago_de_Recibos
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Efectivo", "Tarjeta de Credito", "Tarjeta de Debito ", "Transferencia bancaria"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Efectivo", "Tarjeta de Credito", "Tarjeta de Debito", "Transferencia bancaria"})
         Me.ComboBox1.Location = New System.Drawing.Point(174, 27)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(197, 24)
@@ -249,26 +249,26 @@ Partial Class Pago_de_Recibos
         Me.Button9.FlatAppearance.BorderSize = 0
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(729, 341)
+        Me.Button9.Location = New System.Drawing.Point(676, 341)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(104, 39)
+        Me.Button9.Size = New System.Drawing.Size(157, 39)
         Me.Button9.TabIndex = 43
-        Me.Button9.Text = "Pagar"
+        Me.Button9.Text = "Confirmar Pagado"
         Me.Button9.UseVisualStyleBackColor = False
         '
-        'ListBox3
+        'ListBox_RECIBOS
         '
-        Me.ListBox3.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox3.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox3.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.ItemHeight = 27
-        Me.ListBox3.Location = New System.Drawing.Point(18, 90)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(815, 245)
-        Me.ListBox3.TabIndex = 15
+        Me.ListBox_RECIBOS.BackColor = System.Drawing.Color.LemonChiffon
+        Me.ListBox_RECIBOS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ListBox_RECIBOS.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ListBox_RECIBOS.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox_RECIBOS.ForeColor = System.Drawing.Color.OliveDrab
+        Me.ListBox_RECIBOS.FormattingEnabled = True
+        Me.ListBox_RECIBOS.ItemHeight = 27
+        Me.ListBox_RECIBOS.Location = New System.Drawing.Point(18, 90)
+        Me.ListBox_RECIBOS.Name = "ListBox_RECIBOS"
+        Me.ListBox_RECIBOS.Size = New System.Drawing.Size(815, 245)
+        Me.ListBox_RECIBOS.TabIndex = 15
         '
         'Label1
         '
@@ -294,7 +294,7 @@ Partial Class Pago_de_Recibos
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.ListBox2)
+        Me.GroupBox1.Controls.Add(Me.ListBox_RecibosPagados)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
         Me.GroupBox1.Location = New System.Drawing.Point(226, 440)
         Me.GroupBox1.Name = "GroupBox1"
@@ -303,19 +303,19 @@ Partial Class Pago_de_Recibos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Recibos Pagados"
         '
-        'ListBox2
+        'ListBox_RecibosPagados
         '
-        Me.ListBox2.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox2.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox2.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.ItemHeight = 27
-        Me.ListBox2.Location = New System.Drawing.Point(12, 22)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(821, 83)
-        Me.ListBox2.TabIndex = 15
+        Me.ListBox_RecibosPagados.BackColor = System.Drawing.Color.LemonChiffon
+        Me.ListBox_RecibosPagados.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ListBox_RecibosPagados.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ListBox_RecibosPagados.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox_RecibosPagados.ForeColor = System.Drawing.Color.OliveDrab
+        Me.ListBox_RecibosPagados.FormattingEnabled = True
+        Me.ListBox_RecibosPagados.ItemHeight = 27
+        Me.ListBox_RecibosPagados.Location = New System.Drawing.Point(12, 22)
+        Me.ListBox_RecibosPagados.Name = "ListBox_RecibosPagados"
+        Me.ListBox_RecibosPagados.Size = New System.Drawing.Size(821, 83)
+        Me.ListBox_RecibosPagados.TabIndex = 15
         '
         'Pago_de_Recibos
         '
@@ -347,13 +347,13 @@ Partial Class Pago_de_Recibos
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button9 As Button
-    Friend WithEvents ListBox3 As ListBox
+    Friend WithEvents ListBox_RECIBOS As ListBox
     Friend WithEvents Label3 As Label
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents ListBox2 As ListBox
+    Friend WithEvents ListBox_RecibosPagados As ListBox
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Button_Pagar As Button
     Friend WithEvents PictureBox2 As PictureBox

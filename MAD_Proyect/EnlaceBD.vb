@@ -436,9 +436,123 @@ Public Class EnlaceBD
 
     End Function
 
+    '-------------------LOGIN --------------
+    Public Function LOGIN(
+                             ByVal Nombre_Usuario As String,
+                             ByVal Contraseña As String) As Integer
+        'Agregar frecuencia de pago escogida'
+        Dim estado As Boolean = True
+        Dim aux As New DataTable
+        Dim ID As Integer
+        Try
+            conectar()
+            comandosql = New SqlCommand("LoginEmp", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre_Usuario
+
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Contraseña", SqlDbType.VarChar, 15)
+            parametro2.Value = Contraseña
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(aux)
+            ID = aux.Rows(0).Item(0)
+
+        Catch ex As Exception
+            ID = -1
+        Finally
+            desconectar()
+        End Try
+        Return ID
+
+    End Function
 
 
+    Public Function LOGINPermiso(
+                         ByVal Nombre_Usuario As String) As Integer
+        'Agregar frecuencia de pago escogida'
+        Dim estado As Boolean = True
+        Dim aux As New DataTable
+        Dim permiso As Integer
 
+        Try
+            conectar()
+            comandosql = New SqlCommand("LoginPermiso", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre_Usuario
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(aux)
+            permiso = aux.Rows(0).Item(0)
+
+        Catch ex As Exception
+            permiso = -1
+        Finally
+            desconectar()
+        End Try
+        Return permiso
+
+    End Function
+
+    Public Function LOGINCliente(
+                            ByVal Nombre_Usuario As String) As Integer
+        'Agregar frecuencia de pago escogida'
+        Dim estado As Boolean = True
+        Dim aux As New DataTable
+        Dim id As Integer
+
+        Try
+            conectar()
+            comandosql = New SqlCommand("ClienteLogin", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre_Usuario
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(aux)
+            id = aux.Rows(0).Item(0)
+
+        Catch ex As Exception
+            id = -1
+        Finally
+            desconectar()
+        End Try
+        Return id
+
+    End Function
+
+    '-------------------------------------------------------
+
+    Public Function GetEmpleadoGral(
+                            ByVal Nombre_Usuario As String) As String
+
+        Dim estado As Boolean = True
+        Dim aux As New DataTable
+        Dim ID As String
+        Try
+            conectar()
+            comandosql = New SqlCommand("GetEmpleadoGral", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre_Usuario
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(aux)
+            ID = aux.Rows(0).Item(0)
+
+        Catch ex As Exception
+            ID = "ERROR"
+        Finally
+            desconectar()
+        End Try
+        Return ID
+
+    End Function
 
     '-------------------------------
 

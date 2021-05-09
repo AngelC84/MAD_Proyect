@@ -41,14 +41,7 @@
 
     Private Sub Contratos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim enlace As New EnlaceBD
-        Dim tablaInAct As New DataTable
         Dim tablaaux As New DataTable
-
-        tablaInAct = enlace.GetClienteInactiv()
-        If (tablaInAct.Rows.Count > 0) Then
-            ListBox2.DataSource = tablaInAct
-            ListBox2.DisplayMember = "Nombre"
-        End If
 
         tablaaux = enlace.getdataCliente()
         If (tablaaux.Rows.Count > 0) Then
@@ -58,26 +51,6 @@
         End If
     End Sub
 
-    Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
-        Dim enlace As New EnlaceBD
-        'Dim tablaempl As New DataTable
-        Dim Activo_Clien As String
-        Dim Index As Integer
 
-        Activo_Clien = ListBox2.DataSource.Rows(ListBox2.SelectedIndex).Item(0)
-        tablaInAct = enlace.GetClienteInactiv()
 
-        Index = ListBox2.SelectedIndex
-    End Sub
-
-    Private Sub Button_Desbloqueo_Click(sender As Object, e As EventArgs) Handles Button_Desbloqueo.Click
-        Dim enlace As New EnlaceBD
-        Dim Nombre As String
-
-        Dim result As Boolean = False
-
-        Nombre = ListBox2.DataSource.Rows(ListBox2.SelectedIndex).Item(0)
-        result = enlace.ClienteActivo(Nombre)
-
-    End Sub
 End Class
