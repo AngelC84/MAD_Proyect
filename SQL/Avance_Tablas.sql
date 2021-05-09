@@ -136,12 +136,14 @@ Activo bit not null default (1)
 );
 
 
+
+
 CREATE TABLE Usuarios(
 Nombre_Usuario	VARCHAR (50) PRIMARY KEY not null,
-Contraseña		VARCHAR (15) not null
-);
-Alter table Usuarios add Permiso tinyint not null default(0)
+Contraseña		VARCHAR (15) not null,
+Permiso tinyint not null default (0)
 
+);
 
 
 Create table Empleado(
@@ -189,25 +191,23 @@ CONSTRAINT fk_ClienteCons FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 
 
 CREATE TABLE Tarifa(
-Id_Tarifa VARCHAR (20) PRIMARY KEY,
-Precio_Watt_Bajo int not null,
-Precio_Watt_Medio int not null,
-Precio_Watt_Excedente int not null,
+Id_Tarifa int identity (600,1) PRIMARY KEY,
+Precio_Watt_Bajo float default (0.857)not null,
+Precio_Watt_Medio float default (1.037) not null,
+Precio_Watt_Excedente float default (3.034)not null,
 Fecha date not null,
 Tipo_de_uso bit default (1),
-Watt_Bajo int default (5000),         /* Por ejemplo consumo de hasta 5000 Watts es consumo bajo, de 5000 a 10000 es consumo medio y de 10001 hacia arriba se considera consumo excedente     */
+Watt_Bajo int default (5000),         /* Por ejemplo consumo de hasta 5000 KiloWatts es consumo bajo, de 5000 a 10000 es consumo medio y de 10001 hacia arriba se considera consumo excedente     */
 Watt_Medio int default (10000),
 Watt_Excedente int,
 );
 
 
 CREATE TABLE Servicio(
-Numero_de_Servicio	int  PRIMARY KEY ,
+Numero_de_Servicio	int identity (100,1) PRIMARY KEY ,
 Tipo_de_Servicio		VARCHAR (15) not null,
 Numero_Medidor int not null,
 CONSTRAINT fk_MedidorServ FOREIGN KEY (Numero_Medidor) REFERENCES Consumo (Numero_Medidor),
-Tarifa VARCHAR(20) not null,
-CONSTRAINT fk_TarifaServ FOREIGN KEY (Tarifa) REFERENCES Tarifa (Id_Tarifa),
 Cliente VARCHAR(18) not null,
 CONSTRAINT fk_ClienteServ FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 );
@@ -229,9 +229,9 @@ CONSTRAINT fk_MedidorCon FOREIGN KEY (Numero_Medidor) REFERENCES Consumo (Numero
 );
 
 create TABLE Recibo(
-Id_Recibo int identity (1,1) Primary Key,
+Id_Recibo int identity (1000,1) Primary Key,
 
-Iva tinyint not null,
+Iva float default (0.16) not null,
 Fecha date not null,
 Watts int not null,
 Numero_Medidor int not null,
@@ -240,12 +240,13 @@ Numero_de_Servicio		int not null,
 CONSTRAINT fk_ServRec FOREIGN KEY (Numero_de_Servicio) REFERENCES Servicio (Numero_de_Servicio),
 Cliente VARCHAR(18),
 CONSTRAINT fk_ClienteRec FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
-Tarifa VARCHAR(20),
+Tarifa int,
 CONSTRAINT fk_TarifaRec FOREIGN KEY (Tarifa) REFERENCES Tarifa (Id_Tarifa),
 Subtotal int not null,
 Total int not null,
 Importe money not null, 
-Pendiente_Pago money not null
+Pendiente_Pago money not null,
+Pagado bit
 
 
 
