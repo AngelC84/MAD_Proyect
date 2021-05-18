@@ -19,7 +19,7 @@ end
 go
 
 
-Select * from Usuarios 
+
 
 
 Alter procedure EmpleadoUpd
@@ -277,7 +277,7 @@ ELSE
 BEGIN
     SELECT 2
 END
-end
+END
 GO
 
 CREATE procedure LoginPermiso
@@ -318,24 +318,53 @@ GO
 
 /*-------------------------------*/
 
-select * from Usuarios    
-
-
-insert into Usuarios(Permiso) values(3) 
-
-update Usuarios set Permiso = 1 where Nombre_Usuario = 'Samuel Garcia'
 
 
 
+/*------------------------------------TARIFAS----------------------------------*/
 
 
+Create procedure TarifaReg
+@PrecioBajo float,
+@PrecioMedio float,
+@PrecioExcedente float,
+@PeriodoFac date,
+@Uso bit,
+@ConsumoBajo int,
+@ConsumoMedio int,
+@ConsumoExcedente int
 
 
+as
+begin
+insert into Tarifa(Precio_Watt_Bajo, Precio_Watt_Medio, Precio_Watt_Excedente,Fecha, Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) values
+(@PrecioBajo, @PrecioMedio, @PrecioExcedente, @PeriodoFac, @Uso, @ConsumoBajo,@ConsumoMedio,@ConsumoExcedente)
+end
+go
 
 
+/*-----------------------------------------Contrato------------------------------------------*/
+
+CREATE procedure regContrato
+@Domicilio varchar (50),
+@Servicio bit,
+@curp varchar (18),
+@fecha date
+
+As
+Begin
+insert into Contrato(Domicilio,Servicio,Fecha,Cliente,Activo) values (@Domicilio,@Servicio,@curp,@fecha,1)
+End
+go
 
 
+Create procedure regConsumo
+@NumeroMedidor int,
+@Watts int,
+@Periodo date
 
-
-
-
+As
+Begin
+Insert into Consumo(Numero_Medidor,Watts,Periodo) values (@NumeroMedidor,@Watts,@Periodo)
+End
+go

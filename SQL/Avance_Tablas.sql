@@ -177,13 +177,25 @@ Activo bit not null default (1)
 
 
 
+CREATE TABLE Contrato(
+Domicilio VARCHAR (50) PRIMARY KEY not null ,
+Servicio bit,
+Fecha date not null,
+Cliente VARCHAR (18) not null,
+CONSTRAINT fk_ClienteCon FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
+Activo bit default (1),
+Numero_Medidor int UNIQUE identity (150,1) ,
+);
+
 
 CREATE TABLE Consumo(
-Numero_Medidor int PRIMARY KEY IDENTITY (1000,1) ,
+Id_Consumo int identity (300,1),
+Numero_Medidor int not null,
+CONSTRAINT fk_MedidorCon FOREIGN KEY (Numero_Medidor) REFERENCES Contrato (Numero_Medidor),
 Watts int not null,
 Periodo date not null,
-Cliente VARCHAR(18) not null,
-CONSTRAINT fk_ClienteCons FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
+
+
 
 );
 
@@ -192,9 +204,9 @@ CONSTRAINT fk_ClienteCons FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 
 CREATE TABLE Tarifa(
 Id_Tarifa int identity (600,1) PRIMARY KEY,
-Precio_Watt_Bajo float default (0.857)not null,
-Precio_Watt_Medio float default (1.037) not null,
-Precio_Watt_Excedente float default (3.034)not null,
+Precio_Watt_Bajo float default (0.5)not null,
+Precio_Watt_Medio float default (1) not null,
+Precio_Watt_Excedente float default (1.5)not null,
 Fecha date not null,
 Tipo_de_uso bit default (1),
 Watt_Bajo int default (5000),         /* Por ejemplo consumo de hasta 5000 KiloWatts es consumo bajo, de 5000 a 10000 es consumo medio y de 10001 hacia arriba se considera consumo excedente     */
@@ -203,30 +215,7 @@ Watt_Excedente int,
 );
 
 
-CREATE TABLE Servicio(
-Numero_de_Servicio	int identity (100,1) PRIMARY KEY ,
-Tipo_de_Servicio		VARCHAR (15) not null,
-Numero_Medidor int not null,
-CONSTRAINT fk_MedidorServ FOREIGN KEY (Numero_Medidor) REFERENCES Consumo (Numero_Medidor),
-Cliente VARCHAR(18) not null,
-CONSTRAINT fk_ClienteServ FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
-);
 
-
-CREATE TABLE Contrato(
-Domicilio VARCHAR (50) PRIMARY KEY not null ,
-Servicio int not null,
-CONSTRAINT fk_ServicioCon FOREIGN KEY (Servicio) REFERENCES Servicio (Numero_de_Servicio),
-Fecha date not null,
-Cliente VARCHAR (18) not null,
-CONSTRAINT fk_ClienteCon FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
-Activo bit default (1),
-Numero_Medidor int not null,
-CONSTRAINT fk_MedidorCon FOREIGN KEY (Numero_Medidor) REFERENCES Consumo (Numero_Medidor),
-
-
-
-);
 
 create TABLE Recibo(
 Id_Recibo int identity (1000,1) Primary Key,
@@ -235,9 +224,7 @@ Iva float default (0.16) not null,
 Fecha date not null,
 Watts int not null,
 Numero_Medidor int not null,
-CONSTRAINT fk_MedidorRec FOREIGN KEY (Numero_Medidor) REFERENCES Consumo (Numero_Medidor),
-Numero_de_Servicio		int not null,
-CONSTRAINT fk_ServRec FOREIGN KEY (Numero_de_Servicio) REFERENCES Servicio (Numero_de_Servicio),
+CONSTRAINT fk_MedidorRec FOREIGN KEY (Numero_Medidor) REFERENCES Contrato (Numero_Medidor),
 Cliente VARCHAR(18),
 CONSTRAINT fk_ClienteRec FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 Tarifa int,
