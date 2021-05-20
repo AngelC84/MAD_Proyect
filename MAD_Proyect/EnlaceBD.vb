@@ -129,14 +129,6 @@ Public Class EnlaceBD
 
 
 
-
-
-
-
-
-
-
-
     '-----------------------
     Public Function Reg_Tarifa(ByVal PrecioBajo As Decimal,
                            ByVal PrecioMedio As Decimal,
@@ -191,6 +183,7 @@ Public Class EnlaceBD
                            ByVal Domicilio As String,
                            ByVal Fecha As Date) As Boolean
         Dim estado As Boolean = True
+
         Try
             conectar()
             comandosql = New SqlCommand("regContrato", conexion)
@@ -200,7 +193,7 @@ Public Class EnlaceBD
             parametro1.Value = Cliente
             Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Servicio", SqlDbType.Bit)
             parametro2.Value = Servicio
-            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@Fecha", SqlDbType.Date, 15)
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@fecha", SqlDbType.SmallDateTime, 16)
             parametro3.Value = Fecha
             Dim parametro4 As SqlParameter = comandosql.Parameters.Add("@Domicilio", SqlDbType.VarChar, 18)
             parametro4.Value = Domicilio

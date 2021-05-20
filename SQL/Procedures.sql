@@ -1,7 +1,7 @@
 
  /*Empleados-----------------------------*/
 
-Alter proc EmpleadoReg
+Create proc EmpleadoReg
 @CURP VARCHAR (18),
 @Fecha_Nacimiento date,
 @Nombre VARCHAR (50),
@@ -21,8 +21,7 @@ go
 
 
 
-
-Alter procedure EmpleadoUpd
+Create procedure EmpleadoUpd
 @CURP VARCHAR (18),
 @Fecha_Nacimiento date,
 @Nombre VARCHAR (50),
@@ -76,7 +75,6 @@ where Activo = 0
 END
 go
 
-Update Clientes set Activo = 0 where Nombre_Usuario = 'Sadrach'
 
 
 Create procedure EmpleadoActivo
@@ -96,7 +94,7 @@ GO
  /*Clientes-----------------------------*/
 
  
-Alter proc ClientesReg
+Create procedure ClientesReg
 @CURP VARCHAR (18),
 @Fecha_Nacimiento date,
 @Nombre VARCHAR (50),
@@ -133,7 +131,6 @@ where Activo = 1
 END
 go
 
-select* from Clientes
 
 
 Create procedure ClienteUpd
@@ -190,7 +187,7 @@ END
 GO
 
 
-Alter procedure EliminarCliente
+Create procedure EliminarCliente
 @CURP VARCHAR (18)
 As
 BEGIN
@@ -202,20 +199,18 @@ WHERE CURP=@CURP
 END
 GO
 
-select* from Clientes
-
 
 /*-------------------------------------------------------*/
 /* -----------   REPORTES -----------*/
 
 
-Alter procedure GetDatoTarifas
-@anio int
+Create procedure GetDatoTarifas
+@ano int
 
 AS
 Begin
 Select
-anio'Año', 
+ano'Año', 
 mes 'Mes',
 Precio_Watt_Bajo 'Basica',
 Precio_Watt_Medio 'Intermedio',
@@ -226,7 +221,7 @@ END
 go 
 
 
-Alter procedure GetDatoConsumo
+Create procedure GetDatoConsumo
 @anio int
 
 AS
@@ -303,8 +298,6 @@ end
 GO
 
 
-
-
 CREATE procedure GetEmpleadoGral
 @Nombre_Usuario	varchar(50)
 AS
@@ -348,8 +341,8 @@ go
 CREATE procedure regContrato
 @Domicilio varchar (50),
 @Servicio bit,
-@curp varchar (18),
-@fecha date
+@fecha smalldatetime,
+@curp varchar (18)
 
 As
 Begin
@@ -375,8 +368,6 @@ End
 go
 
 
-
-
 Create procedure regConsumoMasivo
 @tblConsumo ConsumoMasivo readonly
 as 
@@ -384,7 +375,6 @@ begin
 set nocount on;
 insert into Consumo(Numero_Medidor,Watts,mes,ano) select NumMedidor, Watts, mes,ano from @tblConsumo
 end
-
 
 go
 
@@ -398,4 +388,7 @@ end
 
 
 go
+
+Select * from Clientes            
+update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon Solano'
 

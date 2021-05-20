@@ -246,9 +246,16 @@
 
         Nombre = ListBox2.DataSource.Rows(ListBox2.SelectedIndex).Item(0)
         result = enlace.ClienteActivo(Nombre)
+
+        MsgBox("Operacion completada")
     End Sub
 
     Private Sub TextBox_Nombre_TextChanged(sender As Object, e As EventArgs) Handles TextBox_Nombre.TextChanged
+
+    End Sub
+
+    Private Sub TextBox_CURP_TextChanged(sender As Object, e As EventArgs) Handles TextBox_CURP.TextChanged
+        TextBox_CURP.MaxLength = 18
 
     End Sub
 End Class

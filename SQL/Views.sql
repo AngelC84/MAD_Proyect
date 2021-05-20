@@ -1,29 +1,27 @@
 
 	create view ReporteTarifas as 
 
-	SELECT year(Tarifa.Fecha)anio, month(Tarifa.Fecha)mes,Tarifa.Precio_Watt_Bajo, Tarifa.Precio_Watt_Medio, Tarifa.Precio_Watt_Excedente
+	SELECT Tarifa.ano, Tarifa.mes,Tarifa.Precio_Watt_Bajo, Tarifa.Precio_Watt_Medio, Tarifa.Precio_Watt_Excedente
 	FROM Tarifa 
 	
 	WHERE Tarifa.Id_Tarifa in (select Id_Tarifa from Tarifa)
-    group by year(Tarifa.Fecha), month(Tarifa.Fecha), Tarifa.Precio_Watt_Bajo, Tarifa.Precio_Watt_Medio, Tarifa.Precio_Watt_Excedente	
+    group by Tarifa.ano, Tarifa.mes, Tarifa.Precio_Watt_Bajo, Tarifa.Precio_Watt_Medio, Tarifa.Precio_Watt_Excedente	
 
 go
 
+--CHECAR ESTAS VISTAS ---------------
+Create view ReporteConsumoV as 
 
-ALter view ReporteConsumoV as 
-
-	SELECT year(Tarifa.Fecha)anio, month(Tarifa.Fecha)mes, Servicio.Numero_Medidor, Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
+	SELECT Tarifa.ano, Tarifa.mes, Contrato.Numero_Medidor, Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
 	
 	FROM Tarifa 
-	join Servicio
-	ON Servicio.Tarifa = Tarifa.Id_Tarifa 
+	join Contrato 
+	ON Contrato.Numero_Medidor  = Tarifa.Id_Tarifa 
 	WHERE Tarifa.Id_Tarifa in (select Id_Tarifa from Tarifa)
-    group by year(Tarifa.Fecha), month(Tarifa.Fecha), Servicio.Numero_Medidor,Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
+    group by Tarifa.ano, Tarifa.mes, Contrato.Numero_Medidor,Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
 	
 
 go
-
-
 
 Create view ConsumoHistoricoV as 
 
@@ -36,3 +34,4 @@ Create view ConsumoHistoricoV as
     group by Consumo.Periodo, Consumo.Watts, Recibo.Importe, Recibo.Total, Recibo.Pendiente_Pago 
 	
 go
+------------------------------------------------------------

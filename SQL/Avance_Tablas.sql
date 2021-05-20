@@ -132,8 +132,10 @@ END
 CREATE TABLE Administrador(
 Nombre_Usuario			VARCHAR(50)  PRIMARY KEY  not null,
 Contraseña				VARCHAR (15) not null,
-Activo bit not null default (1)
+Activo bit not null default (1),
+Permiso tinyint not null default (3)
 );
+
 
 
 
@@ -142,7 +144,6 @@ CREATE TABLE Usuarios(
 Nombre_Usuario	VARCHAR (50) PRIMARY KEY not null,
 Contraseña		VARCHAR (15) not null,
 Permiso tinyint not null default (0)
-
 );
 
 
@@ -156,7 +157,7 @@ Nombre_Usuario VARCHAR(50) not null,
 Contraseña VARCHAR(50) not null,
 CONSTRAINT fk_Usuario FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
 genero varchar (25),
-Activo bit not null default (1)
+Activo bit not null default (1),
 
 );
 
@@ -171,22 +172,21 @@ email varchar (30) UNIQUE not null,
 Nombre_Usuario varchar(50) not null,
 CONSTRAINT fk_UsuarioCliente FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
 Contraseña varchar (25),
-Activo bit not null default (1)
+
 );
 
 
 
 
-CREATE TABLE Contrato(
+Create TABLE Contrato(
 Domicilio VARCHAR (50) PRIMARY KEY not null ,
 Servicio bit,
-Fecha date not null,
+Fecha smalldatetime not null,
 Cliente VARCHAR (18) not null,
 CONSTRAINT fk_ClienteCon FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 Activo bit default (1),
-Numero_Medidor int UNIQUE identity (150,1) ,
+Numero_Medidor int UNIQUE identity (150,1) 
 );
-
 
 CREATE TABLE Consumo(
 Id_Consumo int identity (300,1),

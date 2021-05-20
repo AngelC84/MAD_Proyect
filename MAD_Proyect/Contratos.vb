@@ -46,10 +46,13 @@
         tablaaux = enlace.getdataCliente()
         If (tablaaux.Rows.Count > 0) Then
             ListBox_Cliente.DataSource = tablaaux
-            ListBox_Cliente.DisplayMember = "Nombre"
-            ListBox_Cliente.ValueMember = "CURP"
+            ListBox_Cliente.DisplayMember = "CURP"
+            'ListBox_Cliente.DisplayMember = "Nombre"
+            'ListBox_Cliente.ValueMember = "CURP"
+
         End If
     End Sub
+
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim enlace As New EnlaceBD
@@ -62,12 +65,10 @@
         If (TextBox_Domicilio.Text <> "") And (ListBox_Cliente.SelectedIndex > -1) Then
 
 
+            Cliente = ListBox_Cliente.GetItemText(ListBox_Cliente.SelectedItem)
 
 
-
-
-
-            Cliente = ListBox_Cliente.ValueMember
+            ' ListBox_Cliente.ValueMember
             Servicio = ComboBox2.SelectedIndex
             Domicilio = TextBox_Domicilio.Text
             Fecha = DateTimePicker2.Value
@@ -78,6 +79,10 @@
         End If
 
 
+
+    End Sub
+
+    Private Sub ListBox_Cliente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox_Cliente.SelectedIndexChanged
 
     End Sub
 End Class

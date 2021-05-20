@@ -179,4 +179,12 @@
         result = enlace.Activar_Empleado(Nombre)
 
     End Sub
+
+    Private Sub TextBox_RFC_TextChanged(sender As Object, e As EventArgs) Handles TextBox_RFC.TextChanged
+        TextBox_RFC.MaxLength = 13
+    End Sub
+
+    Private Sub TextBox_CURP_TextChanged(sender As Object, e As EventArgs) Handles TextBox_CURP.TextChanged
+        TextBox_CURP.MaxLength = 18
+    End Sub
 End Class
