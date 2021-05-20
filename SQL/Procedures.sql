@@ -389,6 +389,8 @@ end
 
 go
 
-Select * from Clientes            
-update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon Solano'
+Select * from Contrato                     
+update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon'
 
+
+insert into Administrador(Nombre_Usuario, Contraseña,Activo) values('Jenifer Natasha','AdmiGenial',1)

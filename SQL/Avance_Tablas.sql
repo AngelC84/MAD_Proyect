@@ -136,6 +136,9 @@ Activo bit not null default (1),
 Permiso tinyint not null default (3)
 );
 
+Alter table Administrador add CONSTRAINT fk_UsuarioAdmin FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario)
+
+
 
 
 
