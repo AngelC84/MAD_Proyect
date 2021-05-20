@@ -51,6 +51,33 @@
         End If
     End Sub
 
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Dim enlace As New EnlaceBD
+        Dim Cliente As String
+        Dim Servicio As Integer
+        Dim Domicilio As String
+        Dim Fecha As Date
+        Dim result As Boolean = False
+
+        If (TextBox_Domicilio.Text <> "") And (ListBox_Cliente.SelectedIndex > -1) Then
 
 
+
+
+
+
+
+            Cliente = ListBox_Cliente.ValueMember
+            Servicio = ComboBox2.SelectedIndex
+            Domicilio = TextBox_Domicilio.Text
+            Fecha = DateTimePicker2.Value
+
+            result = enlace.Reg_Contrato(Cliente, Servicio, Domicilio, Fecha)
+        Else
+            MsgBox("Faltan datos por registrar, !!REVISA!!")
+        End If
+
+
+
+    End Sub
 End Class
