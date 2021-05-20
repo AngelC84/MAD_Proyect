@@ -338,18 +338,32 @@ go
 
 /*-----------------------------------------Contrato------------------------------------------*/
 
-CREATE procedure regContrato
+create  procedure regContrato
 @Domicilio varchar (50),
 @Servicio bit,
-@fecha smalldatetime,
+@fecha date,
 @curp varchar (18)
 
+
 As
+
+
 Begin
-insert into Contrato(Domicilio,Servicio,Fecha,Cliente,Activo) values (@Domicilio,@Servicio,@curp,@fecha,1)
+insert into Contrato(Domicilio,Servicio,Fecha,Cliente,Activo) values (@Domicilio,@Servicio,@fecha,@curp,1)
 End
 go
 
+
+Create procedure getContratos
+AS
+Begin
+Select 
+Numero_Medidor
+
+FROM Contrato
+where Activo = 1 
+END
+go
 
 /*------------------------------------------Consumo-------------------------------------------*/
 
@@ -366,30 +380,35 @@ Begin
 Insert into Consumo(Numero_Medidor,Watts,mes,ano ) values (@NumeroMedidor,@Watts,@mes,@ano)
 End
 go
-
+/*---------------------------------------------------------------------------------------------------------------*/
 
 Create procedure regConsumoMasivo
 @tblConsumo ConsumoMasivo readonly
 as 
 begin
 set nocount on;
-insert into Consumo(Numero_Medidor,Watts,mes,ano) select NumMedidor, Watts, mes,ano from @tblConsumo
+insert into Consumo(ano,mes,Numero_Medidor,Watts) select ano, mes, NumMedidor,Watts from @tblConsumo
 end
 
 go
 
-Create procedure regTarifaMasivo
+create procedure regTarifaMasivo
 @tblTarifa TarifaMasiva readonly
 as 
 begin
 set nocount on;
-insert into Tarifa(Precio_Watt_Bajo,Precio_Watt_Medio,Precio_Watt_Excedente,mes,ano,Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) select Precio_Bajo, Precio_Medio, Precio_Excedente ,mes,ano,Tipo_de_uso, Watt_Bajo,Watt_Medio, Watt_Excedente from @tblTarifa
+insert into Tarifa(Precio_Watt_Bajo,Precio_Watt_Medio,Precio_Watt_Excedente,mes,ano,Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) select Precio_Medio, Precio_Bajo, Precio_Excedente ,ano,mes,Tipo_de_uso, Watt_Bajo,Watt_Medio, Watt_Excedente from @tblTarifa
 end
 
 
 go
 
-Select * from Contrato                     
+
+
+
+
+
+Select * from Tarifa                     
 update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon'
 
 
