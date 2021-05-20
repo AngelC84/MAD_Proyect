@@ -193,7 +193,7 @@ Public Class EnlaceBD
             parametro1.Value = Cliente
             Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Servicio", SqlDbType.Bit)
             parametro2.Value = Servicio
-            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@fecha", SqlDbType.SmallDateTime, 8)
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@fecha", SqlDbType.Date, 15)
             parametro3.Value = Fecha
             Dim parametro4 As SqlParameter = comandosql.Parameters.Add("@Domicilio", SqlDbType.VarChar, 18)
             parametro4.Value = Domicilio
@@ -214,8 +214,7 @@ Public Class EnlaceBD
 
     Public Function Reg_Consumo(ByVal Medidor As Integer,
                            ByVal Watts As Integer,
-                           ByVal Periodo As Date
-                          ) As Boolean
+                           ByVal mes As Int32, ByVal ano As Integer) As Boolean
         Dim estado As Boolean = True
         Try
             conectar()
@@ -226,9 +225,10 @@ Public Class EnlaceBD
             parametro1.Value = Medidor
             Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Watts", SqlDbType.Int)
             parametro2.Value = Watts
-            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@Periodo", SqlDbType.Date, 15)
-            parametro3.Value = Periodo
-
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@mes", SqlDbType.Int, 15)
+            parametro3.Value = mes
+            Dim parametro4 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int, 15)
+            parametro4.Value = ano
 
 
             conexion.Open()
@@ -344,7 +344,26 @@ Public Class EnlaceBD
         End Try
         Return nuevatablaEmpl
     End Function
+    Public Function getdataContrato() As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
 
+
+        Try
+            conectar()
+            Qry = "getContratos"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
     '------------------
 
     Public Function GetEmpleadInactiv() As DataTable

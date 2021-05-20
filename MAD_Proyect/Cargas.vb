@@ -168,15 +168,22 @@ Public Class Cargas
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         Dim enlace As New EnlaceBD
 
-        Dim Fecha As Date
-        Dim Watts As Integer
+        Dim Mes As Int32
+        Dim ano As Int32
+        Dim Watts As Int32
         Dim Medidor As Integer
         Dim result As Boolean = False
 
         If (TextWatts.Text <> "") And (ComboBox1.SelectedIndex > -1) Then
+            Mes = Val(TextBox2.Text)
+            ano = Val(TextBox1.Text)
+            Medidor = Val(ComboBox1.GetItemText(ComboBox1.SelectedItem))
+            Watts = Val(TextWatts.Text)
 
 
-            result = enlace.Reg_Consumo(Medidor, Watts, Fecha)
+
+
+            result = enlace.Reg_Consumo(Medidor, Watts, Mes, ano)
 
         Else
             MsgBox("Faltan datos por registrar, !!REVISA!!")
@@ -194,7 +201,7 @@ Public Class Cargas
         With thedatatable
 
 
-            .Columns.Add("Ano", System.Type.GetType("System.Integer"))
+            .Columns.Add("Ano", System.Type.GetType("System.Int32"))
             .Columns.Add("Mes", System.Type.GetType("System.Int32"))
             .Columns.Add("Numero_Medidor", System.Type.GetType("System.Int32"))
             .Columns.Add("Watts", System.Type.GetType("System.Int32"))
@@ -266,14 +273,19 @@ Public Class Cargas
             End While
         Finally
         End Try
+        Dim reader2 As StreamReader = New StreamReader(strFilePath)
         Do
-            sline = reader.ReadLine
+            sline = reader2.ReadLine
             If sline Is Nothing Then Exit Do
             Dim thecolumns() As String = sline.Split(",")
             Dim newrow As DataRow = thedatatable.NewRow
-            newrow("Numero_Medidor") = thecolumns(0)
-            newrow("Watts") = thecolumns(1)
-            newrow("Periodo") = thecolumns(2)
+
+
+            newrow("Watts") = thecolumns(0)
+            newrow("Numero_Medidor") = thecolumns(1)
+            newrow("ano") = thecolumns(2)
+            newrow("mes") = thecolumns(3)
+
             thedatatable.Rows.Add(newrow)
 
         Loop
@@ -293,19 +305,18 @@ Public Class Cargas
         Dim thedatatable As New DataTable
         With thedatatable
 
-            .Columns.Add("ano", System.Type.GetType("System.Integer"))
+            .Columns.Add("ano", System.Type.GetType("System.Int32"))
 
-            .Columns.Add("mes", System.Type.GetType("System.Integer"))
+            .Columns.Add("mes", System.Type.GetType("System.Int32"))
 
-            .Columns.Add("Precio_Bajo", System.Type.GetType("System.Decimal"))
             .Columns.Add("Precio_Bajo", System.Type.GetType("System.Decimal"))
             .Columns.Add("Precio_Medio", System.Type.GetType("System.Decimal"))
             .Columns.Add("Precio_Excedente", System.Type.GetType("System.Decimal"))
 
-            .Columns.Add("Uso", System.Type.GetType("System.Boolean"))
-            .Columns.Add("Consumo_Bajo", System.Type.GetType("System.Integer"))
-            .Columns.Add("Consumo_Medio", System.Type.GetType("System.Integer"))
-            .Columns.Add("Consumo_Excedente", System.Type.GetType("System.Integer"))
+            .Columns.Add("Uso", System.Type.GetType("System.Int32"))
+            .Columns.Add("Consumo_Bajo", System.Type.GetType("System.Int32"))
+            .Columns.Add("Consumo_Medio", System.Type.GetType("System.Int32"))
+            .Columns.Add("Consumo_Excedente", System.Type.GetType("System.Int32"))
 
         End With
 
@@ -372,20 +383,25 @@ Public Class Cargas
         Finally
         End Try
 
-
+        Dim reader2 As StreamReader = New StreamReader(strFilePath)
         Do
-            sline = reader.ReadLine
+            sline = reader2.ReadLine
             If sline Is Nothing Then Exit Do
             Dim thecolumns() As String = sline.Split(",")
             Dim newrow As DataRow = thedatatable.NewRow
-            newrow("Precio_Bajo") = thecolumns(0)
-            newrow("Precio_Medio") = thecolumns(1)
-            newrow("Precio_Excedente") = thecolumns(3)
-            newrow("Fecha") = thecolumns(4)
+
+            newrow("Precio_Excedente") = thecolumns(1)
+            newrow("mes") = thecolumns(2)
+            newrow("Precio_Bajo") = thecolumns(4)
+            newrow("Precio_Medio") = thecolumns(0)
+            newrow("ano") = thecolumns(3)
+
+
+
             newrow("Uso") = thecolumns(5)
             newrow("Consumo_Bajo") = thecolumns(6)
             newrow("Consumo_Medio") = thecolumns(7)
-            newrow("Consumo_Excedente") = thecolumns(9)
+            newrow("Consumo_Excedente") = thecolumns(8)
 
 
 
@@ -443,5 +459,17 @@ Public Class Cargas
         End If
     End Sub
 
+    Private Sub Cargas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim enlace As New EnlaceBD
+        Dim tablaaux As New DataTable
 
+        tablaaux = enlace.getdataContrato()
+        If (tablaaux.Rows.Count > 0) Then
+            ComboBox1.DataSource = tablaaux
+            ComboBox1.DisplayMember = "Numero_Medidor"
+            'ListBox_Cliente.DisplayMember = "Nombre"
+            'ListBox_Cliente.ValueMember = "CURP"
+
+        End If
+    End Sub
 End Class
