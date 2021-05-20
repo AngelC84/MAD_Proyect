@@ -328,17 +328,17 @@ Create procedure TarifaReg
 @PrecioBajo float,
 @PrecioMedio float,
 @PrecioExcedente float,
-@PeriodoFac date,
+@mes int,
+@ano int,
 @Uso bit,
 @ConsumoBajo int,
 @ConsumoMedio int,
 @ConsumoExcedente int
-
-
 as
+
 begin
-insert into Tarifa(Precio_Watt_Bajo, Precio_Watt_Medio, Precio_Watt_Excedente,Fecha, Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) values
-(@PrecioBajo, @PrecioMedio, @PrecioExcedente, @PeriodoFac, @Uso, @ConsumoBajo,@ConsumoMedio,@ConsumoExcedente)
+insert into Tarifa(Precio_Watt_Bajo, Precio_Watt_Medio, Precio_Watt_Excedente,mes,ano, Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) values
+(@PrecioBajo, @PrecioMedio, @PrecioExcedente, @mes,@ano, @Uso, @ConsumoBajo,@ConsumoMedio,@ConsumoExcedente)
 end
 go
 
@@ -358,13 +358,44 @@ End
 go
 
 
+/*------------------------------------------Consumo-------------------------------------------*/
+
 Create procedure regConsumo
 @NumeroMedidor int,
 @Watts int,
-@Periodo date
+@mes int,
+@ano int
 
 As
+
+
 Begin
-Insert into Consumo(Numero_Medidor,Watts,Periodo) values (@NumeroMedidor,@Watts,@Periodo)
+Insert into Consumo(Numero_Medidor,Watts,mes,ano ) values (@NumeroMedidor,@Watts,@mes,@ano)
 End
 go
+
+
+
+
+Create procedure regConsumoMasivo
+@tblConsumo ConsumoMasivo readonly
+as 
+begin
+set nocount on;
+insert into Consumo(Numero_Medidor,Watts,mes,ano) select NumMedidor, Watts, mes,ano from @tblConsumo
+end
+
+
+go
+
+Create procedure regTarifaMasivo
+@tblTarifa TarifaMasiva readonly
+as 
+begin
+set nocount on;
+insert into Tarifa(Precio_Watt_Bajo,Precio_Watt_Medio,Precio_Watt_Excedente,mes,ano,Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) select Precio_Bajo, Precio_Medio, Precio_Excedente ,mes,ano,Tipo_de_uso, Watt_Bajo,Watt_Medio, Watt_Excedente from @tblTarifa
+end
+
+
+go
+

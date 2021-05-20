@@ -1,4 +1,4 @@
-USE Tryout1
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -193,7 +193,8 @@ Id_Consumo int identity (300,1),
 Numero_Medidor int not null,
 CONSTRAINT fk_MedidorCon FOREIGN KEY (Numero_Medidor) REFERENCES Contrato (Numero_Medidor),
 Watts int not null,
-Periodo date not null,
+mes int not null,
+ano int not null
 
 
 
@@ -207,7 +208,8 @@ Id_Tarifa int identity (600,1) PRIMARY KEY,
 Precio_Watt_Bajo float default (0.5)not null,
 Precio_Watt_Medio float default (1) not null,
 Precio_Watt_Excedente float default (1.5)not null,
-Fecha date not null,
+mes int not null,
+ano int,
 Tipo_de_uso bit default (1),
 Watt_Bajo int default (5000),         /* Por ejemplo consumo de hasta 5000 KiloWatts es consumo bajo, de 5000 a 10000 es consumo medio y de 10001 hacia arriba se considera consumo excedente     */
 Watt_Medio int default (10000),
@@ -238,4 +240,27 @@ Pagado bit
 
 
 );
+create type ConsumoMasivo as table (
+NumMedidor int not null,
+Watts int not null,
+mes int,
+ano int
 
+
+
+)
+Go
+create type TarifaMasiva as table (
+Precio_Bajo float default (0.5)not null,
+Precio_Medio float default (1) not null,
+Precio_Excedente float default (1.5)not null,
+mes int not null,
+ano int,
+Tipo_de_uso bit default (1),
+Watt_Bajo int default (5000),         
+Watt_Medio int default (10000),
+Watt_Excedente int
+
+
+)
+Go
