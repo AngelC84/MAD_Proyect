@@ -237,15 +237,12 @@ Iva float default (0.16) not null,
 Fecha date not null,
 Watts int not null,
 Numero_Medidor int not null,
-CONSTRAINT fk_MedidorRec FOREIGN KEY (Numero_Medidor) REFERENCES Contrato (Numero_Medidor),
+Servicio bit default (0),
 Cliente VARCHAR(18),
-CONSTRAINT fk_ClienteRec FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 Tarifa int,
-CONSTRAINT fk_TarifaRec FOREIGN KEY (Tarifa) REFERENCES Tarifa (Id_Tarifa),
 Subtotal int not null,
 Total int not null,
-Importe money not null, 
-Pendiente_Pago money not null,
+Pendiente_Pago int not null,
 Pagado bit
 
 

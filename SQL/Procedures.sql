@@ -354,16 +354,87 @@ End
 go
 
 
-Create procedure getContratos
+create procedure getContratos
 AS
 Begin
 Select 
+Domicilio,
+Servicio,
+Fecha,
+Cliente,
 Numero_Medidor
 
 FROM Contrato
 where Activo = 1 
 END
 go
+create procedure getContratosMedidor
+@Medidor int
+AS
+Begin
+Select 
+Domicilio,
+Servicio,
+Fecha,
+Cliente,
+Numero_Medidor
+
+FROM Contrato
+where Activo = 1 and Numero_Medidor=@Medidor
+END
+go
+
+create procedure getTarifaSort
+@mes int,
+@ano int
+AS
+Begin
+Select 
+Id_Tarifa,
+ano,
+mes,
+Precio_Watt_Bajo,
+Precio_Watt_Medio,
+Precio_Watt_Excedente,
+Tipo_de_uso,
+Watt_Bajo,
+Watt_Medio,
+Watt_Excedente
+	FROM Tarifa where mes=@mes  and ano=@ano and Tipo_de_uso=0
+END
+go
+ create procedure getTarifaSortInd
+@mes int,
+@ano int
+AS
+Begin
+Select 
+Id_Tarifa,
+ano,
+mes,
+Precio_Watt_Bajo,
+Precio_Watt_Medio,
+Precio_Watt_Excedente,
+Tipo_de_uso,
+Watt_Bajo,
+Watt_Medio,
+Watt_Excedente
+	FROM Tarifa where mes=@mes  and ano=@ano and Tipo_de_uso=1
+END
+go
+ create procedure getConsumoSort
+AS
+Begin
+Select 
+Id_Consumo,
+ano,
+mes,
+Numero_Medidor,
+Watts
+	FROM Consumo where Watts>0
+	end
+go
+
 
 /*------------------------------------------Consumo-------------------------------------------*/
 
@@ -404,11 +475,28 @@ end
 go
 
 
+alter procedure regRecibo
+@watts int,
+@medidor int,
+@servicio bit,
+@curp varchar (18),
+@tarifa int,
+@subtotal float,
+@total float,
+@pendiente_pago float
+
+as
+begin
+insert into Recibo(Fecha,Watts,Servicio,Subtotal,Total,Pendiente_Pago,Pagado,Tarifa,Numero_Medidor,Cliente ) values (getdate(),@watts,@servicio,@subtotal,@total,@pendiente_pago,0,@tarifa,@medidor,@curp) 
 
 
+end
+ go
 
-
-Select * from Tarifa                     
+Select * from Recibo       
+Select * from Tarifa      
+Select * from Consumo      
+Select * from Contrato                    
 update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon'
 
 
