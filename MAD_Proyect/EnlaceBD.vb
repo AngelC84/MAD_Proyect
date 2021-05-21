@@ -212,6 +212,55 @@ Public Class EnlaceBD
         Return estado
     End Function
 
+
+
+
+
+    Public Function Reg_Recibo(ByVal watts As Int32,
+                           ByVal medidor As Integer,
+                           ByVal servicio As Integer,
+                           ByVal cliente As String,
+                               ByVal tarifa As Int32,
+                               ByVal subtotal As Double,
+                              ByVal total As Double,
+                             ByVal pendiente As Double) As Boolean
+        Dim estado As Boolean = True
+
+        Try
+            conectar()
+            comandosql = New SqlCommand("regRecibo", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@watts", SqlDbType.Int)
+            parametro1.Value = watts
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@medidor", SqlDbType.Int)
+            parametro2.Value = medidor
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@servicio", SqlDbType.Bit)
+            parametro3.Value = servicio
+            Dim parametro4 As SqlParameter = comandosql.Parameters.Add("@curp", SqlDbType.VarChar, 18)
+            parametro4.Value = cliente
+            Dim parametro5 As SqlParameter = comandosql.Parameters.Add("@tarifa", SqlDbType.Int)
+            parametro5.Value = tarifa
+            Dim parametro6 As SqlParameter = comandosql.Parameters.Add("@subtotal", SqlDbType.Float)
+            parametro6.Value = subtotal
+            Dim parametro7 As SqlParameter = comandosql.Parameters.Add("@total", SqlDbType.Float)
+            parametro7.Value = total
+            Dim parametro8 As SqlParameter = comandosql.Parameters.Add("@pendiente_pago", SqlDbType.Float)
+            parametro8.Value = pendiente
+
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+
     Public Function Reg_Consumo(ByVal Medidor As Integer,
                            ByVal Watts As Integer,
                            ByVal mes As Int32, ByVal ano As Integer) As Boolean
@@ -354,6 +403,108 @@ Public Class EnlaceBD
             Qry = "getContratos"
             comandosql = New SqlCommand(Qry, conexion)
             comandosql.CommandType = CommandType.StoredProcedure
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+    Public Function getSortedTarifa(ByVal Mes As Int32, ByVal Ano As Int32) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getTarifaSort"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@mes", SqlDbType.Int)
+            parametro1.Value = Mes
+
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int)
+            parametro2.Value = Ano
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+    Public Function getSortedTarifaInd(ByVal Mes As Int32, ByVal Ano As Int32) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getTarifaSortInd"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@mes", SqlDbType.Int)
+            parametro1.Value = Mes
+
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int)
+            parametro2.Value = Ano
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+    Public Function getSortedContrato(ByVal Medidor As Int32) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getContratosMedidor"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Medidor", SqlDbType.Int)
+            parametro1.Value = Medidor
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+    Public Function getSortedConsumo() As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getConsumoSort"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
 
             adaptador.SelectCommand = comandosql
             adaptador.Fill(nuevatablaEmpl)

@@ -135,7 +135,7 @@
             Cont_Us = TextBox_Contra.Text
 
             result = enlace.Reg_Cliente(CURP, fecha_nac, Nombre, Fecha_Alta_Mod, Genero, email, Nomb_Us, Cont_Us)
-
+            MsgBox("Creado exitosamente")
         Else
             MsgBox("Faltan datos por registrar, !!REVISA!!")
         End If

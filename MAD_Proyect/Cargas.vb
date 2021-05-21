@@ -71,7 +71,7 @@ Public Class Cargas
             Ano = Val(TextBox_Ano.Text)
 
             result = enlace.Reg_Tarifa(precioBajo, precioMedio, precioExcedente, Mes, Ano, consumoBajo, consumoMedio, consumoExcedente, uso)
-
+            MsgBox("Creado exitosamente")
         Else
             MsgBox("Faltan datos por registrar, !!REVISA!!")
         End If
@@ -184,7 +184,7 @@ Public Class Cargas
 
 
             result = enlace.Reg_Consumo(Medidor, Watts, Mes, ano)
-
+            MsgBox("Creado exitosamente")
         Else
             MsgBox("Faltan datos por registrar, !!REVISA!!")
         End If
@@ -290,7 +290,7 @@ Public Class Cargas
 
         Loop
         result = enlace.Reg_ConsumoMasivo(thedatatable)
-
+        MsgBox("Creado exitosamente")
 
 
 
@@ -410,7 +410,7 @@ Public Class Cargas
 
         Loop
         result = enlace.Reg_TarifaMasivo(thedatatable)
-
+        MsgBox("Creado exitosamente")
 
     End Sub
 

@@ -74,6 +74,7 @@
             Fecha = DateTimePicker2.Value
 
             result = enlace.Reg_Contrato(Cliente, Servicio, Domicilio, Fecha)
+            MsgBox("Creado exitosamente")
         Else
             MsgBox("Faltan datos por registrar, !!REVISA!!")
         End If
@@ -82,9 +83,7 @@
 
     End Sub
 
-    Private Sub ListBox_Cliente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox_Cliente.SelectedIndexChanged
 
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Close()
