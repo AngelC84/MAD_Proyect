@@ -630,6 +630,7 @@ Public Class EnlaceBD
         Dim estado As Boolean = True
         Dim aux As New DataTable
         Dim ID As Integer
+
         Try
             conectar()
             comandosql = New SqlCommand("LoginEmp", conexion)
@@ -653,6 +654,8 @@ Public Class EnlaceBD
         Return ID
 
     End Function
+
+
 
 
     Public Function LOGINPermiso(
@@ -708,6 +711,101 @@ Public Class EnlaceBD
             desconectar()
         End Try
         Return id
+
+    End Function
+
+
+    Public Function DesactivarUsuario(ByVal Nombre_Usuario As String) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("DesactivarLogin", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre_Usuario
+
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
+
+
+    Public Function GetEmpleadInActivLogin(
+                         ByVal Nombre_Usuario As String) As Integer
+        'Agregar frecuencia de pago escogida'
+        Dim estado As Boolean = True
+        Dim aux As New DataTable
+        Dim permiso As Integer
+        Dim permiso2 As Boolean
+
+        Try
+            conectar()
+            comandosql = New SqlCommand("GetEmpleadInActivLogin", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre_Usuario
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(aux)
+            permiso2 = aux.Rows(0).Item(0)
+            If (permiso2) Then
+                permiso = 1
+            Else
+                permiso = 0
+            End If
+
+        Catch ex As Exception
+            permiso = -1
+
+        Finally
+            desconectar()
+        End Try
+        Return permiso
+
+    End Function
+
+    Public Function GetClienteInActivLogin(
+                         ByVal Nombre_Usuario As String) As Integer
+        'Agregar frecuencia de pago escogida'
+        Dim estado As Boolean = True
+        Dim aux As New DataTable
+        Dim permiso As Integer
+        Dim permiso2 As Boolean
+
+        Try
+            conectar()
+            comandosql = New SqlCommand("GetClienteInActivLogin", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre_Usuario
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(aux)
+            permiso2 = aux.Rows(0).Item(0)
+            If (permiso2) Then
+                permiso = 1
+            Else
+                permiso = 0
+            End If
+
+        Catch ex As Exception
+            permiso = -1
+
+        Finally
+            desconectar()
+        End Try
+        Return permiso
 
     End Function
 

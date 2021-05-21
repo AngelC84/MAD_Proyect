@@ -34,6 +34,7 @@ Partial Class Login
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Picture_Log = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.CheckBox_RecordarCont = New System.Windows.Forms.CheckBox()
         Me.PanelCabecera.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Picture_Log, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +67,7 @@ Partial Class Login
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel1.Controls.Add(Me.CheckBox_RecordarCont)
         Me.Panel1.Controls.Add(Me.ComboBox1)
         Me.Panel1.Controls.Add(Me.INGRESAR_LOG)
         Me.Panel1.Controls.Add(Me.TextBox_Contraseña)
@@ -110,6 +112,7 @@ Partial Class Login
         Me.TextBox_Contraseña.BackColor = System.Drawing.Color.Lavender
         Me.TextBox_Contraseña.Location = New System.Drawing.Point(51, 326)
         Me.TextBox_Contraseña.Name = "TextBox_Contraseña"
+        Me.TextBox_Contraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox_Contraseña.Size = New System.Drawing.Size(334, 22)
         Me.TextBox_Contraseña.TabIndex = 2
         '
@@ -177,6 +180,19 @@ Partial Class Login
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'CheckBox_RecordarCont
+        '
+        Me.CheckBox_RecordarCont.AutoSize = True
+        Me.CheckBox_RecordarCont.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.CheckBox_RecordarCont.Font = New System.Drawing.Font("Britannic Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox_RecordarCont.ForeColor = System.Drawing.Color.Thistle
+        Me.CheckBox_RecordarCont.Location = New System.Drawing.Point(113, 363)
+        Me.CheckBox_RecordarCont.Name = "CheckBox_RecordarCont"
+        Me.CheckBox_RecordarCont.Size = New System.Drawing.Size(221, 26)
+        Me.CheckBox_RecordarCont.TabIndex = 5
+        Me.CheckBox_RecordarCont.Text = "Recordar Contraseña"
+        Me.CheckBox_RecordarCont.UseVisualStyleBackColor = True
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -210,4 +226,5 @@ Partial Class Login
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents CheckBox_RecordarCont As CheckBox
 End Class

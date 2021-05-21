@@ -258,15 +258,23 @@ go
 
 /*---------------------LOGIN ------------------------*/
 
-CREATE procedure LoginEmp
+Create procedure LoginEmp
  @Nombre_Usuario varchar (50),
  @Contraseña varchar(15)
 as 
 begin
 
-IF((select Contraseña from Usuarios where Nombre_Usuario = @Nombre_Usuario) = @Contraseña)
+IF((select 1  from Usuarios where Nombre_Usuario = @Nombre_Usuario) = 1)
+
 BEGIN
-   SELECT 1 
+   IF((select Contraseña from Usuarios where Nombre_Usuario = @Nombre_Usuario) = @Contraseña)
+   BEGIN
+   SELECT 1
+   END
+   ELSE 
+   BEGIN 
+   SELECT 3
+   END
 END
 ELSE
 BEGIN
@@ -297,7 +305,6 @@ where Nombre_Usuario = @Nombre_Usuario
 end
 GO
 
-
 CREATE procedure GetEmpleadoGral
 @Nombre_Usuario	varchar(50)
 AS
@@ -308,6 +315,47 @@ on Empl.Nombre_Usuario = Usuar.Nombre_Usuario
 where Empl.Nombre_Usuario =@Nombre_Usuario  
 END
 GO
+
+create procedure DesactivarLogin
+@Nombre_Usuario	varchar(50)
+as
+begin
+Update Empleado set Activo = 0 where Nombre_Usuario = @Nombre_Usuario
+Update Clientes set Activo = 0 where Nombre_Usuario = @Nombre_Usuario
+
+end 
+go
+
+Create procedure GetEmpleadInActivLogin
+@Nombre_Usuario	varchar(50)
+
+AS
+Begin
+Select Activo 
+
+FROM Empleado 
+where Nombre_Usuario = @Nombre_Usuario
+END
+go
+
+
+
+
+Create procedure GetClienteInActivLogin
+@Nombre_Usuario	varchar(50)
+
+AS
+Begin
+Select Activo 
+
+FROM Clientes  
+where Nombre_Usuario = @Nombre_Usuario
+END
+go
+
+
+
+
 
 /*-------------------------------*/
 
@@ -389,8 +437,9 @@ end
 
 go
 
-Select * from Contrato                     
+Select * from Usuarios                         
+
+
+
 update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon'
-
-
-insert into Administrador(Nombre_Usuario, Contraseña,Activo) values('Jenifer Natasha','AdmiGenial',1)
+insert into Usuarios(Nombre_Usuario, Contraseña,Permiso ) values('Jenifer Natasha','AdmiGenial',3)
