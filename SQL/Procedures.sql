@@ -532,6 +532,27 @@ Watt_Excedente
 	FROM Tarifa where mes=@mes  and ano=@ano and Tipo_de_uso=0
 END
 go
+
+create procedure getTarifaSortID
+@ID int
+
+AS
+Begin
+Select 
+Id_Tarifa,
+ano,
+mes,
+Precio_Watt_Bajo,
+Precio_Watt_Medio,
+Precio_Watt_Excedente,
+Tipo_de_uso,
+Watt_Bajo,
+Watt_Medio,
+Watt_Excedente
+	FROM Tarifa where Id_Tarifa=@ID  
+END
+go
+
  create procedure getTarifaSortInd
 @mes int,
 @ano int
