@@ -338,7 +338,31 @@ Public Class EnlaceBD
         Return estado
     End Function
 
+    Public Function updateReciboPago(ByVal saldo As Int64, ByVal pagado As Int16, ByVal id As Integer) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("updateReciboPago", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
 
+            Dim parametro1 As SqlParameter = comandosql.Parameters.AddWithValue("@pendientepago", SqlDbType.Int)
+            parametro1.Value = saldo
+            Dim parametro2 As SqlParameter = comandosql.Parameters.AddWithValue("@pagado", SqlDbType.Bit)
+            parametro2.Value = pagado
+            Dim parametro3 As SqlParameter = comandosql.Parameters.AddWithValue("@Id", SqlDbType.Int)
+            parametro3.Value = id
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
 
 
 
@@ -413,6 +437,12 @@ Public Class EnlaceBD
         End Try
         Return nuevatablaEmpl
     End Function
+
+
+
+
+
+
     Public Function getSortedTarifa(ByVal Mes As Int32, ByVal Ano As Int32) As DataTable
         Dim nuevatablaEmpl As New DataTable
         Dim Qry As String
@@ -440,6 +470,61 @@ Public Class EnlaceBD
         End Try
         Return nuevatablaEmpl
     End Function
+
+
+    Public Function SortCliente(ByVal Nombre As String) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "SortCliente"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+    Public Function SortUsuario() As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "SortUsuario"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+
+
+
     Public Function getSortedTarifaInd(ByVal Mes As Int32, ByVal Ano As Int32) As DataTable
         Dim nuevatablaEmpl As New DataTable
         Dim Qry As String
@@ -494,6 +579,85 @@ Public Class EnlaceBD
         Return nuevatablaEmpl
     End Function
 
+    Public Function getContratosCliente(ByVal CURP As String) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getContratosCliente"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@curp", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+    Public Function getRecibodataCURPactivo(ByVal CURP As String) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getRecibodataCURPactivo"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@curp", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+    Public Function getRecibodataCURPinactivo(ByVal CURP As String) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getRecibodataCURPinactivo"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@curp", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
     Public Function getSortedConsumo() As DataTable
         Dim nuevatablaEmpl As New DataTable
         Dim Qry As String
@@ -582,8 +746,34 @@ Public Class EnlaceBD
 
         End Try
         Return estado
+
     End Function
 
+    Public Function ActivarLogin(ByVal Nombre As String, ByVal active As Integer) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("ActivarLogin", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Nombre_Usuario", SqlDbType.VarChar, 50)
+            parametro1.Value = Nombre
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@activo", SqlDbType.Bit)
+            parametro2.Value = active
+
+
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
 
     Public Function ClienteActivo(ByVal Nombre As String) As Boolean
         Dim estado As Boolean = True

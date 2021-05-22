@@ -81,6 +81,7 @@ Public Class Login
                             'aux = enlace.Getrfcemp(email_emp)
                             EmpleadoGral.CURP = enlace.GetEmpleadoGral(Nombre_Usuario)
                             aux = EmpleadoGral.CURP
+
                             EmpleadoGral.Show()
                             Me.Hide()
                         Else
@@ -101,6 +102,8 @@ Public Class Login
                             End If
 
                             Pago_de_Recibos.CURP = enlace.LOGINCliente(Nombre_Usuario)
+                            Dim resulty As Boolean
+                            resulty = enlace.ActivarLogin(Nombre_Usuario, 1)
                             Pago_de_Recibos.Show()
                             Me.Hide()
                         Else
