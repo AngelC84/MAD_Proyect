@@ -63,9 +63,9 @@ Public Class Login
                         End If
 
                         Administrador.Show()
-                            Me.Hide()
-                        Else
-                            MsgBox("No es tu sesion, !!ACCESO DENEGADO!!")
+                        Me.Hide()
+                    Else
+                        MsgBox("No es tu sesion, !!ACCESO DENEGADO!!")
                     End If
 
                 ElseIf (ComboBox1.SelectedIndex = 1) Then
@@ -130,6 +130,7 @@ Public Class Login
         Else
             MsgBox("Faltan campos por llenar, !!ACCESO DENEGADO!!")
         End If
+
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged

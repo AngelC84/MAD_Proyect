@@ -12,13 +12,13 @@ go
 --CHECAR ESTAS VISTAS ---------------
 Create view ReporteConsumoV as 
 
-	SELECT Tarifa.ano, Tarifa.mes, Contrato.Numero_Medidor, Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
+	SELECT Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor, Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
 	
 	FROM Tarifa 
-	join Contrato 
-	ON Contrato.Numero_Medidor  = Tarifa.Id_Tarifa 
-	WHERE Tarifa.Id_Tarifa in (select Id_Tarifa from Tarifa)
-    group by Tarifa.ano, Tarifa.mes, Contrato.Numero_Medidor,Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
+	join Consumo  
+	ON Consumo.ano  = Tarifa.ano 
+	WHERE Tarifa.ano in (select Id_Tarifa from Tarifa)
+    group by Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor,Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
 	
 
 go

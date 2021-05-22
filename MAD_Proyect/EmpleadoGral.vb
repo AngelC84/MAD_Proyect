@@ -135,7 +135,7 @@
             Cont_Us = TextBox_Contra.Text
 
             result = enlace.Reg_Cliente(CURP, fecha_nac, Nombre, Fecha_Alta_Mod, Genero, email, Nomb_Us, Cont_Us)
-
+            MsgBox("Creado exitosamente")
         Else
             MsgBox("Faltan datos por registrar, !!REVISA!!")
         End If
@@ -257,5 +257,9 @@
     Private Sub TextBox_CURP_TextChanged(sender As Object, e As EventArgs) Handles TextBox_CURP.TextChanged
         TextBox_CURP.MaxLength = 18
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Close()
     End Sub
 End Class

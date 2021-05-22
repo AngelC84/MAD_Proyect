@@ -8,13 +8,13 @@ Create proc EmpleadoReg
 @RFC VARCHAR (12),
 @Fecha_de_Alta_Modificacion date,
 @Nombre_Usuario VARCHAR(50),
-@Contraseña VARCHAR(50)
+@ContraseÃ±a VARCHAR(50)
 
 as
 begin
-insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values(@Nombre_Usuario, @Contraseña, 2);
-insert into Empleado(CURP, Fecha_Nacimiento, Nombre, RFC,Fecha_de_Alta_Modificacion,Nombre_Usuario,Contraseña) values
-(@CURP, @Fecha_Nacimiento, @Nombre, @RFC, GETDATE(), @Nombre_Usuario,@Contraseña)
+insert into Usuarios(Nombre_Usuario, ContraseÃ±a, Permiso) values(@Nombre_Usuario, @ContraseÃ±a, 2);
+insert into Empleado(CURP, Fecha_Nacimiento, Nombre, RFC,Fecha_de_Alta_Modificacion,Nombre_Usuario,ContraseÃ±a) values
+(@CURP, @Fecha_Nacimiento, @Nombre, @RFC, GETDATE(), @Nombre_Usuario,@ContraseÃ±a)
 end
 go
 
@@ -27,7 +27,7 @@ Create procedure EmpleadoUpd
 @Nombre VARCHAR (50),
 @RFC VARCHAR (12),
 @Fecha_de_Alta_Modificacion date,
-@Contraseña VARCHAR(50)
+@ContraseÃ±a VARCHAR(50)
 As
 BEGIN
 
@@ -38,7 +38,7 @@ Fecha_Nacimiento = @Fecha_Nacimiento,
 Nombre = @Nombre,
 RFC = @RFC,
 Fecha_de_Alta_Modificacion =@Fecha_de_Alta_Modificacion,
-Contraseña = @Contraseña
+ContraseÃ±a = @ContraseÃ±a 
 
 
 WHERE CURP=@CURP 
@@ -56,7 +56,7 @@ Nombre,
 RFC,
 Fecha_de_Alta_Modificacion,
 Nombre_Usuario,
-Contraseña
+ContraseÃ±a 
 
 FROM Empleado 
 where Activo = 1 
@@ -102,13 +102,13 @@ Create procedure ClientesReg
 @Genero varchar (20),
 @email varchar (30),
 @Nombre_Usuario VARCHAR(50),
-@Contraseña VARCHAR(50)
+@ContraseÃ±a VARCHAR(50)
 
 as
 begin
-insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values(@Nombre_Usuario, @Contraseña, 1);
-insert into Clientes(CURP, Fecha_Nacimiento, Nombre,Fecha_de_Alta_Modificacion, Genero, email, Nombre_Usuario,Contraseña) values
-(@CURP, @Fecha_Nacimiento, @Nombre, GETDATE(), @Genero, @email,@Nombre_Usuario,@Contraseña)
+insert into Usuarios(Nombre_Usuario, ContraseÃ±a, Permiso) values(@Nombre_Usuario, @ContraseÃ±a, 1);
+insert into Clientes(CURP, Fecha_Nacimiento, Nombre,Fecha_de_Alta_Modificacion, Genero, email, Nombre_Usuario,ContraseÃ±a ) values
+(@CURP, @Fecha_Nacimiento, @Nombre, GETDATE(), @Genero, @email,@Nombre_Usuario,@ContraseÃ±a)
 end
 go
 
@@ -124,7 +124,7 @@ Fecha_de_Alta_Modificacion,
 Genero,
 email,
 Nombre_Usuario,
-Contraseña
+ContraseÃ±a 
 
 FROM Clientes 
 where Activo = 1 
@@ -140,7 +140,7 @@ Create procedure ClienteUpd
 @Fecha_de_Alta_Modificacion date,
 @Genero varchar (20),
 @email varchar (30),
-@Contraseña VARCHAR(50)
+@ContraseÃ±a VARCHAR(50)
 
 As
 BEGIN
@@ -153,7 +153,7 @@ Nombre = @Nombre,
 Fecha_de_Alta_Modificacion =@Fecha_de_Alta_Modificacion,
 Genero = @Genero,
 email = @email,
-Contraseña = @Contraseña
+ContraseÃ±a = @ContraseÃ±a
 
 WHERE CURP=@CURP 
 END
@@ -204,39 +204,43 @@ GO
 /* -----------   REPORTES -----------*/
 
 
-Create procedure GetDatoTarifas
+create procedure GetDatoTarifas
 @ano int
 
 AS
 Begin
 Select
-ano'Año', 
+ano'AÃ±o', 
 mes 'Mes',
 Precio_Watt_Bajo 'Basica',
 Precio_Watt_Medio 'Intermedio',
 Precio_Watt_Excedente 'Excedente'
 
-FROM ReporteTarifas
+FROM ReporteTarifas where ano = @ano
 END
 go 
 
 
+
+
+
 Create procedure GetDatoConsumo
-@anio int
+@ano int
 
 AS
 Begin
 Select
-anio'Año', 
+ano'AÃ±o', 
 mes 'Mes',
 Numero_Medidor 'Medidor',
 Watt_Bajo 'Bajo',
 Watt_Medio 'Medio',
 Watt_Excedente 'Excedente'
 
-FROM ReporteConsumoV
+FROM ReporteConsumoV where ano = @ano
 END
 go 
+
 
 Create Procedure ConsumoHistorico
 @anio int,
@@ -260,14 +264,14 @@ go
 
 Create procedure LoginEmp
  @Nombre_Usuario varchar (50),
- @Contraseña varchar(15)
+ @ContraseÃ±a varchar(15)
 as 
 begin
 
 IF((select 1  from Usuarios where Nombre_Usuario = @Nombre_Usuario) = 1)
 
 BEGIN
-   IF((select Contraseña from Usuarios where Nombre_Usuario = @Nombre_Usuario) = @Contraseña)
+   IF((select ContraseÃ±a from Usuarios where Nombre_Usuario = @Nombre_Usuario) = @ContraseÃ±a)
    BEGIN
    SELECT 1
    END
@@ -357,7 +361,29 @@ go
 
 
 
-/*-------------------------------*/
+/*-----------RECIBO --------------------*/
+
+create procedure getdataRecibo
+@curp  varchar (18)
+AS
+Begin
+Select 
+Id_Recibo,
+Iva,
+Fecha,
+Watts,
+Numero_Medidor,
+Servicio,
+Cliente,
+Tarifa ,
+Subtotal,
+Total,
+Pendiente_Pago,
+Pagado 
+
+FROM Recibo where Cliente = @curp and Pagado = 0
+end
+go
 
 
 
@@ -386,16 +412,101 @@ go
 
 /*-----------------------------------------Contrato------------------------------------------*/
 
-CREATE procedure regContrato
+create  procedure regContrato
 @Domicilio varchar (50),
 @Servicio bit,
-@fecha smalldatetime,
+@fecha date,
 @curp varchar (18)
 
+
 As
+
+
 Begin
-insert into Contrato(Domicilio,Servicio,Fecha,Cliente,Activo) values (@Domicilio,@Servicio,@curp,@fecha,1)
+insert into Contrato(Domicilio,Servicio,Fecha,Cliente,Activo) values (@Domicilio,@Servicio,@fecha,@curp,1)
 End
+go
+
+
+create procedure getContratos
+AS
+Begin
+Select 
+Domicilio,
+Servicio,
+Fecha,
+Cliente,
+Numero_Medidor
+
+FROM Contrato
+where Activo = 1 
+END
+go
+create procedure getContratosMedidor
+@Medidor int
+AS
+Begin
+Select 
+Domicilio,
+Servicio,
+Fecha,
+Cliente,
+Numero_Medidor
+
+FROM Contrato
+where Activo = 1 and Numero_Medidor=@Medidor
+END
+go
+
+create procedure getTarifaSort
+@mes int,
+@ano int
+AS
+Begin
+Select 
+Id_Tarifa,
+ano,
+mes,
+Precio_Watt_Bajo,
+Precio_Watt_Medio,
+Precio_Watt_Excedente,
+Tipo_de_uso,
+Watt_Bajo,
+Watt_Medio,
+Watt_Excedente
+	FROM Tarifa where mes=@mes  and ano=@ano and Tipo_de_uso=0
+END
+go
+ create procedure getTarifaSortInd
+@mes int,
+@ano int
+AS
+Begin
+Select 
+Id_Tarifa,
+ano,
+mes,
+Precio_Watt_Bajo,
+Precio_Watt_Medio,
+Precio_Watt_Excedente,
+Tipo_de_uso,
+Watt_Bajo,
+Watt_Medio,
+Watt_Excedente
+	FROM Tarifa where mes=@mes  and ano=@ano and Tipo_de_uso=1
+END
+go
+ create procedure getConsumoSort
+AS
+Begin
+Select 
+Id_Consumo,
+ano,
+mes,
+Numero_Medidor,
+Watts
+	FROM Consumo where Watts>0
+	end
 go
 
 
@@ -414,32 +525,60 @@ Begin
 Insert into Consumo(Numero_Medidor,Watts,mes,ano ) values (@NumeroMedidor,@Watts,@mes,@ano)
 End
 go
-
+/*---------------------------------------------------------------------------------------------------------------*/
 
 Create procedure regConsumoMasivo
 @tblConsumo ConsumoMasivo readonly
 as 
 begin
 set nocount on;
-insert into Consumo(Numero_Medidor,Watts,mes,ano) select NumMedidor, Watts, mes,ano from @tblConsumo
+insert into Consumo(ano,mes,Numero_Medidor,Watts) select ano, mes, NumMedidor,Watts from @tblConsumo
 end
 
 go
 
-Create procedure regTarifaMasivo
+create procedure regTarifaMasivo
 @tblTarifa TarifaMasiva readonly
 as 
 begin
 set nocount on;
-insert into Tarifa(Precio_Watt_Bajo,Precio_Watt_Medio,Precio_Watt_Excedente,mes,ano,Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) select Precio_Bajo, Precio_Medio, Precio_Excedente ,mes,ano,Tipo_de_uso, Watt_Bajo,Watt_Medio, Watt_Excedente from @tblTarifa
+insert into Tarifa(Precio_Watt_Bajo,Precio_Watt_Medio,Precio_Watt_Excedente,mes,ano,Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) select Precio_Medio, Precio_Bajo, Precio_Excedente ,ano,mes,Tipo_de_uso, Watt_Bajo,Watt_Medio, Watt_Excedente from @tblTarifa
 end
 
 
 go
 
-Select * from Usuarios                         
+
+Create procedure regRecibo
+@watts int,
+@medidor int,
+@servicio bit,
+@curp varchar (18),
+@tarifa int,
+@subtotal float,
+@total float,
+@pendiente_pago float
+
+as
+begin
+insert into Recibo(Fecha,Watts,Servicio,Subtotal,Total,Pendiente_Pago,Pagado,Tarifa,Numero_Medidor,Cliente ) values (getdate(),@watts,@servicio,@subtotal,@total,@pendiente_pago,0,@tarifa,@medidor,@curp) 
+
+
+end
+ go
+
+   
+Select * from Clientes                         
+Select * from Recibo
+Select * from Tarifa      
+Select * from Consumo      
+Select * from Contrato  
+
+Select * from ReporteConsumoV  
+
+update Clientes set Activo = 1 
 
 
 
 update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon'
-insert into Usuarios(Nombre_Usuario, Contraseña,Permiso ) values('Jenifer Natasha','AdmiGenial',3)
+insert into Usuarios(Nombre_Usuario, Contraseï¿½a,Permiso ) values('Jenifer Natasha','AdmiGenial',3)

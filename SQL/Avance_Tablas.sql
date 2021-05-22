@@ -129,17 +129,6 @@ END
 
 
 
-CREATE TABLE Administrador(
-Nombre_Usuario			VARCHAR(50)  PRIMARY KEY  not null,
-Contraseña				VARCHAR (15) not null,
-Activo bit not null default (1),
-Permiso tinyint not null default (3)
-);
-
-Alter table Administrador add CONSTRAINT fk_UsuarioAdmin FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario)
-
-
-
 
 
 
@@ -147,6 +136,17 @@ CREATE TABLE Usuarios(
 Nombre_Usuario	VARCHAR (50) PRIMARY KEY not null,
 Contraseña		VARCHAR (15) not null,
 Permiso tinyint not null default (0)
+);
+
+
+CREATE TABLE Administrador(
+UsuAdmin int identity(1,1) Primary key,
+Nombre_Usuario			VARCHAR(50)    not null,
+Contraseña				VARCHAR (15) not null,
+Activo bit not null default (1),
+Permiso tinyint not null default (3),
+CONSTRAINT fk_UsuarioAdmin FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario)
+
 );
 
 
@@ -160,7 +160,7 @@ Nombre_Usuario VARCHAR(50) not null,
 Contraseña VARCHAR(50) not null,
 CONSTRAINT fk_Usuario FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
 genero varchar (25),
-Activo bit not null default (1),
+Activo bit  default (1),
 
 );
 
@@ -175,7 +175,7 @@ email varchar (30) UNIQUE not null,
 Nombre_Usuario varchar(50) not null,
 CONSTRAINT fk_UsuarioCliente FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
 Contraseña varchar (25),
-
+Activo bit default (1)
 );
 
 
@@ -184,7 +184,7 @@ Contraseña varchar (25),
 Create TABLE Contrato(
 Domicilio VARCHAR (50) PRIMARY KEY not null ,
 Servicio bit,
-Fecha smalldatetime not null,
+Fecha date not null,
 Cliente VARCHAR (18) not null,
 CONSTRAINT fk_ClienteCon FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 Activo bit default (1),
@@ -193,11 +193,14 @@ Numero_Medidor int UNIQUE identity (150,1)
 
 CREATE TABLE Consumo(
 Id_Consumo int identity (300,1),
-Numero_Medidor int not null,
-CONSTRAINT fk_MedidorCon FOREIGN KEY (Numero_Medidor) REFERENCES Contrato (Numero_Medidor),
-Watts int not null,
+
+ano int not null,
 mes int not null,
-ano int not null
+Numero_Medidor int not null,
+
+Watts int not null
+
+
 
 
 
@@ -208,15 +211,20 @@ ano int not null
 
 CREATE TABLE Tarifa(
 Id_Tarifa int identity (600,1) PRIMARY KEY,
+ano int,
+mes int not null,
+
+
 Precio_Watt_Bajo float default (0.5)not null,
 Precio_Watt_Medio float default (1) not null,
 Precio_Watt_Excedente float default (1.5)not null,
-mes int not null,
-ano int,
-Tipo_de_uso bit default (1),
+
+
+Tipo_de_uso bit default (0),
+
 Watt_Bajo int default (5000),         /* Por ejemplo consumo de hasta 5000 KiloWatts es consumo bajo, de 5000 a 10000 es consumo medio y de 10001 hacia arriba se considera consumo excedente     */
 Watt_Medio int default (10000),
-Watt_Excedente int,
+Watt_Excedente int
 );
 
 
@@ -229,15 +237,12 @@ Iva float default (0.16) not null,
 Fecha date not null,
 Watts int not null,
 Numero_Medidor int not null,
-CONSTRAINT fk_MedidorRec FOREIGN KEY (Numero_Medidor) REFERENCES Contrato (Numero_Medidor),
+Servicio bit default (0),
 Cliente VARCHAR(18),
-CONSTRAINT fk_ClienteRec FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 Tarifa int,
-CONSTRAINT fk_TarifaRec FOREIGN KEY (Tarifa) REFERENCES Tarifa (Id_Tarifa),
 Subtotal int not null,
 Total int not null,
-Importe money not null, 
-Pendiente_Pago money not null,
+Pendiente_Pago int not null,
 Pagado bit
 
 

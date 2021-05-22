@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class GenerarReciboyConsulta
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class GenerarReciboyConsulta
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.PanelMenu = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
@@ -44,14 +44,21 @@ Partial Class GenerarReciboyConsulta
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Fecha_Label = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Servicio_Label = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Domicilio_Label = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Cliente_Label = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
-        Me.ListBox_Clientes = New System.Windows.Forms.ListBox()
         Me.ListBox_ConsumoHist = New System.Windows.Forms.ListBox()
         Me.ListBox_Contratos = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -95,15 +102,17 @@ Partial Class GenerarReciboyConsulta
         Me.PanelMenu.Controls.Add(Me.Button_Pagar)
         Me.PanelMenu.Controls.Add(Me.PictureBox2)
         Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelMenu.Location = New System.Drawing.Point(0, 40)
+        Me.PanelMenu.Location = New System.Drawing.Point(0, 39)
+        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PanelMenu.Name = "PanelMenu"
-        Me.PanelMenu.Size = New System.Drawing.Size(220, 540)
+        Me.PanelMenu.Size = New System.Drawing.Size(220, 739)
         Me.PanelMenu.TabIndex = 10
         '
         'Panel10
         '
         Me.Panel10.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel10.Location = New System.Drawing.Point(0, 435)
+        Me.Panel10.Location = New System.Drawing.Point(0, 434)
+        Me.Panel10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel10.Name = "Panel10"
         Me.Panel10.Size = New System.Drawing.Size(5, 50)
         Me.Panel10.TabIndex = 50
@@ -119,7 +128,8 @@ Partial Class GenerarReciboyConsulta
         Me.Boton_ConsumoHistorico.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ConsumoHistorico.Image = Global.MAD_Proyect.My.Resources.Resources.compras
         Me.Boton_ConsumoHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ConsumoHistorico.Location = New System.Drawing.Point(0, 435)
+        Me.Boton_ConsumoHistorico.Location = New System.Drawing.Point(0, 534)
+        Me.Boton_ConsumoHistorico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Boton_ConsumoHistorico.Name = "Boton_ConsumoHistorico"
         Me.Boton_ConsumoHistorico.Size = New System.Drawing.Size(220, 50)
         Me.Boton_ConsumoHistorico.TabIndex = 49
@@ -130,7 +140,8 @@ Partial Class GenerarReciboyConsulta
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel6.Location = New System.Drawing.Point(0, 376)
+        Me.Panel6.Location = New System.Drawing.Point(0, 377)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(5, 50)
         Me.Panel6.TabIndex = 48
@@ -146,7 +157,8 @@ Partial Class GenerarReciboyConsulta
         Me.Boton_ReporteGeneral.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ReporteGeneral.Image = Global.MAD_Proyect.My.Resources.Resources.empleados
         Me.Boton_ReporteGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ReporteGeneral.Location = New System.Drawing.Point(0, 376)
+        Me.Boton_ReporteGeneral.Location = New System.Drawing.Point(0, 476)
+        Me.Boton_ReporteGeneral.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Boton_ReporteGeneral.Name = "Boton_ReporteGeneral"
         Me.Boton_ReporteGeneral.Size = New System.Drawing.Size(220, 50)
         Me.Boton_ReporteGeneral.TabIndex = 47
@@ -158,6 +170,7 @@ Partial Class GenerarReciboyConsulta
         '
         Me.Panel7.BackColor = System.Drawing.Color.ForestGreen
         Me.Panel7.Location = New System.Drawing.Point(0, 319)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(5, 50)
         Me.Panel7.TabIndex = 42
@@ -166,6 +179,7 @@ Partial Class GenerarReciboyConsulta
         '
         Me.Panel5.BackColor = System.Drawing.Color.ForestGreen
         Me.Panel5.Location = New System.Drawing.Point(0, 263)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(5, 50)
         Me.Panel5.TabIndex = 43
@@ -174,6 +188,7 @@ Partial Class GenerarReciboyConsulta
         '
         Me.Panel4.BackColor = System.Drawing.Color.ForestGreen
         Me.Panel4.Location = New System.Drawing.Point(0, 207)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(5, 50)
         Me.Panel4.TabIndex = 44
@@ -182,6 +197,7 @@ Partial Class GenerarReciboyConsulta
         '
         Me.Panel3.BackColor = System.Drawing.Color.ForestGreen
         Me.Panel3.Location = New System.Drawing.Point(0, 151)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(5, 50)
         Me.Panel3.TabIndex = 45
@@ -190,6 +206,7 @@ Partial Class GenerarReciboyConsulta
         '
         Me.Panel2.BackColor = System.Drawing.Color.ForestGreen
         Me.Panel2.Location = New System.Drawing.Point(0, 95)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(5, 50)
         Me.Panel2.TabIndex = 46
@@ -205,7 +222,8 @@ Partial Class GenerarReciboyConsulta
         Me.Boton_ReporteTarifasyConsum.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ReporteTarifasyConsum.Image = Global.MAD_Proyect.My.Resources.Resources.relo3
         Me.Boton_ReporteTarifasyConsum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ReporteTarifasyConsum.Location = New System.Drawing.Point(0, 319)
+        Me.Boton_ReporteTarifasyConsum.Location = New System.Drawing.Point(0, 418)
+        Me.Boton_ReporteTarifasyConsum.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Boton_ReporteTarifasyConsum.Name = "Boton_ReporteTarifasyConsum"
         Me.Boton_ReporteTarifasyConsum.Size = New System.Drawing.Size(220, 50)
         Me.Boton_ReporteTarifasyConsum.TabIndex = 37
@@ -224,7 +242,8 @@ Partial Class GenerarReciboyConsulta
         Me.Boton_GenerarReciboyConsulta.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_GenerarReciboyConsulta.Image = Global.MAD_Proyect.My.Resources.Resources.reportes
         Me.Boton_GenerarReciboyConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_GenerarReciboyConsulta.Location = New System.Drawing.Point(0, 263)
+        Me.Boton_GenerarReciboyConsulta.Location = New System.Drawing.Point(0, 363)
+        Me.Boton_GenerarReciboyConsulta.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Boton_GenerarReciboyConsulta.Name = "Boton_GenerarReciboyConsulta"
         Me.Boton_GenerarReciboyConsulta.Size = New System.Drawing.Size(220, 50)
         Me.Boton_GenerarReciboyConsulta.TabIndex = 38
@@ -244,7 +263,8 @@ Partial Class GenerarReciboyConsulta
         Me.Boton_Cargas.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_Cargas.Image = Global.MAD_Proyect.My.Resources.Resources.producto
         Me.Boton_Cargas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_Cargas.Location = New System.Drawing.Point(0, 207)
+        Me.Boton_Cargas.Location = New System.Drawing.Point(0, 306)
+        Me.Boton_Cargas.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Boton_Cargas.Name = "Boton_Cargas"
         Me.Boton_Cargas.Size = New System.Drawing.Size(220, 50)
         Me.Boton_Cargas.TabIndex = 39
@@ -263,7 +283,8 @@ Partial Class GenerarReciboyConsulta
         Me.Boton_Contratos.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_Contratos.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_Restaurar
         Me.Boton_Contratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_Contratos.Location = New System.Drawing.Point(0, 151)
+        Me.Boton_Contratos.Location = New System.Drawing.Point(0, 251)
+        Me.Boton_Contratos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Boton_Contratos.Name = "Boton_Contratos"
         Me.Boton_Contratos.Size = New System.Drawing.Size(220, 50)
         Me.Boton_Contratos.TabIndex = 40
@@ -283,7 +304,8 @@ Partial Class GenerarReciboyConsulta
         Me.Button_Gestion.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Gestion.Image = Global.MAD_Proyect.My.Resources.Resources.clientes
         Me.Button_Gestion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button_Gestion.Location = New System.Drawing.Point(0, 95)
+        Me.Button_Gestion.Location = New System.Drawing.Point(0, 194)
+        Me.Button_Gestion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button_Gestion.Name = "Button_Gestion"
         Me.Button_Gestion.Size = New System.Drawing.Size(220, 50)
         Me.Button_Gestion.TabIndex = 41
@@ -295,6 +317,7 @@ Partial Class GenerarReciboyConsulta
         '
         Me.Panel9.BackColor = System.Drawing.Color.ForestGreen
         Me.Panel9.Location = New System.Drawing.Point(0, 487)
+        Me.Panel9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(5, 50)
         Me.Panel9.TabIndex = 36
@@ -310,6 +333,7 @@ Partial Class GenerarReciboyConsulta
         Me.Button_Pagar.Image = Global.MAD_Proyect.My.Resources.Resources.pagos
         Me.Button_Pagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button_Pagar.Location = New System.Drawing.Point(0, 487)
+        Me.Button_Pagar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button_Pagar.Name = "Button_Pagar"
         Me.Button_Pagar.Size = New System.Drawing.Size(220, 50)
         Me.Button_Pagar.TabIndex = 29
@@ -322,8 +346,9 @@ Partial Class GenerarReciboyConsulta
         '
         Me.PictureBox2.Image = Global.MAD_Proyect.My.Resources.Resources.CFE
         Me.PictureBox2.Location = New System.Drawing.Point(0, 6)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(220, 83)
+        Me.PictureBox2.Size = New System.Drawing.Size(220, 82)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 25
         Me.PictureBox2.TabStop = False
@@ -335,8 +360,9 @@ Partial Class GenerarReciboyConsulta
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1100, 40)
+        Me.Panel1.Size = New System.Drawing.Size(1317, 39)
         Me.Panel1.TabIndex = 9
         '
         'Button1
@@ -346,9 +372,10 @@ Partial Class GenerarReciboyConsulta
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_cerrar_FN
-        Me.Button1.Location = New System.Drawing.Point(1057, 0)
+        Me.Button1.Location = New System.Drawing.Point(1275, 1)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(40, 40)
+        Me.Button1.Size = New System.Drawing.Size(40, 39)
         Me.Button1.TabIndex = 1
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -366,31 +393,134 @@ Partial Class GenerarReciboyConsulta
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.Fecha_Label)
+        Me.GroupBox2.Controls.Add(Me.Label17)
+        Me.GroupBox2.Controls.Add(Me.Servicio_Label)
+        Me.GroupBox2.Controls.Add(Me.Label15)
+        Me.GroupBox2.Controls.Add(Me.Domicilio_Label)
+        Me.GroupBox2.Controls.Add(Me.Label13)
+        Me.GroupBox2.Controls.Add(Me.Cliente_Label)
+        Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.ComboBox3)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
-        Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.Button9)
-        Me.GroupBox2.Controls.Add(Me.ListBox_Clientes)
         Me.GroupBox2.Controls.Add(Me.ListBox_ConsumoHist)
         Me.GroupBox2.Controls.Add(Me.ListBox_Contratos)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
         Me.GroupBox2.Location = New System.Drawing.Point(239, 46)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(849, 370)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(1044, 572)
         Me.GroupBox2.TabIndex = 46
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Generar Recibos"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(95, 434)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(208, 43)
+        Me.Button3.TabIndex = 55
+        Me.Button3.Text = "Generar Recibo"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Fecha_Label
+        '
+        Me.Fecha_Label.AutoSize = True
+        Me.Fecha_Label.ForeColor = System.Drawing.Color.Black
+        Me.Fecha_Label.Location = New System.Drawing.Point(179, 405)
+        Me.Fecha_Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Fecha_Label.Name = "Fecha_Label"
+        Me.Fecha_Label.Size = New System.Drawing.Size(218, 17)
+        Me.Fecha_Label.TabIndex = 54
+        Me.Fecha_Label.Text = "Favor de Seleccionar un contrato"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(21, 405)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(153, 17)
+        Me.Label17.TabIndex = 53
+        Me.Label17.Text = "Fecha de contratacion:"
+        '
+        'Servicio_Label
+        '
+        Me.Servicio_Label.AutoSize = True
+        Me.Servicio_Label.ForeColor = System.Drawing.Color.Black
+        Me.Servicio_Label.Location = New System.Drawing.Point(85, 374)
+        Me.Servicio_Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Servicio_Label.Name = "Servicio_Label"
+        Me.Servicio_Label.Size = New System.Drawing.Size(218, 17)
+        Me.Servicio_Label.TabIndex = 52
+        Me.Servicio_Label.Text = "Favor de Seleccionar un contrato"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(21, 374)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(62, 17)
+        Me.Label15.TabIndex = 51
+        Me.Label15.Text = "Servicio:"
+        '
+        'Domicilio_Label
+        '
+        Me.Domicilio_Label.AutoSize = True
+        Me.Domicilio_Label.ForeColor = System.Drawing.Color.Black
+        Me.Domicilio_Label.Location = New System.Drawing.Point(85, 347)
+        Me.Domicilio_Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Domicilio_Label.Name = "Domicilio_Label"
+        Me.Domicilio_Label.Size = New System.Drawing.Size(218, 17)
+        Me.Domicilio_Label.TabIndex = 50
+        Me.Domicilio_Label.Text = "Favor de Seleccionar un contrato"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(21, 347)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(68, 17)
+        Me.Label13.TabIndex = 49
+        Me.Label13.Text = "Domicilio:"
+        '
+        'Cliente_Label
+        '
+        Me.Cliente_Label.AutoSize = True
+        Me.Cliente_Label.ForeColor = System.Drawing.Color.Black
+        Me.Cliente_Label.Location = New System.Drawing.Point(85, 320)
+        Me.Cliente_Label.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Cliente_Label.Name = "Cliente_Label"
+        Me.Cliente_Label.Size = New System.Drawing.Size(218, 17)
+        Me.Cliente_Label.TabIndex = 48
+        Me.Cliente_Label.Text = "Favor de Seleccionar un contrato"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(21, 320)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(55, 17)
+        Me.Label11.TabIndex = 47
+        Me.Label11.Text = "Cliente:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(639, 44)
+        Me.Label5.Location = New System.Drawing.Point(811, 53)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(39, 20)
         Me.Label5.TabIndex = 46
@@ -400,7 +530,7 @@ Partial Class GenerarReciboyConsulta
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(443, 44)
+        Me.Label4.Location = New System.Drawing.Point(615, 53)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 20)
         Me.Label4.TabIndex = 46
@@ -411,9 +541,10 @@ Partial Class GenerarReciboyConsulta
         Me.ComboBox3.BackColor = System.Drawing.Color.Cornsilk
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(643, 67)
+        Me.ComboBox3.Location = New System.Drawing.Point(815, 75)
+        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(190, 24)
+        Me.ComboBox3.Size = New System.Drawing.Size(191, 24)
         Me.ComboBox3.TabIndex = 45
         '
         'ComboBox2
@@ -422,20 +553,11 @@ Partial Class GenerarReciboyConsulta
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre ", "Noviembre ", "Diciembre"})
-        Me.ComboBox2.Location = New System.Drawing.Point(445, 67)
+        Me.ComboBox2.Location = New System.Drawing.Point(617, 75)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(190, 24)
+        Me.ComboBox2.Size = New System.Drawing.Size(191, 24)
         Me.ComboBox2.TabIndex = 45
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Uso domestico", "Uso industrial"})
-        Me.ComboBox1.Location = New System.Drawing.Point(174, 27)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(197, 24)
-        Me.ComboBox1.TabIndex = 44
         '
         'Button2
         '
@@ -443,7 +565,8 @@ Partial Class GenerarReciboyConsulta
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(643, 321)
+        Me.Button2.Location = New System.Drawing.Point(815, 330)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(200, 39)
         Me.Button2.TabIndex = 43
@@ -456,26 +579,13 @@ Partial Class GenerarReciboyConsulta
         Me.Button9.FlatAppearance.BorderSize = 0
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(445, 325)
+        Me.Button9.Location = New System.Drawing.Point(617, 334)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(123, 39)
         Me.Button9.TabIndex = 43
         Me.Button9.Text = "Generar Recibo"
         Me.Button9.UseVisualStyleBackColor = False
-        '
-        'ListBox_Clientes
-        '
-        Me.ListBox_Clientes.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ListBox_Clientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox_Clientes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ListBox_Clientes.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox_Clientes.ForeColor = System.Drawing.Color.OliveDrab
-        Me.ListBox_Clientes.FormattingEnabled = True
-        Me.ListBox_Clientes.ItemHeight = 27
-        Me.ListBox_Clientes.Location = New System.Drawing.Point(6, 75)
-        Me.ListBox_Clientes.Name = "ListBox_Clientes"
-        Me.ListBox_Clientes.Size = New System.Drawing.Size(203, 272)
-        Me.ListBox_Clientes.TabIndex = 15
         '
         'ListBox_ConsumoHist
         '
@@ -486,9 +596,10 @@ Partial Class GenerarReciboyConsulta
         Me.ListBox_ConsumoHist.ForeColor = System.Drawing.Color.OliveDrab
         Me.ListBox_ConsumoHist.FormattingEnabled = True
         Me.ListBox_ConsumoHist.ItemHeight = 27
-        Me.ListBox_ConsumoHist.Location = New System.Drawing.Point(445, 97)
+        Me.ListBox_ConsumoHist.Location = New System.Drawing.Point(617, 106)
+        Me.ListBox_ConsumoHist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ListBox_ConsumoHist.Name = "ListBox_ConsumoHist"
-        Me.ListBox_ConsumoHist.Size = New System.Drawing.Size(398, 218)
+        Me.ListBox_ConsumoHist.Size = New System.Drawing.Size(398, 191)
         Me.ListBox_ConsumoHist.TabIndex = 15
         '
         'ListBox_Contratos
@@ -500,9 +611,10 @@ Partial Class GenerarReciboyConsulta
         Me.ListBox_Contratos.ForeColor = System.Drawing.Color.OliveDrab
         Me.ListBox_Contratos.FormattingEnabled = True
         Me.ListBox_Contratos.ItemHeight = 27
-        Me.ListBox_Contratos.Location = New System.Drawing.Point(222, 75)
+        Me.ListBox_Contratos.Location = New System.Drawing.Point(21, 59)
+        Me.ListBox_Contratos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ListBox_Contratos.Name = "ListBox_Contratos"
-        Me.ListBox_Contratos.Size = New System.Drawing.Size(217, 272)
+        Me.ListBox_Contratos.Size = New System.Drawing.Size(376, 245)
         Me.ListBox_Contratos.TabIndex = 15
         '
         'Label1
@@ -510,7 +622,7 @@ Partial Class GenerarReciboyConsulta
         Me.Label1.AutoSize = True
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(547, 18)
+        Me.Label1.Location = New System.Drawing.Point(719, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(203, 23)
         Me.Label1.TabIndex = 17
@@ -523,9 +635,9 @@ Partial Class GenerarReciboyConsulta
         Me.Label3.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(25, 28)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(144, 23)
+        Me.Label3.Size = New System.Drawing.Size(179, 23)
         Me.Label3.TabIndex = 17
-        Me.Label3.Text = "Tipo de Servicio"
+        Me.Label3.Text = "Numero de Medidor"
         '
         'GroupBox1
         '
@@ -540,9 +652,11 @@ Partial Class GenerarReciboyConsulta
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
-        Me.GroupBox1.Location = New System.Drawing.Point(239, 422)
+        Me.GroupBox1.Location = New System.Drawing.Point(248, 623)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(849, 142)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(1035, 142)
         Me.GroupBox1.TabIndex = 46
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consulta de Recibo"
@@ -572,9 +686,10 @@ Partial Class GenerarReciboyConsulta
         Me.ComboBox4.BackColor = System.Drawing.Color.Cornsilk
         Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(415, 99)
+        Me.ComboBox4.Location = New System.Drawing.Point(415, 98)
+        Me.ComboBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(190, 24)
+        Me.ComboBox4.Size = New System.Drawing.Size(191, 24)
         Me.ComboBox4.TabIndex = 45
         '
         'ComboBox5
@@ -583,16 +698,18 @@ Partial Class GenerarReciboyConsulta
         Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox5.FormattingEnabled = True
         Me.ComboBox5.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre ", "Noviembre ", "Diciembre"})
-        Me.ComboBox5.Location = New System.Drawing.Point(219, 99)
+        Me.ComboBox5.Location = New System.Drawing.Point(219, 98)
+        Me.ComboBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(190, 24)
+        Me.ComboBox5.Size = New System.Drawing.Size(191, 24)
         Me.ComboBox5.TabIndex = 45
         '
         'ComboBox7
         '
         Me.ComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(456, 29)
+        Me.ComboBox7.Location = New System.Drawing.Point(456, 30)
+        Me.ComboBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox7.Name = "ComboBox7"
         Me.ComboBox7.Size = New System.Drawing.Size(183, 24)
         Me.ComboBox7.TabIndex = 44
@@ -601,7 +718,8 @@ Partial Class GenerarReciboyConsulta
         '
         Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(174, 28)
+        Me.ComboBox6.Location = New System.Drawing.Point(173, 28)
+        Me.ComboBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.Size = New System.Drawing.Size(183, 24)
         Me.ComboBox6.TabIndex = 44
@@ -612,7 +730,8 @@ Partial Class GenerarReciboyConsulta
         Me.Button10.FlatAppearance.BorderSize = 0
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button10.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(694, 53)
+        Me.Button10.Location = New System.Drawing.Point(693, 53)
+        Me.Button10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(127, 39)
         Me.Button10.TabIndex = 43
@@ -624,7 +743,7 @@ Partial Class GenerarReciboyConsulta
         Me.Label8.AutoSize = True
         Me.Label8.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label8.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(10, 94)
+        Me.Label8.Location = New System.Drawing.Point(11, 94)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(203, 23)
         Me.Label8.TabIndex = 17
@@ -635,7 +754,7 @@ Partial Class GenerarReciboyConsulta
         Me.Label10.AutoSize = True
         Me.Label10.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label10.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(368, 29)
+        Me.Label10.Location = New System.Drawing.Point(368, 30)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(82, 23)
         Me.Label10.TabIndex = 17
@@ -646,7 +765,7 @@ Partial Class GenerarReciboyConsulta
         Me.Label9.AutoSize = True
         Me.Label9.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label9.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(10, 29)
+        Me.Label9.Location = New System.Drawing.Point(11, 30)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(153, 23)
         Me.Label9.TabIndex = 17
@@ -656,12 +775,13 @@ Partial Class GenerarReciboyConsulta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1100, 580)
+        Me.ClientSize = New System.Drawing.Size(1317, 778)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.PanelMenu)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "GenerarReciboyConsulta"
         Me.Text = "GenerarRecibo_Reportes"
         Me.PanelMenu.ResumeLayout(False)
@@ -686,7 +806,6 @@ Partial Class GenerarReciboyConsulta
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
@@ -716,9 +835,17 @@ Partial Class GenerarReciboyConsulta
     Friend WithEvents Boton_Cargas As Button
     Friend WithEvents Boton_Contratos As Button
     Friend WithEvents Button_Gestion As Button
-    Friend WithEvents ListBox_Clientes As ListBox
     Friend WithEvents Button2 As Button
     Friend WithEvents ListBox_ConsumoHist As ListBox
     Friend WithEvents ComboBox7 As ComboBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Cliente_Label As Label
+    Friend WithEvents Fecha_Label As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Servicio_Label As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Domicilio_Label As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Button3 As Button
 End Class

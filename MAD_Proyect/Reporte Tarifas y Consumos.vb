@@ -42,17 +42,17 @@ Public Class Reporte_Tarifas_y_Consumos
         Dim aniosconsul As New List(Of Integer)
 
 
-        For anio As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
-            anios.Add(anio)
-        Next anio
+        For ano As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
+            anios.Add(ano)
+        Next ano
 
         ComboBox3.DataSource = anios
         DataGridView_Tarifa.AllowUserToAddRows = False
         DataGridView_Tarifa.AllowUserToAddRows = False
 
-        For anio As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
-            aniosconsul.Add(anio)
-        Next anio
+        For ano As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
+            aniosconsul.Add(ano)
+        Next ano
 
         ComboBox1.DataSource = aniosconsul
         DataGridView_Consumo.AllowUserToAddRows = False
@@ -63,11 +63,11 @@ Public Class Reporte_Tarifas_y_Consumos
     Private Sub Button_Consul_Tarifa_Click(sender As Object, e As EventArgs) Handles Button_Consul_Tarifa.Click
         Dim enlace As New EnlaceBD
         Dim TablaGridTarifa As New DataTable
-        Dim anio As Integer
+        Dim ano As Integer
 
-        anio = ComboBox3.SelectedItem
+        ano = ComboBox3.SelectedItem
 
-        TablaGridTarifa = enlace.getInfoTarifa(anio)
+        TablaGridTarifa = enlace.getInfoTarifa(ano)
         DataGridView_Tarifa.DataSource = TablaGridTarifa
 
 
@@ -76,11 +76,11 @@ Public Class Reporte_Tarifas_y_Consumos
     Private Sub Button_Cons_Consumo_Click(sender As Object, e As EventArgs) Handles Button_Cons_Consumo.Click
         Dim enlace As New EnlaceBD
         Dim TablaGridConsumo As New DataTable
-        Dim anio As Integer
+        Dim ano As Integer
 
-        anio = ComboBox1.SelectedItem
+        ano = ComboBox1.SelectedItem
 
-        TablaGridConsumo = enlace.getInfoConsumo(anio)
+        TablaGridConsumo = enlace.getInfoConsumo(ano)
         DataGridView_Consumo.DataSource = TablaGridConsumo
 
     End Sub
@@ -95,10 +95,10 @@ Public Class Reporte_Tarifas_y_Consumos
     Public Sub ExportarDatosPDF(ByVal document As Document)
 
         Dim enlace As New EnlaceBD
-        Dim anio As Integer
+        Dim ano As Integer
         Dim tablaaux As New DataTable
-        anio = Conversion.Int(ComboBox3.SelectedItem)
-        tablaaux = enlace.getInfoTarifa(anio)
+        ano = Conversion.Int(ComboBox3.SelectedItem)
+        tablaaux = enlace.getInfoTarifa(ano)
 
 
         Dim datatable As New PdfPTable(DataGridView_Tarifa.ColumnCount)
@@ -110,7 +110,7 @@ Public Class Reporte_Tarifas_y_Consumos
         datatable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER
 
         Dim encabezado As New Paragraph("Reporte de Tarifas", New Font(Font.Name = "Tahoma", 20, Font.Bold))
-        Dim texto As New Phrase("El reporte de Tarifas es del año :" + anio.ToString(), New Font(Font.Name = "Tahoma", 14, Font.Bold))
+        Dim texto As New Phrase("El reporte de Tarifas es del año :" + ano.ToString(), New Font(Font.Name = "Tahoma", 14, Font.Bold))
 
         For i As Integer = 0 To DataGridView_Tarifa.ColumnCount - 1
             datatable.AddCell(DataGridView_Tarifa.Columns(i).HeaderText)
@@ -155,10 +155,10 @@ Public Class Reporte_Tarifas_y_Consumos
     Public Sub ExportarDatosConsumoPDF(ByVal document As Document)
 
         Dim enlace As New EnlaceBD
-        Dim anio As Integer
+        Dim ano As Integer
         Dim tablaaux As New DataTable
-        anio = Conversion.Int(ComboBox1.SelectedItem)
-        tablaaux = enlace.getInfoConsumo(anio)
+        ano = Conversion.Int(ComboBox1.SelectedItem)
+        tablaaux = enlace.getInfoConsumo(ano)
 
 
         Dim datatable As New PdfPTable(DataGridView_Consumo.ColumnCount)
@@ -170,7 +170,7 @@ Public Class Reporte_Tarifas_y_Consumos
         datatable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER
 
         Dim encabezado As New Paragraph("Reporte de Consumo", New Font(Font.Name = "Tahoma", 20, Font.Bold))
-        Dim texto As New Phrase("El reporte de Consumo es del año :" + anio.ToString(), New Font(Font.Name = "Tahoma", 14, Font.Bold))
+        Dim texto As New Phrase("El reporte de Consumo es del año :" + ano.ToString(), New Font(Font.Name = "Tahoma", 14, Font.Bold))
 
         For i As Integer = 0 To DataGridView_Consumo.ColumnCount - 1
             datatable.AddCell(DataGridView_Consumo.Columns(i).HeaderText)
@@ -216,13 +216,13 @@ Public Class Reporte_Tarifas_y_Consumos
         Dim tablaaux As New DataTable
         Dim i As Integer
         Dim cuerda As String
-        Dim anio As Integer
+        Dim ano As Integer
 
-        tabla = enlace.getInfoTarifa(anio)
+        tabla = enlace.getInfoTarifa(ano)
 
-        anio = Conversion.Int(ComboBox3.SelectedItem)
+        ano = Conversion.Int(ComboBox3.SelectedItem)
 
-        cuerda = "Reporte de tarifa del año" + "_" + anio.ToString() + "_" + ".csv"
+        cuerda = "Reporte de tarifa del año" + "_" + ano.ToString() + "_" + ".csv"
 
         Dim fileCSV As String = cuerda
         If File.Exists(fileCSV) Then
@@ -232,7 +232,7 @@ Public Class Reporte_Tarifas_y_Consumos
         Dim CSV As StreamWriter = New StreamWriter(fileCSV, True)
         CSV.WriteLine(" Anio , Mes , Tarifa Basica , Tarifa Intermedia , Tarifa Excedente")
 
-        tablaaux = enlace.getInfoTarifa(anio)
+        tablaaux = enlace.getInfoTarifa(ano)
 
         i = tabla.Rows().Count
 
@@ -257,13 +257,13 @@ Public Class Reporte_Tarifas_y_Consumos
         Dim tablaaux As New DataTable
         Dim i As Integer
         Dim cuerda As String
-        Dim anio As Integer
+        Dim ano As Integer
 
-        tabla = enlace.getInfoConsumo(anio)
+        tabla = enlace.getInfoConsumo(ano)
 
-        anio = Conversion.Int(ComboBox1.SelectedItem)
+        ano = Conversion.Int(ComboBox1.SelectedItem)
 
-        cuerda = "Reporte de Consumo del año" + "_" + anio.ToString() + "_" + ".csv"
+        cuerda = "Reporte de Consumo del año" + "_" + ano.ToString() + "_" + ".csv"
 
         Dim fileCSV As String = cuerda
         If File.Exists(fileCSV) Then
@@ -273,7 +273,7 @@ Public Class Reporte_Tarifas_y_Consumos
         Dim CSV As StreamWriter = New StreamWriter(fileCSV, True)
         CSV.WriteLine(" Anio , Mes , Numero de Medidor , kW Basica , kW Intermedia , kW Excedente")
 
-        tablaaux = enlace.getInfoConsumo(anio)
+        tablaaux = enlace.getInfoConsumo(ano)
 
         i = tabla.Rows().Count
 
