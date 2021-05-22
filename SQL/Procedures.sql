@@ -287,6 +287,9 @@ END
 END
 GO
 
+
+
+
 CREATE procedure LoginPermiso
 @Nombre_Usuario varchar (50)
 as 
@@ -319,6 +322,41 @@ on Empl.Nombre_Usuario = Usuar.Nombre_Usuario
 where Empl.Nombre_Usuario =@Nombre_Usuario  
 END
 GO
+
+create procedure ActivarLogin
+@Nombre_Usuario	varchar(50),
+@activo bit
+as
+begin
+Update Usuarios set Activo = @activo where Nombre_Usuario = @Nombre_Usuario
+
+
+end 
+go
+
+create procedure SortUsuario
+as 
+begin
+select Nombre_Usuario from Usuarios where Activo=1
+end
+go
+
+create procedure SortCliente
+@nombre_usuario varchar (50)
+as begin
+select
+CURP,
+Fecha_Nacimiento,
+Nombre,
+Fecha_de_Alta_Modificacion,
+Genero,
+email
+from Clientes where Nombre_Usuario= @nombre_usuario
+end 
+go
+
+
+
 
 create procedure DesactivarLogin
 @Nombre_Usuario	varchar(50)
@@ -442,6 +480,7 @@ FROM Contrato
 where Activo = 1 
 END
 go
+
 create procedure getContratosMedidor
 @Medidor int
 AS
@@ -455,6 +494,22 @@ Numero_Medidor
 
 FROM Contrato
 where Activo = 1 and Numero_Medidor=@Medidor
+END
+go
+
+create procedure getContratosCliente
+@curp varchar(18)
+AS
+Begin
+Select 
+Domicilio,
+Servicio,
+Fecha,
+Cliente,
+Numero_Medidor
+
+FROM Contrato
+where Activo = 1 and Cliente=@curp
 END
 go
 
@@ -566,14 +621,66 @@ insert into Recibo(Fecha,Watts,Servicio,Subtotal,Total,Pendiente_Pago,Pagado,Tar
 
 end
  go
+ create procedure getRecibodataCURPactivo
+@curp varchar(18)
+AS
+Begin
+Select 
+Id_Recibo,
+Fecha,
+Watts,
+Tarifa,
+Subtotal,
+Total,
+Pendiente_Pago
+Fecha,
+Cliente,
+Numero_Medidor,
+Pagado
 
+FROM Recibo
+where  Cliente=@curp and Pagado=0
+END
+go
+ create procedure getRecibodataCURPinactivo
+@curp varchar(18)
+AS
+Begin
+Select 
+Id_Recibo,
+Fecha,
+Watts,
+Tarifa,
+Subtotal,
+Total,
+Pendiente_Pago
+Fecha,
+Cliente,
+Numero_Medidor,
+Pagado
+
+FROM Recibo
+where  Cliente=@curp and Pagado=1
+END
+go
+
+create procedure updateReciboPago
+@pendientepago int,
+@pagado bit,
+@Id int
+as 
+begin
+Update Recibo set Pendiente_Pago = @pendientepago where Id_Recibo = @Id
+Update Recibo set Pagado = @pagado where Id_Recibo = @Id
+end
+go
    
 Select * from Clientes                         
 Select * from Recibo
 Select * from Tarifa      
 Select * from Consumo      
 Select * from Contrato  
-
+Select * from Usuarios
 Select * from ReporteConsumoV  
 
 update Clientes set Activo = 1 
