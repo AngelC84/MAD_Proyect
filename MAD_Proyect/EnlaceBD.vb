@@ -470,6 +470,32 @@ Public Class EnlaceBD
         End Try
         Return nuevatablaEmpl
     End Function
+    Public Function getTarifaSortID(ByVal ID As Int32) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getTarifaSortID"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@ID", SqlDbType.Int)
+            parametro1.Value = ID
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
 
 
     Public Function SortCliente(ByVal Nombre As String) As DataTable

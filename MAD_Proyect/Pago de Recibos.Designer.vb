@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Pago_de_Recibos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Pago_de_Recibos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.PanelMenu = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
@@ -34,6 +34,11 @@ Partial Class Pago_de_Recibos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Totes_label = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Tasa_Label = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Todos = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBox_Nombre = New System.Windows.Forms.TextBox()
@@ -54,7 +59,6 @@ Partial Class Pago_de_Recibos
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ListBox_RecibosPagados = New System.Windows.Forms.ListBox()
-        Me.Todos = New System.Windows.Forms.Button()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -187,7 +191,7 @@ Partial Class Pago_de_Recibos
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(825, 32)
+        Me.Panel1.Size = New System.Drawing.Size(898, 32)
         Me.Panel1.TabIndex = 11
         '
         'Button1
@@ -197,7 +201,7 @@ Partial Class Pago_de_Recibos
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_cerrar_FN
-        Me.Button1.Location = New System.Drawing.Point(793, 0)
+        Me.Button1.Location = New System.Drawing.Point(868, 0)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(30, 32)
@@ -219,6 +223,10 @@ Partial Class Pago_de_Recibos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Totes_label)
+        Me.GroupBox2.Controls.Add(Me.Label10)
+        Me.GroupBox2.Controls.Add(Me.Tasa_Label)
+        Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Todos)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Label5)
@@ -243,16 +251,68 @@ Partial Class Pago_de_Recibos
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(637, 315)
+        Me.GroupBox2.Size = New System.Drawing.Size(717, 315)
         Me.GroupBox2.TabIndex = 47
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Pagos"
+        '
+        'Totes_label
+        '
+        Me.Totes_label.AutoSize = True
+        Me.Totes_label.ForeColor = System.Drawing.Color.Black
+        Me.Totes_label.Location = New System.Drawing.Point(388, 181)
+        Me.Totes_label.Name = "Totes_label"
+        Me.Totes_label.Size = New System.Drawing.Size(165, 13)
+        Me.Totes_label.TabIndex = 67
+        Me.Totes_label.Text = "Favor de Seleccionar un contrato"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(315, 181)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(34, 13)
+        Me.Label10.TabIndex = 66
+        Me.Label10.Text = "Total:"
+        '
+        'Tasa_Label
+        '
+        Me.Tasa_Label.AutoSize = True
+        Me.Tasa_Label.ForeColor = System.Drawing.Color.Black
+        Me.Tasa_Label.Location = New System.Drawing.Point(388, 121)
+        Me.Tasa_Label.Name = "Tasa_Label"
+        Me.Tasa_Label.Size = New System.Drawing.Size(165, 13)
+        Me.Tasa_Label.TabIndex = 65
+        Me.Tasa_Label.Text = "Favor de Seleccionar un contrato"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(318, 121)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(64, 13)
+        Me.Label8.TabIndex = 64
+        Me.Label8.Text = "Tasa Tarifa:"
+        '
+        'Todos
+        '
+        Me.Todos.BackColor = System.Drawing.Color.LightYellow
+        Me.Todos.FlatAppearance.BorderSize = 0
+        Me.Todos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Todos.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Todos.Location = New System.Drawing.Point(152, 239)
+        Me.Todos.Margin = New System.Windows.Forms.Padding(2)
+        Me.Todos.Name = "Todos"
+        Me.Todos.Size = New System.Drawing.Size(118, 60)
+        Me.Todos.TabIndex = 63
+        Me.Todos.Text = "Pagar Todos"
+        Me.Todos.UseVisualStyleBackColor = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(389, 181)
+        Me.Label1.Location = New System.Drawing.Point(389, 212)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(27, 13)
         Me.Label1.TabIndex = 62
@@ -261,7 +321,7 @@ Partial Class Pago_de_Recibos
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(316, 181)
+        Me.Label5.Location = New System.Drawing.Point(316, 212)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 13)
         Me.Label5.TabIndex = 61
@@ -270,7 +330,7 @@ Partial Class Pago_de_Recibos
         'TextBox_Nombre
         '
         Me.TextBox_Nombre.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_Nombre.Location = New System.Drawing.Point(392, 251)
+        Me.TextBox_Nombre.Location = New System.Drawing.Point(392, 282)
         Me.TextBox_Nombre.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox_Nombre.Name = "TextBox_Nombre"
         Me.TextBox_Nombre.Size = New System.Drawing.Size(203, 20)
@@ -279,7 +339,7 @@ Partial Class Pago_de_Recibos
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(316, 251)
+        Me.Label15.Location = New System.Drawing.Point(316, 282)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(45, 13)
         Me.Label15.TabIndex = 59
@@ -289,7 +349,7 @@ Partial Class Pago_de_Recibos
         '
         Me.Pendiente_Label.AutoSize = True
         Me.Pendiente_Label.ForeColor = System.Drawing.Color.Black
-        Me.Pendiente_Label.Location = New System.Drawing.Point(413, 212)
+        Me.Pendiente_Label.Location = New System.Drawing.Point(413, 243)
         Me.Pendiente_Label.Name = "Pendiente_Label"
         Me.Pendiente_Label.Size = New System.Drawing.Size(160, 13)
         Me.Pendiente_Label.TabIndex = 58
@@ -298,7 +358,7 @@ Partial Class Pago_de_Recibos
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(316, 212)
+        Me.Label14.Location = New System.Drawing.Point(316, 243)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(86, 13)
         Me.Label14.TabIndex = 57
@@ -308,7 +368,7 @@ Partial Class Pago_de_Recibos
         '
         Me.Total_Label.AutoSize = True
         Me.Total_Label.ForeColor = System.Drawing.Color.Black
-        Me.Total_Label.Location = New System.Drawing.Point(389, 154)
+        Me.Total_Label.Location = New System.Drawing.Point(389, 161)
         Me.Total_Label.Name = "Total_Label"
         Me.Total_Label.Size = New System.Drawing.Size(165, 13)
         Me.Total_Label.TabIndex = 56
@@ -317,7 +377,7 @@ Partial Class Pago_de_Recibos
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(316, 154)
+        Me.Label12.Location = New System.Drawing.Point(316, 161)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(34, 13)
         Me.Label12.TabIndex = 55
@@ -327,7 +387,7 @@ Partial Class Pago_de_Recibos
         '
         Me.Subtotal_Label.AutoSize = True
         Me.Subtotal_Label.ForeColor = System.Drawing.Color.Black
-        Me.Subtotal_Label.Location = New System.Drawing.Point(389, 127)
+        Me.Subtotal_Label.Location = New System.Drawing.Point(389, 143)
         Me.Subtotal_Label.Name = "Subtotal_Label"
         Me.Subtotal_Label.Size = New System.Drawing.Size(165, 13)
         Me.Subtotal_Label.TabIndex = 54
@@ -336,7 +396,7 @@ Partial Class Pago_de_Recibos
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(316, 127)
+        Me.Label9.Location = New System.Drawing.Point(316, 143)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(49, 13)
         Me.Label9.TabIndex = 53
@@ -460,25 +520,11 @@ Partial Class Pago_de_Recibos
         Me.ListBox_RecibosPagados.Size = New System.Drawing.Size(616, 62)
         Me.ListBox_RecibosPagados.TabIndex = 15
         '
-        'Todos
-        '
-        Me.Todos.BackColor = System.Drawing.Color.LightYellow
-        Me.Todos.FlatAppearance.BorderSize = 0
-        Me.Todos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Todos.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Todos.Location = New System.Drawing.Point(152, 239)
-        Me.Todos.Margin = New System.Windows.Forms.Padding(2)
-        Me.Todos.Name = "Todos"
-        Me.Todos.Size = New System.Drawing.Size(118, 60)
-        Me.Todos.TabIndex = 63
-        Me.Todos.Text = "Pagar Todos"
-        Me.Todos.UseVisualStyleBackColor = False
-        '
         'Pago_de_Recibos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(825, 471)
+        Me.ClientSize = New System.Drawing.Size(898, 471)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.PanelMenu)
@@ -531,4 +577,8 @@ Partial Class Pago_de_Recibos
     Friend WithEvents Label1 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Todos As Button
+    Friend WithEvents Tasa_Label As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Totes_label As Label
+    Friend WithEvents Label10 As Label
 End Class
