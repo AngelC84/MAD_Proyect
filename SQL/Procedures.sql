@@ -28,8 +28,18 @@ Create procedure EmpleadoUpd
 @RFC VARCHAR (12),
 @Fecha_de_Alta_Modificacion date,
 @Contraseña VARCHAR(50)
+--@Nombre_Usuario varchar(50)
+--@Nombre_UsuarioOLD varchar(50)
+
 As
 BEGIN
+
+--update usuario set Nombre_Usuario= @Nombre_usuario where Nombre_usuario=@Nombre_usuarioOLD
+--update usuario set Contraseña = @Contraseña where Nombre_Usuario = @Nombre_Usuario
+
+--Update Usuarios  
+--set 
+--  where Nombre_Usuario = @Nombre_Usuario
 
 UPDATE Empleado
 set 
@@ -38,10 +48,11 @@ Fecha_Nacimiento = @Fecha_Nacimiento,
 Nombre = @Nombre,
 RFC = @RFC,
 Fecha_de_Alta_Modificacion =@Fecha_de_Alta_Modificacion,
-Contraseña = @Contraseña 
+Contraseña = @Contraseña
+--Nombre_Usuario = @Nombre_Usuario
 
+WHERE CURP=@CURP
 
-WHERE CURP=@CURP 
 END
 GO
 
@@ -154,6 +165,10 @@ Fecha_de_Alta_Modificacion =@Fecha_de_Alta_Modificacion,
 Genero = @Genero,
 email = @email,
 Contraseña = @Contraseña
+
+--Update Usuarios  
+--set 
+--Contraseña = @Contraseña 
 
 WHERE CURP=@CURP 
 END
@@ -288,6 +303,9 @@ END
 END
 GO
 
+
+
+
 CREATE procedure LoginPermiso
 @Nombre_Usuario varchar (50)
 as 
@@ -320,6 +338,41 @@ on Empl.Nombre_Usuario = Usuar.Nombre_Usuario
 where Empl.Nombre_Usuario =@Nombre_Usuario  
 END
 GO
+
+create procedure ActivarLogin
+@Nombre_Usuario	varchar(50),
+@activo bit
+as
+begin
+Update Usuarios set Activo = @activo where Nombre_Usuario = @Nombre_Usuario
+
+
+end 
+go
+
+create procedure SortUsuario
+as 
+begin
+select Nombre_Usuario from Usuarios where Activo=1
+end
+go
+
+create procedure SortCliente
+@nombre_usuario varchar (50)
+as begin
+select
+CURP,
+Fecha_Nacimiento,
+Nombre,
+Fecha_de_Alta_Modificacion,
+Genero,
+email
+from Clientes where Nombre_Usuario= @nombre_usuario
+end 
+go
+
+
+
 
 create procedure DesactivarLogin
 @Nombre_Usuario	varchar(50)
@@ -369,6 +422,8 @@ create procedure getdataRecibo
 AS
 Begin
 Select 
+
+Cliente,
 Id_Recibo,
 Iva,
 Fecha,
@@ -387,6 +442,60 @@ end
 go
 
 
+create procedure ObtenerCliente
+@curp varchar (18)
+
+AS
+Begin
+Select 
+CURP,
+Fecha_Nacimiento,
+Nombre ,
+Fecha_de_Alta_Modificacion,
+Genero,
+email,
+Nombre_Usuario,
+Contraseña ,
+Activo
+
+FROM Clientes where CURP = @curp 
+end
+go
+
+
+
+Create procedure ReciboPDF
+@ano int = null,
+@mes int = null,
+@Numero_Medidor int = null,
+@Numero_de_Servicio int = null
+
+AS
+Begin
+Select
+Cliente , 
+Domicilio, 
+Numero_Medidor, 
+Servicio, 
+Fecha ,
+Total, 
+Subtotal,
+Iva, 
+Pendiente_Pago  
+
+FROM RecibopdfV where (YEAR(Fecha) = @ano or @ano is null)  and (MONTH(Fecha) = @mes or @mes is null) and (RecibopdfV.Numero_Medidor = @Numero_Medidor  or @Numero_Medidor is null) and (RecibopdfV.Servicio = @Numero_de_Servicio or @Numero_de_Servicio is null)
+--where ano = @ano and mes= @mes and Numero_Medidor =  @Numero_Medidor and Numero_de_Servicio = @Numero_de_Servicio
+
+END
+go
+
+
+
+
+
+
+
+select * from RecibopdfV
 
 
 /*------------------------------------TARIFAS----------------------------------*/
@@ -443,6 +552,7 @@ FROM Contrato
 where Activo = 1 
 END
 go
+
 create procedure getContratosMedidor
 @Medidor int
 AS
@@ -456,6 +566,22 @@ Numero_Medidor
 
 FROM Contrato
 where Activo = 1 and Numero_Medidor=@Medidor
+END
+go
+
+create procedure getContratosCliente
+@curp varchar(18)
+AS
+Begin
+Select 
+Domicilio,
+Servicio,
+Fecha,
+Cliente,
+Numero_Medidor
+
+FROM Contrato
+where Activo = 1 and Cliente=@curp
 END
 go
 
@@ -478,6 +604,28 @@ Watt_Excedente
 	FROM Tarifa where mes=@mes  and ano=@ano and Tipo_de_uso=0
 END
 go
+
+create procedure getTarifaSortID
+@ID int
+
+AS
+Begin
+Select 
+Id_Tarifa,
+ano,
+mes,
+Precio_Watt_Bajo,
+Precio_Watt_Medio,
+Precio_Watt_Excedente,
+Tipo_de_uso,
+Watt_Bajo,
+Watt_Medio,
+Watt_Excedente
+	FROM Tarifa where Id_Tarifa=@ID  
+END
+go
+
+--------------------------------------------------------------------------------AQUI ESTA 
  create procedure getTarifaSortInd
 @mes int,
 @ano int
@@ -567,14 +715,66 @@ insert into Recibo(Fecha,Watts,Servicio,Subtotal,Total,Pendiente_Pago,Pagado,Tar
 
 end
  go
+ create procedure getRecibodataCURPactivo
+@curp varchar(18)
+AS
+Begin
+Select 
+Id_Recibo,
+Fecha,
+Watts,
+Tarifa,
+Subtotal,
+Total,
+Pendiente_Pago
+Fecha,
+Cliente,
+Numero_Medidor,
+Pagado
 
+FROM Recibo
+where  Cliente=@curp and Pagado=0
+END
+go
+ create procedure getRecibodataCURPinactivo
+@curp varchar(18)
+AS
+Begin
+Select 
+Id_Recibo,
+Fecha,
+Watts,
+Tarifa,
+Subtotal,
+Total,
+Pendiente_Pago
+Fecha,
+Cliente,
+Numero_Medidor,
+Pagado
+
+FROM Recibo
+where  Cliente=@curp and Pagado=1
+END
+go
+
+create procedure updateReciboPago
+@pendientepago int,
+@pagado bit,
+@Id int
+as 
+begin
+Update Recibo set Pendiente_Pago = @pendientepago where Id_Recibo = @Id
+Update Recibo set Pagado = @pagado where Id_Recibo = @Id
+end
+go
    
-Select * from Clientes                         
+Select * from Empleado                                      
 Select * from Recibo
 Select * from Tarifa      
 Select * from Consumo      
 Select * from Contrato  
-
+Select * from Usuarios
 Select * from ReporteConsumoV  
 
 update Clientes set Activo = 1 
@@ -582,4 +782,9 @@ update Clientes set Activo = 1
 
 
 update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon'
-insert into Usuarios(Nombre_Usuario, Contrase�a,Permiso ) values('Jenifer Natasha','AdmiGenial',3)
+
+insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values('Alejandro Venegas','AdmiGenial',3)
+
+insert into Administrador (Nombre_Usuario, Contraseña, Permiso) values('UsuarioAdmin','AdmiGenial',3)
+
+

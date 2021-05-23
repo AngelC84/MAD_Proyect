@@ -1,6 +1,8 @@
-﻿Public Class GenerarReciboyConsulta
+﻿Imports iTextSharp.text.pdf
+Imports iTextSharp.text
+Imports System.IO
 
-
+Public Class GenerarReciboyConsulta
     Private Sub Button_Gestion_Click(sender As Object, e As EventArgs) Handles Button_Gestion.Click
         EmpleadoGral.Show()
         Me.Hide()
@@ -39,17 +41,31 @@
     Private Sub GenerarReciboyConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim enlace As New EnlaceBD
         Dim tablaaux As New DataTable
+        ' Dim enlace As New EnlaceBD
+        Dim anios As New List(Of Integer)
 
         tablaaux = enlace.getdataContrato()
 
+        'Mes = Val(TextBox_Mes.Text)
+
+        For anio As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
+            anios.Add(anio)
+        Next anio
+
+        ComboBox4.DataSource = anios
 
         If (tablaaux.Rows.Count > 0) Then
             ListBox_Contratos.DataSource = tablaaux
             ListBox_Contratos.DisplayMember = "Numero_Medidor"
-
-
         End If
 
+        If (tablaaux.Rows.Count > 0) Then
+            ComboBox2.DataSource = tablaaux
+            ComboBox2.DisplayMember = "Numero_Medidor"
+        End If
+
+        ComboBox4.SelectedIndex = 0
+        ComboBox1.SelectedIndex = 0
 
     End Sub
 
@@ -372,7 +388,240 @@
 
     End Sub
 
-    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+    Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
+    End Sub
+
+    Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox4.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+
+    End Sub
+
+    Private Sub TextBox_Mes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_Mes.KeyPress
+        TextBox_Mes.MaxLength = 2
+        If Not Char.IsDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TextBox_Mes_TextChanged(sender As Object, e As EventArgs) Handles TextBox_Mes.TextChanged
+        If (Val(TextBox_Mes.Text) = 0) Then
+
+            MsgBox("mes invalido")
+        ElseIf (Val(TextBox_Mes.Text) > 12) Then
+            TextBox_Mes.Clear()
+            MsgBox("mes invalido")
+        End If
+    End Sub
+
+    Private Sub TextBox_NumMed_KeyPress(sender As Object, e As KeyPressEventArgs)
+        If Not Char.IsDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub Recibo_PDF_Click(sender As Object, e As EventArgs) Handles Recibo_PDF.Click
+
+        Dim enlace As New EnlaceBD
+        Dim tablaaux As New DataTable
+        Dim ano As Integer
+        Dim mes As Integer? = Nothing
+        Dim Numero_Medidor As Integer? = Nothing
+        Dim Numero_de_Servicio As Integer
+        Dim Numero_Medidor2 As String
+        Dim ano2 As String
+        Dim mes2 As String
+        Dim curp As String
+
+
+        Dim trans As New clsConversion
+        Dim Nombre_Usuario As String
+        Dim serv As Boolean
+        Dim Medidor As String
+        Dim consumo As Integer
+        Dim numero As String
+
+
+
+
+        If (ComboBox2.Text <> Nothing) Then
+            Numero_Medidor = Integer.Parse(ComboBox2.Text)
+        End If
+
+        If (ComboBox4.Text <> Nothing) Then
+            ano = Integer.Parse(ComboBox4.Text)
+        End If
+
+        If (TextBox_Mes.Text <> Nothing) Then
+            mes = Integer.Parse(TextBox_Mes.Text)
+        End If
+
+
+        tablaaux = enlace.ReciboPDFV(ano, mes, Numero_Medidor, Numero_de_Servicio)
+
+
+        Dim Index As Integer
+
+
+        Dim Tarifa As New DataTable
+        Dim Recibo As New DataTable
+        Dim Contrato As New DataTable
+
+        Contrato = enlace.getSortedContrato(Numero_Medidor)
+        Recibo = enlace.getRecibodataCURPactivo(Contrato.Rows(0).Item(3))
+
+
+        If (Recibo.Rows.Count > 0) Then
+            'Consumo_Label.Text = Recibo.Rows(Index).Item(2)
+
+            'Tarifa = enlace.getTarifaSortID(Recibo.Rows(Index).Item(3))
+            'consumo = Val(Recibo.Rows(Index).Item(2))
+            'Dim basico As Integer
+            'Dim medium As Integer
+            'basico = Val(Tarifa.Rows(0).Item(7))
+            'medium = Val(Tarifa.Rows(0).Item(7))
+            'If (consumo < basico) Then
+            '    Tarifa_Label.Text = "Consumo Basico"
+            '    Tasa_Label.Text = Tarifa.Rows(0).Item(3)
+            'ElseIf (consumo < medium) Then
+            '    Tarifa_Label.Text = "Consumo Medio"
+            '    Tasa_Label.Text = Tarifa.Rows(0).Item(4)
+            'Else
+            '    Tarifa_Label.Text = "Consumo Excedente"
+            '    Tasa_Label.Text = Tarifa.Rows(0).Item(5)
+        End If
+
+
+            Dim cuerda As String
+            Dim Servicio As String = " "
+
+        If (Numero_de_Servicio = 0) Then
+            Servicio = "Domestico"
+        ElseIf (Numero_de_Servicio = 1) Then
+            Servicio = "Industrial"
+        End If
+
+
+        mes2 = mes
+        ano2 = ano
+        Numero_Medidor2 = Numero_Medidor
+
+        cuerda = "Recibo de Luz" + "_" + Numero_Medidor2 + "_" + ano2 + "_" + mes2 + ".pdf"
+
+        Dim pdfDoc As New Document(iTextSharp.text.PageSize.A4, 15.0F, 15.0F, 30.0F, 30.0F)
+        Dim pdfWrite As PdfWriter = PdfWriter.GetInstance(pdfDoc, New FileStream(cuerda, FileMode.Create))
+
+
+        Dim Fot8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.NORMAL))
+        Dim FontB8 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 8, iTextSharp.text.Font.BOLD))
+        Dim FontB12 As New Font(FontFactory.GetFont(FontFactory.HELVETICA, 16, iTextSharp.text.Font.BOLD))
+        Dim CVacio As PdfPCell = New PdfPCell(New Phrase(""))
+        CVacio.Border = 0
+        pdfDoc.Open()
+
+        Dim Table1 As PdfPTable = New PdfPTable(3)
+        Dim Col1 As PdfPCell
+        Dim Col2 As PdfPCell
+        Dim Col3 As PdfPCell
+        Dim Col4 As PdfPCell
+        Dim Col5 As PdfPCell
+        Dim Col6 As PdfPCell
+        Dim ILine As Integer
+        Dim iFila As Integer
+        Table1.WidthPercentage = 95
+
+        Dim widths As Single() = New Single() {4.0F, 8.0F, 8.0F}
+        Table1.SetWidths(widths)
+            Col1 = New PdfPCell(New Phrase(enlace.ObtenerCliente(curp), FontB12))
+            Col1.Border = 0
+        Table1.AddCell(CVacio)
+        Table1.AddCell(Col1)
+        Table1.AddCell(CVacio)
+
+        Table1.WidthPercentage = 95
+        widths = New Single() {3.33F, 3.33F, 3.33F, 3.33F, 3.33F, 3.33F}
+        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(0).ColumnName, FontB8))
+        Table1.AddCell(Col1)
+
+
+
+        Dim Tabla2 As PdfPTable = New PdfPTable(3)
+        Tabla2.WidthPercentage = 95
+
+        Dim widthss As Single() = New Single() {6.66F, 6.66F, 6.66F}
+
+        Dim widthsss As Single() = New Single() {20.0F}
+        Tabla2.SetWidths(widthss)
+        Col1.Border = 0
+        Tabla2.AddCell(CVacio)
+        Tabla2.AddCell(Col1)
+        Tabla2.AddCell(CVacio)
+
+        pdfDoc.Add(Tabla2)
+        pdfDoc.Add(New Paragraph(" "))
+
+        'If (Numero_de_Servicio = 0) Then
+        '    Servicio = "Servicio Domestico"
+        'ElseIf (Numero_de_Servicio = 1) Then
+        '    Servicio = "Servicio Industrial"
+        'End If
+
+        Dim parraf As New Paragraph(Numero_de_Servicio)
+        parraf.Alignment = Element.ALIGN_CENTER
+        pdfDoc.Add(parraf)
+        parraf = New Paragraph(ano)
+        parraf.Alignment = Element.ALIGN_CENTER
+        pdfDoc.Add(parraf)
+        pdfDoc.Add(New Paragraph(" "))
+
+
+        Tabla2 = New PdfPTable(6)
+        Tabla2.WidthPercentage = 95
+        widthsss = New Single() {3.33F, 3.33F, 3.33F, 3.33F, 3.33F, 3.33F}
+        Tabla2.SetWidths(widthsss)
+        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(0).ColumnName, FontB8))
+        Tabla2.AddCell(Col1)
+        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(1).ColumnName, FontB8))
+        Tabla2.AddCell(Col1)
+        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(2).ColumnName, FontB8))
+        Tabla2.AddCell(Col1)
+        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(3).ColumnName, FontB8))
+        Tabla2.AddCell(Col1)
+        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(4).ColumnName, FontB8))
+        Tabla2.AddCell(Col1)
+        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(5).ColumnName, FontB8))
+        Tabla2.AddCell(Col1)
+
+
+        For Each row In tablaaux.Rows
+            Col1 = New PdfPCell(New Phrase(row.Item(0).ToString, Fot8))
+            Tabla2.AddCell(Col1)
+            Col1 = New PdfPCell(New Phrase(row.Item(1).ToString, Fot8))
+            Tabla2.AddCell(Col1)
+            Col1 = New PdfPCell(New Phrase(row.Item(2).ToString, Fot8))
+            Tabla2.AddCell(Col1)
+            Col1 = New PdfPCell(New Phrase(Servicio, Fot8))
+            Tabla2.AddCell(Col1)
+            Col1 = New PdfPCell(New Phrase(row.Item(4).ToString, Fot8))
+            Tabla2.AddCell(Col1)
+            Col1 = New PdfPCell(New Phrase(row.Item(5).ToString, Fot8))
+            Tabla2.AddCell(Col1)
+        Next
+
+
+        pdfDoc.Add(Tabla2)
+        pdfDoc.Close()
+        Process.Start(cuerda)
     End Sub
 End Class

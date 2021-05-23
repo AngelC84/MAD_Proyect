@@ -135,7 +135,8 @@ END
 CREATE TABLE Usuarios(
 Nombre_Usuario	VARCHAR (50) PRIMARY KEY not null,
 Contraseña		VARCHAR (15) not null,
-Permiso tinyint not null default (0)
+Permiso tinyint not null default (0),
+Activo bit default (0)
 );
 
 
@@ -199,11 +200,6 @@ mes int not null,
 Numero_Medidor int not null,
 
 Watts int not null
-
-
-
-
-
 );
 
 

@@ -10,7 +10,7 @@
 go
 
 --CHECAR ESTAS VISTAS ---------------
-Alter view ReporteConsumoV as 
+Create view ReporteConsumoV as 
 
 	SELECT Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor, Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
 	
@@ -23,7 +23,7 @@ go
 
 select * from ConsumoHistoricoV
 
-Alter view ConsumoHistoricoV as 
+Create view ConsumoHistoricoV as 
 
 	SELECT Recibo.Fecha, Recibo.Watts, Recibo.Subtotal, Recibo.Total, Recibo.Pendiente_Pago, Recibo.Numero_Medidor, Contrato.Servicio
 	
@@ -35,3 +35,15 @@ Alter view ConsumoHistoricoV as
 	
 go
 ------------------------------------------------------------
+
+
+Create view RecibopdfV as 
+
+	SELECT Recibo.Cliente , Contrato.Domicilio, Recibo.Numero_Medidor, Contrato.Servicio, Recibo.Fecha ,Recibo.Total, Recibo.Subtotal,Recibo.Iva, Recibo.Pendiente_Pago  
+	
+	FROM Recibo   
+	join Contrato
+	on Contrato.Numero_Medidor = Recibo.Numero_Medidor  
+    group by Recibo.Cliente , Contrato.Domicilio, Recibo.Numero_Medidor, Contrato.Servicio, Recibo.Fecha ,Recibo.Total, Recibo.Subtotal,Recibo.Iva, Recibo.Pendiente_Pago  
+	
+go

@@ -43,7 +43,7 @@ Public Class Consumo_Historico
     Private Sub Consumo_Historico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim enlace As New EnlaceBD
         Dim anios As New List(Of Integer)
-        Dim aniosconsul As New List(Of Integer)
+        'Dim aniosconsul As New List(Of Integer)
 
 
         For anio As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
@@ -199,4 +199,6 @@ Public Class Consumo_Historico
             e.Handled = True
         End If
     End Sub
+
+
 End Class

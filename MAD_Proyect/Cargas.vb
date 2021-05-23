@@ -75,6 +75,7 @@ Public Class Cargas
         Else
             MsgBox("Faltan datos por registrar, !!REVISA!!")
         End If
+
     End Sub
 
     Private Sub TextBox_PrecioBajo_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox_PrecioBajo.KeyPress
@@ -89,10 +90,6 @@ Public Class Cargas
         If Not Char.IsDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
             e.Handled = True
         End If
-
-
-
-
     End Sub
     Private Sub TextBox_Ano_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox_Ano.KeyPress
 
@@ -472,4 +469,6 @@ Public Class Cargas
 
         End If
     End Sub
+
+
 End Class

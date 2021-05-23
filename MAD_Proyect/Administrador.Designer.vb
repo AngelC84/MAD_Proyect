@@ -52,6 +52,7 @@ Partial Class Administrador
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -181,7 +182,7 @@ Partial Class Administrador
         'TextBox_ContUS
         '
         Me.TextBox_ContUS.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_ContUS.Location = New System.Drawing.Point(772, 306)
+        Me.TextBox_ContUS.Location = New System.Drawing.Point(805, 300)
         Me.TextBox_ContUS.Name = "TextBox_ContUS"
         Me.TextBox_ContUS.Size = New System.Drawing.Size(191, 22)
         Me.TextBox_ContUS.TabIndex = 31
@@ -189,7 +190,7 @@ Partial Class Administrador
         'TextBox_NombUS
         '
         Me.TextBox_NombUS.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_NombUS.Location = New System.Drawing.Point(550, 306)
+        Me.TextBox_NombUS.Location = New System.Drawing.Point(583, 300)
         Me.TextBox_NombUS.Name = "TextBox_NombUS"
         Me.TextBox_NombUS.Size = New System.Drawing.Size(182, 22)
         Me.TextBox_NombUS.TabIndex = 29
@@ -197,7 +198,7 @@ Partial Class Administrador
         'TextBox_CURP
         '
         Me.TextBox_CURP.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_CURP.Location = New System.Drawing.Point(251, 300)
+        Me.TextBox_CURP.Location = New System.Drawing.Point(251, 277)
         Me.TextBox_CURP.Name = "TextBox_CURP"
         Me.TextBox_CURP.Size = New System.Drawing.Size(269, 22)
         Me.TextBox_CURP.TabIndex = 27
@@ -205,7 +206,7 @@ Partial Class Administrador
         'TextBox_RFC
         '
         Me.TextBox_RFC.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_RFC.Location = New System.Drawing.Point(251, 245)
+        Me.TextBox_RFC.Location = New System.Drawing.Point(251, 222)
         Me.TextBox_RFC.Name = "TextBox_RFC"
         Me.TextBox_RFC.Size = New System.Drawing.Size(269, 22)
         Me.TextBox_RFC.TabIndex = 32
@@ -222,7 +223,7 @@ Partial Class Administrador
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tw Cen MT Condensed", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(546, 247)
+        Me.Label5.Location = New System.Drawing.Point(226, 325)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(371, 20)
         Me.Label5.TabIndex = 23
@@ -232,7 +233,7 @@ Partial Class Administrador
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(768, 283)
+        Me.Label11.Location = New System.Drawing.Point(801, 277)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(88, 20)
         Me.Label11.TabIndex = 21
@@ -242,7 +243,7 @@ Partial Class Administrador
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(547, 283)
+        Me.Label14.Location = New System.Drawing.Point(580, 277)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(63, 20)
         Me.Label14.TabIndex = 20
@@ -272,7 +273,7 @@ Partial Class Administrador
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(247, 277)
+        Me.Label10.Location = New System.Drawing.Point(247, 254)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(49, 20)
         Me.Label10.TabIndex = 16
@@ -282,7 +283,7 @@ Partial Class Administrador
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(247, 222)
+        Me.Label8.Location = New System.Drawing.Point(247, 199)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(37, 20)
         Me.Label8.TabIndex = 15
@@ -379,11 +380,22 @@ Partial Class Administrador
         Me.DateTimePicker2.Size = New System.Drawing.Size(269, 22)
         Me.DateTimePicker2.TabIndex = 46
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(580, 247)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(311, 20)
+        Me.Label6.TabIndex = 47
+        Me.Label6.Text = "*La contraseña y usuario no son editables*"
+        '
         'Administrador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1100, 580)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.GroupBox1)
@@ -450,4 +462,5 @@ Partial Class Administrador
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label4 As Label
     Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label6 As Label
 End Class
