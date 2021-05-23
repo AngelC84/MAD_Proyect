@@ -10,28 +10,28 @@
 go
 
 --CHECAR ESTAS VISTAS ---------------
-Create view ReporteConsumoV as 
+Alter view ReporteConsumoV as 
 
 	SELECT Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor, Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
 	
 	FROM Tarifa 
 	join Consumo  
-	ON Consumo.ano  = Tarifa.ano 
-	WHERE Tarifa.ano in (select Id_Tarifa from Tarifa)
+	ON Consumo.ano = Tarifa.ano
     group by Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor,Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
-	
 
 go
 
-Create view ConsumoHistoricoV as 
+select * from ConsumoHistoricoV
 
-	SELECT Consumo.Periodo, Consumo.Watts, Recibo.Importe, Recibo.Total, Recibo.Pendiente_Pago 
+Alter view ConsumoHistoricoV as 
+
+	SELECT Recibo.Fecha, Recibo.Watts, Recibo.Subtotal, Recibo.Total, Recibo.Pendiente_Pago, Recibo.Numero_Medidor, Contrato.Servicio
 	
-	FROM Consumo  
-	join Recibo 
-	ON Consumo.Numero_Medidor = Recibo.Numero_Medidor 
-	WHERE Consumo.Numero_Medidor in (select Numero_Medidor from Consumo)
-    group by Consumo.Periodo, Consumo.Watts, Recibo.Importe, Recibo.Total, Recibo.Pendiente_Pago 
+	FROM Recibo   
+	join Contrato
+	on Contrato.Numero_Medidor = Recibo.Numero_Medidor  
+    group by Recibo.Fecha, Recibo.Watts, Recibo.Subtotal, Recibo.Total, Recibo.Pendiente_Pago, Recibo.Numero_Medidor, Contrato.Servicio
+	
 	
 go
 ------------------------------------------------------------

@@ -54,16 +54,24 @@ Public Class Consumo_Historico
         DataGridView_Consumo.AllowUserToAddRows = False
         DataGridView_Consumo.AllowUserToAddRows = False
 
+        ComboBox3.SelectedIndex = 0
+        ComboBox1.SelectedIndex = 0
+
     End Sub
 
     Private Sub Button_Consultar_Click(sender As Object, e As EventArgs) Handles Button_Consultar.Click
         Dim enlace As New EnlaceBD
         Dim TablaGridConsHist As New DataTable
         Dim anio As Integer
-        Dim Numero_Medidor As Integer
+        Dim Numero_Medidor As Integer? = Nothing
         Dim Numero_de_Servicio As Integer
 
         anio = ComboBox3.SelectedItem
+        If (TextBox_NumMed.Text <> Nothing) Then
+            Numero_Medidor = Integer.Parse(TextBox_NumMed.Text)
+        End If
+
+        Numero_de_Servicio = ComboBox1.SelectedIndex
 
         TablaGridConsHist = enlace.getInfoConsumoHistorico(anio, Numero_Medidor, Numero_de_Servicio)
         DataGridView_Consumo.DataSource = TablaGridConsHist
@@ -143,14 +151,21 @@ Public Class Consumo_Historico
         Dim i As Integer
         Dim cuerda As String
         Dim anio As Integer
-        Dim Numero_Medidor As Integer
+        Dim Numero_Medidor As Integer?
         Dim Numero_de_Servicio As Integer
 
+        anio = ComboBox3.SelectedItem
+        If (TextBox_NumMed.Text <> Nothing) Then
+            Numero_Medidor = Integer.Parse(TextBox_NumMed.Text)
+        End If
+
+        Numero_de_Servicio = ComboBox1.SelectedIndex
+
+        ' anio = Conversion.Int(ComboBox3.SelectedItem)
         tabla = enlace.getInfoConsumoHistorico(anio, Numero_Medidor, Numero_de_Servicio)
 
-        anio = Conversion.Int(ComboBox3.SelectedItem)
 
-        cuerda = "Reporte de Consumo del año" + "_" + anio.ToString() + "_" + ".csv"
+        cuerda = "Reporte de Consumo Historico del año" + "_" + anio.ToString() + "_" + ".csv"
 
         Dim fileCSV As String = cuerda
         If File.Exists(fileCSV) Then
@@ -165,14 +180,23 @@ Public Class Consumo_Historico
         i = tabla.Rows().Count
 
         For Fila As Integer = 0 To i - 1 Step 1
-            ' Dim fechaaux As Date
-            Dim fechaPeriod As Date
-            fechaPeriod = tabla.Rows(Fila).Item(1).ToString
-            CSV.WriteLine(Fila & "," & fechaPeriod.ToString("dd/MM/yyyy") & "," & "," & tablaaux.Rows(Fila).Item(1) & "," & tablaaux.Rows(Fila).Item(2) & "," & tablaaux.Rows(Fila).Item(3) & "," & tablaaux.Rows(Fila).Item(4) & ",")
+            CSV.WriteLine(tablaaux.Rows(Fila).Item(0) & "," & tablaaux.Rows(Fila).Item(1) & "," & tablaaux.Rows(Fila).Item(2) & "," & tablaaux.Rows(Fila).Item(3) & "," & tablaaux.Rows(Fila).Item(4))
         Next
 
         CSV.Close()
         Process.Start(cuerda)
 
+    End Sub
+
+    Private Sub TextBox_NumMed_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_NumMed.KeyPress
+        If Char.IsNumber(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsSeparator(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
     End Sub
 End Class

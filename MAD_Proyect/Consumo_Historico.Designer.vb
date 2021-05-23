@@ -46,10 +46,10 @@ Partial Class Consumo_Historico
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TextBox_NumMed = New System.Windows.Forms.TextBox()
         Me.DataGridView_Consumo = New System.Windows.Forms.DataGridView()
         Me.Button_Consultar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -383,16 +383,6 @@ Partial Class Consumo_Historico
         Me.ComboBox3.Size = New System.Drawing.Size(190, 24)
         Me.ComboBox3.TabIndex = 48
         '
-        'ComboBox2
-        '
-        Me.ComboBox2.BackColor = System.Drawing.Color.Cornsilk
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(304, 58)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(190, 24)
-        Me.ComboBox2.TabIndex = 49
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -408,6 +398,7 @@ Partial Class Consumo_Historico
         Me.ComboBox1.BackColor = System.Drawing.Color.Cornsilk
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"0", "1"})
         Me.ComboBox1.Location = New System.Drawing.Point(616, 58)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(190, 24)
@@ -415,12 +406,12 @@ Partial Class Consumo_Historico
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.TextBox_NumMed)
         Me.GroupBox2.Controls.Add(Me.DataGridView_Consumo)
         Me.GroupBox2.Controls.Add(Me.Button_Consultar)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.ComboBox3)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
@@ -430,6 +421,15 @@ Partial Class Consumo_Historico
         Me.GroupBox2.TabIndex = 52
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Filtros"
+        '
+        'TextBox_NumMed
+        '
+        Me.TextBox_NumMed.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_NumMed.Location = New System.Drawing.Point(304, 60)
+        Me.TextBox_NumMed.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox_NumMed.Name = "TextBox_NumMed"
+        Me.TextBox_NumMed.Size = New System.Drawing.Size(233, 22)
+        Me.TextBox_NumMed.TabIndex = 53
         '
         'DataGridView_Consumo
         '
@@ -524,7 +524,6 @@ Partial Class Consumo_Historico
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents GroupBox2 As GroupBox
@@ -550,4 +549,5 @@ Partial Class Consumo_Historico
     Friend WithEvents Boton_Contratos As Button
     Friend WithEvents Button_Gestion As Button
     Friend WithEvents DataGridView_Consumo As DataGridView
+    Friend WithEvents TextBox_NumMed As TextBox
 End Class

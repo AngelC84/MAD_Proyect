@@ -761,7 +761,7 @@ Public Class EnlaceBD
 
     '----------------------- CONSUMO HISTORICO ---------------------
     Public Function getInfoConsumoHistorico(ByVal anio As Integer,
-                                            Numero_Medidor As Integer,
+                                            Numero_Medidor As Integer?,
                                             Numero_de_Servicio As Integer) As DataTable
         Dim tablaaux As New DataTable
         Dim Qry As String
@@ -771,7 +771,7 @@ Public Class EnlaceBD
             comandosql = New SqlCommand(Qry, conexion)
             comandosql.CommandType = CommandType.StoredProcedure
 
-            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@anio", SqlDbType.Int, 8)
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int, 8)
             parametro1.Value = anio
 
             Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Numero_Medidor", SqlDbType.Int, 8)

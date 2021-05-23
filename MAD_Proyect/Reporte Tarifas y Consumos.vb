@@ -210,7 +210,6 @@ Public Class Reporte_Tarifas_y_Consumos
 
     Private Sub Button_Tarifa_CSV_Click(sender As Object, e As EventArgs) Handles Button_Tarifa_CSV.Click
 
-
         Dim enlace As New EnlaceBD
         Dim tabla As New DataTable
         Dim tablaaux As New DataTable
@@ -218,9 +217,11 @@ Public Class Reporte_Tarifas_y_Consumos
         Dim cuerda As String
         Dim ano As Integer
 
-        tabla = enlace.getInfoTarifa(ano)
 
         ano = Conversion.Int(ComboBox3.SelectedItem)
+        tabla = enlace.getInfoTarifa(ano)
+
+
 
         cuerda = "Reporte de tarifa del año" + "_" + ano.ToString() + "_" + ".csv"
 
@@ -237,11 +238,11 @@ Public Class Reporte_Tarifas_y_Consumos
         i = tabla.Rows().Count
 
         For Fila As Integer = 0 To i - 1 Step 1
-            Dim fechaaux As Date
-            Dim fechamonth As Date
+            Dim fechaaux As Integer
+            Dim fechamonth As String
             fechamonth = tabla.Rows(Fila).Item(1).ToString
             fechaaux = Conversion.Int(ComboBox3.SelectedItem)
-            CSV.WriteLine(Fila & "," & fechaaux.ToString("dd/MM/yyyy") & "," & fechamonth.ToString("dd/MM/yyyy") & "," & "," & tablaaux.Rows(Fila).Item(2) & "," & tablaaux.Rows(Fila).Item(3) & "," & tablaaux.Rows(Fila).Item(4) & ",")
+            CSV.WriteLine(fechaaux & "," & fechamonth & "," & tablaaux.Rows(Fila).Item(2) & "," & tablaaux.Rows(Fila).Item(3) & "," & tablaaux.Rows(Fila).Item(4))
         Next
 
         CSV.Close()
@@ -259,9 +260,8 @@ Public Class Reporte_Tarifas_y_Consumos
         Dim cuerda As String
         Dim ano As Integer
 
-        tabla = enlace.getInfoConsumo(ano)
-
         ano = Conversion.Int(ComboBox1.SelectedItem)
+        tabla = enlace.getInfoConsumo(ano)
 
         cuerda = "Reporte de Consumo del año" + "_" + ano.ToString() + "_" + ".csv"
 
@@ -278,11 +278,11 @@ Public Class Reporte_Tarifas_y_Consumos
         i = tabla.Rows().Count
 
         For Fila As Integer = 0 To i - 1 Step 1
-            Dim fechaaux As Date
-            Dim fechamonth As Date
+            Dim fechaaux As Integer
+            Dim fechamonth As String
             fechamonth = tabla.Rows(Fila).Item(1).ToString
             fechaaux = Conversion.Int(ComboBox1.SelectedItem)
-            CSV.WriteLine(Fila & "," & fechaaux.ToString("dd/MM/yyyy") & "," & fechamonth.ToString("dd/MM/yyyy") & "," & "," & tablaaux.Rows(Fila).Item(2) & "," & tablaaux.Rows(Fila).Item(3) & "," & tablaaux.Rows(Fila).Item(4) & "," & tablaaux.Rows(Fila).Item(5) & ",")
+            CSV.WriteLine(fechaaux & "," & fechamonth & "," & tablaaux.Rows(Fila).Item(2) & "," & tablaaux.Rows(Fila).Item(3) & "," & tablaaux.Rows(Fila).Item(4) & "," & tablaaux.Rows(Fila).Item(5))
         Next
 
         CSV.Close()

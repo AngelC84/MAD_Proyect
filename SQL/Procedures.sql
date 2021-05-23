@@ -221,9 +221,6 @@ END
 go 
 
 
-
-
-
 Create procedure GetDatoConsumo
 @ano int
 
@@ -243,22 +240,26 @@ go
 
 
 Create Procedure ConsumoHistorico
-@anio int,
-@Numero_Medidor int,
-@Numero_de_Servicio int
+@ano int = null,
+@Numero_Medidor int = null,
+@Numero_de_Servicio int = null
+
 as 
 begin
 Select
 
-Periodo 'Periodo Facturacion',
+Fecha'Periodo Facturacion',
 Watts 'Consumo de kW', 
-Importe 'Importe', 
-Total 'Pago', 
-Pendiente_Pago  'Pendiente de Pago'
+Subtotal'Importe', 
+Total'Pago',
+Pendiente_Pago'Pendiente de Pago'
 
 From ConsumoHistoricoV
+where (YEAR(Fecha) = @ano or @ano is null)  and (ConsumoHistoricoV.Numero_Medidor = @Numero_Medidor  or @Numero_Medidor is null) and (ConsumoHistoricoV.Servicio = @Numero_de_Servicio or @Numero_de_Servicio is null)
+
 end 
 go
+
 
 /*---------------------LOGIN ------------------------*/
 
