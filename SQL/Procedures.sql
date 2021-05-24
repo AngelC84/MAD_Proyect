@@ -645,6 +645,7 @@ Watt_Excedente
 	FROM Tarifa where mes=@mes  and ano=@ano and Tipo_de_uso=1
 END
 go
+
  create procedure getConsumoSort
 AS
 Begin
@@ -654,9 +655,29 @@ ano,
 mes,
 Numero_Medidor,
 Watts
-	FROM Consumo where Watts>0
+	FROM Consumo where Used=0
 	end
 go
+
+
+alter procedure getConsumoByDate
+@Numero_Medidor int,
+@ano int,
+@mes int
+
+
+AS
+Begin
+Select 
+Id_Consumo,
+ano,
+mes,
+Numero_Medidor,
+Watts
+	FROM Consumo where Used=0 and ano=@ano and mes=@mes and Numero_Medidor = @Numero_Medidor
+	end
+go
+
 
 
 /*------------------------------------------Consumo-------------------------------------------*/
@@ -698,7 +719,7 @@ end
 go
 
 
-Create procedure regRecibo
+create procedure regRecibo
 @watts int,
 @medidor int,
 @servicio bit,
@@ -706,15 +727,26 @@ Create procedure regRecibo
 @tarifa int,
 @subtotal float,
 @total float,
-@pendiente_pago float
+@pendiente_pago float,
+@Consumo int
 
 as
 begin
-insert into Recibo(Fecha,Watts,Servicio,Subtotal,Total,Pendiente_Pago,Pagado,Tarifa,Numero_Medidor,Cliente ) values (getdate(),@watts,@servicio,@subtotal,@total,@pendiente_pago,0,@tarifa,@medidor,@curp) 
-
+insert into Recibo(Fecha,Watts,Servicio,Subtotal,Total,Pendiente_Pago,Pagado,Tarifa,Numero_Medidor,Cliente,Id_Consumo ) values (getdate(),@watts,@servicio,@subtotal,@total,@pendiente_pago,0,@tarifa,@medidor,@curp,@Consumo) 
+Update Consumo set Used =1 where Id_Consumo = @Consumo
 
 end
  go
+
+ create procedure altConsumo
+ @id int
+ as
+ begin
+ Update Consumo set Used =1 where Id_Consumo = @id
+
+end
+ go
+
  create procedure getRecibodataCURPactivo
 @curp varchar(18)
 AS
@@ -769,10 +801,15 @@ Update Recibo set Pagado = @pagado where Id_Recibo = @Id
 end
 go
    
-Select * from Empleado                                      
-Select * from Recibo
+Select * from Empleado   
+
+ Select * from Recibo
+Select * from Consumo 
+                                  
+
+
 Select * from Tarifa      
-Select * from Consumo      
+     
 Select * from Contrato  
 Select * from Usuarios
 Select * from ReporteConsumoV  

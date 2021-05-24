@@ -213,7 +213,28 @@ Public Class EnlaceBD
     End Function
 
 
+    Public Function altConsumo(ByVal consumo As Integer) As Boolean
+        Dim estado As Boolean = True
 
+        Try
+            conectar()
+            comandosql = New SqlCommand("altConsumo", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro9 As SqlParameter = comandosql.Parameters.Add("@id", SqlDbType.Int)
+            parametro9.Value = consumo
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
 
 
     Public Function Reg_Recibo(ByVal watts As Int32,
@@ -223,7 +244,8 @@ Public Class EnlaceBD
                                ByVal tarifa As Int32,
                                ByVal subtotal As Double,
                               ByVal total As Double,
-                             ByVal pendiente As Double) As Boolean
+                             ByVal pendiente As Double,
+                               ByVal consumo As Integer) As Boolean
         Dim estado As Boolean = True
 
         Try
@@ -247,7 +269,8 @@ Public Class EnlaceBD
             parametro7.Value = total
             Dim parametro8 As SqlParameter = comandosql.Parameters.Add("@pendiente_pago", SqlDbType.Float)
             parametro8.Value = pendiente
-
+            Dim parametro9 As SqlParameter = comandosql.Parameters.Add("@Consumo", SqlDbType.Int)
+            parametro9.Value = consumo
             conexion.Open()
             adaptador.InsertCommand = comandosql
             comandosql.ExecuteNonQuery()
@@ -695,6 +718,37 @@ Public Class EnlaceBD
             comandosql = New SqlCommand(Qry, conexion)
             comandosql.CommandType = CommandType.StoredProcedure
 
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+    Public Function getConsumobyDate(ByVal medidor As Integer, ByVal mes As Integer, ByVal ano As Integer) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getConsumoByDate"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Numero_Medidor", SqlDbType.Int)
+
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int)
+
+            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@mes", SqlDbType.Int)
+
+            parametro1.Value = medidor
+            parametro2.Value = ano
+            parametro3.Value = mes
 
             adaptador.SelectCommand = comandosql
             adaptador.Fill(nuevatablaEmpl)

@@ -70,7 +70,7 @@ Public Class GenerarReciboyConsulta
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Close()
+        Me.Close()
     End Sub
 
     Private Sub ListBox_Contratos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox_Contratos.SelectedIndexChanged
@@ -131,23 +131,32 @@ Public Class GenerarReciboyConsulta
         Dim total As Double
 
         Dim servicio As Boolean
-        Dim odd As Integer
+
         Dim tarifaIn As Boolean
-        Dim consumobimestral As Integer
+
         Dim bimestre As Int16
         bimestre = 0
+        Dim mesBox As Integer
+        Dim anoBox As Integer
+        Dim Medidor As Integer
         While (counting > indi)
 
 
 
-            mesC = consumo.Rows(indi).Item(2)
 
+            mesC = consumo.Rows(indi).Item(2)
+            mesBox = consumo.Rows(indi).Item(2)
+            anoBox = consumo.Rows(indi).Item(1)
             anoC = consumo.Rows(indi).Item(1)
             contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
             servicio = Val(contratos.Rows(0).Item(1))
             mes = Month(contratos.Rows(0).Item(2))
             ano = Year(contratos.Rows(0).Item(2))
-            odd = mes Mod 2
+            Medidor = consumo.Rows(indi).Item(3)
+
+
+
+
             If (servicio) Then
                 bimestre = 0
                 tarifa = enlace.getSortedTarifaInd(consumo.Rows(indi).Item(2), consumo.Rows(indi).Item(1))
@@ -163,22 +172,42 @@ Public Class GenerarReciboyConsulta
                     contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
 
 
-                    subtotal = Val(consumo.Rows(indi).Item(4))
+
+
+
+                    Dim subtotalbasico As Decimal
+                    Dim subtotalmedio As Decimal
+                    Dim subtotalexcedente As Decimal
+                    Dim thisConsumo As Decimal
 
                     If (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(7)) Then
 
                         subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(3)
 
+
                     ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(8)) Then
 
-                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(4)
+                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(7)
+
+                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                        subtotal = subtotalbasico + subtotalmedio
 
                     Else
-                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(5)
+                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(8)
+                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                     End If
                     Cliente = contratos.Rows(0).Item(3)
                     total = subtotal * 1.16
-                    result = enlace.Reg_Recibo(consumo.Rows(indi).Item(4), consumo.Rows(indi).Item(3), 1, Cliente, tarifa.Rows(0).Item(0), subtotal, total, total)
+                    result = enlace.Reg_Recibo(consumo.Rows(indi).Item(4), consumo.Rows(indi).Item(3), 1, Cliente, tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(indi).Item(0))
                     indi = indi + 1
 
                 Else
@@ -189,99 +218,272 @@ Public Class GenerarReciboyConsulta
 
 
             Else
-                While bimestre < 2 And servicio = False
-                    If (bimestre = 0) Then
-                        If consumo.Rows.Count <= 0 Then
-                            MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
-                            tarifaIn = False
-                            contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
-                            servicio = Val(contratos.Rows(0).Item(1))
-                            bimestre = bimestre + 1
-                            indi = indi + 1
+                If servicio = False Then
+                    Dim odd As Decimal
+                    odd = mes Mod 2
+                    Dim oddbox As Integer
+                    oddbox = mesBox Mod 2
+                    Dim previous As Integer
+                    Dim previousyear As Integer
+                    Dim consumobimestral As Integer
+                    If (odd > 0) Then
 
+                        If (oddbox > 0) Then
+                            indi = indi + 1
                         Else
-                            consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
-                            bimestre = bimestre + 1
-                            indi = indi + 1
 
-                        End If
-
-                    ElseIf (bimestre = 1) Then
-                        bimestre = bimestre + 1
-                        If consumo.Rows.Count <= 0 Then
-                            MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
-                            tarifaIn = False
-                            contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
-                            servicio = Val(contratos.Rows(0).Item(1))
-                            indi = indi + 1
-
-                        ElseIf counting > indi Then
-
-
-                            consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
-
-                            tarifa = enlace.getSortedTarifa(consumo.Rows(indi).Item(2), consumo.Rows(indi).Item(1))
-                            If tarifa.Rows.Count <= 0 Then
-                                MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
-                                tarifaIn = False
-                                contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
-                                servicio = Val(contratos.Rows(0).Item(1))
-                                indi = indi + 1
-
+                            If (mesBox = 1) Then
+                                previous = 12
+                                previousyear = anoBox - 1
                             Else
-                                tarifaIn = Val(tarifa.Rows(0).Item(6))
-                                If (tarifaIn = False) Then
-                                    contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+                                previous = mesBox - 1
+                                previousyear = anoBox
+                            End If
+                            consumo = enlace.getConsumobyDate(Medidor, previous, previousyear)
+                            If (consumo.Rows.Count < 1) Then
 
-                                    ' subtotal = Val(consumo.Rows(indi).Item(4))
+                                indi = indi + 1
+                            Else
+                                consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
 
-                                    If (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(7)) Then
+                                result = enlace.altConsumo(consumo.Rows(indi).Item(0))
+                                consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                                consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
 
-                                        subtotal = consumobimestral + consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(3)
-
-                                    ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(8)) Then
-
-                                        subtotal = consumobimestral + consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(4)
-
-                                    Else
-                                        subtotal = consumobimestral + consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(5)
-                                    End If
-                                    Cliente = contratos.Rows(0).Item(3)
-                                    total = subtotal * 1.16
-                                    result = enlace.Reg_Recibo(consumobimestral, consumo.Rows(indi).Item(3), 0, Cliente, tarifa.Rows(0).Item(0), subtotal, total, total)
-                                    indi = indi + 1
-                                    consumobimestral = 0
-
-                                    If counting > indi Then
-
-
-                                        contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
-                                        servicio = Val(contratos.Rows(0).Item(1))
-                                    End If
-
-                                Else
+                                tarifa = enlace.getSortedTarifa(mes, ano)
+                                If (tarifa.Rows.Count < 1) Then
                                     MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
                                     indi = indi + 1
 
-                                    If counting > indi Then
-                                        contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
-                                        servicio = Val(contratos.Rows(0).Item(1))
+                                Else
+
+
+                                    Dim subtotalbasico As Decimal
+                                    Dim subtotalmedio As Decimal
+                                    Dim subtotalexcedente As Decimal
+                                    Dim thisConsumo As Decimal
+
+                                    If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+
+                                        subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+
+
+                                    ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+
+                                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                        thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                        subtotal = subtotalbasico + subtotalmedio
+
+                                    Else
+                                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                        thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                                     End If
+                                    total = subtotal * 1.16
+                                    result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                    indi = indi + 1
 
                                 End If
 
                             End If
 
+                        End If
+                    ElseIf (odd = 0) Then
 
+                        If (oddbox = 0) Then
+                            indi = indi + 1
+
+                        Else
+
+                            If (mesBox = 1) Then
+                                previous = 12
+                                previousyear = anoBox - 1
+                            Else
+                                previous = mesBox - 1
+                                previousyear = anoBox
+                            End If
+                            consumo = enlace.getConsumobyDate(Medidor, previous, previousyear)
+                            If (consumo.Rows.Count < 1) Then
+                                indi = indi + 1
+
+                            Else
+                                consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+
+                                result = enlace.altConsumo(consumo.Rows(0).Item(0))
+                                consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                                consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+
+                                tarifa = enlace.getSortedTarifa(mes, ano)
+                                If (tarifa.Rows.Count < 1) Then
+                                    MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                                    indi = indi + 1
+
+                                Else
+
+
+                                    Dim subtotalbasico As Decimal
+                                    Dim subtotalmedio As Decimal
+                                    Dim subtotalexcedente As Decimal
+                                    Dim thisConsumo As Decimal
+
+                                    If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+
+                                        subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+
+
+                                    ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+
+                                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                        thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                        subtotal = subtotalbasico + subtotalmedio
+
+                                    Else
+                                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                        thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                                    End If
+                                    total = subtotal * 1.16
+                                    result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                    indi = indi + 1
+
+                                End If
+
+                            End If
 
                         End If
+
+
+
+
+
 
 
                     End If
 
 
 
-                End While
+
+
+
+
+
+
+
+
+
+
+                    'If (bimestre = 0) Then
+                    '    If consumo.Rows.Count <= 0 Then
+                    '        MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                    '        tarifaIn = False
+                    '        contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+                    '        servicio = Val(contratos.Rows(0).Item(1))
+                    '        bimestre = bimestre + 1
+                    '        indi = indi + 1
+
+                    '    Else
+                    '        consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
+                    '        Dim done As Boolean
+                    '        done = enlace.altConsumo(consumo.Rows(indi).Item(0))
+                    '        bimestre = bimestre + 1
+                    '        indi = indi + 1
+
+                    '    End If
+
+                    'ElseIf (bimestre = 1) Then
+                    '    bimestre = bimestre + 1
+                    '    If consumo.Rows.Count <= 0 Then
+                    '        MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                    '        tarifaIn = False
+                    '        contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+                    '        servicio = Val(contratos.Rows(0).Item(1))
+                    '        indi = indi + 1
+
+                    '    ElseIf counting > indi Then
+
+
+                    '        consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
+
+                    '        tarifa = enlace.getSortedTarifa(consumo.Rows(indi).Item(2), consumo.Rows(indi).Item(1))
+                    '        If tarifa.Rows.Count <= 0 Then
+                    '            MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                    '            tarifaIn = False
+                    '            contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+                    '            servicio = Val(contratos.Rows(0).Item(1))
+                    '            indi = indi + 1
+
+                    '        Else
+                    '            tarifaIn = Val(tarifa.Rows(0).Item(6))
+                    '            If (tarifaIn = False) Then
+                    '                contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+
+                    '                ' subtotal = Val(consumo.Rows(indi).Item(4))
+
+                    '                If (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(7)) Then
+
+                    '                    subtotal = consumobimestral + consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(3)
+
+                    '                ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(8)) Then
+
+                    '                    subtotal = consumobimestral + consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(4)
+
+                    '                Else
+                    '                    subtotal = consumobimestral + consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(5)
+                    '                End If
+                    '                Cliente = contratos.Rows(0).Item(3)
+                    '                total = subtotal * 1.16
+                    '                result = enlace.Reg_Recibo(consumobimestral, consumo.Rows(indi).Item(3), 0, Cliente, tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(indi).Item(0))
+                    '                indi = indi + 1
+                    '                consumobimestral = 0
+
+                    '                If counting > indi Then
+
+
+                    '                    contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+                    '                    servicio = Val(contratos.Rows(0).Item(1))
+                    '                End If
+
+                    '            Else
+                    '                MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                    '                indi = indi + 1
+
+                    '                If counting > indi Then
+                    '                    contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+                    '                    servicio = Val(contratos.Rows(0).Item(1))
+                    '                End If
+
+                    '            End If
+
+                    '        End If
+
+
+
+                    '    End If
+
+
+                    'End If
+
+
+
+                End If
 
 
             End If
@@ -290,123 +492,9 @@ Public Class GenerarReciboyConsulta
 
         End While
 
-        'If (servicio) Then
-
-        '    tarifa = enlace.getSortedTarifa(consumo.Rows(indi).Item(2), consumo.Rows(0).Item(1))
-
-
-
-        'End If
-
-        'While (counting > indi)
-
-        '    
-
-
-        '    If (servicio) Then
-
-        '        tarifa = enlace.getSortedTarifa(consumo.Rows(indi).Item(2), consumo.Rows(indi).Item(1))
-        '        Dim buli As Boolean
-        '        buli = Val(tarifa.Rows(indi).Item(6))
-        '        If buli Then
-
-
-
-        '            subtotal = Val(consumo.Rows(indi).Item(4))
-        '            If (consumo.Rows(indi).Item(4) < tarifa.Rows(indi).Item(7)) Then
-
-        '                subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(indi).Item(3)
-
-        '            ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(indi).Item(8)) Then
-
-        '                subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(indi).Item(4)
-
-        '            Else
-        '                subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(indi).Item(5)
-        '            End If
-        '            Cliente = contratos.Rows(Index).Item(3)
-        '            total = subtotal * 1.16
-        '            result = enlace.Reg_Recibo(consumo.Rows(indi).Item(4), consumo.Rows(indi).Item(3), 1, Cliente, tarifa.Rows(indi).Item(0), subtotal, total, total)
-        '            MsgBox("Recibo generado exitosamente")
-        '            indi = indi + 1
-
-
-
-
-
-
-
-
-        '        End If
-
-        '        End If
-
-
-        'End While
-
-
-
-
-
-
-
-        'tarifa = enlace.getSortedTarifa(consumo.Rows(indi).Item(2), consumo.Rows(0).Item(1))
-
-        'Cliente = contratos.Rows(Index).Item(3)
-
-        'Id_tarifa = Val(tarifa.Rows(0).Item(0))
-
-
-
-
-
-
-
-
-
-        'odd = mes Mod 2
-
-
-
-
-
-
-
-
-        'If (servicio) Then
-
-        '    
-
-        'Else
-        '    If (odd = 0) Then
-
-        '    End If
-        'End If
-
-
-        'DataGridView1.DataSource = consumo
-
     End Sub
 
-    Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
-
-    End Sub
-
-    Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox4.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
 
     Private Sub TextBox_Mes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_Mes.KeyPress
         TextBox_Mes.MaxLength = 2
@@ -804,4 +892,601 @@ Public Class GenerarReciboyConsulta
     End Sub
 
 
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        TextBox1.MaxLength = 2
+
+        If (Val(TextBox1.Text) = 0) Then
+
+            MsgBox("mes invalido")
+        ElseIf (Val(TextBox1.Text) > 12) Then
+            TextBox1.Clear()
+            MsgBox("mes invalido")
+        End If
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        TextBox2.MaxLength = 4
+        If (Val(TextBox2.Text) = 0) Then
+
+            MsgBox("Año invalido")
+        ElseIf (Val(TextBox2.Text) > 2050) Then
+            TextBox2.Clear()
+            MsgBox("Año invalido")
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim enlace As New EnlaceBD
+        Dim Contrato As New DataTable
+        Dim Medidor As Integer
+        Dim fecha As Date
+        Dim ano As Integer
+        Dim mes As Integer
+        Dim anoBox As Integer
+        Dim mesBox As Integer
+        Dim servicio As Boolean
+        Medidor = ListBox_Contratos.Text
+        Contrato = enlace.getSortedContrato(Medidor)
+        servicio = Contrato.Rows(0).Item(1)
+        fecha = Contrato.Rows(0).Item(2)
+        ano = Year(fecha)
+        mes = Month(fecha)
+
+        If (Val(TextBox1.Text) = 0 Or Val(TextBox2.Text) = 0) Then
+            MsgBox("Campos vacios error")
+
+        Else
+            mesBox = Val(TextBox1.Text)
+            anoBox = Val(TextBox2.Text)
+            If (ano > anoBox) Then
+                MsgBox("año invalido")
+                TextBox2.Clear()
+            ElseIf (ano = anoBox And mes > mesBox) Then
+                MsgBox("Mes invalido")
+                TextBox1.Clear()
+            ElseIf (servicio) Then
+                Dim consumo As New DataTable
+                consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                If (consumo.Rows.Count < 1) Then
+                    MsgBox("consumo invalido o inexistente")
+                Else
+                    Dim tarifa As New DataTable
+                    tarifa = enlace.getSortedTarifaInd(mes, ano)
+                    If (tarifa.Rows.Count < 1) Then
+                        MsgBox("tarifa invalida o inexistente")
+
+                    Else
+                        Dim subtotal As Decimal
+                        Dim subtotalbasico As Decimal
+                        Dim subtotalmedio As Decimal
+                        Dim subtotalexcedente As Decimal
+                        Dim thisConsumo As Decimal
+                        Dim total As Decimal
+                        If (consumo.Rows(0).Item(4) < tarifa.Rows(0).Item(7)) Then
+
+                            subtotal = consumo.Rows(0).Item(4) * tarifa.Rows(0).Item(3)
+
+
+                        ElseIf (consumo.Rows(0).Item(4) < tarifa.Rows(0).Item(8)) Then
+
+                            subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                            thisConsumo = consumo.Rows(0).Item(4) - tarifa.Rows(0).Item(7)
+
+                            subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                            subtotal = subtotalbasico + subtotalmedio
+
+                        Else
+                            subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                            subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                            thisConsumo = consumo.Rows(0).Item(4) - tarifa.Rows(0).Item(8)
+                            subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                            subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                        End If
+                        total = subtotal * 1.16
+                        Dim result As Boolean
+                        result = enlace.Reg_Recibo(consumo.Rows(0).Item(4), Medidor, 1, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+
+
+
+                    End If
+                End If
+
+
+
+            ElseIf (servicio = False) Then
+                Dim odd As Decimal
+                odd = mes Mod 2
+                Dim oddbox As Integer
+                oddbox = mesBox Mod 2
+                Dim previous As Integer
+                Dim previousyear As Integer
+                Dim consumobimestral As Integer
+                If (odd > 0) Then
+
+                    If (oddbox > 0) Then
+                        MsgBox("Servicio domestico se cobra bimestralmente, error")
+                    Else
+                        Dim consumo As New DataTable
+                        If (mesBox = 1) Then
+                            previous = 12
+                            previousyear = anoBox - 1
+                        Else
+                            previous = mesBox - 1
+                            previousyear = anoBox
+                        End If
+                        consumo = enlace.getConsumobyDate(Medidor, previous, previousyear)
+                        If (consumo.Rows.Count < 1) Then
+                            MsgBox(" error, no existe consumo en mes previo")
+                        Else
+                            consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+                            Dim result As Boolean
+                            result = enlace.altConsumo(consumo.Rows(0).Item(0))
+                            consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                            consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+                            Dim tarifa As New DataTable
+                            tarifa = enlace.getSortedTarifa(mes, ano)
+                            If (tarifa.Rows.Count < 1) Then
+                                MsgBox("no existe tarifa para este mes")
+                            Else
+                                Dim subtotal As Decimal
+                                Dim subtotalbasico As Decimal
+                                Dim subtotalmedio As Decimal
+                                Dim subtotalexcedente As Decimal
+                                Dim thisConsumo As Decimal
+                                Dim total As Decimal
+                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+
+                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+
+
+                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                    subtotal = subtotalbasico + subtotalmedio
+
+                                Else
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                                End If
+                                total = subtotal * 1.16
+                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                            End If
+
+                        End If
+
+                    End If
+                ElseIf (odd = 0) Then
+
+                    If (oddbox = 0) Then
+                        MsgBox("Servicio domestico se cobra bimestralmente, error")
+                    Else
+                        Dim consumo As New DataTable
+                        If (mesBox = 1) Then
+                            previous = 12
+                            previousyear = anoBox - 1
+                        Else
+                            previous = mesBox - 1
+                            previousyear = anoBox
+                        End If
+                        consumo = enlace.getConsumobyDate(Medidor, previous, previousyear)
+                        If (consumo.Rows.Count < 1) Then
+                            MsgBox(" error, no existe consumo en mes previo")
+                        Else
+                            consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+                            Dim result As Boolean
+                            result = enlace.altConsumo(consumo.Rows(0).Item(0))
+                            consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                            consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+                            Dim tarifa As New DataTable
+                            tarifa = enlace.getSortedTarifa(mes, ano)
+                            If (tarifa.Rows.Count < 1) Then
+                                MsgBox("no existe tarifa para este mes")
+                            Else
+                                Dim subtotal As Decimal
+                                Dim subtotalbasico As Decimal
+                                Dim subtotalmedio As Decimal
+                                Dim subtotalexcedente As Decimal
+                                Dim thisConsumo As Decimal
+                                Dim total As Decimal
+                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+
+                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+
+
+                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                    subtotal = subtotalbasico + subtotalmedio
+
+                                Else
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                                End If
+                                total = subtotal * 1.16
+                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                            End If
+
+                        End If
+
+                    End If
+
+
+
+
+
+
+
+                End If
+
+
+
+
+            End If
+
+        End If
+
+
+
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim enlace As New EnlaceBD
+        Dim result As Boolean = False
+        Dim tarifa As New DataTable
+        Dim contratos As New DataTable
+        Dim consumo As New DataTable
+
+        consumo = enlace.getSortedConsumo()
+        Dim counting As Integer
+        counting = consumo.Rows.Count
+        Dim indi As Integer
+        indi = 0
+        Dim Cliente As String
+        Dim Id_tarifa As Int32
+        Dim subtotal As Double
+        Dim mes As Int16
+        Dim ano As Int16
+        Dim mesC As Int16
+        Dim anoC As Int16
+        Dim total As Double
+
+        Dim servicio As Boolean
+
+        Dim tarifaIn As Boolean
+
+        Dim bimestre As Int16
+        bimestre = 0
+        Dim mesBox As Integer
+        Dim anoBox As Integer
+        Dim Medidor As Integer
+        While (counting > indi)
+
+
+
+
+            mesC = consumo.Rows(indi).Item(2)
+            mesBox = consumo.Rows(indi).Item(2)
+            anoBox = consumo.Rows(indi).Item(1)
+            anoC = consumo.Rows(indi).Item(1)
+            contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+            servicio = Val(contratos.Rows(0).Item(1))
+            mes = Month(contratos.Rows(0).Item(2))
+            ano = Year(contratos.Rows(0).Item(2))
+            Medidor = consumo.Rows(indi).Item(3)
+
+
+
+
+            If (servicio) Then
+                bimestre = 0
+                tarifa = enlace.getSortedTarifaInd(consumo.Rows(indi).Item(2), consumo.Rows(indi).Item(1))
+                If tarifa.Rows.Count <= 0 Then
+                    MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                    tarifaIn = False
+                    indi = indi + 1
+                Else
+                    tarifaIn = Val(tarifa.Rows(0).Item(6))
+                End If
+
+                If (tarifaIn) Then
+                    contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+
+
+                    Dim subtotalbasico As Decimal
+                    Dim subtotalmedio As Decimal
+                    Dim subtotalexcedente As Decimal
+                    Dim thisConsumo As Decimal
+
+                    If (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(7)) Then
+
+                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(3)
+
+
+                    ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(8)) Then
+
+                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(7)
+
+                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                        subtotal = subtotalbasico + subtotalmedio
+
+                    Else
+                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(8)
+                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                    End If
+                    Cliente = contratos.Rows(0).Item(3)
+                    total = subtotal * 1.16
+                    result = enlace.Reg_Recibo(consumo.Rows(indi).Item(4), consumo.Rows(indi).Item(3), 1, Cliente, tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(indi).Item(0))
+                    indi = indi + 1
+
+                Else
+                    MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                    indi = indi + 1
+
+                End If
+            End If
+        End While
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim enlace As New EnlaceBD
+        Dim result As Boolean = False
+        Dim tarifa As New DataTable
+        Dim contratos As New DataTable
+        Dim consumo As New DataTable
+
+        consumo = enlace.getSortedConsumo()
+        Dim counting As Integer
+        counting = consumo.Rows.Count
+        Dim indi As Integer
+        indi = 0
+        Dim Cliente As String
+        Dim Id_tarifa As Int32
+        Dim subtotal As Double
+        Dim mes As Int16
+        Dim ano As Int16
+        Dim mesC As Int16
+        Dim anoC As Int16
+        Dim total As Double
+
+        Dim servicio As Boolean
+
+        Dim tarifaIn As Boolean
+
+        Dim bimestre As Int16
+        bimestre = 0
+        Dim mesBox As Integer
+        Dim anoBox As Integer
+        Dim Medidor As Integer
+        While (counting > indi)
+
+
+
+
+            mesC = consumo.Rows(indi).Item(2)
+            mesBox = consumo.Rows(indi).Item(2)
+            anoBox = consumo.Rows(indi).Item(1)
+            anoC = consumo.Rows(indi).Item(1)
+            contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+            servicio = Val(contratos.Rows(0).Item(1))
+            mes = Month(contratos.Rows(0).Item(2))
+            ano = Year(contratos.Rows(0).Item(2))
+            Medidor = consumo.Rows(indi).Item(3)
+
+            If servicio = False Then
+                    Dim odd As Decimal
+                    odd = mes Mod 2
+                    Dim oddbox As Integer
+                    oddbox = mesBox Mod 2
+                    Dim previous As Integer
+                    Dim previousyear As Integer
+                    Dim consumobimestral As Integer
+                    If (odd > 0) Then
+
+                        If (oddbox > 0) Then
+                            indi = indi + 1
+                        Else
+
+                            If (mesBox = 1) Then
+                                previous = 12
+                                previousyear = anoBox - 1
+                            Else
+                                previous = mesBox - 1
+                                previousyear = anoBox
+                            End If
+                            consumo = enlace.getConsumobyDate(Medidor, previous, previousyear)
+                            If (consumo.Rows.Count < 1) Then
+
+                                indi = indi + 1
+                            Else
+                                consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+
+                                result = enlace.altConsumo(consumo.Rows(0).Item(0))
+                                consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                                consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+
+                                tarifa = enlace.getSortedTarifa(mes, ano)
+                                If (tarifa.Rows.Count < 1) Then
+                                    MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                                    indi = indi + 1
+
+                                Else
+
+                                Dim subtotalbasico As Decimal
+                                Dim subtotalmedio As Decimal
+                                Dim subtotalexcedente As Decimal
+                                Dim thisConsumo As Decimal
+
+                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+
+                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+
+
+                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                    subtotal = subtotalbasico + subtotalmedio
+
+                                Else
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                                End If
+                                total = subtotal * 1.16
+                                    result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                    indi = indi + 1
+
+                                End If
+
+                            End If
+
+                        End If
+                    ElseIf (odd = 0) Then
+
+                        If (oddbox = 0) Then
+                            indi = indi + 1
+
+                        Else
+
+                            If (mesBox = 1) Then
+                                previous = 12
+                                previousyear = anoBox - 1
+                            Else
+                                previous = mesBox - 1
+                                previousyear = anoBox
+                            End If
+                            consumo = enlace.getConsumobyDate(Medidor, previous, previousyear)
+                            If (consumo.Rows.Count < 1) Then
+                                indi = indi + 1
+
+                            Else
+                                consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+
+                                result = enlace.altConsumo(consumo.Rows(0).Item(0))
+                                consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                                consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+
+                                tarifa = enlace.getSortedTarifa(mes, ano)
+                                If (tarifa.Rows.Count < 1) Then
+                                    MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
+                                    indi = indi + 1
+
+                                Else
+
+
+                                Dim subtotalbasico As Decimal
+                                Dim subtotalmedio As Decimal
+                                Dim subtotalexcedente As Decimal
+                                Dim thisConsumo As Decimal
+
+                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+
+                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+
+
+                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                    subtotal = subtotalbasico + subtotalmedio
+
+                                Else
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                                End If
+                                total = subtotal * 1.16
+                                    result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                    indi = indi + 1
+
+                                End If
+
+                            End If
+
+                        End If
+
+
+
+
+
+
+
+                    End If
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                End If
+
+
+
+
+
+
+        End While
+    End Sub
 End Class
