@@ -21,7 +21,6 @@ Create view ReporteConsumoV as
 
 go
 
-select * from ConsumoHistoricoV
 
 Create view ConsumoHistoricoV as 
 

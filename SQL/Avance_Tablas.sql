@@ -189,8 +189,10 @@ Fecha date not null,
 Cliente VARCHAR (18) not null,
 CONSTRAINT fk_ClienteCon FOREIGN KEY (Cliente) REFERENCES Clientes (CURP),
 Activo bit default (1),
+Consumo int default (0), 
 Numero_Medidor int UNIQUE identity (150,1) 
 );
+
 
 CREATE TABLE Consumo(
 Id_Consumo int identity (300,1),

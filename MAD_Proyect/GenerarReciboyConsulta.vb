@@ -207,6 +207,12 @@ Public Class GenerarReciboyConsulta
                     End If
                     Cliente = contratos.Rows(0).Item(3)
                     total = subtotal * 1.16
+                    Dim Contrato As New DataTable
+                    Dim con As New Decimal
+                    Contrato = enlace.getSortedContrato(Medidor)
+                    con = Contrato.Rows(0).Item(5) + consumo.Rows(indi).Item(4)
+                    result = enlace.altContrato(Medidor, con)
+
                     result = enlace.Reg_Recibo(consumo.Rows(indi).Item(4), consumo.Rows(indi).Item(3), 1, Cliente, tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(indi).Item(0))
                     indi = indi + 1
 
@@ -247,10 +253,10 @@ Public Class GenerarReciboyConsulta
                                 consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
 
                                 result = enlace.altConsumo(consumo.Rows(indi).Item(0))
-                                consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                                consumo = enlace.getConsumobyDate(Medidor, mesBox, anoBox)
                                 consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
 
-                                tarifa = enlace.getSortedTarifa(mes, ano)
+                                tarifa = enlace.getSortedTarifa(mesBox, anoBox)
                                 If (tarifa.Rows.Count < 1) Then
                                     MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
                                     indi = indi + 1
@@ -289,7 +295,12 @@ Public Class GenerarReciboyConsulta
 
                                     End If
                                     total = subtotal * 1.16
-                                    result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                    result = enlace.Reg_Recibo(consumobimestral, Medidor, 0, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                    Dim Contrato As New DataTable
+                                    Dim con As New Decimal
+                                    Contrato = enlace.getSortedContrato(Medidor)
+                                    con = Contrato.Rows(0).Item(5) + consumobimestral
+                                    result = enlace.altContrato(Medidor, con)
                                     indi = indi + 1
 
                                 End If
@@ -319,10 +330,10 @@ Public Class GenerarReciboyConsulta
                                 consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
 
                                 result = enlace.altConsumo(consumo.Rows(0).Item(0))
-                                consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                                consumo = enlace.getConsumobyDate(Medidor, mesBox, anoBox)
                                 consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
 
-                                tarifa = enlace.getSortedTarifa(mes, ano)
+                                tarifa = enlace.getSortedTarifa(mesBox, anoBox)
                                 If (tarifa.Rows.Count < 1) Then
                                     MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
                                     indi = indi + 1
@@ -361,7 +372,8 @@ Public Class GenerarReciboyConsulta
 
                                     End If
                                     total = subtotal * 1.16
-                                    result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                    result = enlace.altContrato(Medidor, consumobimestral)
+                                    result = enlace.Reg_Recibo(consumobimestral, Medidor, 0, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
                                     indi = indi + 1
 
                                 End If
@@ -493,7 +505,6 @@ Public Class GenerarReciboyConsulta
         End While
 
     End Sub
-
 
 
     Private Sub TextBox_Mes_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_Mes.KeyPress
@@ -1131,19 +1142,19 @@ Public Class GenerarReciboyConsulta
             mesBox = Val(TextBox1.Text)
             anoBox = Val(TextBox2.Text)
             If (ano > anoBox) Then
-                MsgBox("año invalido")
+                MsgBox("aÃ±o invalido")
                 TextBox2.Clear()
             ElseIf (ano = anoBox And mes > mesBox) Then
                 MsgBox("Mes invalido")
                 TextBox1.Clear()
             ElseIf (servicio) Then
                 Dim consumo As New DataTable
-                consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                consumo = enlace.getConsumobyDate(Medidor, mesBox, anoBox)
                 If (consumo.Rows.Count < 1) Then
                     MsgBox("consumo invalido o inexistente")
                 Else
                     Dim tarifa As New DataTable
-                    tarifa = enlace.getSortedTarifaInd(mes, ano)
+                    tarifa = enlace.getSortedTarifaInd(mesBox, anoBox)
                     If (tarifa.Rows.Count < 1) Then
                         MsgBox("tarifa invalida o inexistente")
 
@@ -1181,6 +1192,12 @@ Public Class GenerarReciboyConsulta
                         End If
                         total = subtotal * 1.16
                         Dim result As Boolean
+                        Dim con As New Decimal
+                        Contrato = enlace.getSortedContrato(Medidor)
+                        con = Contrato.Rows(0).Item(5) + consumo.Rows(0).Item(4)
+
+                        result = enlace.altContrato(Medidor, con)
+
                         result = enlace.Reg_Recibo(consumo.Rows(0).Item(4), Medidor, 1, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
 
 
@@ -1218,10 +1235,10 @@ Public Class GenerarReciboyConsulta
                             consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
                             Dim result As Boolean
                             result = enlace.altConsumo(consumo.Rows(0).Item(0))
-                            consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                            consumo = enlace.getConsumobyDate(Medidor, mesBox, anoBox)
                             consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
                             Dim tarifa As New DataTable
-                            tarifa = enlace.getSortedTarifa(mes, ano)
+                            tarifa = enlace.getSortedTarifa(mesBox, anoBox)
                             If (tarifa.Rows.Count < 1) Then
                                 MsgBox("no existe tarifa para este mes")
                             Else
@@ -1257,7 +1274,12 @@ Public Class GenerarReciboyConsulta
 
                                 End If
                                 total = subtotal * 1.16
-                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                Dim con As New Decimal
+                                Contrato = enlace.getSortedContrato(Medidor)
+                                con = Contrato.Rows(0).Item(5) + consumobimestral
+
+                                result = enlace.altContrato(Medidor, con)
+                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 0, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
                             End If
 
                         End If
@@ -1283,10 +1305,10 @@ Public Class GenerarReciboyConsulta
                             consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
                             Dim result As Boolean
                             result = enlace.altConsumo(consumo.Rows(0).Item(0))
-                            consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                            consumo = enlace.getConsumobyDate(Medidor, mesBox, anoBox)
                             consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
                             Dim tarifa As New DataTable
-                            tarifa = enlace.getSortedTarifa(mes, ano)
+                            tarifa = enlace.getSortedTarifa(mesBox, anoBox)
                             If (tarifa.Rows.Count < 1) Then
                                 MsgBox("no existe tarifa para este mes")
                             Else
@@ -1322,7 +1344,12 @@ Public Class GenerarReciboyConsulta
 
                                 End If
                                 total = subtotal * 1.16
-                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                Dim con As New Decimal
+                                Contrato = enlace.getSortedContrato(Medidor)
+                                con = Contrato.Rows(0).Item(5) + consumobimestral
+
+                                result = enlace.altContrato(Medidor, con)
+                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 0, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
                             End If
 
                         End If
@@ -1347,6 +1374,7 @@ Public Class GenerarReciboyConsulta
 
 
     End Sub
+
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Dim enlace As New EnlaceBD
@@ -1443,6 +1471,12 @@ Public Class GenerarReciboyConsulta
                     End If
                     Cliente = contratos.Rows(0).Item(3)
                     total = subtotal * 1.16
+                    Dim Contrato As New DataTable
+                    Dim con As New Decimal
+                    Contrato = enlace.getSortedContrato(Medidor)
+                    con = Contrato.Rows(0).Item(5) + consumo.Rows(indi).Item(4)
+
+                    result = enlace.altContrato(Medidor, con)
                     result = enlace.Reg_Recibo(consumo.Rows(indi).Item(4), consumo.Rows(indi).Item(3), 1, Cliente, tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(indi).Item(0))
                     indi = indi + 1
 
@@ -1452,6 +1486,8 @@ Public Class GenerarReciboyConsulta
 
                 End If
             End If
+            indi = indi + 1
+
         End While
     End Sub
 
@@ -1529,10 +1565,10 @@ Public Class GenerarReciboyConsulta
                             consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
 
                             result = enlace.altConsumo(consumo.Rows(0).Item(0))
-                            consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                            consumo = enlace.getConsumobyDate(Medidor, mesBox, anoBox)
                             consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
 
-                            tarifa = enlace.getSortedTarifa(mes, ano)
+                            tarifa = enlace.getSortedTarifa(mesBox, anoBox)
                             If (tarifa.Rows.Count < 1) Then
                                 MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
                                 indi = indi + 1
@@ -1570,7 +1606,13 @@ Public Class GenerarReciboyConsulta
 
                                 End If
                                 total = subtotal * 1.16
-                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                Dim Contrato As New DataTable
+                                Dim con As New Decimal
+                                Contrato = enlace.getSortedContrato(Medidor)
+                                con = Contrato.Rows(0).Item(5) + consumobimestral
+
+                                result = enlace.altContrato(Medidor, con)
+                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 0, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
                                 indi = indi + 1
 
                             End If
@@ -1600,10 +1642,10 @@ Public Class GenerarReciboyConsulta
                             consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
 
                             result = enlace.altConsumo(consumo.Rows(0).Item(0))
-                            consumo = enlace.getConsumobyDate(Medidor, mes, ano)
+                            consumo = enlace.getConsumobyDate(Medidor, mesBox, anoBox)
                             consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
 
-                            tarifa = enlace.getSortedTarifa(mes, ano)
+                            tarifa = enlace.getSortedTarifa(mesBox, anoBox)
                             If (tarifa.Rows.Count < 1) Then
                                 MsgBox("No existe tarifa aplicable para uno de los consumos registrados asi que se saltara al siguiente")
                                 indi = indi + 1
@@ -1642,7 +1684,13 @@ Public Class GenerarReciboyConsulta
 
                                 End If
                                 total = subtotal * 1.16
-                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
+                                Dim Contrato As New DataTable
+                                Dim con As New Decimal
+                                Contrato = enlace.getSortedContrato(Medidor)
+                                con = Contrato.Rows(0).Item(5) + consumobimestral
+
+                                result = enlace.altContrato(Medidor, con)
+                                result = enlace.Reg_Recibo(consumobimestral, Medidor, 0, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
                                 indi = indi + 1
 
                             End If
@@ -1674,7 +1722,7 @@ Public Class GenerarReciboyConsulta
 
             End If
 
-
+            indi = indi + 1
 
 
 

@@ -135,7 +135,8 @@ Fecha_de_Alta_Modificacion,
 Genero,
 email,
 Nombre_Usuario,
-Contraseña 
+Contraseña,
+Consumo_Historico
 
 FROM Clientes 
 where Activo = 1 
@@ -553,8 +554,9 @@ where Activo = 1
 END
 go
 
-create procedure getContratosMedidor
+Alter procedure getContratosMedidor
 @Medidor int
+
 AS
 Begin
 Select 
@@ -562,10 +564,11 @@ Domicilio,
 Servicio,
 Fecha,
 Cliente,
-Numero_Medidor
+Numero_Medidor,
+Consumo
 
 FROM Contrato
-where Activo = 1 and Numero_Medidor=@Medidor
+where Activo = 1 and Numero_Medidor=@Medidor 
 END
 go
 
@@ -660,7 +663,7 @@ Watts
 go
 
 
-alter procedure getConsumoByDate
+create procedure getConsumoByDate
 @Numero_Medidor int,
 @ano int,
 @mes int
@@ -719,7 +722,7 @@ end
 go
 
 
-alter procedure regRecibo
+Alter procedure regRecibo
 @watts int,
 @medidor int,
 @servicio bit,
@@ -734,7 +737,6 @@ as
 begin
 insert into Recibo(Fecha,Watts,Servicio,Subtotal,Total,Pendiente_Pago,Pagado,Tarifa,Numero_Medidor,Cliente,Id_Consumo ) values (getdate(),@watts,@servicio,@subtotal,@total,@pendiente_pago,0,@tarifa,@medidor,@curp,@Consumo) 
 Update Consumo set Used =1 where Id_Consumo = @Consumo
-Update Cliente set Consumo_historico= Consumo_Historico + Consumo where CURP=@curp
 end
  go
 
@@ -800,6 +802,17 @@ Update Recibo set Pendiente_Pago = @pendientepago where Id_Recibo = @Id
 Update Recibo set Pagado = @pagado where Id_Recibo = @Id
 end
 go
+
+
+
+create procedure altContrato
+ @Medidor int,
+ @Consumo int
+ as 
+ begin
+ Update Contrato set Consumo=@Consumo where Numero_Medidor=@Medidor
+ end 
+ go
    
 Select * from Empleado   
 
@@ -809,7 +822,8 @@ Select * from Consumo
 
 
 Select * from Tarifa      
-     
+     Select * from Clientes      
+
 Select * from Contrato  
 Select * from Usuarios
 Select * from ReporteConsumoV  
@@ -818,7 +832,7 @@ update Clientes set Activo = 1
 
 
 
-update Empleado set Activo = 0 where Nombre = 'Beatriz Pinzon'
+update Consumo set Used = 0 where Id_Consumo = 302
 
 insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values('Alejandro Venegas','AdmiGenial',3)
 

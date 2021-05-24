@@ -1373,6 +1373,33 @@ Public Class EnlaceBD
 
     End Function
 
+    Public Function altContrato(ByVal Medidor As Integer,
+                           ByVal Watts As Integer) As Boolean
+        Dim estado As Boolean = True
+        Try
+            conectar()
+            comandosql = New SqlCommand("altContrato", conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Medidor", SqlDbType.Int)
+            parametro1.Value = Medidor
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Consumo", SqlDbType.Int)
+            parametro2.Value = Watts
+
+
+
+            conexion.Open()
+            adaptador.InsertCommand = comandosql
+            comandosql.ExecuteNonQuery()
+
+        Catch ex As Exception
+            estado = False
+        Finally
+            desconectar()
+
+        End Try
+        Return estado
+    End Function
     '-------------------------------
 
     'Public Function Autentificar(ByVal User As String, ByVal Pass As String) As Boolean
