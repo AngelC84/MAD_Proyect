@@ -175,6 +175,7 @@ email varchar (30) UNIQUE not null,
 Nombre_Usuario varchar(50) not null,
 CONSTRAINT fk_UsuarioCliente FOREIGN KEY (Nombre_Usuario) REFERENCES Usuarios (Nombre_Usuario),
 Contraseña varchar (25),
+Consumo_Historico int,
 Activo bit default (1)
 );
 

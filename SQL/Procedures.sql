@@ -719,7 +719,7 @@ end
 go
 
 
-create procedure regRecibo
+alter procedure regRecibo
 @watts int,
 @medidor int,
 @servicio bit,
@@ -734,7 +734,7 @@ as
 begin
 insert into Recibo(Fecha,Watts,Servicio,Subtotal,Total,Pendiente_Pago,Pagado,Tarifa,Numero_Medidor,Cliente,Id_Consumo ) values (getdate(),@watts,@servicio,@subtotal,@total,@pendiente_pago,0,@tarifa,@medidor,@curp,@Consumo) 
 Update Consumo set Used =1 where Id_Consumo = @Consumo
-
+Update Cliente set Consumo_historico= Consumo_Historico + Consumo where CURP=@curp
 end
  go
 
