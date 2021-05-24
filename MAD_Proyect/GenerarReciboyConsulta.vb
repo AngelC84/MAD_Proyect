@@ -2,7 +2,15 @@
 Imports iTextSharp.text
 Imports System.IO
 
+
 Public Class GenerarReciboyConsulta
+    Public Property CURP As String
+    Public Property Usuario As DataTable
+    Public Property Cliente As DataTable
+    Public Property Recibo As DataTable
+
+    Public Property Tarifa As DataTable
+
     Private Sub Button_Gestion_Click(sender As Object, e As EventArgs) Handles Button_Gestion.Click
         EmpleadoGral.Show()
         Me.Hide()
@@ -41,33 +49,35 @@ Public Class GenerarReciboyConsulta
     Private Sub GenerarReciboyConsulta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim enlace As New EnlaceBD
         Dim tablaaux As New DataTable
-        ' Dim enlace As New EnlaceBD
         Dim anios As New List(Of Integer)
+
 
         tablaaux = enlace.getdataContrato()
 
-        'Mes = Val(TextBox_Mes.Text)
 
-        For anio As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
-            anios.Add(anio)
-        Next anio
-
-        ComboBox4.DataSource = anios
 
         If (tablaaux.Rows.Count > 0) Then
             ListBox_Contratos.DataSource = tablaaux
             ListBox_Contratos.DisplayMember = "Numero_Medidor"
         End If
 
-        If (tablaaux.Rows.Count > 0) Then
-            ComboBox2.DataSource = tablaaux
-            ComboBox2.DisplayMember = "Numero_Medidor"
-        End If
 
-        ComboBox4.SelectedIndex = 0
         ComboBox1.SelectedIndex = 0
 
+
+        '---------------------------------------
+
+        ''numero = trans.ConvertNumberToWords(Recibo.Rows(Index).Item(5))
+        'Totes_label.Text = numero
+        'Subtotal_Label.Text = Recibo.Rows(Index).Item(4)
+        'Total_Label.Text = Recibo.Rows(Index).Item(5)
+        'Pendiente_Label.Text = Recibo.Rows(Index).Item(6)
+
+
     End Sub
+
+
+
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
@@ -87,7 +97,7 @@ Public Class GenerarReciboyConsulta
 
         If (tablaaux.Rows.Count > 0) Then
 
-            Domicilio_Label.Text = tablaaux.Rows(Index).Item(0)
+            Label16_Domicilio.Text = tablaaux.Rows(Index).Item(0)
             Cliente_Label.Text = tablaaux.Rows(Index).Item(3)
             Fecha_Label.Text = tablaaux.Rows(Index).Item(2)
             serv = Val(tablaaux.Rows(Index).Item(1))
@@ -530,7 +540,7 @@ Public Class GenerarReciboyConsulta
         End If
     End Sub
 
-    Private Sub Recibo_PDF_Click(sender As Object, e As EventArgs) Handles Recibo_PDF.Click, Consulta.Click
+    Private Sub Recibo_PDF_Click(sender As Object, e As EventArgs) Handles Recibo_PDF.Click
 
 
         Dim enlace As New EnlaceBD
@@ -559,8 +569,8 @@ Public Class GenerarReciboyConsulta
             Numero_Medidor = Integer.Parse(ComboBox2.Text)
         End If
 
-        If (ComboBox4.Text <> Nothing) Then
-            ano = Integer.Parse(ComboBox4.Text)
+        If (TextBox_AnoConsulta.Text <> Nothing) Then
+            ano = Integer.Parse(TextBox_AnoConsulta.Text)
         End If
 
         If (TextBox_Mes.Text <> Nothing) Then
@@ -1416,6 +1426,7 @@ Public Class GenerarReciboyConsulta
             anoBox = consumo.Rows(indi).Item(1)
             anoC = consumo.Rows(indi).Item(1)
             contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+
             servicio = Val(contratos.Rows(0).Item(1))
             mes = Month(contratos.Rows(0).Item(2))
             ano = Year(contratos.Rows(0).Item(2))
@@ -1730,7 +1741,376 @@ Public Class GenerarReciboyConsulta
         End While
     End Sub
 
-    Private Sub Label19_Click(sender As Object, e As EventArgs) Handles Label19.Click
+    Private Sub Label19_Click(sender As Object, e As EventArgs) Handles Label19_TotalNum.Click
 
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+
+        Dim trans As New clsConversion
+        Dim enlace As New EnlaceBD
+        Dim Medidor As Integer
+        Dim Index As Integer
+        Dim tablaaux As New DataTable
+        Dim NombreClient As New DataTable
+        Dim contratos As New DataTable
+
+        'Dim CURP As New DataTable
+        Dim Texto As New Integer
+        Dim serv As Boolean
+        Dim numero As String
+        Dim consumo As Integer
+
+        'Dim Servicio As New Integer
+
+        'Servicio = ComboBox1.SelectedItem.ToString
+        'tablaaux = enlace.ReciboServicio(Servicio)
+
+        Texto = Val(ComboBox2.Text)
+
+        If Texto > 0 Then
+
+
+            Medidor = Texto
+            contratos = enlace.getSortedContrato(Medidor)
+            CURP = contratos.Rows(0).Item(3)
+            Index = ComboBox2.SelectedIndex
+            NombreClient = enlace.GetClienteNomb(CURP)
+            Label9_Nombre.Text = NombreClient.Rows(0).Item(0)
+            Label16_Domicilio.Text = contratos.Rows(0).Item(0)
+
+
+
+        End If
+
+    End Sub
+
+    Public Class clsConversion
+
+        Dim mOnesArray(8) As String
+        Dim mOneTensArray(9) As String
+        Dim mTensArray(7) As String
+        Dim mPlaceValues(4) As String
+
+
+        Public Sub New()
+
+            mOnesArray(0) = "uno"
+            mOnesArray(1) = "dos"
+            mOnesArray(2) = "tres"
+            mOnesArray(3) = "cuatro"
+            mOnesArray(4) = "cinco"
+            mOnesArray(5) = "seis"
+            mOnesArray(6) = "siete"
+            mOnesArray(7) = "ocho"
+            mOnesArray(8) = "nueve"
+
+            mOneTensArray(0) = "diez"
+            mOneTensArray(1) = "once"
+            mOneTensArray(2) = "doce"
+            mOneTensArray(3) = "trece"
+            mOneTensArray(4) = "catorce"
+            mOneTensArray(5) = "quince"
+            mOneTensArray(6) = "dieciseis"
+            mOneTensArray(7) = "diecisiete"
+            mOneTensArray(8) = "dieciocho"
+            mOneTensArray(9) = "diecinueve"
+
+            mTensArray(0) = "veinte"
+            mTensArray(1) = "treinta"
+            mTensArray(2) = "cuarenta"
+            mTensArray(3) = "cincuenta"
+            mTensArray(4) = "sesenta"
+            mTensArray(5) = "setenta"
+            mTensArray(6) = "ochenta"
+            mTensArray(7) = "noventa"
+
+            mPlaceValues(0) = "cientos"
+            mPlaceValues(1) = "mil"
+            mPlaceValues(2) = "millon"
+            mPlaceValues(3) = "billon"
+            mPlaceValues(4) = "trillon"
+
+        End Sub
+
+
+        Protected Function GetOnes(ByVal OneDigit As Integer) As String
+
+            GetOnes = ""
+
+            If OneDigit = 0 Then
+                Exit Function
+            End If
+
+            GetOnes = mOnesArray(OneDigit - 1)
+
+        End Function
+
+
+        Protected Function GetTens(ByVal TensDigit As Integer) As String
+
+            GetTens = ""
+
+            If TensDigit = 0 Or TensDigit = 1 Then
+                Exit Function
+            End If
+
+            GetTens = mTensArray(TensDigit - 2)
+
+        End Function
+
+
+        Public Function ConvertNumberToWords(ByVal NumberValue As String) As String
+
+            Dim Delimiter As String = " "
+            Dim TensDelimiter As String = "-"
+            Dim mNumberValue As String = ""
+            Dim mNumbers As String = ""
+            Dim mNumWord As String = ""
+            Dim mFraction As String = ""
+            Dim mNumberStack() As String
+            Dim j As Integer = 0
+            Dim i As Integer = 0
+            Dim mOneTens As Boolean = False
+
+            ConvertNumberToWords = ""
+
+            ' validate input
+            Try
+                j = CDbl(NumberValue)
+            Catch ex As Exception
+                ConvertNumberToWords = "Invalid input."
+                Exit Function
+            End Try
+
+            ' get fractional part {if any}
+            If InStr(NumberValue, ".") = 0 Then
+                ' no fraction
+                mNumberValue = NumberValue
+            Else
+                mNumberValue = Microsoft.VisualBasic.Left(NumberValue, InStr(NumberValue, ".") - 1)
+                mFraction = Mid(NumberValue, InStr(NumberValue, ".")) ' + 1)
+                mFraction = Math.Round(CSng(mFraction), 2) * 100
+
+                If CInt(mFraction) = 0 Then
+                    mFraction = ""
+                Else
+                    mFraction = "&& " & mFraction & "/100"
+                End If
+            End If
+            mNumbers = mNumberValue.ToCharArray
+
+            ' move numbers to stack/array backwards
+            For j = mNumbers.Length - 1 To 0 Step -1
+                ReDim Preserve mNumberStack(i)
+
+                mNumberStack(i) = mNumbers(j)
+                i += 1
+            Next
+
+            For j = mNumbers.Length - 1 To 0 Step -1
+                Select Case j
+                    Case 0, 3, 6, 9, 12
+                        ' ones  value
+                        If Not mOneTens Then
+                            mNumWord &= GetOnes(Val(mNumberStack(j))) & Delimiter
+                        End If
+
+                        Select Case j
+                            Case 3
+                                ' thousands
+                                mNumWord &= mPlaceValues(1) & Delimiter
+
+                            Case 6
+                                ' millions
+                                mNumWord &= mPlaceValues(2) & Delimiter
+
+                            Case 9
+                                ' billions
+                                mNumWord &= mPlaceValues(3) & Delimiter
+
+                            Case 12
+                                ' trillions
+                                mNumWord &= mPlaceValues(4) & Delimiter
+                        End Select
+
+
+                    Case Is = 1, 4, 7, 10, 13
+                        ' tens value
+                        If Val(mNumberStack(j)) = 0 Then
+                            mNumWord &= GetOnes(Val(mNumberStack(j - 1))) & Delimiter
+                            mOneTens = True
+                            Exit Select
+                        End If
+
+                        If Val(mNumberStack(j)) = 1 Then
+                            mNumWord &= mOneTensArray(Val(mNumberStack(j - 1))) & Delimiter
+                            mOneTens = True
+                            Exit Select
+                        End If
+
+                        mNumWord &= GetTens(Val(mNumberStack(j)))
+
+                        ' this places the tensdelimiter; check for succeeding 0
+                        If Val(mNumberStack(j - 1)) <> 0 Then
+                            mNumWord &= TensDelimiter
+                        End If
+                        mOneTens = False
+
+                    Case Else
+                        ' hundreds value 
+                        mNumWord &= GetOnes(Val(mNumberStack(j))) & Delimiter
+
+                        If Val(mNumberStack(j)) <> 0 Then
+                            mNumWord &= mPlaceValues(0) & Delimiter
+                        End If
+                End Select
+            Next
+
+            Return mNumWord & mFraction
+
+        End Function
+
+
+
+
+    End Class
+
+    Private Sub Consulta_Click(sender As Object, e As EventArgs) Handles Consulta.Click
+
+        Dim trans As New clsConversion
+        Dim enlace As New EnlaceBD
+        Dim Medidor As Integer
+        Dim Index As Integer
+        Dim tablaaux As New DataTable
+        Dim Tarifa As New DataTable
+        Dim Recibo As New DataTable
+        Dim contratos As New DataTable
+        Dim NombreClient As New DataTable
+        'Dim CURP As New DataTable
+
+        Dim serv As Boolean
+        Dim numero As String
+        Dim consumo As Integer
+        Dim ano As Integer
+        Dim mes As Integer
+        Dim IVA As Decimal
+
+        Medidor = Val(ComboBox2.Text)
+
+        contratos = enlace.getSortedContrato(Medidor)
+        Index = ComboBox2.SelectedIndex
+        NombreClient = enlace.GetClienteNomb(CURP)
+
+        CURP = contratos.Rows(0).Item(3)
+
+        Recibo = enlace.getRecibodataCURPactivo(CURP)
+        NombreClient = enlace.GetClienteNomb(CURP)
+
+        mes = Val(TextBox_Mes.Text)
+        ano = Val(TextBox_AnoConsulta.Text)
+
+        If (ComboBox1.SelectedIndex = 0) Then
+            Tarifa = enlace.getSortedTarifa(mes, ano)
+            Label24_Servicio.Text = "Domestico"
+        Else
+            Tarifa = enlace.getSortedTarifaInd(mes, ano)
+            Label24_Servicio.Text = "Industrial"
+
+        End If
+
+        Recibo = enlace.getdataReciboINFO(Tarifa.Rows(0).Item(0))
+        Label25_Medidor.Text = ComboBox2.Text
+        Label26_PeriodoFact.Text = TextBox_Mes.Text
+        Label9_PeriodoFact2.Text = TextBox_AnoConsulta.Text
+
+        numero = trans.ConvertNumberToWords(Recibo.Rows(0).Item(10))
+        Label19_TotalNum.Text = numero
+        Label20_TotalPagar.Text = (Recibo.Rows(0).Item(10))
+        Label57_Total.Text = (Recibo.Rows(0).Item(10))
+
+        'Consumos
+        Label37_LectAct.Text = (contratos.Rows(0).Item(5))
+
+        If (Recibo.Rows(0).Item(4) > Tarifa.Rows(0).Item(7)) Then
+
+            Label40_TotalBasic.Text = (Tarifa.Rows(0).Item(7))
+            Label43_PreciBasic.Text = (Tarifa.Rows(0).Item(7)) * (Tarifa.Rows(0).Item(3))
+
+            If (Recibo.Rows(0).Item(4) > Tarifa.Rows(0).Item(8)) Then
+                Dim Tar As Decimal
+                Dim Ter As Decimal
+
+                Ter = (Tarifa.Rows(0).Item(8)) - (Tarifa.Rows(0).Item(7))
+
+                Label41_TotalInter.Text = Ter
+
+                Tar = Recibo.Rows(0).Item(4) - Tarifa.Rows(0).Item(8)
+
+                Label16_Excedente.Text = Tar
+
+                Label45_SubInter.Text = Ter * Tarifa.Rows(0).Item(4)
+                Label47_Total.Text = Tar * Tarifa.Rows(0).Item(5)
+
+            Else
+
+                Dim Inter As Decimal
+                Inter = (Recibo.Rows(0).Item(4)) - (Tarifa.Rows(0).Item(7))
+                Label41_TotalInter.Text = Inter
+
+                Label45_SubInter.Text = Inter * Tarifa.Rows(0).Item(4)
+
+            End If
+
+        Else
+            Label40_TotalBasic.Text = (Recibo.Rows(0).Item(4))
+            Label43_PreciBasic.Text = (Recibo.Rows(0).Item(4)) * (Tarifa.Rows(0).Item(3))
+
+        End If
+
+
+        Label46_SubBasic.Text = (Tarifa.Rows(0).Item(3))
+        Label44_PreciInter.Text = (Tarifa.Rows(0).Item(4))
+        Label16_PrecioExced.Text = (Tarifa.Rows(0).Item(5))
+
+        'Subtotal
+        Label39_TotalP.Text = (Recibo.Rows(0).Item(4))
+        Label53_Energia.Text = (Recibo.Rows(0).Item(9))
+        IVA = Recibo.Rows(0).Item(9) * 0.16
+        Label54_IVA.Text = IVA
+        Label55_Adeudo.Text = (Recibo.Rows(0).Item(11))
+
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim enlace As New EnlaceBD
+
+        Dim tablaaux As New DataTable
+        Dim anios As New List(Of Integer)
+        Dim Servicio As New Integer
+
+        Servicio = ComboBox1.SelectedItem.ToString
+        tablaaux = enlace.ReciboServicio(Servicio)
+
+        If (tablaaux.Rows.Count > 0) Then
+            ComboBox2.DataSource = tablaaux
+            ComboBox2.DisplayMember = "Numero_Medidor"
+        End If
+
+
+
+    End Sub
+
+
+    Private Sub TextBox_AnoConsulta_TextChanged(sender As Object, e As EventArgs) Handles TextBox_AnoConsulta.TextChanged
+        TextBox_AnoConsulta.MaxLength = 4
+        If (Val(TextBox_AnoConsulta.Text) = 0) Then
+
+            MsgBox("Año invalido")
+        ElseIf (Val(TextBox_AnoConsulta.Text) > 2050) Then
+            TextBox_AnoConsulta.Clear()
+            MsgBox("Año invalido")
+        End If
     End Sub
 End Class

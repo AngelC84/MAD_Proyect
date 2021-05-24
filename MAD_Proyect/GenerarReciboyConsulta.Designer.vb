@@ -63,6 +63,8 @@ Partial Class GenerarReciboyConsulta
         Me.ListBox_Contratos = New System.Windows.Forms.ListBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBox_AnoConsulta = New System.Windows.Forms.TextBox()
+        Me.Consulta = New System.Windows.Forms.Button()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.TextBox_Mes = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -73,51 +75,50 @@ Partial Class GenerarReciboyConsulta
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.Recibo_PDF = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Consulta = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
         Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.Label55 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label20_TotalPagar = New System.Windows.Forms.Label()
+        Me.Label19_TotalNum = New System.Windows.Forms.Label()
+        Me.Label9_PeriodoFact2 = New System.Windows.Forms.Label()
+        Me.Label26_PeriodoFact = New System.Windows.Forms.Label()
+        Me.Label25_Medidor = New System.Windows.Forms.Label()
+        Me.Label24_Servicio = New System.Windows.Forms.Label()
+        Me.Label16_Domicilio = New System.Windows.Forms.Label()
+        Me.Label42_TotalSuma = New System.Windows.Forms.Label()
+        Me.Label41_TotalInter = New System.Windows.Forms.Label()
+        Me.Label47_Total = New System.Windows.Forms.Label()
+        Me.Label46_SubBasic = New System.Windows.Forms.Label()
+        Me.Label45_SubInter = New System.Windows.Forms.Label()
+        Me.Label44_PreciInter = New System.Windows.Forms.Label()
+        Me.Label43_PreciBasic = New System.Windows.Forms.Label()
+        Me.Label40_TotalBasic = New System.Windows.Forms.Label()
+        Me.Label39_TotalP = New System.Windows.Forms.Label()
+        Me.Label57_Total = New System.Windows.Forms.Label()
+        Me.Label55_Adeudo = New System.Windows.Forms.Label()
+        Me.Label54_IVA = New System.Windows.Forms.Label()
+        Me.Label53_Energia = New System.Windows.Forms.Label()
+        Me.Label37_LectAct = New System.Windows.Forms.Label()
+        Me.Label9_Nombre = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label16_Excedente = New System.Windows.Forms.Label()
+        Me.Label16_PrecioExced = New System.Windows.Forms.Label()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -468,7 +469,7 @@ Partial Class GenerarReciboyConsulta
         'Button5
         '
         Me.Button5.Location = New System.Drawing.Point(276, 620)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(208, 43)
         Me.Button5.TabIndex = 71
@@ -478,7 +479,7 @@ Partial Class GenerarReciboyConsulta
         'Button4
         '
         Me.Button4.Location = New System.Drawing.Point(20, 671)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(208, 43)
         Me.Button4.TabIndex = 70
@@ -497,7 +498,7 @@ Partial Class GenerarReciboyConsulta
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(21, 508)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(208, 43)
         Me.Button2.TabIndex = 56
@@ -516,7 +517,7 @@ Partial Class GenerarReciboyConsulta
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(20, 620)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(208, 43)
         Me.Button3.TabIndex = 55
@@ -655,6 +656,10 @@ Partial Class GenerarReciboyConsulta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label16_PrecioExced)
+        Me.GroupBox1.Controls.Add(Me.Label16_Excedente)
+        Me.GroupBox1.Controls.Add(Me.TextBox_AnoConsulta)
+        Me.GroupBox1.Controls.Add(Me.Consulta)
         Me.GroupBox1.Controls.Add(Me.ComboBox2)
         Me.GroupBox1.Controls.Add(Me.TextBox_Mes)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
@@ -663,22 +668,20 @@ Partial Class GenerarReciboyConsulta
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.ComboBox4)
-        Me.GroupBox1.Controls.Add(Me.Consulta)
         Me.GroupBox1.Controls.Add(Me.Recibo_PDF)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.Label23)
         Me.GroupBox1.Controls.Add(Me.Label22)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label31)
         Me.GroupBox1.Controls.Add(Me.Label30)
         Me.GroupBox1.Controls.Add(Me.Label29)
         Me.GroupBox1.Controls.Add(Me.Label52)
-        Me.GroupBox1.Controls.Add(Me.Label51)
         Me.GroupBox1.Controls.Add(Me.Label50)
         Me.GroupBox1.Controls.Add(Me.Label49)
         Me.GroupBox1.Controls.Add(Me.Label48)
         Me.GroupBox1.Controls.Add(Me.Label28)
-        Me.GroupBox1.Controls.Add(Me.Label33)
         Me.GroupBox1.Controls.Add(Me.Label32)
         Me.GroupBox1.Controls.Add(Me.Label36)
         Me.GroupBox1.Controls.Add(Me.Label35)
@@ -687,29 +690,28 @@ Partial Class GenerarReciboyConsulta
         Me.GroupBox1.Controls.Add(Me.Label21)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label14)
-        Me.GroupBox1.Controls.Add(Me.Label20)
-        Me.GroupBox1.Controls.Add(Me.Label19)
-        Me.GroupBox1.Controls.Add(Me.Label26)
-        Me.GroupBox1.Controls.Add(Me.Label25)
-        Me.GroupBox1.Controls.Add(Me.Label24)
-        Me.GroupBox1.Controls.Add(Me.Label16)
-        Me.GroupBox1.Controls.Add(Me.Label42)
-        Me.GroupBox1.Controls.Add(Me.Label41)
-        Me.GroupBox1.Controls.Add(Me.Label47)
-        Me.GroupBox1.Controls.Add(Me.Label46)
-        Me.GroupBox1.Controls.Add(Me.Label45)
-        Me.GroupBox1.Controls.Add(Me.Label44)
-        Me.GroupBox1.Controls.Add(Me.Label43)
-        Me.GroupBox1.Controls.Add(Me.Label40)
-        Me.GroupBox1.Controls.Add(Me.Label39)
-        Me.GroupBox1.Controls.Add(Me.Label38)
-        Me.GroupBox1.Controls.Add(Me.Label57)
-        Me.GroupBox1.Controls.Add(Me.Label56)
-        Me.GroupBox1.Controls.Add(Me.Label55)
-        Me.GroupBox1.Controls.Add(Me.Label54)
-        Me.GroupBox1.Controls.Add(Me.Label53)
-        Me.GroupBox1.Controls.Add(Me.Label37)
-        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.Label20_TotalPagar)
+        Me.GroupBox1.Controls.Add(Me.Label19_TotalNum)
+        Me.GroupBox1.Controls.Add(Me.Label9_PeriodoFact2)
+        Me.GroupBox1.Controls.Add(Me.Label26_PeriodoFact)
+        Me.GroupBox1.Controls.Add(Me.Label25_Medidor)
+        Me.GroupBox1.Controls.Add(Me.Label24_Servicio)
+        Me.GroupBox1.Controls.Add(Me.Label16_Domicilio)
+        Me.GroupBox1.Controls.Add(Me.Label42_TotalSuma)
+        Me.GroupBox1.Controls.Add(Me.Label41_TotalInter)
+        Me.GroupBox1.Controls.Add(Me.Label47_Total)
+        Me.GroupBox1.Controls.Add(Me.Label46_SubBasic)
+        Me.GroupBox1.Controls.Add(Me.Label45_SubInter)
+        Me.GroupBox1.Controls.Add(Me.Label44_PreciInter)
+        Me.GroupBox1.Controls.Add(Me.Label43_PreciBasic)
+        Me.GroupBox1.Controls.Add(Me.Label40_TotalBasic)
+        Me.GroupBox1.Controls.Add(Me.Label39_TotalP)
+        Me.GroupBox1.Controls.Add(Me.Label57_Total)
+        Me.GroupBox1.Controls.Add(Me.Label55_Adeudo)
+        Me.GroupBox1.Controls.Add(Me.Label54_IVA)
+        Me.GroupBox1.Controls.Add(Me.Label53_Energia)
+        Me.GroupBox1.Controls.Add(Me.Label37_LectAct)
+        Me.GroupBox1.Controls.Add(Me.Label9_Nombre)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
         Me.GroupBox1.Location = New System.Drawing.Point(813, 46)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -719,6 +721,29 @@ Partial Class GenerarReciboyConsulta
         Me.GroupBox1.TabIndex = 46
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consulta de Recibo"
+        '
+        'TextBox_AnoConsulta
+        '
+        Me.TextBox_AnoConsulta.BackColor = System.Drawing.Color.Beige
+        Me.TextBox_AnoConsulta.Location = New System.Drawing.Point(302, 210)
+        Me.TextBox_AnoConsulta.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox_AnoConsulta.Name = "TextBox_AnoConsulta"
+        Me.TextBox_AnoConsulta.Size = New System.Drawing.Size(230, 22)
+        Me.TextBox_AnoConsulta.TabIndex = 65
+        '
+        'Consulta
+        '
+        Me.Consulta.BackColor = System.Drawing.Color.LightYellow
+        Me.Consulta.FlatAppearance.BorderSize = 0
+        Me.Consulta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Consulta.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Consulta.Location = New System.Drawing.Point(414, 671)
+        Me.Consulta.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Consulta.Name = "Consulta"
+        Me.Consulta.Size = New System.Drawing.Size(137, 64)
+        Me.Consulta.TabIndex = 64
+        Me.Consulta.Text = "Consulta"
+        Me.Consulta.UseVisualStyleBackColor = False
         '
         'ComboBox2
         '
@@ -796,7 +821,7 @@ Partial Class GenerarReciboyConsulta
         Me.ComboBox4.BackColor = System.Drawing.Color.Cornsilk
         Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(323, 206)
+        Me.ComboBox4.Location = New System.Drawing.Point(323, 130)
         Me.ComboBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(209, 24)
@@ -827,51 +852,6 @@ Partial Class GenerarReciboyConsulta
         Me.Label8.TabIndex = 17
         Me.Label8.Text = "Periodo de Facturacion"
         '
-        'Consulta
-        '
-        Me.Consulta.BackColor = System.Drawing.Color.LightYellow
-        Me.Consulta.FlatAppearance.BorderSize = 0
-        Me.Consulta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Consulta.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Consulta.Location = New System.Drawing.Point(424, 671)
-        Me.Consulta.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Consulta.Name = "Consulta"
-        Me.Consulta.Size = New System.Drawing.Size(127, 64)
-        Me.Consulta.TabIndex = 43
-        Me.Consulta.Text = "Consulta"
-        Me.Consulta.UseVisualStyleBackColor = False
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 277)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(62, 17)
-        Me.Label5.TabIndex = 47
-        Me.Label5.Text = "Nombre:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(82, 277)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(190, 17)
-        Me.Label9.TabIndex = 48
-        Me.Label9.Text = "Favor de Seleccionar Recibo"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(12, 304)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(68, 17)
-        Me.Label14.TabIndex = 49
-        Me.Label14.Text = "Domicilio:"
-        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -881,59 +861,6 @@ Partial Class GenerarReciboyConsulta
         Me.Label18.Size = New System.Drawing.Size(97, 17)
         Me.Label18.TabIndex = 51
         Me.Label18.Text = "Total a pagar:"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.ForeColor = System.Drawing.Color.Black
-        Me.Label16.Location = New System.Drawing.Point(82, 304)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(190, 17)
-        Me.Label16.TabIndex = 48
-        Me.Label16.Text = "Favor de Seleccionar Recibo"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.ForeColor = System.Drawing.Color.Black
-        Me.Label19.Location = New System.Drawing.Point(318, 304)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(190, 17)
-        Me.Label19.TabIndex = 48
-        Me.Label19.Text = "Favor de Seleccionar Recibo"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.ForeColor = System.Drawing.Color.Black
-        Me.Label20.Location = New System.Drawing.Point(421, 277)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(190, 17)
-        Me.Label20.TabIndex = 48
-        Me.Label20.Text = "Favor de Seleccionar Recibo"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(12, 343)
-        Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(58, 17)
-        Me.Label21.TabIndex = 47
-        Me.Label21.Text = "Servicio"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(255, 343)
-        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(59, 17)
-        Me.Label22.TabIndex = 47
-        Me.Label22.Text = "Medidor"
         '
         'Label23
         '
@@ -945,68 +872,25 @@ Partial Class GenerarReciboyConsulta
         Me.Label23.TabIndex = 47
         Me.Label23.Text = "Periodo Facturado"
         '
-        'Label24
+        'Label22
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.ForeColor = System.Drawing.Color.Black
-        Me.Label24.Location = New System.Drawing.Point(12, 368)
-        Me.Label24.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(190, 17)
-        Me.Label24.TabIndex = 48
-        Me.Label24.Text = "Favor de Seleccionar Recibo"
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(255, 343)
+        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(59, 17)
+        Me.Label22.TabIndex = 47
+        Me.Label22.Text = "Medidor"
         '
-        'Label25
+        'Label31
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.ForeColor = System.Drawing.Color.Black
-        Me.Label25.Location = New System.Drawing.Point(199, 368)
-        Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(190, 17)
-        Me.Label25.TabIndex = 48
-        Me.Label25.Text = "Favor de Seleccionar Recibo"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.ForeColor = System.Drawing.Color.Black
-        Me.Label26.Location = New System.Drawing.Point(394, 368)
-        Me.Label26.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(190, 17)
-        Me.Label26.TabIndex = 48
-        Me.Label26.Text = "Favor de Seleccionar Recibo"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(12, 407)
-        Me.Label27.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(68, 17)
-        Me.Label27.TabIndex = 47
-        Me.Label27.Text = "Concepto"
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(12, 440)
-        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(57, 17)
-        Me.Label28.TabIndex = 47
-        Me.Label28.Text = "Energia"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(13, 460)
-        Me.Label29.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(50, 17)
-        Me.Label29.TabIndex = 47
-        Me.Label29.Text = "Basica"
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(12, 521)
+        Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(44, 17)
+        Me.Label31.TabIndex = 47
+        Me.Label31.Text = "Suma"
         '
         'Label30
         '
@@ -1018,196 +902,35 @@ Partial Class GenerarReciboyConsulta
         Me.Label30.TabIndex = 47
         Me.Label30.Text = "Intermedia "
         '
-        'Label31
+        'Label29
         '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(12, 501)
-        Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(44, 17)
-        Me.Label31.TabIndex = 47
-        Me.Label31.Text = "Suma"
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(13, 460)
+        Me.Label29.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(50, 17)
+        Me.Label29.TabIndex = 47
+        Me.Label29.Text = "Basica"
         '
-        'Label32
+        'Label52
         '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(97, 407)
-        Me.Label32.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(99, 17)
-        Me.Label32.TabIndex = 47
-        Me.Label32.Text = "Lectura Actual"
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(220, 607)
+        Me.Label52.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(40, 17)
+        Me.Label52.TabIndex = 47
+        Me.Label52.Text = "Total"
         '
-        'Label33
+        'Label50
         '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(204, 407)
-        Me.Label33.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(110, 17)
-        Me.Label33.TabIndex = 47
-        Me.Label33.Text = "Lectura Anterior"
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(320, 407)
-        Me.Label34.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(53, 17)
-        Me.Label34.TabIndex = 47
-        Me.Label34.Text = "Total P"
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(394, 407)
-        Me.Label35.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(52, 17)
-        Me.Label35.TabIndex = 47
-        Me.Label35.Text = "Precio "
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(459, 407)
-        Me.Label36.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(60, 17)
-        Me.Label36.TabIndex = 47
-        Me.Label36.Text = "Subtotal"
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.ForeColor = System.Drawing.Color.Black
-        Me.Label37.Location = New System.Drawing.Point(113, 440)
-        Me.Label37.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(52, 17)
-        Me.Label37.TabIndex = 48
-        Me.Label37.Text = "Recibo"
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.ForeColor = System.Drawing.Color.Black
-        Me.Label38.Location = New System.Drawing.Point(220, 442)
-        Me.Label38.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(52, 17)
-        Me.Label38.TabIndex = 48
-        Me.Label38.Text = "Recibo"
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.ForeColor = System.Drawing.Color.Black
-        Me.Label39.Location = New System.Drawing.Point(320, 440)
-        Me.Label39.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(52, 17)
-        Me.Label39.TabIndex = 48
-        Me.Label39.Text = "Recibo"
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.ForeColor = System.Drawing.Color.Black
-        Me.Label40.Location = New System.Drawing.Point(320, 460)
-        Me.Label40.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(52, 17)
-        Me.Label40.TabIndex = 48
-        Me.Label40.Text = "Recibo"
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.ForeColor = System.Drawing.Color.Black
-        Me.Label41.Location = New System.Drawing.Point(321, 481)
-        Me.Label41.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(52, 17)
-        Me.Label41.TabIndex = 48
-        Me.Label41.Text = "Recibo"
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.ForeColor = System.Drawing.Color.Black
-        Me.Label42.Location = New System.Drawing.Point(321, 501)
-        Me.Label42.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(52, 17)
-        Me.Label42.TabIndex = 48
-        Me.Label42.Text = "Recibo"
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.ForeColor = System.Drawing.Color.Black
-        Me.Label43.Location = New System.Drawing.Point(394, 460)
-        Me.Label43.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(52, 17)
-        Me.Label43.TabIndex = 48
-        Me.Label43.Text = "Recibo"
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.ForeColor = System.Drawing.Color.Black
-        Me.Label44.Location = New System.Drawing.Point(394, 481)
-        Me.Label44.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(52, 17)
-        Me.Label44.TabIndex = 48
-        Me.Label44.Text = "Recibo"
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.ForeColor = System.Drawing.Color.Black
-        Me.Label45.Location = New System.Drawing.Point(467, 481)
-        Me.Label45.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(52, 17)
-        Me.Label45.TabIndex = 48
-        Me.Label45.Text = "Recibo"
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.ForeColor = System.Drawing.Color.Black
-        Me.Label46.Location = New System.Drawing.Point(467, 460)
-        Me.Label46.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(52, 17)
-        Me.Label46.TabIndex = 48
-        Me.Label46.Text = "Recibo"
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.ForeColor = System.Drawing.Color.Black
-        Me.Label47.Location = New System.Drawing.Point(467, 501)
-        Me.Label47.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(52, 17)
-        Me.Label47.TabIndex = 48
-        Me.Label47.Text = "Recibo"
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(17, 539)
-        Me.Label48.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(57, 17)
-        Me.Label48.TabIndex = 47
-        Me.Label48.Text = "Energia"
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(17, 607)
+        Me.Label50.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(72, 17)
+        Me.Label50.TabIndex = 47
+        Me.Label50.Text = "Pendiente"
         '
         'Label49
         '
@@ -1219,90 +942,377 @@ Partial Class GenerarReciboyConsulta
         Me.Label49.TabIndex = 47
         Me.Label49.Text = "IVA 16%"
         '
-        'Label50
+        'Label48
         '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(17, 600)
-        Me.Label50.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(57, 17)
-        Me.Label50.TabIndex = 47
-        Me.Label50.Text = "Adeudo"
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(17, 539)
+        Me.Label48.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(57, 17)
+        Me.Label48.TabIndex = 47
+        Me.Label48.Text = "Energia"
         '
-        'Label51
+        'Label28
         '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(230, 539)
-        Me.Label51.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(41, 17)
-        Me.Label51.TabIndex = 47
-        Me.Label51.Text = "Pago"
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(12, 440)
+        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(57, 17)
+        Me.Label28.TabIndex = 47
+        Me.Label28.Text = "Energia"
         '
-        'Label52
+        'Label32
         '
-        Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(230, 572)
-        Me.Label52.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(40, 17)
-        Me.Label52.TabIndex = 47
-        Me.Label52.Text = "Total"
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(97, 407)
+        Me.Label32.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(92, 17)
+        Me.Label32.TabIndex = 47
+        Me.Label32.Text = "Lectura Total"
         '
-        'Label53
+        'Label36
         '
-        Me.Label53.AutoSize = True
-        Me.Label53.ForeColor = System.Drawing.Color.Black
-        Me.Label53.Location = New System.Drawing.Point(82, 539)
-        Me.Label53.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(52, 17)
-        Me.Label53.TabIndex = 48
-        Me.Label53.Text = "Recibo"
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(394, 407)
+        Me.Label36.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(60, 17)
+        Me.Label36.TabIndex = 47
+        Me.Label36.Text = "Subtotal"
         '
-        'Label54
+        'Label35
         '
-        Me.Label54.AutoSize = True
-        Me.Label54.ForeColor = System.Drawing.Color.Black
-        Me.Label54.Location = New System.Drawing.Point(82, 572)
-        Me.Label54.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(52, 17)
-        Me.Label54.TabIndex = 48
-        Me.Label54.Text = "Recibo"
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(320, 407)
+        Me.Label35.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(52, 17)
+        Me.Label35.TabIndex = 47
+        Me.Label35.Text = "Precio "
         '
-        'Label55
+        'Label34
         '
-        Me.Label55.AutoSize = True
-        Me.Label55.ForeColor = System.Drawing.Color.Black
-        Me.Label55.Location = New System.Drawing.Point(82, 600)
-        Me.Label55.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(52, 17)
-        Me.Label55.TabIndex = 48
-        Me.Label55.Text = "Recibo"
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(231, 407)
+        Me.Label34.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(53, 17)
+        Me.Label34.TabIndex = 47
+        Me.Label34.Text = "Total P"
         '
-        'Label56
+        'Label27
         '
-        Me.Label56.AutoSize = True
-        Me.Label56.ForeColor = System.Drawing.Color.Black
-        Me.Label56.Location = New System.Drawing.Point(279, 539)
-        Me.Label56.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(52, 17)
-        Me.Label56.TabIndex = 48
-        Me.Label56.Text = "Recibo"
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(12, 407)
+        Me.Label27.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(68, 17)
+        Me.Label27.TabIndex = 47
+        Me.Label27.Text = "Concepto"
         '
-        'Label57
+        'Label21
         '
-        Me.Label57.AutoSize = True
-        Me.Label57.ForeColor = System.Drawing.Color.Black
-        Me.Label57.Location = New System.Drawing.Point(279, 572)
-        Me.Label57.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(52, 17)
-        Me.Label57.TabIndex = 48
-        Me.Label57.Text = "Recibo"
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(12, 343)
+        Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(58, 17)
+        Me.Label21.TabIndex = 47
+        Me.Label21.Text = "Servicio"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(12, 277)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(62, 17)
+        Me.Label5.TabIndex = 47
+        Me.Label5.Text = "Nombre:"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(12, 304)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(68, 17)
+        Me.Label14.TabIndex = 49
+        Me.Label14.Text = "Domicilio:"
+        '
+        'Label20_TotalPagar
+        '
+        Me.Label20_TotalPagar.AutoSize = True
+        Me.Label20_TotalPagar.ForeColor = System.Drawing.Color.Black
+        Me.Label20_TotalPagar.Location = New System.Drawing.Point(421, 277)
+        Me.Label20_TotalPagar.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label20_TotalPagar.Name = "Label20_TotalPagar"
+        Me.Label20_TotalPagar.Size = New System.Drawing.Size(190, 17)
+        Me.Label20_TotalPagar.TabIndex = 48
+        Me.Label20_TotalPagar.Text = "Favor de Seleccionar Recibo"
+        '
+        'Label19_TotalNum
+        '
+        Me.Label19_TotalNum.AutoSize = True
+        Me.Label19_TotalNum.ForeColor = System.Drawing.Color.Black
+        Me.Label19_TotalNum.Location = New System.Drawing.Point(280, 304)
+        Me.Label19_TotalNum.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19_TotalNum.Name = "Label19_TotalNum"
+        Me.Label19_TotalNum.Size = New System.Drawing.Size(190, 17)
+        Me.Label19_TotalNum.TabIndex = 48
+        Me.Label19_TotalNum.Text = "Favor de Seleccionar Recibo"
+        '
+        'Label9_PeriodoFact2
+        '
+        Me.Label9_PeriodoFact2.AutoSize = True
+        Me.Label9_PeriodoFact2.ForeColor = System.Drawing.Color.Black
+        Me.Label9_PeriodoFact2.Location = New System.Drawing.Point(394, 385)
+        Me.Label9_PeriodoFact2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9_PeriodoFact2.Name = "Label9_PeriodoFact2"
+        Me.Label9_PeriodoFact2.Size = New System.Drawing.Size(190, 17)
+        Me.Label9_PeriodoFact2.TabIndex = 48
+        Me.Label9_PeriodoFact2.Text = "Favor de Seleccionar Recibo"
+        '
+        'Label26_PeriodoFact
+        '
+        Me.Label26_PeriodoFact.AutoSize = True
+        Me.Label26_PeriodoFact.ForeColor = System.Drawing.Color.Black
+        Me.Label26_PeriodoFact.Location = New System.Drawing.Point(394, 368)
+        Me.Label26_PeriodoFact.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label26_PeriodoFact.Name = "Label26_PeriodoFact"
+        Me.Label26_PeriodoFact.Size = New System.Drawing.Size(190, 17)
+        Me.Label26_PeriodoFact.TabIndex = 48
+        Me.Label26_PeriodoFact.Text = "Favor de Seleccionar Recibo"
+        '
+        'Label25_Medidor
+        '
+        Me.Label25_Medidor.AutoSize = True
+        Me.Label25_Medidor.ForeColor = System.Drawing.Color.Black
+        Me.Label25_Medidor.Location = New System.Drawing.Point(199, 368)
+        Me.Label25_Medidor.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label25_Medidor.Name = "Label25_Medidor"
+        Me.Label25_Medidor.Size = New System.Drawing.Size(190, 17)
+        Me.Label25_Medidor.TabIndex = 48
+        Me.Label25_Medidor.Text = "Favor de Seleccionar Recibo"
+        '
+        'Label24_Servicio
+        '
+        Me.Label24_Servicio.AutoSize = True
+        Me.Label24_Servicio.ForeColor = System.Drawing.Color.Black
+        Me.Label24_Servicio.Location = New System.Drawing.Point(12, 368)
+        Me.Label24_Servicio.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label24_Servicio.Name = "Label24_Servicio"
+        Me.Label24_Servicio.Size = New System.Drawing.Size(190, 17)
+        Me.Label24_Servicio.TabIndex = 48
+        Me.Label24_Servicio.Text = "Favor de Seleccionar Recibo"
+        '
+        'Label16_Domicilio
+        '
+        Me.Label16_Domicilio.AutoSize = True
+        Me.Label16_Domicilio.ForeColor = System.Drawing.Color.Black
+        Me.Label16_Domicilio.Location = New System.Drawing.Point(82, 304)
+        Me.Label16_Domicilio.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16_Domicilio.Name = "Label16_Domicilio"
+        Me.Label16_Domicilio.Size = New System.Drawing.Size(190, 17)
+        Me.Label16_Domicilio.TabIndex = 48
+        Me.Label16_Domicilio.Text = "Favor de Seleccionar Recibo"
+        '
+        'Label42_TotalSuma
+        '
+        Me.Label42_TotalSuma.AutoSize = True
+        Me.Label42_TotalSuma.ForeColor = System.Drawing.Color.Black
+        Me.Label42_TotalSuma.Location = New System.Drawing.Point(232, 501)
+        Me.Label42_TotalSuma.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label42_TotalSuma.Name = "Label42_TotalSuma"
+        Me.Label42_TotalSuma.Size = New System.Drawing.Size(16, 17)
+        Me.Label42_TotalSuma.TabIndex = 48
+        Me.Label42_TotalSuma.Text = "0"
+        '
+        'Label41_TotalInter
+        '
+        Me.Label41_TotalInter.AutoSize = True
+        Me.Label41_TotalInter.ForeColor = System.Drawing.Color.Black
+        Me.Label41_TotalInter.Location = New System.Drawing.Point(232, 481)
+        Me.Label41_TotalInter.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label41_TotalInter.Name = "Label41_TotalInter"
+        Me.Label41_TotalInter.Size = New System.Drawing.Size(16, 17)
+        Me.Label41_TotalInter.TabIndex = 48
+        Me.Label41_TotalInter.Text = "0"
+        '
+        'Label47_Total
+        '
+        Me.Label47_Total.AutoSize = True
+        Me.Label47_Total.ForeColor = System.Drawing.Color.Black
+        Me.Label47_Total.Location = New System.Drawing.Point(402, 501)
+        Me.Label47_Total.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label47_Total.Name = "Label47_Total"
+        Me.Label47_Total.Size = New System.Drawing.Size(16, 17)
+        Me.Label47_Total.TabIndex = 48
+        Me.Label47_Total.Text = "0"
+        '
+        'Label46_SubBasic
+        '
+        Me.Label46_SubBasic.AutoSize = True
+        Me.Label46_SubBasic.ForeColor = System.Drawing.Color.Black
+        Me.Label46_SubBasic.Location = New System.Drawing.Point(320, 465)
+        Me.Label46_SubBasic.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label46_SubBasic.Name = "Label46_SubBasic"
+        Me.Label46_SubBasic.Size = New System.Drawing.Size(16, 17)
+        Me.Label46_SubBasic.TabIndex = 48
+        Me.Label46_SubBasic.Text = "0"
+        '
+        'Label45_SubInter
+        '
+        Me.Label45_SubInter.AutoSize = True
+        Me.Label45_SubInter.ForeColor = System.Drawing.Color.Black
+        Me.Label45_SubInter.Location = New System.Drawing.Point(402, 481)
+        Me.Label45_SubInter.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label45_SubInter.Name = "Label45_SubInter"
+        Me.Label45_SubInter.Size = New System.Drawing.Size(16, 17)
+        Me.Label45_SubInter.TabIndex = 48
+        Me.Label45_SubInter.Text = "0"
+        '
+        'Label44_PreciInter
+        '
+        Me.Label44_PreciInter.AutoSize = True
+        Me.Label44_PreciInter.ForeColor = System.Drawing.Color.Black
+        Me.Label44_PreciInter.Location = New System.Drawing.Point(320, 481)
+        Me.Label44_PreciInter.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label44_PreciInter.Name = "Label44_PreciInter"
+        Me.Label44_PreciInter.Size = New System.Drawing.Size(16, 17)
+        Me.Label44_PreciInter.TabIndex = 48
+        Me.Label44_PreciInter.Text = "0"
+        '
+        'Label43_PreciBasic
+        '
+        Me.Label43_PreciBasic.AutoSize = True
+        Me.Label43_PreciBasic.ForeColor = System.Drawing.Color.Black
+        Me.Label43_PreciBasic.Location = New System.Drawing.Point(402, 464)
+        Me.Label43_PreciBasic.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label43_PreciBasic.Name = "Label43_PreciBasic"
+        Me.Label43_PreciBasic.Size = New System.Drawing.Size(16, 17)
+        Me.Label43_PreciBasic.TabIndex = 48
+        Me.Label43_PreciBasic.Text = "0"
+        '
+        'Label40_TotalBasic
+        '
+        Me.Label40_TotalBasic.AutoSize = True
+        Me.Label40_TotalBasic.ForeColor = System.Drawing.Color.Black
+        Me.Label40_TotalBasic.Location = New System.Drawing.Point(231, 460)
+        Me.Label40_TotalBasic.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label40_TotalBasic.Name = "Label40_TotalBasic"
+        Me.Label40_TotalBasic.Size = New System.Drawing.Size(16, 17)
+        Me.Label40_TotalBasic.TabIndex = 48
+        Me.Label40_TotalBasic.Text = "0"
+        '
+        'Label39_TotalP
+        '
+        Me.Label39_TotalP.AutoSize = True
+        Me.Label39_TotalP.ForeColor = System.Drawing.Color.Black
+        Me.Label39_TotalP.Location = New System.Drawing.Point(231, 440)
+        Me.Label39_TotalP.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label39_TotalP.Name = "Label39_TotalP"
+        Me.Label39_TotalP.Size = New System.Drawing.Size(16, 17)
+        Me.Label39_TotalP.TabIndex = 48
+        Me.Label39_TotalP.Text = "0"
+        '
+        'Label57_Total
+        '
+        Me.Label57_Total.AutoSize = True
+        Me.Label57_Total.ForeColor = System.Drawing.Color.Black
+        Me.Label57_Total.Location = New System.Drawing.Point(268, 607)
+        Me.Label57_Total.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label57_Total.Name = "Label57_Total"
+        Me.Label57_Total.Size = New System.Drawing.Size(52, 17)
+        Me.Label57_Total.TabIndex = 48
+        Me.Label57_Total.Text = "Recibo"
+        '
+        'Label55_Adeudo
+        '
+        Me.Label55_Adeudo.AutoSize = True
+        Me.Label55_Adeudo.ForeColor = System.Drawing.Color.Black
+        Me.Label55_Adeudo.Location = New System.Drawing.Point(97, 607)
+        Me.Label55_Adeudo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label55_Adeudo.Name = "Label55_Adeudo"
+        Me.Label55_Adeudo.Size = New System.Drawing.Size(52, 17)
+        Me.Label55_Adeudo.TabIndex = 48
+        Me.Label55_Adeudo.Text = "Recibo"
+        '
+        'Label54_IVA
+        '
+        Me.Label54_IVA.AutoSize = True
+        Me.Label54_IVA.ForeColor = System.Drawing.Color.Black
+        Me.Label54_IVA.Location = New System.Drawing.Point(82, 572)
+        Me.Label54_IVA.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label54_IVA.Name = "Label54_IVA"
+        Me.Label54_IVA.Size = New System.Drawing.Size(52, 17)
+        Me.Label54_IVA.TabIndex = 48
+        Me.Label54_IVA.Text = "Recibo"
+        '
+        'Label53_Energia
+        '
+        Me.Label53_Energia.AutoSize = True
+        Me.Label53_Energia.ForeColor = System.Drawing.Color.Black
+        Me.Label53_Energia.Location = New System.Drawing.Point(82, 539)
+        Me.Label53_Energia.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label53_Energia.Name = "Label53_Energia"
+        Me.Label53_Energia.Size = New System.Drawing.Size(52, 17)
+        Me.Label53_Energia.TabIndex = 48
+        Me.Label53_Energia.Text = "Recibo"
+        '
+        'Label37_LectAct
+        '
+        Me.Label37_LectAct.AutoSize = True
+        Me.Label37_LectAct.ForeColor = System.Drawing.Color.Black
+        Me.Label37_LectAct.Location = New System.Drawing.Point(113, 440)
+        Me.Label37_LectAct.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label37_LectAct.Name = "Label37_LectAct"
+        Me.Label37_LectAct.Size = New System.Drawing.Size(16, 17)
+        Me.Label37_LectAct.TabIndex = 48
+        Me.Label37_LectAct.Text = "0"
+        '
+        'Label9_Nombre
+        '
+        Me.Label9_Nombre.AutoSize = True
+        Me.Label9_Nombre.ForeColor = System.Drawing.Color.Black
+        Me.Label9_Nombre.Location = New System.Drawing.Point(82, 277)
+        Me.Label9_Nombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9_Nombre.Name = "Label9_Nombre"
+        Me.Label9_Nombre.Size = New System.Drawing.Size(190, 17)
+        Me.Label9_Nombre.TabIndex = 48
+        Me.Label9_Nombre.Text = "Favor de Seleccionar Recibo"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(13, 501)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(74, 17)
+        Me.Label9.TabIndex = 47
+        Me.Label9.Text = "Excedente"
+        '
+        'Label16_Excedente
+        '
+        Me.Label16_Excedente.AutoSize = True
+        Me.Label16_Excedente.ForeColor = System.Drawing.Color.Black
+        Me.Label16_Excedente.Location = New System.Drawing.Point(235, 525)
+        Me.Label16_Excedente.Name = "Label16_Excedente"
+        Me.Label16_Excedente.Size = New System.Drawing.Size(16, 17)
+        Me.Label16_Excedente.TabIndex = 66
+        Me.Label16_Excedente.Text = "0"
+        '
+        'Label16_PrecioExced
+        '
+        Me.Label16_PrecioExced.AutoSize = True
+        Me.Label16_PrecioExced.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label16_PrecioExced.Location = New System.Drawing.Point(320, 501)
+        Me.Label16_PrecioExced.Name = "Label16_PrecioExced"
+        Me.Label16_PrecioExced.Size = New System.Drawing.Size(16, 17)
+        Me.Label16_PrecioExced.TabIndex = 67
+        Me.Label16_PrecioExced.Text = "0"
         '
         'GenerarReciboyConsulta
         '
@@ -1380,49 +1390,50 @@ Partial Class GenerarReciboyConsulta
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Button5 As Button
     Friend WithEvents Button4 As Button
-    Friend WithEvents Consulta As Button
     Friend WithEvents Label18 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label14 As Label
-    Friend WithEvents Label20 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label9 As Label
+    Friend WithEvents Label20_TotalPagar As Label
+    Friend WithEvents Label19_TotalNum As Label
+    Friend WithEvents Label16_Domicilio As Label
+    Friend WithEvents Label9_Nombre As Label
     Friend WithEvents Label23 As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents Label31 As Label
     Friend WithEvents Label30 As Label
     Friend WithEvents Label29 As Label
     Friend WithEvents Label52 As Label
-    Friend WithEvents Label51 As Label
     Friend WithEvents Label50 As Label
     Friend WithEvents Label49 As Label
     Friend WithEvents Label48 As Label
     Friend WithEvents Label28 As Label
-    Friend WithEvents Label33 As Label
     Friend WithEvents Label32 As Label
     Friend WithEvents Label36 As Label
     Friend WithEvents Label35 As Label
     Friend WithEvents Label34 As Label
     Friend WithEvents Label27 As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label24 As Label
-    Friend WithEvents Label42 As Label
-    Friend WithEvents Label41 As Label
-    Friend WithEvents Label47 As Label
-    Friend WithEvents Label46 As Label
-    Friend WithEvents Label45 As Label
-    Friend WithEvents Label44 As Label
-    Friend WithEvents Label43 As Label
-    Friend WithEvents Label40 As Label
-    Friend WithEvents Label39 As Label
-    Friend WithEvents Label38 As Label
-    Friend WithEvents Label57 As Label
-    Friend WithEvents Label56 As Label
-    Friend WithEvents Label55 As Label
-    Friend WithEvents Label54 As Label
-    Friend WithEvents Label53 As Label
-    Friend WithEvents Label37 As Label
+    Friend WithEvents Label26_PeriodoFact As Label
+    Friend WithEvents Label25_Medidor As Label
+    Friend WithEvents Label24_Servicio As Label
+    Friend WithEvents Label42_TotalSuma As Label
+    Friend WithEvents Label41_TotalInter As Label
+    Friend WithEvents Label47_Total As Label
+    Friend WithEvents Label46_SubBasic As Label
+    Friend WithEvents Label45_SubInter As Label
+    Friend WithEvents Label44_PreciInter As Label
+    Friend WithEvents Label43_PreciBasic As Label
+    Friend WithEvents Label40_TotalBasic As Label
+    Friend WithEvents Label39_TotalP As Label
+    Friend WithEvents Label57_Total As Label
+    Friend WithEvents Label55_Adeudo As Label
+    Friend WithEvents Label54_IVA As Label
+    Friend WithEvents Label53_Energia As Label
+    Friend WithEvents Label37_LectAct As Label
+    Friend WithEvents Consulta As Button
+    Friend WithEvents Label9_PeriodoFact2 As Label
+    Friend WithEvents TextBox_AnoConsulta As TextBox
+    Friend WithEvents Label16_Excedente As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label16_PrecioExced As Label
 End Class

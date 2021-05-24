@@ -189,6 +189,20 @@ go
 
 
 
+Create procedure GetClienteNomb
+@CURP VARCHAR (18)
+AS
+Begin
+Select 
+Nombre
+
+FROM Clientes 
+where CURP=@CURP 
+END
+go
+
+
+
 Create procedure ClienteActivo
 
 @Nombre VARCHAR (50)
@@ -443,6 +457,32 @@ end
 go
 
 
+
+create procedure getdataReciboINFO
+@Tarifa  int
+AS
+Begin
+Select 
+
+Cliente,
+Id_Recibo,
+Iva,
+Fecha,
+Watts,
+Numero_Medidor,
+Servicio,
+Cliente,
+Tarifa ,
+Subtotal,
+Total,
+Pendiente_Pago,
+Pagado 
+
+FROM Recibo where Tarifa = @Tarifa and Pagado = 0
+end
+go
+
+
 create procedure ObtenerCliente
 @curp varchar (18)
 
@@ -539,7 +579,7 @@ End
 go
 
 
-create procedure getContratos
+Create procedure getContratos
 AS
 Begin
 Select 
@@ -547,7 +587,8 @@ Domicilio,
 Servicio,
 Fecha,
 Cliente,
-Numero_Medidor
+Numero_Medidor,
+Consumo
 
 FROM Contrato
 where Activo = 1 
@@ -624,9 +665,16 @@ Tipo_de_uso,
 Watt_Bajo,
 Watt_Medio,
 Watt_Excedente
+
 	FROM Tarifa where Id_Tarifa=@ID  
 END
 go
+
+
+
+
+
+
 
 --------------------------------------------------------------------------------AQUI ESTA 
  create procedure getTarifaSortInd
@@ -770,6 +818,7 @@ FROM Recibo
 where  Cliente=@curp and Pagado=0
 END
 go
+
  create procedure getRecibodataCURPinactivo
 @curp varchar(18)
 AS
@@ -813,7 +862,25 @@ create procedure altContrato
  Update Contrato set Consumo=@Consumo where Numero_Medidor=@Medidor
  end 
  go
-   
+
+
+   create procedure ReciboServicio
+   @Servicio  bit 
+   as 
+   begin 
+   select Numero_Medidor
+   From Contrato where Servicio = @Servicio 
+   end
+   go
+
+
+
+
+
+
+
+
+
 Select * from Empleado   
 
  Select * from Recibo
@@ -837,5 +904,4 @@ update Consumo set Used = 0 where Id_Consumo = 302
 insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values('Alejandro Venegas','AdmiGenial',3)
 
 insert into Administrador (Nombre_Usuario, Contraseña, Permiso) values('UsuarioAdmin','AdmiGenial',3)
-
 

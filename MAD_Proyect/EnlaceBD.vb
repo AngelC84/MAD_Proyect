@@ -548,6 +548,37 @@ Public Class EnlaceBD
         Return nuevatablaEmpl
     End Function
 
+
+    '---------------------------------------------
+    Public Function GetClienteNomb(ByVal CURP As String) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "GetClienteNomb"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 18)
+            parametro1.Value = CURP
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+    '-------------------------------------------------
+
     Public Function SortUsuario() As DataTable
         Dim nuevatablaEmpl As New DataTable
         Dim Qry As String
@@ -615,6 +646,33 @@ Public Class EnlaceBD
 
             Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Medidor", SqlDbType.Int)
             parametro1.Value = Medidor
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+    Public Function ReciboServicio(ByVal Servicio As Integer) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "ReciboServicio"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Servicio", SqlDbType.Bit)
+            parametro1.Value = Servicio
 
 
 
@@ -707,6 +765,37 @@ Public Class EnlaceBD
         End Try
         Return nuevatablaEmpl
     End Function
+
+
+
+
+    Public Function getdataReciboINFO(ByVal Tarifa As Integer) As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getdataReciboINFO"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Tarifa", SqlDbType.Int)
+            parametro1.Value = Tarifa
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
+
+
     Public Function getSortedConsumo() As DataTable
         Dim nuevatablaEmpl As New DataTable
         Dim Qry As String
