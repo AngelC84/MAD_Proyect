@@ -35,9 +35,7 @@
         Me.Hide()
     End Sub
 
-    Private Sub TextBox_Domicilio_TextChanged(sender As Object, e As EventArgs) Handles TextBox_Domicilio.TextChanged
 
-    End Sub
 
     Private Sub Contratos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim enlace As New EnlaceBD
@@ -86,7 +84,7 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Close()
+        Me.Close()
     End Sub
 
 

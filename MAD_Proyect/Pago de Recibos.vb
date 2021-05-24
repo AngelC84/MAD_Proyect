@@ -98,7 +98,7 @@
         Dim resulty As Boolean
         Dim enlace As New EnlaceBD
         resulty = enlace.ActivarLogin(Usuario.Rows(0).Item(0), 0)
-        Close()
+        Me.Close()
 
     End Sub
 
@@ -141,13 +141,7 @@
         End If
 
     End Sub
-    Private Sub TextBox_Nombre_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox_Nombre.KeyPress
 
-        If Not Char.IsDigit(e.KeyChar) And Not Char.IsControl(e.KeyChar) Then
-            e.Handled = True
-        End If
-
-    End Sub
 
     Private Sub Todos_Click(sender As Object, e As EventArgs) Handles Todos.Click
         Dim Index As Integer
