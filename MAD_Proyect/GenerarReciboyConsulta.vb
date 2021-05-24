@@ -174,16 +174,36 @@ Public Class GenerarReciboyConsulta
 
 
 
+
+                    Dim subtotalbasico As Decimal
+                    Dim subtotalmedio As Decimal
+                    Dim subtotalexcedente As Decimal
+                    Dim thisConsumo As Decimal
+
                     If (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(7)) Then
 
                         subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(3)
 
+
                     ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(8)) Then
 
-                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(4)
+                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(7)
+
+                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                        subtotal = subtotalbasico + subtotalmedio
 
                     Else
-                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(5)
+                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(8)
+                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                     End If
                     Cliente = contratos.Rows(0).Item(3)
                     total = subtotal * 1.16
@@ -224,11 +244,11 @@ Public Class GenerarReciboyConsulta
 
                                 indi = indi + 1
                             Else
-                                consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+                                consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
 
-                                result = enlace.altConsumo(consumo.Rows(0).Item(0))
+                                result = enlace.altConsumo(consumo.Rows(indi).Item(0))
                                 consumo = enlace.getConsumobyDate(Medidor, mes, ano)
-                                consumobimestral = consumobimestral + consumo.Rows(0).Item(4)
+                                consumobimestral = consumobimestral + consumo.Rows(indi).Item(4)
 
                                 tarifa = enlace.getSortedTarifa(mes, ano)
                                 If (tarifa.Rows.Count < 1) Then
@@ -237,16 +257,36 @@ Public Class GenerarReciboyConsulta
 
                                 Else
 
+
+                                    Dim subtotalbasico As Decimal
+                                    Dim subtotalmedio As Decimal
+                                    Dim subtotalexcedente As Decimal
+                                    Dim thisConsumo As Decimal
+
                                     If (consumobimestral < tarifa.Rows(0).Item(7)) Then
 
                                         subtotal = consumobimestral * tarifa.Rows(0).Item(3)
 
+
                                     ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
 
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(4)
+                                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                        thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                        subtotal = subtotalbasico + subtotalmedio
 
                                     Else
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(5)
+                                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                        thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                                     End If
                                     total = subtotal * 1.16
                                     result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
@@ -289,16 +329,36 @@ Public Class GenerarReciboyConsulta
 
                                 Else
 
+
+                                    Dim subtotalbasico As Decimal
+                                    Dim subtotalmedio As Decimal
+                                    Dim subtotalexcedente As Decimal
+                                    Dim thisConsumo As Decimal
+
                                     If (consumobimestral < tarifa.Rows(0).Item(7)) Then
 
                                         subtotal = consumobimestral * tarifa.Rows(0).Item(3)
 
+
                                     ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
 
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(4)
+                                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                        thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                        subtotal = subtotalbasico + subtotalmedio
 
                                     Else
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(5)
+                                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                        thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                                     End If
                                     total = subtotal * 1.16
                                     result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
@@ -718,17 +778,35 @@ Public Class GenerarReciboyConsulta
 
                     Else
                         Dim subtotal As Decimal
+                        Dim subtotalbasico As Decimal
+                        Dim subtotalmedio As Decimal
+                        Dim subtotalexcedente As Decimal
+                        Dim thisConsumo As Decimal
                         Dim total As Decimal
                         If (consumo.Rows(0).Item(4) < tarifa.Rows(0).Item(7)) Then
 
                             subtotal = consumo.Rows(0).Item(4) * tarifa.Rows(0).Item(3)
 
+
                         ElseIf (consumo.Rows(0).Item(4) < tarifa.Rows(0).Item(8)) Then
 
-                            subtotal = consumo.Rows(0).Item(4) * tarifa.Rows(0).Item(4)
+                            subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                            thisConsumo = consumo.Rows(0).Item(4) - tarifa.Rows(0).Item(7)
+
+                            subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                            subtotal = subtotalbasico + subtotalmedio
 
                         Else
-                            subtotal = consumo.Rows(0).Item(4) * tarifa.Rows(0).Item(5)
+                            subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                            subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                            thisConsumo = consumo.Rows(0).Item(4) - tarifa.Rows(0).Item(8)
+                            subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                            subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                         End If
                         total = subtotal * 1.16
                         Dim result As Boolean
@@ -777,17 +855,35 @@ Public Class GenerarReciboyConsulta
                                 MsgBox("no existe tarifa para este mes")
                             Else
                                 Dim subtotal As Decimal
+                                Dim subtotalbasico As Decimal
+                                Dim subtotalmedio As Decimal
+                                Dim subtotalexcedente As Decimal
+                                Dim thisConsumo As Decimal
                                 Dim total As Decimal
                                 If (consumobimestral < tarifa.Rows(0).Item(7)) Then
 
                                     subtotal = consumobimestral * tarifa.Rows(0).Item(3)
 
+
                                 ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
 
-                                    subtotal = consumobimestral * tarifa.Rows(0).Item(4)
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                    subtotal = subtotalbasico + subtotalmedio
 
                                 Else
-                                    subtotal = consumobimestral * tarifa.Rows(0).Item(5)
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                                 End If
                                 total = subtotal * 1.16
                                 result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
@@ -824,17 +920,35 @@ Public Class GenerarReciboyConsulta
                                 MsgBox("no existe tarifa para este mes")
                             Else
                                 Dim subtotal As Decimal
+                                Dim subtotalbasico As Decimal
+                                Dim subtotalmedio As Decimal
+                                Dim subtotalexcedente As Decimal
+                                Dim thisConsumo As Decimal
                                 Dim total As Decimal
                                 If (consumobimestral < tarifa.Rows(0).Item(7)) Then
 
                                     subtotal = consumobimestral * tarifa.Rows(0).Item(3)
 
+
                                 ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
 
-                                    subtotal = consumobimestral * tarifa.Rows(0).Item(4)
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                    subtotal = subtotalbasico + subtotalmedio
 
                                 Else
-                                    subtotal = consumobimestral * tarifa.Rows(0).Item(5)
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                                 End If
                                 total = subtotal * 1.16
                                 result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, Contrato.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
@@ -926,18 +1040,35 @@ Public Class GenerarReciboyConsulta
                     contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
 
 
-
+                    Dim subtotalbasico As Decimal
+                    Dim subtotalmedio As Decimal
+                    Dim subtotalexcedente As Decimal
+                    Dim thisConsumo As Decimal
 
                     If (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(7)) Then
 
                         subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(3)
 
+
                     ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(8)) Then
 
-                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(4)
+                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(7)
+
+                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                        subtotal = subtotalbasico + subtotalmedio
 
                     Else
-                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(5)
+                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(8)
+                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
                     End If
                     Cliente = contratos.Rows(0).Item(3)
                     total = subtotal * 1.16
@@ -1037,18 +1168,37 @@ Public Class GenerarReciboyConsulta
 
                                 Else
 
-                                    If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+                                Dim subtotalbasico As Decimal
+                                Dim subtotalmedio As Decimal
+                                Dim subtotalexcedente As Decimal
+                                Dim thisConsumo As Decimal
 
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
 
-                                    ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
 
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(4)
 
-                                    Else
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(5)
-                                    End If
-                                    total = subtotal * 1.16
+                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                    subtotal = subtotalbasico + subtotalmedio
+
+                                Else
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                                End If
+                                total = subtotal * 1.16
                                     result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
                                     indi = indi + 1
 
@@ -1089,18 +1239,38 @@ Public Class GenerarReciboyConsulta
 
                                 Else
 
-                                    If (consumobimestral < tarifa.Rows(0).Item(7)) Then
 
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+                                Dim subtotalbasico As Decimal
+                                Dim subtotalmedio As Decimal
+                                Dim subtotalexcedente As Decimal
+                                Dim thisConsumo As Decimal
 
-                                    ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
 
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(4)
+                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
 
-                                    Else
-                                        subtotal = consumobimestral * tarifa.Rows(0).Item(5)
-                                    End If
-                                    total = subtotal * 1.16
+
+                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
+
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
+
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
+
+                                    subtotal = subtotalbasico + subtotalmedio
+
+                                Else
+                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
+                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
+
+                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
+                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
+
+                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+
+                                End If
+                                total = subtotal * 1.16
                                     result = enlace.Reg_Recibo(consumobimestral, Medidor, 1, contratos.Rows(0).Item(3), tarifa.Rows(0).Item(0), subtotal, total, total, consumo.Rows(0).Item(0))
                                     indi = indi + 1
 
