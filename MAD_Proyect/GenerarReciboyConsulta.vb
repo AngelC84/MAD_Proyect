@@ -431,7 +431,7 @@ Public Class GenerarReciboyConsulta
         End If
     End Sub
 
-    Private Sub Recibo_PDF_Click(sender As Object, e As EventArgs) Handles Recibo_PDF.Click
+    Private Sub Recibo_PDF_Click(sender As Object, e As EventArgs) Handles Recibo_PDF.Click, Consulta.Click
 
         Dim enlace As New EnlaceBD
         Dim tablaaux As New DataTable
@@ -503,8 +503,8 @@ Public Class GenerarReciboyConsulta
         End If
 
 
-            Dim cuerda As String
-            Dim Servicio As String = " "
+        Dim cuerda As String
+        Dim Servicio As String = " "
 
         If (Numero_de_Servicio = 0) Then
             Servicio = "Domestico"
@@ -530,6 +530,8 @@ Public Class GenerarReciboyConsulta
         CVacio.Border = 0
         pdfDoc.Open()
 
+
+
         Dim Table1 As PdfPTable = New PdfPTable(3)
         Dim Col1 As PdfPCell
         Dim Col2 As PdfPCell
@@ -541,87 +543,265 @@ Public Class GenerarReciboyConsulta
         Dim iFila As Integer
         Table1.WidthPercentage = 95
 
-        Dim widths As Single() = New Single() {4.0F, 8.0F, 8.0F}
+        Dim widths As Single() = New Single() {8.0F, 8.0F, 8.0}
         Table1.SetWidths(widths)
-            Col1 = New PdfPCell(New Phrase(enlace.ObtenerCliente(curp), FontB12))
-            Col1.Border = 0
+
+        'Encabezado -------------------------------------------------------
+
+        Dim imagenURL As String = "CFE.bmp"
+        Dim imagenBMP As iTextSharp.text.Image
+        imagenBMP = iTextSharp.text.Image.GetInstance(imagenURL)
+        imagenBMP.ScaleToFit(110.0F, 140.0F)
+        imagenBMP.SpacingBefore = 20.0F
+        imagenBMP.SpacingAfter = 10.0F
+        imagenBMP.SetAbsolutePosition(40, 780)
+        pdfDoc.Add(imagenBMP)
+
         Table1.AddCell(CVacio)
-        Table1.AddCell(Col1)
+        Col2 = New PdfPCell(New Phrase("Nombre del Cliente:", FontB8))
+        Col2.Border = 0
+        Table1.AddCell(Col2)
+        'Table1.AddCell(CVacio)
+
+        Col3 = New PdfPCell(New Phrase("TOTAL A PAGAR:", FontB8))
+        Col3.Border = 0
+        Table1.AddCell(Col3)
         Table1.AddCell(CVacio)
 
-        Table1.WidthPercentage = 95
-        widths = New Single() {3.33F, 3.33F, 3.33F, 3.33F, 3.33F, 3.33F}
-        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(0).ColumnName, FontB8))
-        Table1.AddCell(Col1)
+        Col2 = New PdfPCell(New Phrase("Domicilio del Cliente:", FontB8))
+        Col2.Border = 0
+        Table1.AddCell(Col2)
+        Table1.AddCell(CVacio)
+        pdfDoc.Add(Table1)
+
+        'PintaLinea(0.5, 30, 733, 530, 733)
+        pdfDoc.Add(New Paragraph(" "))
+        pdfDoc.Add(New Paragraph(" "))
+        pdfDoc.Add(New Paragraph(" "))
 
 
 
-        Dim Tabla2 As PdfPTable = New PdfPTable(3)
-        Tabla2.WidthPercentage = 95
 
-        Dim widthss As Single() = New Single() {6.66F, 6.66F, 6.66F}
+        'CLIENTE -----------------------------------------
+        Dim Table2 As PdfPTable = New PdfPTable(3)
+        Dim widths2 As Single() = New Single() {3.0F, 3.0F, 3.0}
+        Table2.WidthPercentage = 95
+        Table2.SetWidths(widths2)
 
-        Dim widthsss As Single() = New Single() {20.0F}
-        Tabla2.SetWidths(widthss)
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+
+        Col1 = New PdfPCell(New Phrase("Numero de Servicio:", FontB8))
         Col1.Border = 0
-        Tabla2.AddCell(CVacio)
-        Tabla2.AddCell(Col1)
-        Tabla2.AddCell(CVacio)
 
-        pdfDoc.Add(Tabla2)
+        Table2.AddCell(Col1)
+        Col2 = New PdfPCell(New Phrase("Numero de Medidor:", FontB8))
+        Col2.Border = 0
+
+        Table2.AddCell(Col2)
+        Col3 = New PdfPCell(New Phrase("Periodo Facturado:", FontB8))
+        Col3.Border = 0
+
+        Table2.AddCell(Col3)
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+        pdfDoc.Add(Table2)
+
         pdfDoc.Add(New Paragraph(" "))
-
-        'If (Numero_de_Servicio = 0) Then
-        '    Servicio = "Servicio Domestico"
-        'ElseIf (Numero_de_Servicio = 1) Then
-        '    Servicio = "Servicio Industrial"
-        'End If
-
-        Dim parraf As New Paragraph(Numero_de_Servicio)
-        parraf.Alignment = Element.ALIGN_CENTER
-        pdfDoc.Add(parraf)
-        parraf = New Paragraph(ano)
-        parraf.Alignment = Element.ALIGN_CENTER
-        pdfDoc.Add(parraf)
+        pdfDoc.Add(New Paragraph(" "))
         pdfDoc.Add(New Paragraph(" "))
 
 
-        Tabla2 = New PdfPTable(6)
-        Tabla2.WidthPercentage = 95
-        widthsss = New Single() {3.33F, 3.33F, 3.33F, 3.33F, 3.33F, 3.33F}
-        Tabla2.SetWidths(widthsss)
-        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(0).ColumnName, FontB8))
-        Tabla2.AddCell(Col1)
-        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(1).ColumnName, FontB8))
-        Tabla2.AddCell(Col1)
-        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(2).ColumnName, FontB8))
-        Tabla2.AddCell(Col1)
-        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(3).ColumnName, FontB8))
-        Tabla2.AddCell(Col1)
-        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(4).ColumnName, FontB8))
-        Tabla2.AddCell(Col1)
-        Col1 = New PdfPCell(New Phrase(tablaaux.Columns(5).ColumnName, FontB8))
-        Tabla2.AddCell(Col1)
+        '---------------------------------GENERAR GASTO
+
+        Dim Table3 As PdfPTable = New PdfPTable(6)
+        Dim widths3 As Single() = New Single() {3.0F, 3.0F, 3.0, 3.0F, 3.0F, 3.0}
+        Table3.WidthPercentage = 95
+        Table3.SetWidths(widths3)
+
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+
+        Col1 = New PdfPCell(New Phrase("Concepto", FontB8))
+
+        Table3.AddCell(Col1)
+        Col2 = New PdfPCell(New Phrase("Lectura Actual", FontB8))
+
+        Table3.AddCell(Col2)
+        Col3 = New PdfPCell(New Phrase("Lectura Anterior", FontB8))
+
+        Table3.AddCell(Col3)
+        Col4 = New PdfPCell(New Phrase("Total Periodo", FontB8))
+
+        Table3.AddCell(Col4)
+        Col5 = New PdfPCell(New Phrase("Precio", FontB8))
+
+        Table3.AddCell(Col5)
+        Col6 = New PdfPCell(New Phrase("Subtotal", FontB8))
+
+        Table3.AddCell(Col6)
 
 
-        For Each row In tablaaux.Rows
-            Col1 = New PdfPCell(New Phrase(row.Item(0).ToString, Fot8))
-            Tabla2.AddCell(Col1)
-            Col1 = New PdfPCell(New Phrase(row.Item(1).ToString, Fot8))
-            Tabla2.AddCell(Col1)
-            Col1 = New PdfPCell(New Phrase(row.Item(2).ToString, Fot8))
-            Tabla2.AddCell(Col1)
-            Col1 = New PdfPCell(New Phrase(Servicio, Fot8))
-            Tabla2.AddCell(Col1)
-            Col1 = New PdfPCell(New Phrase(row.Item(4).ToString, Fot8))
-            Tabla2.AddCell(Col1)
-            Col1 = New PdfPCell(New Phrase(row.Item(5).ToString, Fot8))
-            Tabla2.AddCell(Col1)
-        Next
+        Col1 = New PdfPCell(New Phrase("Energia (kWh)", FontB8))
+        Col1.Border = 0
+
+        Table3.AddCell(Col1)
+
+        Table3.AddCell(CVacio)
+        Table3.AddCell(CVacio)
+        Table3.AddCell(CVacio)
+        Table3.AddCell(CVacio)
+        Table3.AddCell(CVacio)
 
 
-        pdfDoc.Add(Tabla2)
+        Col1 = New PdfPCell(New Phrase("Basico", FontB8))
+        Col1.Border = 0
+        Table3.AddCell(Col1)
+
+        Col1 = New PdfPCell(New Phrase("Intermedio", FontB8))
+        Col1.Border = 0
+        Table3.AddCell(Col1)
+
+        Col1 = New PdfPCell(New Phrase("Suma", FontB8))
+        Col1.Border = 0
+        Table3.AddCell(Col1)
+
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+        pdfDoc.Add(Table3)
+
+        pdfDoc.Add(New Paragraph(" "))
+        pdfDoc.Add(New Paragraph(" "))
+        pdfDoc.Add(New Paragraph(" "))
+        pdfDoc.Add(New Paragraph(" "))
+
+
+
+        '-----------------------------------TOTALES
+
+        Dim Table4 As PdfPTable = New PdfPTable(5)
+        Dim widths4 As Single() = New Single() {4.0F, 4.0F, 4.0, 4.0F, 4.0F, 4.0}
+        Table3.WidthPercentage = 95
+        Table3.SetWidths(widths3)
+
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+        'Table2.AddCell(CVacio)
+
+        Col1 = New PdfPCell(New Phrase("Energia", FontB8))
+
+        Table4.AddCell(Col1)
+        Col2 = New PdfPCell(New Phrase("IVA 16%", FontB8))
+
+        Table4.AddCell(Col2)
+        Col3 = New PdfPCell(New Phrase("Pendiente de Pago", FontB8))
+
+        Table4.AddCell(Col3)
+        Col4 = New PdfPCell(New Phrase("Su Pago", FontB8))
+
+        Table4.AddCell(Col4)
+        Col5 = New PdfPCell(New Phrase("Total", FontB8))
+
+        Table4.AddCell(Col6)
+
+        pdfDoc.Add(Table4)
+
+        pdfDoc.Add(New Paragraph(" "))
+        pdfDoc.Add(New Paragraph(" "))
+
+
+
+
+        'Col1 = New PdfPCell(New Phrase(enlace.ObtenerCliente(curp), FontB12))
+        'Col1.Border = 0
+        'Table1.AddCell(CVacio)
+        'Table1.AddCell(Col1)
+        'Table1.AddCell(CVacio)
+
+        'Table1.WidthPercentage = 95
+        'widths = New Single() {3.33F, 3.33F, 3.33F, 3.33F, 3.33F, 3.33F}
+        'Col1 = New PdfPCell(New Phrase(tablaaux.Columns(0).ColumnName, FontB8))
+        'Table1.AddCell(Col1)
+
+
+        'For Each row In tablaaux.Rows
+        '    Col1 = New PdfPCell(New Phrase(row.Item(0).ToString, Fot8))
+        '    Table1.AddCell(Col1)
+        'Next
+
+        'Dim Tabla2 As PdfPTable = New PdfPTable(3)
+        'Tabla2.WidthPercentage = 95
+
+        'Dim widthss As Single() = New Single() {6.66F, 6.66F, 6.66F}
+
+        'Dim widthsss As Single() = New Single() {20.0F}
+        'Tabla2.SetWidths(widthss)
+        'Col1.Border = 0
+        'Tabla2.AddCell(CVacio)
+        'Tabla2.AddCell(Col1)
+        'Tabla2.AddCell(CVacio)
+
+        'pdfDoc.Add(Tabla2)
+        'pdfDoc.Add(New Paragraph(" "))
+
+        ''If (Numero_de_Servicio = 0) Then
+        ''    Servicio = "Servicio Domestico"
+        ''ElseIf (Numero_de_Servicio = 1) Then
+        ''    Servicio = "Servicio Industrial"
+        ''End If
+
+        'Dim parraf As New Paragraph(Numero_de_Servicio)
+        'parraf.Alignment = Element.ALIGN_CENTER
+        'pdfDoc.Add(parraf)
+        'parraf = New Paragraph(ano)
+        'parraf.Alignment = Element.ALIGN_CENTER
+        'pdfDoc.Add(parraf)
+        'pdfDoc.Add(New Paragraph(" "))
+
+
+        'Tabla2 = New PdfPTable(6)
+        'Tabla2.WidthPercentage = 95
+        'widthsss = New Single() {3.33F, 3.33F, 3.33F, 3.33F, 3.33F, 3.33F}
+        'Tabla2.SetWidths(widthsss)
+        'Col1 = New PdfPCell(New Phrase(tablaaux.Columns(0).ColumnName, FontB8))
+        'Tabla2.AddCell(Col1)
+        'Col1 = New PdfPCell(New Phrase(tablaaux.Columns(1).ColumnName, FontB8))
+        'Tabla2.AddCell(Col1)
+        'Col1 = New PdfPCell(New Phrase(tablaaux.Columns(2).ColumnName, FontB8))
+        'Tabla2.AddCell(Col1)
+        'Col1 = New PdfPCell(New Phrase(tablaaux.Columns(3).ColumnName, FontB8))
+        'Tabla2.AddCell(Col1)
+        'Col1 = New PdfPCell(New Phrase(tablaaux.Columns(4).ColumnName, FontB8))
+        'Tabla2.AddCell(Col1)
+        'Col1 = New PdfPCell(New Phrase(tablaaux.Columns(5).ColumnName, FontB8))
+        'Tabla2.AddCell(Col1)
+
+
+        'For Each row In tablaaux.Rows
+        '    Col1 = New PdfPCell(New Phrase(row.Item(0).ToString, Fot8))
+        '    Tabla2.AddCell(Col1)
+        '    Col1 = New PdfPCell(New Phrase(row.Item(1).ToString, Fot8))
+        '    Tabla2.AddCell(Col1)
+        '    Col1 = New PdfPCell(New Phrase(row.Item(2).ToString, Fot8))
+        '    Tabla2.AddCell(Col1)
+        '    Col1 = New PdfPCell(New Phrase(Servicio, Fot8))
+        '    Tabla2.AddCell(Col1)
+        '    Col1 = New PdfPCell(New Phrase(row.Item(4).ToString, Fot8))
+        '    Tabla2.AddCell(Col1)
+        '    Col1 = New PdfPCell(New Phrase(row.Item(5).ToString, Fot8))
+        '    Tabla2.AddCell(Col1)
+        'Next
+
+
+        'pdfDoc.Add(Tabla2)
         pdfDoc.Close()
         Process.Start(cuerda)
     End Sub
+
+
 End Class
