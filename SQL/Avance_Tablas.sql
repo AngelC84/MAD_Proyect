@@ -1,4 +1,4 @@
-
+w
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -194,12 +194,11 @@ Numero_Medidor int UNIQUE identity (150,1)
 
 CREATE TABLE Consumo(
 Id_Consumo int identity (300,1),
-
 ano int not null,
 mes int not null,
 Numero_Medidor int not null,
-
-Watts int not null
+Watts int not null,
+Used bit default (0)
 );
 
 
@@ -228,7 +227,7 @@ Watt_Excedente int
 
 create TABLE Recibo(
 Id_Recibo int identity (1000,1) Primary Key,
-
+Id_Consumo int, 
 Iva float default (0.16) not null,
 Fecha date not null,
 Watts int not null,
@@ -236,9 +235,9 @@ Numero_Medidor int not null,
 Servicio bit default (0),
 Cliente VARCHAR(18),
 Tarifa int,
-Subtotal int not null,
-Total int not null,
-Pendiente_Pago int not null,
+Subtotal float not null,
+Total float not null,
+Pendiente_Pago float not null,
 Pagado bit
 
 
