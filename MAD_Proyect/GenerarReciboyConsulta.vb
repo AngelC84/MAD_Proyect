@@ -159,6 +159,10 @@ Public Class GenerarReciboyConsulta
             anoBox = consumo.Rows(indi).Item(1)
             anoC = consumo.Rows(indi).Item(1)
             contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
+
+
+
+
             servicio = Val(contratos.Rows(0).Item(1))
             mes = Month(contratos.Rows(0).Item(2))
             ano = Year(contratos.Rows(0).Item(2))
@@ -184,35 +188,43 @@ Public Class GenerarReciboyConsulta
 
 
 
+                    Dim basico As Decimal
+                    Dim medio As Decimal
+                    Dim excedente As Decimal
+                    Dim pBasico As Decimal
+                    Dim pMedio As Decimal
+                    Dim pExcedente As Decimal
+                    Dim watts As Decimal
+                    basico = tarifa.Rows(0).Item(7)
+                    medio = tarifa.Rows(0).Item(8)
+                    pBasico = tarifa.Rows(0).Item(3)
+                    pMedio = tarifa.Rows(0).Item(4)
+                    pExcedente = tarifa.Rows(0).Item(5)
 
-                    Dim subtotalbasico As Decimal
-                    Dim subtotalmedio As Decimal
-                    Dim subtotalexcedente As Decimal
-                    Dim thisConsumo As Decimal
+                    Dim diff1 As Decimal
 
-                    If (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(7)) Then
+                    diff1 = medio - basico
+                    excedente = tarifa.Rows(0).Item(9)
+                    watts = consumo.Rows(0).Item(4)
+                    Dim tir As Decimal
+                    Dim ter As Decimal
+                    Dim tar As Decimal
+                    tir = 0
+                    ter = 0
+                    tar = 0
+                    If (watts > medio) Then 'Excedente
+                        tir = basico * pBasico
+                        ter = diff1 * pMedio
+                        tar = (watts - (diff1 + basico)) * pExcedente
+                        subtotal = tir + ter + tar
+                    ElseIf (watts <= medio And watts > basico) Then 'Medio
+                        tir = basico * pBasico
+                        ter = (watts - basico) * pMedio
 
-                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(3)
-
-
-                    ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(8)) Then
-
-                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-
-                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(7)
-
-                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
-
-                        subtotal = subtotalbasico + subtotalmedio
-
-                    Else
-                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
-
-                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(8)
-                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
-
-                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+                        subtotal = tir + ter
+                    ElseIf (watts <= basico) Then 'Basico
+                        tir = watts * pBasico
+                        subtotal = tir
 
                     End If
                     Cliente = contratos.Rows(0).Item(3)
@@ -1169,35 +1181,47 @@ Public Class GenerarReciboyConsulta
                         MsgBox("tarifa invalida o inexistente")
 
                     Else
+
+
                         Dim subtotal As Decimal
-                        Dim subtotalbasico As Decimal
-                        Dim subtotalmedio As Decimal
-                        Dim subtotalexcedente As Decimal
-                        Dim thisConsumo As Decimal
                         Dim total As Decimal
-                        If (consumo.Rows(0).Item(4) < tarifa.Rows(0).Item(7)) Then
+                        Dim basico As Decimal
+                        Dim medio As Decimal
+                        Dim excedente As Decimal
+                        Dim pBasico As Decimal
+                        Dim pMedio As Decimal
+                        Dim pExcedente As Decimal
+                        Dim watts As Decimal
+                        basico = tarifa.Rows(0).Item(7)
+                        medio = tarifa.Rows(0).Item(8)
+                        pBasico = tarifa.Rows(0).Item(3)
+                        pMedio = tarifa.Rows(0).Item(4)
+                        pExcedente = tarifa.Rows(0).Item(5)
 
-                            subtotal = consumo.Rows(0).Item(4) * tarifa.Rows(0).Item(3)
+                        Dim diff1 As Decimal
 
+                        diff1 = medio - basico
+                        excedente = tarifa.Rows(0).Item(9)
+                        watts = consumo.Rows(0).Item(4)
+                        Dim tir As Decimal
+                        Dim ter As Decimal
+                        Dim tar As Decimal
+                        tir = 0
+                        ter = 0
+                        tar = 0
+                        If (watts > medio) Then 'Excedente
+                            tir = basico * pBasico
+                            ter = diff1 * pMedio
+                            tar = (watts - (diff1 + basico)) * pExcedente
+                            subtotal = tir + ter + tar
+                        ElseIf (watts <= medio And watts > basico) Then 'Medio
+                            tir = basico * pBasico
+                            ter = (watts - basico) * pMedio
 
-                        ElseIf (consumo.Rows(0).Item(4) < tarifa.Rows(0).Item(8)) Then
-
-                            subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-
-                            thisConsumo = consumo.Rows(0).Item(4) - tarifa.Rows(0).Item(7)
-
-                            subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
-
-                            subtotal = subtotalbasico + subtotalmedio
-
-                        Else
-                            subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-                            subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
-
-                            thisConsumo = consumo.Rows(0).Item(4) - tarifa.Rows(0).Item(8)
-                            subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
-
-                            subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+                            subtotal = tir + ter
+                        ElseIf (watts <= basico) Then 'Basico
+                            tir = watts * pBasico
+                            subtotal = tir
 
                         End If
                         total = subtotal * 1.16
@@ -1323,34 +1347,45 @@ Public Class GenerarReciboyConsulta
                                 MsgBox("no existe tarifa para este mes")
                             Else
                                 Dim subtotal As Decimal
-                                Dim subtotalbasico As Decimal
-                                Dim subtotalmedio As Decimal
-                                Dim subtotalexcedente As Decimal
-                                Dim thisConsumo As Decimal
+
                                 Dim total As Decimal
-                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+                                Dim basico As Decimal
+                                Dim medio As Decimal
+                                Dim excedente As Decimal
+                                Dim pBasico As Decimal
+                                Dim pMedio As Decimal
+                                Dim pExcedente As Decimal
+                                Dim watts As Decimal
+                                basico = tarifa.Rows(0).Item(7)
+                                medio = tarifa.Rows(0).Item(8)
+                                pBasico = tarifa.Rows(0).Item(3)
+                                pMedio = tarifa.Rows(0).Item(4)
+                                pExcedente = tarifa.Rows(0).Item(5)
 
-                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+                                Dim diff1 As Decimal
 
+                                diff1 = medio - basico
+                                excedente = tarifa.Rows(0).Item(9)
+                                watts = consumobimestral
+                                Dim tir As Decimal
+                                Dim ter As Decimal
+                                Dim tar As Decimal
+                                tir = 0
+                                ter = 0
+                                tar = 0
+                                If (watts > medio) Then 'Excedente
+                                    tir = basico * pBasico
+                                    ter = diff1 * pMedio
+                                    tar = (watts - (diff1 + basico)) * pExcedente
+                                    subtotal = tir + ter + tar
+                                ElseIf (watts <= medio And watts > basico) Then 'Medio
+                                    tir = basico * pBasico
+                                    ter = (watts - basico) * pMedio
 
-                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
-
-                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-
-                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
-
-                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
-
-                                    subtotal = subtotalbasico + subtotalmedio
-
-                                Else
-                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
-
-                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
-                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
-
-                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+                                    subtotal = tir + ter
+                                ElseIf (watts <= basico) Then 'Basico
+                                    tir = watts * pBasico
+                                    subtotal = tir
 
                                 End If
                                 total = subtotal * 1.16
@@ -1450,34 +1485,43 @@ Public Class GenerarReciboyConsulta
                     contratos = enlace.getSortedContrato(consumo.Rows(indi).Item(3))
 
 
-                    Dim subtotalbasico As Decimal
-                    Dim subtotalmedio As Decimal
-                    Dim subtotalexcedente As Decimal
-                    Dim thisConsumo As Decimal
+                    Dim basico As Decimal
+                    Dim medio As Decimal
+                    Dim excedente As Decimal
+                    Dim pBasico As Decimal
+                    Dim pMedio As Decimal
+                    Dim pExcedente As Decimal
+                    Dim watts As Decimal
+                    basico = tarifa.Rows(0).Item(7)
+                    medio = tarifa.Rows(0).Item(8)
+                    pBasico = tarifa.Rows(0).Item(3)
+                    pMedio = tarifa.Rows(0).Item(4)
+                    pExcedente = tarifa.Rows(0).Item(5)
 
-                    If (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(7)) Then
+                    Dim diff1 As Decimal
 
-                        subtotal = consumo.Rows(indi).Item(4) * tarifa.Rows(0).Item(3)
+                    diff1 = medio - basico
+                    excedente = tarifa.Rows(0).Item(9)
+                    watts = consumo.Rows(0).Item(4)
+                    Dim tir As Decimal
+                    Dim ter As Decimal
+                    Dim tar As Decimal
+                    tir = 0
+                    ter = 0
+                    tar = 0
+                    If (watts > medio) Then 'Excedente
+                        tir = basico * pBasico
+                        ter = diff1 * pMedio
+                        tar = (watts - (diff1 + basico)) * pExcedente
+                        subtotal = tir + ter + tar
+                    ElseIf (watts <= medio And watts > basico) Then 'Medio
+                        tir = basico * pBasico
+                        ter = (watts - basico) * pMedio
 
-
-                    ElseIf (consumo.Rows(indi).Item(4) < tarifa.Rows(0).Item(8)) Then
-
-                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-
-                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(7)
-
-                        subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
-
-                        subtotal = subtotalbasico + subtotalmedio
-
-                    Else
-                        subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-                        subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
-
-                        thisConsumo = consumo.Rows(indi).Item(4) - tarifa.Rows(0).Item(8)
-                        subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
-
-                        subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+                        subtotal = tir + ter
+                    ElseIf (watts <= basico) Then 'Basico
+                        tir = watts * pBasico
+                        subtotal = tir
 
                     End If
                     Cliente = contratos.Rows(0).Item(3)
@@ -1586,34 +1630,43 @@ Public Class GenerarReciboyConsulta
 
                             Else
 
-                                Dim subtotalbasico As Decimal
-                                Dim subtotalmedio As Decimal
-                                Dim subtotalexcedente As Decimal
-                                Dim thisConsumo As Decimal
+                                Dim basico As Decimal
+                                Dim medio As Decimal
+                                Dim excedente As Decimal
+                                Dim pBasico As Decimal
+                                Dim pMedio As Decimal
+                                Dim pExcedente As Decimal
+                                Dim watts As Decimal
+                                basico = tarifa.Rows(0).Item(7)
+                                medio = tarifa.Rows(0).Item(8)
+                                pBasico = tarifa.Rows(0).Item(3)
+                                pMedio = tarifa.Rows(0).Item(4)
+                                pExcedente = tarifa.Rows(0).Item(5)
 
-                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+                                Dim diff1 As Decimal
 
-                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
+                                diff1 = medio - basico
+                                excedente = tarifa.Rows(0).Item(9)
+                                watts = consumobimestral
+                                Dim tir As Decimal
+                                Dim ter As Decimal
+                                Dim tar As Decimal
+                                tir = 0
+                                ter = 0
+                                tar = 0
+                                If (watts > medio) Then 'Excedente
+                                    tir = basico * pBasico
+                                    ter = diff1 * pMedio
+                                    tar = (watts - (diff1 + basico)) * pExcedente
+                                    subtotal = tir + ter + tar
+                                ElseIf (watts <= medio And watts > basico) Then 'Medio
+                                    tir = basico * pBasico
+                                    ter = (watts - basico) * pMedio
 
-
-                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
-
-                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-
-                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
-
-                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
-
-                                    subtotal = subtotalbasico + subtotalmedio
-
-                                Else
-                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
-
-                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
-                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
-
-                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+                                    subtotal = tir + ter
+                                ElseIf (watts <= basico) Then 'Basico
+                                    tir = watts * pBasico
+                                    subtotal = tir
 
                                 End If
                                 total = subtotal * 1.16
@@ -1663,35 +1716,43 @@ Public Class GenerarReciboyConsulta
 
                             Else
 
+                                Dim basico As Decimal
+                                Dim medio As Decimal
+                                Dim excedente As Decimal
+                                Dim pBasico As Decimal
+                                Dim pMedio As Decimal
+                                Dim pExcedente As Decimal
+                                Dim watts As Decimal
+                                basico = tarifa.Rows(0).Item(7)
+                                medio = tarifa.Rows(0).Item(8)
+                                pBasico = tarifa.Rows(0).Item(3)
+                                pMedio = tarifa.Rows(0).Item(4)
+                                pExcedente = tarifa.Rows(0).Item(5)
 
-                                Dim subtotalbasico As Decimal
-                                Dim subtotalmedio As Decimal
-                                Dim subtotalexcedente As Decimal
-                                Dim thisConsumo As Decimal
+                                Dim diff1 As Decimal
 
-                                If (consumobimestral < tarifa.Rows(0).Item(7)) Then
+                                diff1 = medio - basico
+                                excedente = tarifa.Rows(0).Item(9)
+                                watts = consumobimestral
+                                Dim tir As Decimal
+                                Dim ter As Decimal
+                                Dim tar As Decimal
+                                tir = 0
+                                ter = 0
+                                tar = 0
+                                If (watts > medio) Then 'Excedente
+                                    tir = basico * pBasico
+                                    ter = diff1 * pMedio
+                                    tar = (watts - (diff1 + basico)) * pExcedente
+                                    subtotal = tir + ter + tar
+                                ElseIf (watts <= medio And watts > basico) Then 'Medio
+                                    tir = basico * pBasico
+                                    ter = (watts - basico) * pMedio
 
-                                    subtotal = consumobimestral * tarifa.Rows(0).Item(3)
-
-
-                                ElseIf (consumobimestral < tarifa.Rows(0).Item(8)) Then
-
-                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-
-                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(7)
-
-                                    subtotalmedio = tarifa.Rows(0).Item(4) * thisConsumo
-
-                                    subtotal = subtotalbasico + subtotalmedio
-
-                                Else
-                                    subtotalbasico = tarifa.Rows(0).Item(3) * tarifa.Rows(0).Item(7)
-                                    subtotalmedio = tarifa.Rows(0).Item(4) * tarifa.Rows(0).Item(8)
-
-                                    thisConsumo = consumobimestral - tarifa.Rows(0).Item(8)
-                                    subtotalexcedente = thisConsumo * tarifa.Rows(0).Item(5)
-
-                                    subtotal = subtotalbasico + subtotalmedio + subtotalexcedente
+                                    subtotal = tir + ter
+                                ElseIf (watts <= basico) Then 'Basico
+                                    tir = watts * pBasico
+                                    subtotal = tir
 
                                 End If
                                 total = subtotal * 1.16
@@ -1778,7 +1839,7 @@ Public Class GenerarReciboyConsulta
             NombreClient = enlace.GetClienteNomb(CURP)
             Label9_Nombre.Text = NombreClient.Rows(0).Item(0)
             Label16_Domicilio.Text = contratos.Rows(0).Item(0)
-
+            Domicilio_Label.Text = contratos.Rows(0).Item(0)
 
 
         End If
@@ -2006,79 +2067,100 @@ Public Class GenerarReciboyConsulta
 
         Recibo = enlace.getRecibodataCURPactivo(CURP)
         NombreClient = enlace.GetClienteNomb(CURP)
+        If (Recibo.Rows.Count > 0) Then
 
-        mes = Val(TextBox_Mes.Text)
-        ano = Val(TextBox_AnoConsulta.Text)
+            mes = Val(TextBox_Mes.Text)
+            ano = Val(TextBox_AnoConsulta.Text)
 
-        If (ComboBox1.SelectedIndex = 0) Then
-            Tarifa = enlace.getSortedTarifa(mes, ano)
-            Label24_Servicio.Text = "Domestico"
-        Else
-            Tarifa = enlace.getSortedTarifaInd(mes, ano)
-            Label24_Servicio.Text = "Industrial"
-
-        End If
-
-        Recibo = enlace.getdataReciboINFO(Tarifa.Rows(0).Item(0))
-        Label25_Medidor.Text = ComboBox2.Text
-        Label26_PeriodoFact.Text = TextBox_Mes.Text
-        Label9_PeriodoFact2.Text = TextBox_AnoConsulta.Text
-
-        numero = trans.ConvertNumberToWords(Recibo.Rows(0).Item(10))
-        Label19_TotalNum.Text = numero
-        Label20_TotalPagar.Text = (Recibo.Rows(0).Item(10))
-        Label57_Total.Text = (Recibo.Rows(0).Item(10))
-
-        'Consumos
-        Label37_LectAct.Text = (contratos.Rows(0).Item(5))
-
-        If (Recibo.Rows(0).Item(4) > Tarifa.Rows(0).Item(7)) Then
-
-            Label40_TotalBasic.Text = (Tarifa.Rows(0).Item(7))
-            Label43_PreciBasic.Text = (Tarifa.Rows(0).Item(7)) * (Tarifa.Rows(0).Item(3))
-
-            If (Recibo.Rows(0).Item(4) > Tarifa.Rows(0).Item(8)) Then
-                Dim Tar As Decimal
-                Dim Ter As Decimal
-
-                Ter = (Tarifa.Rows(0).Item(8)) - (Tarifa.Rows(0).Item(7))
-
-                Label41_TotalInter.Text = Ter
-
-                Tar = Recibo.Rows(0).Item(4) - Tarifa.Rows(0).Item(8)
-
-                Label16_Excedente.Text = Tar
-
-                Label45_SubInter.Text = Ter * Tarifa.Rows(0).Item(4)
-                Label47_Total.Text = Tar * Tarifa.Rows(0).Item(5)
-
+            If (ComboBox1.SelectedIndex = 0) Then
+                Tarifa = enlace.getSortedTarifa(mes, ano)
+                Label24_Servicio.Text = "Domestico"
             Else
-
-                Dim Inter As Decimal
-                Inter = (Recibo.Rows(0).Item(4)) - (Tarifa.Rows(0).Item(7))
-                Label41_TotalInter.Text = Inter
-
-                Label45_SubInter.Text = Inter * Tarifa.Rows(0).Item(4)
+                Tarifa = enlace.getSortedTarifaInd(mes, ano)
+                Label24_Servicio.Text = "Industrial"
 
             End If
 
+            Recibo = enlace.getdataReciboINFO(Tarifa.Rows(0).Item(0))
+
+            If (Recibo.Rows.Count > 0) Then
+                Label25_Medidor.Text = ComboBox2.Text
+                Label26_PeriodoFact.Text = TextBox_Mes.Text
+                Label9_PeriodoFact2.Text = TextBox_AnoConsulta.Text
+
+                numero = trans.ConvertNumberToWords(Recibo.Rows(0).Item(10))
+                Label19_TotalNum.Text = numero
+                Label20_TotalPagar.Text = (Recibo.Rows(0).Item(10))
+                Label57_Total.Text = (Recibo.Rows(0).Item(10))
+
+                'Consumos
+                Label37_LectAct.Text = (contratos.Rows(0).Item(5))
+
+
+
+
+
+                If (Recibo.Rows(0).Item(4) > Tarifa.Rows(0).Item(7)) Then
+
+                    Label40_TotalBasic.Text = (Tarifa.Rows(0).Item(7))
+                    Label43_PreciBasic.Text = (Tarifa.Rows(0).Item(7)) * (Tarifa.Rows(0).Item(3))
+
+                    If (Recibo.Rows(0).Item(4) > Tarifa.Rows(0).Item(8)) Then
+                        Dim Tar As Decimal
+                        Dim Ter As Decimal
+
+                        Ter = (Tarifa.Rows(0).Item(8)) - (Tarifa.Rows(0).Item(7))
+
+                        Label41_TotalInter.Text = Ter
+
+                        Tar = Recibo.Rows(0).Item(4) - Tarifa.Rows(0).Item(8)
+
+                        Label16_Excedente.Text = Tar
+
+                        Label45_SubInter.Text = Ter * Tarifa.Rows(0).Item(4)
+                        Label47_Total.Text = Tar * Tarifa.Rows(0).Item(5)
+
+                    Else
+
+                        Dim Inter As Decimal
+                        Inter = (Recibo.Rows(0).Item(4)) - (Tarifa.Rows(0).Item(7))
+                        Label41_TotalInter.Text = Inter
+
+                        Label45_SubInter.Text = Inter * Tarifa.Rows(0).Item(4)
+
+                    End If
+
+                Else
+                    Label40_TotalBasic.Text = (Recibo.Rows(0).Item(4))
+                    Label43_PreciBasic.Text = (Recibo.Rows(0).Item(4)) * (Tarifa.Rows(0).Item(3))
+
+                End If
+
+
+                Label46_SubBasic.Text = (Tarifa.Rows(0).Item(3))
+                Label44_PreciInter.Text = (Tarifa.Rows(0).Item(4))
+                Label16_PrecioExced.Text = (Tarifa.Rows(0).Item(5))
+
+                'Subtotal
+                Label39_TotalP.Text = (Recibo.Rows(0).Item(4))
+                Label53_Energia.Text = (Recibo.Rows(0).Item(9))
+                IVA = Recibo.Rows(0).Item(9) * 0.16
+                Label54_IVA.Text = IVA
+                Label55_Adeudo.Text = (Recibo.Rows(0).Item(11))
+            Else
+
+                MsgBox("ERROR")
+            End If
+
+
         Else
-            Label40_TotalBasic.Text = (Recibo.Rows(0).Item(4))
-            Label43_PreciBasic.Text = (Recibo.Rows(0).Item(4)) * (Tarifa.Rows(0).Item(3))
+
+            MsgBox("ERROR")
+
+
+
 
         End If
-
-
-        Label46_SubBasic.Text = (Tarifa.Rows(0).Item(3))
-        Label44_PreciInter.Text = (Tarifa.Rows(0).Item(4))
-        Label16_PrecioExced.Text = (Tarifa.Rows(0).Item(5))
-
-        'Subtotal
-        Label39_TotalP.Text = (Recibo.Rows(0).Item(4))
-        Label53_Energia.Text = (Recibo.Rows(0).Item(9))
-        IVA = Recibo.Rows(0).Item(9) * 0.16
-        Label54_IVA.Text = IVA
-        Label55_Adeudo.Text = (Recibo.Rows(0).Item(11))
 
 
     End Sub

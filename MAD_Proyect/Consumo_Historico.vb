@@ -46,7 +46,7 @@ Public Class Consumo_Historico
         'Dim aniosconsul As New List(Of Integer)
 
 
-        For anio As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
+        For anio As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year + 15
             anios.Add(anio)
         Next anio
 
@@ -62,19 +62,29 @@ Public Class Consumo_Historico
     Private Sub Button_Consultar_Click(sender As Object, e As EventArgs) Handles Button_Consultar.Click
         Dim enlace As New EnlaceBD
         Dim TablaGridConsHist As New DataTable
-        Dim anio As Integer
-        Dim Numero_Medidor As Integer? = Nothing
+        Dim ano As Integer
+        Dim Numero_Medidor As Integer
         Dim Numero_de_Servicio As Integer
 
-        anio = ComboBox3.SelectedItem
-        If (TextBox_NumMed.Text <> Nothing) Then
+        ano = ComboBox3.SelectedItem
+        If (Val(TextBox_NumMed.Text) > 0) Then
             Numero_Medidor = Integer.Parse(TextBox_NumMed.Text)
+            TablaGridConsHist = enlace.TotalitarioMedidor(ano, Numero_Medidor)
+            DataGridView_Consumo.DataSource = TablaGridConsHist
+        Else
+            Numero_de_Servicio = ComboBox1.SelectedIndex
+
+            TablaGridConsHist = enlace.TotalitarioMedidorServicio(ano, Numero_de_Servicio)
+            DataGridView_Consumo.DataSource = TablaGridConsHist
+
+
         End If
 
-        Numero_de_Servicio = ComboBox1.SelectedIndex
 
-        TablaGridConsHist = enlace.getInfoConsumoHistorico(anio, Numero_Medidor, Numero_de_Servicio)
-        DataGridView_Consumo.DataSource = TablaGridConsHist
+
+
+
+
 
 
     End Sub
@@ -89,12 +99,28 @@ Public Class Consumo_Historico
     Public Sub ExportarDatosConsumHistPDF(ByVal document As Document)
 
         Dim enlace As New EnlaceBD
-        Dim anio As Integer
+        Dim ano As Integer
         Dim Numero_Medidor As Integer
         Dim Numero_de_Servicio As Integer
         Dim tablaaux As New DataTable
-        anio = Conversion.Int(ComboBox3.SelectedItem)
-        tablaaux = enlace.getInfoConsumoHistorico(anio, Numero_Medidor, Numero_de_Servicio)
+        ano = Conversion.Int(ComboBox3.SelectedItem)
+
+        If (TextBox_NumMed.Text <> Nothing) Then
+            Numero_Medidor = Integer.Parse(TextBox_NumMed.Text)
+            tablaaux = enlace.TotalitarioMedidor(ano, Numero_Medidor)
+
+        Else
+            Numero_de_Servicio = ComboBox1.SelectedIndex
+
+            tablaaux = enlace.TotalitarioMedidorServicio(ano, Numero_de_Servicio)
+
+
+
+        End If
+
+
+
+
 
 
         Dim datatable As New PdfPTable(DataGridView_Consumo.ColumnCount)
@@ -106,7 +132,7 @@ Public Class Consumo_Historico
         datatable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER
 
         Dim encabezado As New Paragraph("Consumo Historico", New Font(Font.Name = "Tahoma", 20, Font.Bold))
-        Dim texto As New Phrase("El Consumo Historico es del año :" + anio.ToString(), New Font(Font.Name = "Tahoma", 14, Font.Bold))
+        Dim texto As New Phrase("El Consumo Historico es del año :" + ano.ToString(), New Font(Font.Name = "Tahoma", 14, Font.Bold))
 
         For i As Integer = 0 To DataGridView_Consumo.ColumnCount - 1
             datatable.AddCell(DataGridView_Consumo.Columns(i).HeaderText)
@@ -150,22 +176,29 @@ Public Class Consumo_Historico
         Dim tablaaux As New DataTable
         Dim i As Integer
         Dim cuerda As String
-        Dim anio As Integer
+        Dim ano As Integer
         Dim Numero_Medidor As Integer?
         Dim Numero_de_Servicio As Integer
+        ano = Conversion.Int(ComboBox3.SelectedItem)
 
-        anio = ComboBox3.SelectedItem
-        If (TextBox_NumMed.Text <> Nothing) Then
+        If (Val(TextBox_NumMed.Text) > 0) Then
             Numero_Medidor = Integer.Parse(TextBox_NumMed.Text)
+            tabla = enlace.TotalitarioMedidor(ano, Numero_Medidor)
+
+        Else
+            Numero_de_Servicio = ComboBox1.SelectedIndex
+
+            tabla = enlace.TotalitarioMedidorServicio(ano, Numero_de_Servicio)
+
+
+
         End If
 
-        Numero_de_Servicio = ComboBox1.SelectedIndex
-
-        ' anio = Conversion.Int(ComboBox3.SelectedItem)
-        tabla = enlace.getInfoConsumoHistorico(anio, Numero_Medidor, Numero_de_Servicio)
 
 
-        cuerda = "Reporte de Consumo Historico del año" + "_" + anio.ToString() + "_" + ".csv"
+
+
+        cuerda = "Reporte de Consumo Historico del año" + "_" + ano.ToString() + "_" + ".csv"
 
         Dim fileCSV As String = cuerda
         If File.Exists(fileCSV) Then
@@ -175,9 +208,20 @@ Public Class Consumo_Historico
         Dim CSV As StreamWriter = New StreamWriter(fileCSV, True)
         CSV.WriteLine(" Periodo de Facturacion , Consumo de kW , Importe , Pago , Pago Pendiente ")
 
-        tablaaux = enlace.getInfoConsumoHistorico(anio, Numero_Medidor, Numero_de_Servicio)
+        If (Numero_Medidor > 0) Then
 
-        i = tabla.Rows().Count
+            tablaaux = enlace.TotalitarioMedidor(ano, Numero_Medidor)
+
+        Else
+
+
+            tablaaux = enlace.TotalitarioMedidorServicio(ano, Numero_de_Servicio)
+
+
+
+        End If
+
+        i = tablaaux.Rows().Count
 
         For Fila As Integer = 0 To i - 1 Step 1
             CSV.WriteLine(tablaaux.Rows(Fila).Item(0) & "," & tablaaux.Rows(Fila).Item(1) & "," & tablaaux.Rows(Fila).Item(2) & "," & tablaaux.Rows(Fila).Item(3) & "," & tablaaux.Rows(Fila).Item(4))
@@ -200,5 +244,7 @@ Public Class Consumo_Historico
         End If
     End Sub
 
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+    End Sub
 End Class

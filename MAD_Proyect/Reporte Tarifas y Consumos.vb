@@ -42,7 +42,8 @@ Public Class Reporte_Tarifas_y_Consumos
         Dim aniosconsul As New List(Of Integer)
 
 
-        For ano As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
+        For ano As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year + 15
+
             anios.Add(ano)
         Next ano
 
@@ -50,7 +51,8 @@ Public Class Reporte_Tarifas_y_Consumos
         DataGridView_Tarifa.AllowUserToAddRows = False
         DataGridView_Tarifa.AllowUserToAddRows = False
 
-        For ano As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year
+        For ano As Integer = DateTime.Now.Year - 10 To DateTime.Now.Year + 15
+
             aniosconsul.Add(ano)
         Next ano
 
@@ -288,5 +290,9 @@ Public Class Reporte_Tarifas_y_Consumos
         CSV.Close()
         Process.Start(cuerda)
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
     End Sub
 End Class

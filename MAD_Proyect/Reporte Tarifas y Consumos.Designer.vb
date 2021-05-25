@@ -85,17 +85,19 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.PanelMenu.Controls.Add(Me.Button_Gestion)
         Me.PanelMenu.Controls.Add(Me.PictureBox2)
         Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelMenu.Location = New System.Drawing.Point(0, 40)
+        Me.PanelMenu.Location = New System.Drawing.Point(0, 32)
+        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(2)
         Me.PanelMenu.Name = "PanelMenu"
-        Me.PanelMenu.Size = New System.Drawing.Size(220, 672)
+        Me.PanelMenu.Size = New System.Drawing.Size(165, 546)
         Me.PanelMenu.TabIndex = 12
         '
         'Panel10
         '
         Me.Panel10.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel10.Location = New System.Drawing.Point(0, 535)
+        Me.Panel10.Location = New System.Drawing.Point(0, 435)
+        Me.Panel10.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(5, 50)
+        Me.Panel10.Size = New System.Drawing.Size(4, 41)
         Me.Panel10.TabIndex = 32
         '
         'Boton_ConsumoHistorico
@@ -109,9 +111,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Boton_ConsumoHistorico.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ConsumoHistorico.Image = Global.MAD_Proyect.My.Resources.Resources.compras
         Me.Boton_ConsumoHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ConsumoHistorico.Location = New System.Drawing.Point(0, 535)
+        Me.Boton_ConsumoHistorico.Location = New System.Drawing.Point(0, 435)
+        Me.Boton_ConsumoHistorico.Margin = New System.Windows.Forms.Padding(2)
         Me.Boton_ConsumoHistorico.Name = "Boton_ConsumoHistorico"
-        Me.Boton_ConsumoHistorico.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ConsumoHistorico.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ConsumoHistorico.TabIndex = 31
         Me.Boton_ConsumoHistorico.Text = "Consum Historico"
         Me.Boton_ConsumoHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -120,9 +123,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel6.Location = New System.Drawing.Point(0, 462)
+        Me.Panel6.Location = New System.Drawing.Point(0, 375)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(5, 50)
+        Me.Panel6.Size = New System.Drawing.Size(4, 41)
         Me.Panel6.TabIndex = 30
         '
         'Boton_ReporteGeneral
@@ -136,9 +140,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Boton_ReporteGeneral.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ReporteGeneral.Image = Global.MAD_Proyect.My.Resources.Resources.empleados
         Me.Boton_ReporteGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ReporteGeneral.Location = New System.Drawing.Point(0, 462)
+        Me.Boton_ReporteGeneral.Location = New System.Drawing.Point(0, 375)
+        Me.Boton_ReporteGeneral.Margin = New System.Windows.Forms.Padding(2)
         Me.Boton_ReporteGeneral.Name = "Boton_ReporteGeneral"
-        Me.Boton_ReporteGeneral.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ReporteGeneral.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ReporteGeneral.TabIndex = 29
         Me.Boton_ReporteGeneral.Text = "Rep General"
         Me.Boton_ReporteGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -147,17 +152,19 @@ Partial Class Reporte_Tarifas_y_Consumos
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel7.Location = New System.Drawing.Point(0, 388)
+        Me.Panel7.Location = New System.Drawing.Point(0, 315)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(5, 50)
+        Me.Panel7.Size = New System.Drawing.Size(4, 41)
         Me.Panel7.TabIndex = 27
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel5.Location = New System.Drawing.Point(0, 320)
+        Me.Panel5.Location = New System.Drawing.Point(0, 260)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(5, 50)
+        Me.Panel5.Size = New System.Drawing.Size(4, 41)
         Me.Panel5.TabIndex = 28
         '
         'Boton_ReporteTarifasyConsum
@@ -171,9 +178,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Boton_ReporteTarifasyConsum.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ReporteTarifasyConsum.Image = Global.MAD_Proyect.My.Resources.Resources.relo3
         Me.Boton_ReporteTarifasyConsum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ReporteTarifasyConsum.Location = New System.Drawing.Point(0, 388)
+        Me.Boton_ReporteTarifasyConsum.Location = New System.Drawing.Point(0, 315)
+        Me.Boton_ReporteTarifasyConsum.Margin = New System.Windows.Forms.Padding(2)
         Me.Boton_ReporteTarifasyConsum.Name = "Boton_ReporteTarifasyConsum"
-        Me.Boton_ReporteTarifasyConsum.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ReporteTarifasyConsum.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ReporteTarifasyConsum.TabIndex = 25
         Me.Boton_ReporteTarifasyConsum.Text = "Repo Tarif/Cons"
         Me.Boton_ReporteTarifasyConsum.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -190,9 +198,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Boton_GenerarReciboyConsulta.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_GenerarReciboyConsulta.Image = Global.MAD_Proyect.My.Resources.Resources.reportes
         Me.Boton_GenerarReciboyConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_GenerarReciboyConsulta.Location = New System.Drawing.Point(0, 320)
+        Me.Boton_GenerarReciboyConsulta.Location = New System.Drawing.Point(0, 260)
+        Me.Boton_GenerarReciboyConsulta.Margin = New System.Windows.Forms.Padding(2)
         Me.Boton_GenerarReciboyConsulta.Name = "Boton_GenerarReciboyConsulta"
-        Me.Boton_GenerarReciboyConsulta.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_GenerarReciboyConsulta.Size = New System.Drawing.Size(165, 41)
         Me.Boton_GenerarReciboyConsulta.TabIndex = 26
         Me.Boton_GenerarReciboyConsulta.Text = "Gen Rec/Consul"
         Me.Boton_GenerarReciboyConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -202,25 +211,28 @@ Partial Class Reporte_Tarifas_y_Consumos
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel4.Location = New System.Drawing.Point(0, 247)
+        Me.Panel4.Location = New System.Drawing.Point(0, 201)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(5, 50)
+        Me.Panel4.Size = New System.Drawing.Size(4, 41)
         Me.Panel4.TabIndex = 18
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel3.Location = New System.Drawing.Point(0, 177)
+        Me.Panel3.Location = New System.Drawing.Point(0, 144)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(5, 50)
+        Me.Panel3.Size = New System.Drawing.Size(4, 41)
         Me.Panel3.TabIndex = 19
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel2.Location = New System.Drawing.Point(0, 108)
+        Me.Panel2.Location = New System.Drawing.Point(0, 88)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(5, 50)
+        Me.Panel2.Size = New System.Drawing.Size(4, 41)
         Me.Panel2.TabIndex = 20
         '
         'Button_Cargas
@@ -233,9 +245,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Cargas.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Cargas.Image = Global.MAD_Proyect.My.Resources.Resources.producto
         Me.Button_Cargas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button_Cargas.Location = New System.Drawing.Point(0, 247)
+        Me.Button_Cargas.Location = New System.Drawing.Point(0, 201)
+        Me.Button_Cargas.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Cargas.Name = "Button_Cargas"
-        Me.Button_Cargas.Size = New System.Drawing.Size(220, 50)
+        Me.Button_Cargas.Size = New System.Drawing.Size(165, 41)
         Me.Button_Cargas.TabIndex = 12
         Me.Button_Cargas.Text = "Cargas"
         Me.Button_Cargas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -251,9 +264,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Contratos.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Contratos.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_Restaurar
         Me.Button_Contratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button_Contratos.Location = New System.Drawing.Point(0, 177)
+        Me.Button_Contratos.Location = New System.Drawing.Point(0, 144)
+        Me.Button_Contratos.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Contratos.Name = "Button_Contratos"
-        Me.Button_Contratos.Size = New System.Drawing.Size(220, 50)
+        Me.Button_Contratos.Size = New System.Drawing.Size(165, 41)
         Me.Button_Contratos.TabIndex = 13
         Me.Button_Contratos.Text = "Contratos"
         Me.Button_Contratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -269,9 +283,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Gestion.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Gestion.Image = Global.MAD_Proyect.My.Resources.Resources.clientes
         Me.Button_Gestion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button_Gestion.Location = New System.Drawing.Point(0, 108)
+        Me.Button_Gestion.Location = New System.Drawing.Point(0, 88)
+        Me.Button_Gestion.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Gestion.Name = "Button_Gestion"
-        Me.Button_Gestion.Size = New System.Drawing.Size(220, 50)
+        Me.Button_Gestion.Size = New System.Drawing.Size(165, 41)
         Me.Button_Gestion.TabIndex = 14
         Me.Button_Gestion.Text = "Gestion Clientes"
         Me.Button_Gestion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -280,9 +295,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.MAD_Proyect.My.Resources.Resources.CFE
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 19)
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 15)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(220, 83)
+        Me.PictureBox2.Size = New System.Drawing.Size(165, 67)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 8
         Me.PictureBox2.TabStop = False
@@ -294,8 +310,9 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1100, 40)
+        Me.Panel1.Size = New System.Drawing.Size(825, 32)
         Me.Panel1.TabIndex = 11
         '
         'Button1
@@ -305,9 +322,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_cerrar_FN
-        Me.Button1.Location = New System.Drawing.Point(1057, 0)
+        Me.Button1.Location = New System.Drawing.Point(793, 0)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(40, 40)
+        Me.Button1.Size = New System.Drawing.Size(30, 32)
         Me.Button1.TabIndex = 1
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -318,8 +336,9 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Label2.Font = New System.Drawing.Font("Tw Cen MT", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.OldLace
         Me.Label2.Location = New System.Drawing.Point(1, 1)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(458, 39)
+        Me.Label2.Size = New System.Drawing.Size(368, 31)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Reporte de Tarifas y Consumos "
         '
@@ -333,9 +352,11 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.GroupBox2.Controls.Add(Me.Button_Consul_Tarifa)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
-        Me.GroupBox2.Location = New System.Drawing.Point(226, 46)
+        Me.GroupBox2.Location = New System.Drawing.Point(170, 37)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(849, 325)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox2.Size = New System.Drawing.Size(637, 264)
         Me.GroupBox2.TabIndex = 47
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Reporte de Tarifas"
@@ -344,20 +365,22 @@ Partial Class Reporte_Tarifas_y_Consumos
         '
         Me.DataGridView_Tarifa.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow
         Me.DataGridView_Tarifa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_Tarifa.Location = New System.Drawing.Point(18, 82)
+        Me.DataGridView_Tarifa.Location = New System.Drawing.Point(14, 67)
+        Me.DataGridView_Tarifa.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView_Tarifa.Name = "DataGridView_Tarifa"
         Me.DataGridView_Tarifa.RowHeadersWidth = 51
         Me.DataGridView_Tarifa.RowTemplate.Height = 24
-        Me.DataGridView_Tarifa.Size = New System.Drawing.Size(815, 225)
+        Me.DataGridView_Tarifa.Size = New System.Drawing.Size(611, 183)
         Me.DataGridView_Tarifa.TabIndex = 47
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(217, 13)
+        Me.Label5.Location = New System.Drawing.Point(163, 11)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(39, 20)
+        Me.Label5.Size = New System.Drawing.Size(32, 16)
         Me.Label5.TabIndex = 46
         Me.Label5.Text = "Año"
         '
@@ -366,9 +389,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.ComboBox3.BackColor = System.Drawing.Color.Cornsilk
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(221, 36)
+        Me.ComboBox3.Location = New System.Drawing.Point(166, 29)
+        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(190, 24)
+        Me.ComboBox3.Size = New System.Drawing.Size(144, 21)
         Me.ComboBox3.TabIndex = 45
         '
         'Button_Tarifa_CSV
@@ -377,9 +401,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Tarifa_CSV.FlatAppearance.BorderSize = 0
         Me.Button_Tarifa_CSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Tarifa_CSV.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Tarifa_CSV.Location = New System.Drawing.Point(772, 21)
+        Me.Button_Tarifa_CSV.Location = New System.Drawing.Point(579, 17)
+        Me.Button_Tarifa_CSV.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Tarifa_CSV.Name = "Button_Tarifa_CSV"
-        Me.Button_Tarifa_CSV.Size = New System.Drawing.Size(61, 39)
+        Me.Button_Tarifa_CSV.Size = New System.Drawing.Size(46, 32)
         Me.Button_Tarifa_CSV.TabIndex = 43
         Me.Button_Tarifa_CSV.Text = "CSV"
         Me.Button_Tarifa_CSV.UseVisualStyleBackColor = False
@@ -390,9 +415,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Tarifa_PDF.FlatAppearance.BorderSize = 0
         Me.Button_Tarifa_PDF.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Tarifa_PDF.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Tarifa_PDF.Location = New System.Drawing.Point(705, 21)
+        Me.Button_Tarifa_PDF.Location = New System.Drawing.Point(529, 17)
+        Me.Button_Tarifa_PDF.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Tarifa_PDF.Name = "Button_Tarifa_PDF"
-        Me.Button_Tarifa_PDF.Size = New System.Drawing.Size(61, 39)
+        Me.Button_Tarifa_PDF.Size = New System.Drawing.Size(46, 32)
         Me.Button_Tarifa_PDF.TabIndex = 43
         Me.Button_Tarifa_PDF.Text = "PDF"
         Me.Button_Tarifa_PDF.UseVisualStyleBackColor = False
@@ -403,9 +429,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Consul_Tarifa.FlatAppearance.BorderSize = 0
         Me.Button_Consul_Tarifa.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Consul_Tarifa.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Consul_Tarifa.Location = New System.Drawing.Point(417, 21)
+        Me.Button_Consul_Tarifa.Location = New System.Drawing.Point(313, 17)
+        Me.Button_Consul_Tarifa.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Consul_Tarifa.Name = "Button_Consul_Tarifa"
-        Me.Button_Consul_Tarifa.Size = New System.Drawing.Size(104, 39)
+        Me.Button_Consul_Tarifa.Size = New System.Drawing.Size(78, 32)
         Me.Button_Consul_Tarifa.TabIndex = 43
         Me.Button_Consul_Tarifa.Text = "Consultar"
         Me.Button_Consul_Tarifa.UseVisualStyleBackColor = False
@@ -415,9 +442,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Label1.AutoSize = True
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 21)
+        Me.Label1.Location = New System.Drawing.Point(9, 17)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(203, 23)
+        Me.Label1.Size = New System.Drawing.Size(163, 19)
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Periodo de Facturacion"
         '
@@ -431,9 +459,11 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.GroupBox1.Controls.Add(Me.Button_Cons_Consumo)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
-        Me.GroupBox1.Location = New System.Drawing.Point(226, 377)
+        Me.GroupBox1.Location = New System.Drawing.Point(170, 306)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(849, 325)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Size = New System.Drawing.Size(637, 264)
         Me.GroupBox1.TabIndex = 47
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Reporte de Consumos"
@@ -442,20 +472,22 @@ Partial Class Reporte_Tarifas_y_Consumos
         '
         Me.DataGridView_Consumo.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow
         Me.DataGridView_Consumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_Consumo.Location = New System.Drawing.Point(16, 79)
+        Me.DataGridView_Consumo.Location = New System.Drawing.Point(12, 64)
+        Me.DataGridView_Consumo.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView_Consumo.Name = "DataGridView_Consumo"
         Me.DataGridView_Consumo.RowHeadersWidth = 51
         Me.DataGridView_Consumo.RowTemplate.Height = 24
-        Me.DataGridView_Consumo.Size = New System.Drawing.Size(817, 225)
+        Me.DataGridView_Consumo.Size = New System.Drawing.Size(613, 183)
         Me.DataGridView_Consumo.TabIndex = 47
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(217, 13)
+        Me.Label3.Location = New System.Drawing.Point(163, 11)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 20)
+        Me.Label3.Size = New System.Drawing.Size(32, 16)
         Me.Label3.TabIndex = 46
         Me.Label3.Text = "Año"
         '
@@ -464,9 +496,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.ComboBox1.BackColor = System.Drawing.Color.Cornsilk
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(221, 36)
+        Me.ComboBox1.Location = New System.Drawing.Point(166, 29)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(190, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(144, 21)
         Me.ComboBox1.TabIndex = 45
         '
         'Button_Consumo_CSV
@@ -475,9 +508,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Consumo_CSV.FlatAppearance.BorderSize = 0
         Me.Button_Consumo_CSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Consumo_CSV.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Consumo_CSV.Location = New System.Drawing.Point(772, 21)
+        Me.Button_Consumo_CSV.Location = New System.Drawing.Point(579, 17)
+        Me.Button_Consumo_CSV.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Consumo_CSV.Name = "Button_Consumo_CSV"
-        Me.Button_Consumo_CSV.Size = New System.Drawing.Size(61, 39)
+        Me.Button_Consumo_CSV.Size = New System.Drawing.Size(46, 32)
         Me.Button_Consumo_CSV.TabIndex = 43
         Me.Button_Consumo_CSV.Text = "CSV"
         Me.Button_Consumo_CSV.UseVisualStyleBackColor = False
@@ -488,9 +522,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Consumo_Pdf.FlatAppearance.BorderSize = 0
         Me.Button_Consumo_Pdf.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Consumo_Pdf.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Consumo_Pdf.Location = New System.Drawing.Point(705, 21)
+        Me.Button_Consumo_Pdf.Location = New System.Drawing.Point(529, 17)
+        Me.Button_Consumo_Pdf.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Consumo_Pdf.Name = "Button_Consumo_Pdf"
-        Me.Button_Consumo_Pdf.Size = New System.Drawing.Size(61, 39)
+        Me.Button_Consumo_Pdf.Size = New System.Drawing.Size(46, 32)
         Me.Button_Consumo_Pdf.TabIndex = 43
         Me.Button_Consumo_Pdf.Text = "PDF"
         Me.Button_Consumo_Pdf.UseVisualStyleBackColor = False
@@ -501,9 +536,10 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Button_Cons_Consumo.FlatAppearance.BorderSize = 0
         Me.Button_Cons_Consumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Cons_Consumo.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Cons_Consumo.Location = New System.Drawing.Point(417, 21)
+        Me.Button_Cons_Consumo.Location = New System.Drawing.Point(313, 17)
+        Me.Button_Cons_Consumo.Margin = New System.Windows.Forms.Padding(2)
         Me.Button_Cons_Consumo.Name = "Button_Cons_Consumo"
-        Me.Button_Cons_Consumo.Size = New System.Drawing.Size(104, 39)
+        Me.Button_Cons_Consumo.Size = New System.Drawing.Size(78, 32)
         Me.Button_Cons_Consumo.TabIndex = 43
         Me.Button_Cons_Consumo.Text = "Consultar"
         Me.Button_Cons_Consumo.UseVisualStyleBackColor = False
@@ -513,22 +549,24 @@ Partial Class Reporte_Tarifas_y_Consumos
         Me.Label4.AutoSize = True
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label4.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 21)
+        Me.Label4.Location = New System.Drawing.Point(9, 17)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(203, 23)
+        Me.Label4.Size = New System.Drawing.Size(163, 19)
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "Periodo de Facturacion"
         '
         'Reporte_Tarifas_y_Consumos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1100, 712)
+        Me.ClientSize = New System.Drawing.Size(825, 578)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.PanelMenu)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Reporte_Tarifas_y_Consumos"
         Me.Text = "Reporte_Tarifas_y_Consumos"
         Me.PanelMenu.ResumeLayout(False)

@@ -92,19 +92,19 @@ Partial Class EmpleadoGral
         Me.PanelMenu.Controls.Add(Me.Button2)
         Me.PanelMenu.Controls.Add(Me.PictureBox2)
         Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelMenu.Location = New System.Drawing.Point(0, 39)
-        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PanelMenu.Location = New System.Drawing.Point(0, 32)
+        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PanelMenu.Name = "PanelMenu"
-        Me.PanelMenu.Size = New System.Drawing.Size(224, 541)
+        Me.PanelMenu.Size = New System.Drawing.Size(168, 439)
         Me.PanelMenu.TabIndex = 10
         '
         'Panel10
         '
         Me.Panel10.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel10.Location = New System.Drawing.Point(0, 462)
-        Me.Panel10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel10.Location = New System.Drawing.Point(0, 375)
+        Me.Panel10.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(5, 50)
+        Me.Panel10.Size = New System.Drawing.Size(4, 41)
         Me.Panel10.TabIndex = 24
         '
         'Boton_ConsumoHistorico
@@ -118,10 +118,10 @@ Partial Class EmpleadoGral
         Me.Boton_ConsumoHistorico.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ConsumoHistorico.Image = Global.MAD_Proyect.My.Resources.Resources.compras
         Me.Boton_ConsumoHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ConsumoHistorico.Location = New System.Drawing.Point(0, 462)
-        Me.Boton_ConsumoHistorico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Boton_ConsumoHistorico.Location = New System.Drawing.Point(0, 374)
+        Me.Boton_ConsumoHistorico.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_ConsumoHistorico.Name = "Boton_ConsumoHistorico"
-        Me.Boton_ConsumoHistorico.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ConsumoHistorico.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ConsumoHistorico.TabIndex = 23
         Me.Boton_ConsumoHistorico.Text = "Consum Historico"
         Me.Boton_ConsumoHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -130,10 +130,10 @@ Partial Class EmpleadoGral
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel6.Location = New System.Drawing.Point(0, 402)
-        Me.Panel6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel6.Location = New System.Drawing.Point(0, 327)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(5, 50)
+        Me.Panel6.Size = New System.Drawing.Size(4, 41)
         Me.Panel6.TabIndex = 22
         '
         'Boton_ReporteGeneral
@@ -147,10 +147,10 @@ Partial Class EmpleadoGral
         Me.Boton_ReporteGeneral.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ReporteGeneral.Image = Global.MAD_Proyect.My.Resources.Resources.empleados
         Me.Boton_ReporteGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ReporteGeneral.Location = New System.Drawing.Point(0, 402)
-        Me.Boton_ReporteGeneral.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Boton_ReporteGeneral.Location = New System.Drawing.Point(0, 326)
+        Me.Boton_ReporteGeneral.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_ReporteGeneral.Name = "Boton_ReporteGeneral"
-        Me.Boton_ReporteGeneral.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ReporteGeneral.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ReporteGeneral.TabIndex = 21
         Me.Boton_ReporteGeneral.Text = "Rep General"
         Me.Boton_ReporteGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -159,46 +159,46 @@ Partial Class EmpleadoGral
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel7.Location = New System.Drawing.Point(0, 346)
-        Me.Panel7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel7.Location = New System.Drawing.Point(0, 281)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(5, 50)
+        Me.Panel7.Size = New System.Drawing.Size(4, 41)
         Me.Panel7.TabIndex = 16
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel5.Location = New System.Drawing.Point(0, 290)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel5.Location = New System.Drawing.Point(0, 236)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(5, 50)
+        Me.Panel5.Size = New System.Drawing.Size(4, 41)
         Me.Panel5.TabIndex = 17
         '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel4.Location = New System.Drawing.Point(0, 234)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel4.Location = New System.Drawing.Point(0, 190)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(5, 50)
+        Me.Panel4.Size = New System.Drawing.Size(4, 41)
         Me.Panel4.TabIndex = 18
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel3.Location = New System.Drawing.Point(0, 178)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel3.Location = New System.Drawing.Point(0, 145)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(5, 50)
+        Me.Panel3.Size = New System.Drawing.Size(4, 41)
         Me.Panel3.TabIndex = 19
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel2.Location = New System.Drawing.Point(0, 122)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel2.Location = New System.Drawing.Point(0, 99)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(5, 50)
+        Me.Panel2.Size = New System.Drawing.Size(4, 41)
         Me.Panel2.TabIndex = 20
         '
         'Boton_ReporteTarifasyConsum
@@ -212,10 +212,10 @@ Partial Class EmpleadoGral
         Me.Boton_ReporteTarifasyConsum.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ReporteTarifasyConsum.Image = Global.MAD_Proyect.My.Resources.Resources.relo3
         Me.Boton_ReporteTarifasyConsum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ReporteTarifasyConsum.Location = New System.Drawing.Point(0, 346)
-        Me.Boton_ReporteTarifasyConsum.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Boton_ReporteTarifasyConsum.Location = New System.Drawing.Point(0, 280)
+        Me.Boton_ReporteTarifasyConsum.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_ReporteTarifasyConsum.Name = "Boton_ReporteTarifasyConsum"
-        Me.Boton_ReporteTarifasyConsum.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ReporteTarifasyConsum.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ReporteTarifasyConsum.TabIndex = 10
         Me.Boton_ReporteTarifasyConsum.Text = "Repo Tarif/Cons"
         Me.Boton_ReporteTarifasyConsum.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -232,10 +232,10 @@ Partial Class EmpleadoGral
         Me.Boton_GenerarReciboyConsulta.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_GenerarReciboyConsulta.Image = Global.MAD_Proyect.My.Resources.Resources.reportes
         Me.Boton_GenerarReciboyConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_GenerarReciboyConsulta.Location = New System.Drawing.Point(0, 290)
-        Me.Boton_GenerarReciboyConsulta.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Boton_GenerarReciboyConsulta.Location = New System.Drawing.Point(0, 235)
+        Me.Boton_GenerarReciboyConsulta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_GenerarReciboyConsulta.Name = "Boton_GenerarReciboyConsulta"
-        Me.Boton_GenerarReciboyConsulta.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_GenerarReciboyConsulta.Size = New System.Drawing.Size(165, 41)
         Me.Boton_GenerarReciboyConsulta.TabIndex = 11
         Me.Boton_GenerarReciboyConsulta.Text = "Gen Rec/Consul"
         Me.Boton_GenerarReciboyConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -253,10 +253,10 @@ Partial Class EmpleadoGral
         Me.Boton_Cargas.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_Cargas.Image = Global.MAD_Proyect.My.Resources.Resources.producto
         Me.Boton_Cargas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_Cargas.Location = New System.Drawing.Point(0, 234)
-        Me.Boton_Cargas.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Boton_Cargas.Location = New System.Drawing.Point(0, 189)
+        Me.Boton_Cargas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_Cargas.Name = "Boton_Cargas"
-        Me.Boton_Cargas.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_Cargas.Size = New System.Drawing.Size(165, 41)
         Me.Boton_Cargas.TabIndex = 12
         Me.Boton_Cargas.Text = "Cargas"
         Me.Boton_Cargas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -273,10 +273,10 @@ Partial Class EmpleadoGral
         Me.Boton_Contratos.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_Contratos.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_Restaurar
         Me.Boton_Contratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_Contratos.Location = New System.Drawing.Point(0, 178)
-        Me.Boton_Contratos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Boton_Contratos.Location = New System.Drawing.Point(0, 144)
+        Me.Boton_Contratos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_Contratos.Name = "Boton_Contratos"
-        Me.Boton_Contratos.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_Contratos.Size = New System.Drawing.Size(165, 41)
         Me.Boton_Contratos.TabIndex = 13
         Me.Boton_Contratos.Text = "Contratos"
         Me.Boton_Contratos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -294,10 +294,10 @@ Partial Class EmpleadoGral
         Me.Button2.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = Global.MAD_Proyect.My.Resources.Resources.clientes
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(0, 122)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button2.Location = New System.Drawing.Point(0, 98)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(220, 50)
+        Me.Button2.Size = New System.Drawing.Size(165, 41)
         Me.Button2.TabIndex = 14
         Me.Button2.Text = "Gestion Clientes"
         Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -306,10 +306,10 @@ Partial Class EmpleadoGral
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.MAD_Proyect.My.Resources.Resources.CFE
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 25)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 20)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(220, 82)
+        Me.PictureBox2.Size = New System.Drawing.Size(165, 67)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 8
         Me.PictureBox2.TabStop = False
@@ -321,9 +321,9 @@ Partial Class EmpleadoGral
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1100, 39)
+        Me.Panel1.Size = New System.Drawing.Size(825, 32)
         Me.Panel1.TabIndex = 9
         '
         'Button1
@@ -333,10 +333,10 @@ Partial Class EmpleadoGral
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_cerrar_FN
-        Me.Button1.Location = New System.Drawing.Point(1057, 0)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button1.Location = New System.Drawing.Point(793, 0)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(40, 39)
+        Me.Button1.Size = New System.Drawing.Size(30, 32)
         Me.Button1.TabIndex = 1
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -346,28 +346,30 @@ Partial Class EmpleadoGral
         Me.Label2.BackColor = System.Drawing.Color.Green
         Me.Label2.Font = New System.Drawing.Font("Tw Cen MT", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.OldLace
-        Me.Label2.Location = New System.Drawing.Point(3, 1)
+        Me.Label2.Location = New System.Drawing.Point(2, 1)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(460, 39)
+        Me.Label2.Size = New System.Drawing.Size(368, 31)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Alta y modificacion de Clientes "
         '
         'TextBox_Nombre
         '
         Me.TextBox_Nombre.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_Nombre.Location = New System.Drawing.Point(229, 66)
-        Me.TextBox_Nombre.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox_Nombre.Location = New System.Drawing.Point(172, 54)
+        Me.TextBox_Nombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox_Nombre.Name = "TextBox_Nombre"
-        Me.TextBox_Nombre.Size = New System.Drawing.Size(269, 22)
+        Me.TextBox_Nombre.Size = New System.Drawing.Size(203, 20)
         Me.TextBox_Nombre.TabIndex = 38
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(227, 43)
+        Me.Label12.Location = New System.Drawing.Point(170, 35)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(136, 20)
+        Me.Label12.Size = New System.Drawing.Size(112, 16)
         Me.Label12.TabIndex = 37
         Me.Label12.Text = "Nombre Completo"
         '
@@ -375,9 +377,10 @@ Partial Class EmpleadoGral
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(251, 265)
+        Me.Label1.Location = New System.Drawing.Point(188, 215)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(156, 20)
+        Me.Label1.Size = New System.Drawing.Size(129, 16)
         Me.Label1.TabIndex = 36
         Me.Label1.Text = "Fecha de Nacimiento"
         '
@@ -387,10 +390,10 @@ Partial Class EmpleadoGral
         Me.Button_Bajas_Cliente.FlatAppearance.BorderSize = 0
         Me.Button_Bajas_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Bajas_Cliente.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Bajas_Cliente.Location = New System.Drawing.Point(229, 513)
-        Me.Button_Bajas_Cliente.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button_Bajas_Cliente.Location = New System.Drawing.Point(172, 417)
+        Me.Button_Bajas_Cliente.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button_Bajas_Cliente.Name = "Button_Bajas_Cliente"
-        Me.Button_Bajas_Cliente.Size = New System.Drawing.Size(113, 39)
+        Me.Button_Bajas_Cliente.Size = New System.Drawing.Size(85, 32)
         Me.Button_Bajas_Cliente.TabIndex = 43
         Me.Button_Bajas_Cliente.Text = "Bajas"
         Me.Button_Bajas_Cliente.UseVisualStyleBackColor = False
@@ -401,10 +404,10 @@ Partial Class EmpleadoGral
         Me.Button_Alta_Cliente.FlatAppearance.BorderSize = 0
         Me.Button_Alta_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Alta_Cliente.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Alta_Cliente.Location = New System.Drawing.Point(229, 466)
-        Me.Button_Alta_Cliente.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button_Alta_Cliente.Location = New System.Drawing.Point(172, 379)
+        Me.Button_Alta_Cliente.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button_Alta_Cliente.Name = "Button_Alta_Cliente"
-        Me.Button_Alta_Cliente.Size = New System.Drawing.Size(104, 39)
+        Me.Button_Alta_Cliente.Size = New System.Drawing.Size(78, 32)
         Me.Button_Alta_Cliente.TabIndex = 42
         Me.Button_Alta_Cliente.Text = "Alta"
         Me.Button_Alta_Cliente.UseVisualStyleBackColor = False
@@ -415,10 +418,10 @@ Partial Class EmpleadoGral
         Me.Button_Upd_Cliente.FlatAppearance.BorderSize = 0
         Me.Button_Upd_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Upd_Cliente.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Upd_Cliente.Location = New System.Drawing.Point(413, 466)
-        Me.Button_Upd_Cliente.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button_Upd_Cliente.Location = New System.Drawing.Point(310, 379)
+        Me.Button_Upd_Cliente.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button_Upd_Cliente.Name = "Button_Upd_Cliente"
-        Me.Button_Upd_Cliente.Size = New System.Drawing.Size(123, 39)
+        Me.Button_Upd_Cliente.Size = New System.Drawing.Size(92, 32)
         Me.Button_Upd_Cliente.TabIndex = 43
         Me.Button_Upd_Cliente.Text = "Modificacion"
         Me.Button_Upd_Cliente.UseVisualStyleBackColor = False
@@ -427,47 +430,50 @@ Partial Class EmpleadoGral
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(227, 102)
+        Me.Label3.Location = New System.Drawing.Point(170, 83)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 20)
+        Me.Label3.Size = New System.Drawing.Size(46, 16)
         Me.Label3.TabIndex = 37
         Me.Label3.Text = "EMAIL"
         '
         'TextBox_email
         '
         Me.TextBox_email.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_email.Location = New System.Drawing.Point(229, 126)
-        Me.TextBox_email.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox_email.Location = New System.Drawing.Point(172, 102)
+        Me.TextBox_email.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox_email.Name = "TextBox_email"
-        Me.TextBox_email.Size = New System.Drawing.Size(269, 22)
+        Me.TextBox_email.Size = New System.Drawing.Size(203, 20)
         Me.TextBox_email.TabIndex = 38
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(227, 159)
+        Me.Label4.Location = New System.Drawing.Point(170, 129)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 20)
+        Me.Label4.Size = New System.Drawing.Size(40, 16)
         Me.Label4.TabIndex = 37
         Me.Label4.Text = "CURP"
         '
         'TextBox_CURP
         '
         Me.TextBox_CURP.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_CURP.Location = New System.Drawing.Point(229, 182)
-        Me.TextBox_CURP.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox_CURP.Location = New System.Drawing.Point(172, 148)
+        Me.TextBox_CURP.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox_CURP.Name = "TextBox_CURP"
-        Me.TextBox_CURP.Size = New System.Drawing.Size(269, 22)
+        Me.TextBox_CURP.Size = New System.Drawing.Size(203, 20)
         Me.TextBox_CURP.TabIndex = 38
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(580, 55)
+        Me.Label5.Location = New System.Drawing.Point(434, 32)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(220, 24)
+        Me.Label5.Size = New System.Drawing.Size(180, 19)
         Me.Label5.TabIndex = 44
         Me.Label5.Text = "* Actuales Clientes *"
         '
@@ -475,9 +481,10 @@ Partial Class EmpleadoGral
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(227, 206)
+        Me.Label6.Location = New System.Drawing.Point(170, 167)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(60, 20)
+        Me.Label6.Size = New System.Drawing.Size(50, 16)
         Me.Label6.TabIndex = 37
         Me.Label6.Text = "Genero"
         '
@@ -488,19 +495,20 @@ Partial Class EmpleadoGral
         Me.ComboBox_Genero.ForeColor = System.Drawing.Color.Black
         Me.ComboBox_Genero.FormattingEnabled = True
         Me.ComboBox_Genero.Items.AddRange(New Object() {"Hombre", "Mujer"})
-        Me.ComboBox_Genero.Location = New System.Drawing.Point(229, 228)
-        Me.ComboBox_Genero.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox_Genero.Location = New System.Drawing.Point(172, 185)
+        Me.ComboBox_Genero.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboBox_Genero.Name = "ComboBox_Genero"
-        Me.ComboBox_Genero.Size = New System.Drawing.Size(269, 24)
+        Me.ComboBox_Genero.Size = New System.Drawing.Size(203, 21)
         Me.ComboBox_Genero.TabIndex = 45
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(227, 357)
+        Me.Label11.Location = New System.Drawing.Point(170, 290)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(63, 20)
+        Me.Label11.Size = New System.Drawing.Size(51, 16)
         Me.Label11.TabIndex = 37
         Me.Label11.Text = "Usuario"
         '
@@ -508,28 +516,29 @@ Partial Class EmpleadoGral
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(227, 405)
+        Me.Label14.Location = New System.Drawing.Point(170, 329)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(88, 20)
+        Me.Label14.Size = New System.Drawing.Size(72, 16)
         Me.Label14.TabIndex = 37
         Me.Label14.Text = "Contraseña"
         '
         'TextBox_Usuario
         '
         Me.TextBox_Usuario.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_Usuario.Location = New System.Drawing.Point(229, 380)
-        Me.TextBox_Usuario.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox_Usuario.Location = New System.Drawing.Point(172, 309)
+        Me.TextBox_Usuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox_Usuario.Name = "TextBox_Usuario"
-        Me.TextBox_Usuario.Size = New System.Drawing.Size(305, 22)
+        Me.TextBox_Usuario.Size = New System.Drawing.Size(230, 20)
         Me.TextBox_Usuario.TabIndex = 38
         '
         'TextBox_Contra
         '
         Me.TextBox_Contra.BackColor = System.Drawing.Color.Beige
-        Me.TextBox_Contra.Location = New System.Drawing.Point(229, 428)
-        Me.TextBox_Contra.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox_Contra.Location = New System.Drawing.Point(172, 348)
+        Me.TextBox_Contra.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox_Contra.Name = "TextBox_Contra"
-        Me.TextBox_Contra.Size = New System.Drawing.Size(305, 22)
+        Me.TextBox_Contra.Size = New System.Drawing.Size(230, 20)
         Me.TextBox_Contra.TabIndex = 38
         '
         'ListBox_Clientes
@@ -540,38 +549,39 @@ Partial Class EmpleadoGral
         Me.ListBox_Clientes.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox_Clientes.ForeColor = System.Drawing.Color.OliveDrab
         Me.ListBox_Clientes.FormattingEnabled = True
-        Me.ListBox_Clientes.ItemHeight = 27
-        Me.ListBox_Clientes.Location = New System.Drawing.Point(584, 82)
-        Me.ListBox_Clientes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ListBox_Clientes.ItemHeight = 20
+        Me.ListBox_Clientes.Location = New System.Drawing.Point(438, 50)
+        Me.ListBox_Clientes.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ListBox_Clientes.Name = "ListBox_Clientes"
-        Me.ListBox_Clientes.Size = New System.Drawing.Size(483, 110)
+        Me.ListBox_Clientes.Size = New System.Drawing.Size(363, 142)
         Me.ListBox_Clientes.TabIndex = 46
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(229, 302)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(172, 245)
+        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(305, 22)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(230, 20)
         Me.DateTimePicker1.TabIndex = 47
         '
         'DateTimePicker2
         '
         Me.DateTimePicker2.CalendarForeColor = System.Drawing.Color.LightYellow
         Me.DateTimePicker2.CalendarMonthBackground = System.Drawing.Color.LightYellow
-        Me.DateTimePicker2.Location = New System.Drawing.Point(797, 246)
-        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(598, 200)
+        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(269, 22)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(203, 20)
         Me.DateTimePicker2.TabIndex = 49
         '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(579, 249)
+        Me.Label13.Location = New System.Drawing.Point(434, 202)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(214, 20)
+        Me.Label13.Size = New System.Drawing.Size(174, 16)
         Me.Label13.TabIndex = 48
         Me.Label13.Text = "Fecha de Alta o Modificacion"
         '
@@ -583,11 +593,11 @@ Partial Class EmpleadoGral
         Me.GroupBox1.Controls.Add(Me.ListBox2)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
-        Me.GroupBox1.Location = New System.Drawing.Point(548, 322)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Location = New System.Drawing.Point(411, 262)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(540, 230)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(405, 187)
         Me.GroupBox1.TabIndex = 50
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Desbloquear"
@@ -597,9 +607,10 @@ Partial Class EmpleadoGral
         Me.Label7.AutoSize = True
         Me.Label7.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label7.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(5, 21)
+        Me.Label7.Location = New System.Drawing.Point(4, 17)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(183, 23)
+        Me.Label7.Size = New System.Drawing.Size(146, 19)
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Clientes bloqueados"
         '
@@ -609,10 +620,10 @@ Partial Class EmpleadoGral
         Me.Button_Desbloqueo.FlatAppearance.BorderSize = 0
         Me.Button_Desbloqueo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button_Desbloqueo.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Desbloqueo.Location = New System.Drawing.Point(400, 14)
-        Me.Button_Desbloqueo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button_Desbloqueo.Location = New System.Drawing.Point(300, 11)
+        Me.Button_Desbloqueo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button_Desbloqueo.Name = "Button_Desbloqueo"
-        Me.Button_Desbloqueo.Size = New System.Drawing.Size(116, 39)
+        Me.Button_Desbloqueo.Size = New System.Drawing.Size(87, 32)
         Me.Button_Desbloqueo.TabIndex = 43
         Me.Button_Desbloqueo.Text = "Desbloquear"
         Me.Button_Desbloqueo.UseVisualStyleBackColor = False
@@ -625,28 +636,29 @@ Partial Class EmpleadoGral
         Me.ListBox2.Font = New System.Drawing.Font("Tw Cen MT", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox2.ForeColor = System.Drawing.Color.OliveDrab
         Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.ItemHeight = 27
-        Me.ListBox2.Location = New System.Drawing.Point(13, 58)
-        Me.ListBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ListBox2.ItemHeight = 20
+        Me.ListBox2.Location = New System.Drawing.Point(10, 47)
+        Me.ListBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(506, 137)
+        Me.ListBox2.Size = New System.Drawing.Size(380, 102)
         Me.ListBox2.TabIndex = 15
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(231, 337)
+        Me.Label8.Location = New System.Drawing.Point(173, 274)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(311, 20)
+        Me.Label8.Size = New System.Drawing.Size(252, 16)
         Me.Label8.TabIndex = 36
         Me.Label8.Text = "*La contraseña y usuario no son editables*"
         '
         'EmpleadoGral
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1100, 580)
+        Me.ClientSize = New System.Drawing.Size(825, 471)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.Label13)
@@ -673,7 +685,7 @@ Partial Class EmpleadoGral
         Me.Controls.Add(Me.PanelMenu)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "EmpleadoGral"
         Me.Text = "EmpleadoGral"
         Me.PanelMenu.ResumeLayout(False)

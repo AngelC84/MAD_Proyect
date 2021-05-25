@@ -387,11 +387,11 @@ Public Class Cargas
             Dim thecolumns() As String = sline.Split(",")
             Dim newrow As DataRow = thedatatable.NewRow
 
-            newrow("Precio_Excedente") = thecolumns(1)
-            newrow("mes") = thecolumns(2)
-            newrow("Precio_Bajo") = thecolumns(4)
-            newrow("Precio_Medio") = thecolumns(0)
-            newrow("ano") = thecolumns(3)
+            newrow("Precio_Excedente") = thecolumns(4)
+            newrow("mes") = thecolumns(1)
+            newrow("Precio_Bajo") = thecolumns(2)
+            newrow("Precio_Medio") = thecolumns(3)
+            newrow("ano") = thecolumns(0)
 
 
 

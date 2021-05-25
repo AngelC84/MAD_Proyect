@@ -64,21 +64,30 @@
             Consumo_Label.Text = Recibo.Rows(Index).Item(2)
 
             Tarifa = enlace.getTarifaSortID(Recibo.Rows(Index).Item(3))
+            Dim ano As Integer
+            Dim mes As Integer
+            ano = Tarifa.Rows(0).Item(1)
+            ano_label.Text = ano
+            mes = Tarifa.Rows(0).Item(2)
+            mes_label.Text = mes
+
+
             consumo = Val(Recibo.Rows(Index).Item(2))
             Dim basico As Integer
             Dim medium As Integer
             basico = Val(Tarifa.Rows(0).Item(7))
             medium = Val(Tarifa.Rows(0).Item(7))
-            If (consumo < basico) Then
-                Tarifa_Label.Text = "Consumo Basico"
-                Tasa_Label.Text = Tarifa.Rows(0).Item(3)
-            ElseIf (consumo < medium) Then
-                Tarifa_Label.Text = "Consumo Medio"
-                Tasa_Label.Text = Tarifa.Rows(0).Item(4)
-            Else
-                Tarifa_Label.Text = "Consumo Excedente"
-                Tasa_Label.Text = Tarifa.Rows(0).Item(5)
-            End If
+            Tarifa_Label.Text = Tarifa.Rows(0).Item(0)
+            'If (consumo < basico) Then
+            '    Tarifa_Label.Text = "Consumo Basico"
+            '    Tasa_Label.Text = Tarifa.Rows(0).Item(3)
+            'ElseIf (consumo < medium) Then
+            '    Tarifa_Label.Text = "Consumo Medio"
+            '    Tasa_Label.Text = Tarifa.Rows(0).Item(4)
+            'Else
+            '    Tarifa_Label.Text = "Consumo Excedente"
+            '    Tasa_Label.Text = Tarifa.Rows(0).Item(5)
+            'End If
 
             numero = trans.ConvertNumberToWords(Recibo.Rows(Index).Item(5))
             Totes_label.Text = numero

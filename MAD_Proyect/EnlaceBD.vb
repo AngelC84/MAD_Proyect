@@ -605,7 +605,7 @@ Public Class EnlaceBD
 
 
 
-    Public Function getSortedTarifaInd(ByVal Mes As Int32, ByVal Ano As Int32) As DataTable
+    Public Function getSortedTarifaInd(ByVal messy As Int32, ByVal Anoo As Int32) As DataTable
         Dim nuevatablaEmpl As New DataTable
         Dim Qry As String
 
@@ -618,10 +618,10 @@ Public Class EnlaceBD
 
 
             Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@mes", SqlDbType.Int)
-            parametro1.Value = Mes
+            parametro1.Value = messy
 
             Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int)
-            parametro2.Value = Ano
+            parametro2.Value = Anoo
 
             adaptador.SelectCommand = comandosql
             adaptador.Fill(nuevatablaEmpl)
@@ -1119,25 +1119,21 @@ Public Class EnlaceBD
     End Function
 
     '----------------------- CONSUMO HISTORICO ---------------------
-    Public Function getInfoConsumoHistorico(ByVal anio As Integer,
-                                            Numero_Medidor As Integer?,
-                                            Numero_de_Servicio As Integer) As DataTable
+    Public Function TotalitarioMedidor(ByVal ano As Integer,
+                                            Numero_Medidor As Integer) As DataTable
         Dim tablaaux As New DataTable
         Dim Qry As String
-        Qry = "ConsumoHistorico"
+        Qry = "ConsumoTotalitarioMedidor"
         Try
             conectar()
             comandosql = New SqlCommand(Qry, conexion)
             comandosql.CommandType = CommandType.StoredProcedure
 
-            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int, 8)
-            parametro1.Value = anio
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int)
+            parametro1.Value = ano
 
-            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@Numero_Medidor", SqlDbType.Int, 8)
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@numero", SqlDbType.Int)
             parametro2.Value = Numero_Medidor
-
-            Dim parametro3 As SqlParameter = comandosql.Parameters.Add("@Numero_de_Servicio", SqlDbType.Int, 8)
-            parametro3.Value = Numero_de_Servicio
 
             conexion.Open()
             adaptador.SelectCommand = comandosql
@@ -1150,6 +1146,55 @@ Public Class EnlaceBD
         Return tablaaux
 
     End Function
+
+
+
+    Public Function TotalitarioMedidorServicio(ByVal ano As Integer,
+                                            Numero_de_Servicio As Integer) As DataTable
+        Dim tablaaux As New DataTable
+        Dim Qry As String
+        Qry = "ConsumoTotalitario"
+        Try
+            conectar()
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+            Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@ano", SqlDbType.Int)
+            parametro1.Value = ano
+
+
+
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@servicio", SqlDbType.Bit)
+            parametro2.Value = Numero_de_Servicio
+
+            conexion.Open()
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(tablaaux)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return tablaaux
+
+    End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     '-------------------LOGIN --------------
     Public Function LOGIN(
