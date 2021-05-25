@@ -32,4 +32,11 @@
         Consumo_Historico.Show()
         Me.Hide()
     End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Dim enlace As New EnlaceBD
+        Dim tabla As New DataTable
+        tabla = enlace.getRecibos
+        DataGridView1.DataSource = tabla
+    End Sub
 End Class

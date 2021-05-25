@@ -44,15 +44,7 @@ Partial Class Reporte_General
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Button9 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
@@ -86,25 +78,28 @@ Partial Class Reporte_General
         Me.PanelMenu.Controls.Add(Me.Button_Gestion)
         Me.PanelMenu.Controls.Add(Me.PictureBox2)
         Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelMenu.Location = New System.Drawing.Point(0, 40)
+        Me.PanelMenu.Location = New System.Drawing.Point(0, 32)
+        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PanelMenu.Name = "PanelMenu"
-        Me.PanelMenu.Size = New System.Drawing.Size(220, 540)
+        Me.PanelMenu.Size = New System.Drawing.Size(165, 439)
         Me.PanelMenu.TabIndex = 14
         '
         'Panel10
         '
         Me.Panel10.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel10.Location = New System.Drawing.Point(0, 432)
+        Me.Panel10.Location = New System.Drawing.Point(0, 351)
+        Me.Panel10.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(5, 50)
+        Me.Panel10.Size = New System.Drawing.Size(4, 41)
         Me.Panel10.TabIndex = 32
         '
         'Panel8
         '
         Me.Panel8.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel8.Location = New System.Drawing.Point(0, 583)
+        Me.Panel8.Location = New System.Drawing.Point(0, 474)
+        Me.Panel8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(5, 50)
+        Me.Panel8.Size = New System.Drawing.Size(4, 41)
         Me.Panel8.TabIndex = 5
         '
         'Boton_ConsumoHistorico
@@ -118,9 +113,10 @@ Partial Class Reporte_General
         Me.Boton_ConsumoHistorico.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ConsumoHistorico.Image = Global.MAD_Proyect.My.Resources.Resources.compras
         Me.Boton_ConsumoHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ConsumoHistorico.Location = New System.Drawing.Point(0, 432)
+        Me.Boton_ConsumoHistorico.Location = New System.Drawing.Point(0, 351)
+        Me.Boton_ConsumoHistorico.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_ConsumoHistorico.Name = "Boton_ConsumoHistorico"
-        Me.Boton_ConsumoHistorico.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ConsumoHistorico.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ConsumoHistorico.TabIndex = 31
         Me.Boton_ConsumoHistorico.Text = "Consum Historico"
         Me.Boton_ConsumoHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -129,25 +125,28 @@ Partial Class Reporte_General
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel4.Location = New System.Drawing.Point(0, 204)
+        Me.Panel4.Location = New System.Drawing.Point(0, 166)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(5, 50)
+        Me.Panel4.Size = New System.Drawing.Size(4, 41)
         Me.Panel4.TabIndex = 5
         '
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel6.Location = New System.Drawing.Point(0, 373)
+        Me.Panel6.Location = New System.Drawing.Point(0, 303)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(5, 50)
+        Me.Panel6.Size = New System.Drawing.Size(4, 41)
         Me.Panel6.TabIndex = 30
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel3.Location = New System.Drawing.Point(0, 148)
+        Me.Panel3.Location = New System.Drawing.Point(0, 120)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(5, 50)
+        Me.Panel3.Size = New System.Drawing.Size(4, 41)
         Me.Panel3.TabIndex = 5
         '
         'Boton_ReporteGeneral
@@ -161,9 +160,10 @@ Partial Class Reporte_General
         Me.Boton_ReporteGeneral.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ReporteGeneral.Image = Global.MAD_Proyect.My.Resources.Resources.empleados
         Me.Boton_ReporteGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ReporteGeneral.Location = New System.Drawing.Point(0, 373)
+        Me.Boton_ReporteGeneral.Location = New System.Drawing.Point(0, 303)
+        Me.Boton_ReporteGeneral.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_ReporteGeneral.Name = "Boton_ReporteGeneral"
-        Me.Boton_ReporteGeneral.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ReporteGeneral.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ReporteGeneral.TabIndex = 29
         Me.Boton_ReporteGeneral.Text = "Rep General"
         Me.Boton_ReporteGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -172,17 +172,19 @@ Partial Class Reporte_General
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel2.Location = New System.Drawing.Point(0, 92)
+        Me.Panel2.Location = New System.Drawing.Point(0, 75)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(5, 50)
+        Me.Panel2.Size = New System.Drawing.Size(4, 41)
         Me.Panel2.TabIndex = 5
         '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel7.Location = New System.Drawing.Point(0, 316)
+        Me.Panel7.Location = New System.Drawing.Point(0, 257)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(5, 50)
+        Me.Panel7.Size = New System.Drawing.Size(4, 41)
         Me.Panel7.TabIndex = 27
         '
         'Button8
@@ -195,9 +197,10 @@ Partial Class Reporte_General
         Me.Button8.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.Image = Global.MAD_Proyect.My.Resources.Resources.venta
         Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.Location = New System.Drawing.Point(0, 583)
+        Me.Button8.Location = New System.Drawing.Point(0, 474)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(220, 50)
+        Me.Button8.Size = New System.Drawing.Size(165, 41)
         Me.Button8.TabIndex = 3
         Me.Button8.Text = "Consulta Recibo"
         Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -207,9 +210,10 @@ Partial Class Reporte_General
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.ForestGreen
-        Me.Panel5.Location = New System.Drawing.Point(0, 260)
+        Me.Panel5.Location = New System.Drawing.Point(0, 211)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(5, 50)
+        Me.Panel5.Size = New System.Drawing.Size(4, 41)
         Me.Panel5.TabIndex = 28
         '
         'Button_Cargas
@@ -222,9 +226,10 @@ Partial Class Reporte_General
         Me.Button_Cargas.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Cargas.Image = Global.MAD_Proyect.My.Resources.Resources.producto
         Me.Button_Cargas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button_Cargas.Location = New System.Drawing.Point(0, 204)
+        Me.Button_Cargas.Location = New System.Drawing.Point(0, 166)
+        Me.Button_Cargas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button_Cargas.Name = "Button_Cargas"
-        Me.Button_Cargas.Size = New System.Drawing.Size(220, 50)
+        Me.Button_Cargas.Size = New System.Drawing.Size(165, 41)
         Me.Button_Cargas.TabIndex = 3
         Me.Button_Cargas.Text = "Cargas"
         Me.Button_Cargas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -241,9 +246,10 @@ Partial Class Reporte_General
         Me.Boton_ReporteTarifasyConsum.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_ReporteTarifasyConsum.Image = Global.MAD_Proyect.My.Resources.Resources.relo3
         Me.Boton_ReporteTarifasyConsum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_ReporteTarifasyConsum.Location = New System.Drawing.Point(0, 316)
+        Me.Boton_ReporteTarifasyConsum.Location = New System.Drawing.Point(0, 257)
+        Me.Boton_ReporteTarifasyConsum.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_ReporteTarifasyConsum.Name = "Boton_ReporteTarifasyConsum"
-        Me.Boton_ReporteTarifasyConsum.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_ReporteTarifasyConsum.Size = New System.Drawing.Size(165, 41)
         Me.Boton_ReporteTarifasyConsum.TabIndex = 25
         Me.Boton_ReporteTarifasyConsum.Text = "Repo Tarif/Cons"
         Me.Boton_ReporteTarifasyConsum.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -259,9 +265,10 @@ Partial Class Reporte_General
         Me.Button_Contratos.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Contratos.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_Restaurar
         Me.Button_Contratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button_Contratos.Location = New System.Drawing.Point(0, 148)
+        Me.Button_Contratos.Location = New System.Drawing.Point(0, 120)
+        Me.Button_Contratos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button_Contratos.Name = "Button_Contratos"
-        Me.Button_Contratos.Size = New System.Drawing.Size(220, 50)
+        Me.Button_Contratos.Size = New System.Drawing.Size(165, 41)
         Me.Button_Contratos.TabIndex = 3
         Me.Button_Contratos.Text = "Contratos"
         Me.Button_Contratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -278,9 +285,10 @@ Partial Class Reporte_General
         Me.Boton_GenerarReciboyConsulta.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Boton_GenerarReciboyConsulta.Image = Global.MAD_Proyect.My.Resources.Resources.reportes
         Me.Boton_GenerarReciboyConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Boton_GenerarReciboyConsulta.Location = New System.Drawing.Point(0, 260)
+        Me.Boton_GenerarReciboyConsulta.Location = New System.Drawing.Point(0, 211)
+        Me.Boton_GenerarReciboyConsulta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Boton_GenerarReciboyConsulta.Name = "Boton_GenerarReciboyConsulta"
-        Me.Boton_GenerarReciboyConsulta.Size = New System.Drawing.Size(220, 50)
+        Me.Boton_GenerarReciboyConsulta.Size = New System.Drawing.Size(165, 41)
         Me.Boton_GenerarReciboyConsulta.TabIndex = 26
         Me.Boton_GenerarReciboyConsulta.Text = "Gen Rec/Consul"
         Me.Boton_GenerarReciboyConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -297,9 +305,10 @@ Partial Class Reporte_General
         Me.Button_Gestion.Font = New System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Gestion.Image = Global.MAD_Proyect.My.Resources.Resources.clientes
         Me.Button_Gestion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button_Gestion.Location = New System.Drawing.Point(0, 92)
+        Me.Button_Gestion.Location = New System.Drawing.Point(0, 75)
+        Me.Button_Gestion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button_Gestion.Name = "Button_Gestion"
-        Me.Button_Gestion.Size = New System.Drawing.Size(220, 50)
+        Me.Button_Gestion.Size = New System.Drawing.Size(165, 41)
         Me.Button_Gestion.TabIndex = 3
         Me.Button_Gestion.Text = "Gestion Clientes"
         Me.Button_Gestion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -308,9 +317,10 @@ Partial Class Reporte_General
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.MAD_Proyect.My.Resources.Resources.CFE
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 3)
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 2)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(220, 83)
+        Me.PictureBox2.Size = New System.Drawing.Size(165, 67)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 2
         Me.PictureBox2.TabStop = False
@@ -322,8 +332,9 @@ Partial Class Reporte_General
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1100, 40)
+        Me.Panel1.Size = New System.Drawing.Size(825, 32)
         Me.Panel1.TabIndex = 13
         '
         'Button1
@@ -333,9 +344,10 @@ Partial Class Reporte_General
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = Global.MAD_Proyect.My.Resources.Resources.Icono_cerrar_FN
-        Me.Button1.Location = New System.Drawing.Point(1057, 0)
+        Me.Button1.Location = New System.Drawing.Point(793, 0)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(40, 40)
+        Me.Button1.Size = New System.Drawing.Size(30, 32)
         Me.Button1.TabIndex = 1
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -346,92 +358,24 @@ Partial Class Reporte_General
         Me.Label2.Font = New System.Drawing.Font("Tw Cen MT", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.OldLace
         Me.Label2.Location = New System.Drawing.Point(1, 1)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(241, 39)
+        Me.Label2.Size = New System.Drawing.Size(101, 31)
         Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Reporte General"
+        Me.Label2.Text = "Recibos"
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.RadioButton2)
-        Me.GroupBox2.Controls.Add(Me.RadioButton1)
-        Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.ComboBox3)
-        Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.Button9)
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.ForeColor = System.Drawing.Color.OliveDrab
-        Me.GroupBox2.Location = New System.Drawing.Point(226, 58)
+        Me.GroupBox2.Location = New System.Drawing.Point(170, 47)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(849, 131)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(637, 71)
         Me.GroupBox2.TabIndex = 47
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Filtros"
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(607, 85)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(115, 21)
-        Me.RadioButton2.TabIndex = 49
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Uso industrial"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(473, 83)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(122, 21)
-        Me.RadioButton1.TabIndex = 48
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Uso domestico"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(242, 60)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(39, 20)
-        Me.Label5.TabIndex = 46
-        Me.Label5.Text = "Año"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Tw Cen MT", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 60)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 20)
-        Me.Label4.TabIndex = 46
-        Me.Label4.Text = "Mes"
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.BackColor = System.Drawing.Color.Cornsilk
-        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(246, 83)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(190, 24)
-        Me.ComboBox3.TabIndex = 45
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.BackColor = System.Drawing.Color.Cornsilk
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre ", "Noviembre ", "Diciembre"})
-        Me.ComboBox2.Location = New System.Drawing.Point(10, 83)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(190, 24)
-        Me.ComboBox2.TabIndex = 45
+        Me.GroupBox2.Text = "Recibo"
         '
         'Button9
         '
@@ -439,43 +383,24 @@ Partial Class Reporte_General
         Me.Button9.FlatAppearance.BorderSize = 0
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button9.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(739, 68)
+        Me.Button9.Location = New System.Drawing.Point(18, 22)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(104, 39)
+        Me.Button9.Size = New System.Drawing.Size(78, 32)
         Me.Button9.TabIndex = 43
-        Me.Button9.Text = "Generar"
+        Me.Button9.Text = "Consultar"
         Me.Button9.UseVisualStyleBackColor = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 24)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(203, 23)
-        Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Periodo de Facturacion"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label3.Font = New System.Drawing.Font("Tw Cen MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(469, 24)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(144, 23)
-        Me.Label3.TabIndex = 17
-        Me.Label3.Text = "Tipo de Servicio"
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Button11)
         Me.GroupBox1.Controls.Add(Me.Button10)
         Me.GroupBox1.ForeColor = System.Drawing.Color.OliveDrab
-        Me.GroupBox1.Location = New System.Drawing.Point(236, 472)
+        Me.GroupBox1.Location = New System.Drawing.Point(177, 384)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(839, 87)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(629, 71)
         Me.GroupBox1.TabIndex = 53
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Generar como"
@@ -486,9 +411,10 @@ Partial Class Reporte_General
         Me.Button11.FlatAppearance.BorderSize = 0
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button11.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(159, 25)
+        Me.Button11.Location = New System.Drawing.Point(119, 20)
+        Me.Button11.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(104, 39)
+        Me.Button11.Size = New System.Drawing.Size(78, 32)
         Me.Button11.TabIndex = 43
         Me.Button11.Text = "CSV"
         Me.Button11.UseVisualStyleBackColor = False
@@ -499,9 +425,10 @@ Partial Class Reporte_General
         Me.Button10.FlatAppearance.BorderSize = 0
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button10.Font = New System.Drawing.Font("Tw Cen MT Condensed", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(33, 25)
+        Me.Button10.Location = New System.Drawing.Point(25, 20)
+        Me.Button10.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(104, 39)
+        Me.Button10.Size = New System.Drawing.Size(78, 32)
         Me.Button10.TabIndex = 43
         Me.Button10.Text = "PDF"
         Me.Button10.UseVisualStyleBackColor = False
@@ -509,24 +436,26 @@ Partial Class Reporte_General
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(236, 206)
+        Me.DataGridView1.Location = New System.Drawing.Point(177, 122)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(839, 252)
+        Me.DataGridView1.Size = New System.Drawing.Size(629, 250)
         Me.DataGridView1.TabIndex = 54
         '
         'Reporte_General
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1100, 580)
+        Me.ClientSize = New System.Drawing.Size(825, 471)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.PanelMenu)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Reporte_General"
         Me.Text = "Reporte_General"
         Me.PanelMenu.ResumeLayout(False)
@@ -534,7 +463,6 @@ Partial Class Reporte_General
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -555,15 +483,7 @@ Partial Class Reporte_General
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Button9 As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Button11 As Button
     Friend WithEvents Button10 As Button

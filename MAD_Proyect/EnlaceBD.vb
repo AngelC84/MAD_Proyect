@@ -769,7 +769,7 @@ Public Class EnlaceBD
 
 
 
-    Public Function getdataReciboINFO(ByVal Tarifa As Integer) As DataTable
+    Public Function getdataReciboINFO(ByVal Tarifa As Integer, ByVal CURP As String) As DataTable
         Dim nuevatablaEmpl As New DataTable
         Dim Qry As String
 
@@ -783,6 +783,8 @@ Public Class EnlaceBD
 
             Dim parametro1 As SqlParameter = comandosql.Parameters.Add("@Tarifa", SqlDbType.Int)
             parametro1.Value = Tarifa
+            Dim parametro2 As SqlParameter = comandosql.Parameters.Add("@CURP", SqlDbType.VarChar, 18)
+            parametro2.Value = CURP
 
 
             adaptador.SelectCommand = comandosql
@@ -795,6 +797,29 @@ Public Class EnlaceBD
         Return nuevatablaEmpl
     End Function
 
+    Public Function getRecibos() As DataTable
+        Dim nuevatablaEmpl As New DataTable
+        Dim Qry As String
+
+
+        Try
+            conectar()
+            Qry = "getRecibos"
+            comandosql = New SqlCommand(Qry, conexion)
+            comandosql.CommandType = CommandType.StoredProcedure
+
+
+
+
+            adaptador.SelectCommand = comandosql
+            adaptador.Fill(nuevatablaEmpl)
+
+        Catch ex As Exception
+        Finally
+            desconectar()
+        End Try
+        Return nuevatablaEmpl
+    End Function
 
     Public Function getSortedConsumo() As DataTable
         Dim nuevatablaEmpl As New DataTable

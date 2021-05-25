@@ -205,7 +205,7 @@ Public Class GenerarReciboyConsulta
 
                     diff1 = medio - basico
                     excedente = tarifa.Rows(0).Item(9)
-                    watts = consumo.Rows(0).Item(4)
+                    watts = consumo.Rows(indi).Item(4)
                     Dim tir As Decimal
                     Dim ter As Decimal
                     Dim tar As Decimal
@@ -1502,7 +1502,7 @@ Public Class GenerarReciboyConsulta
 
                     diff1 = medio - basico
                     excedente = tarifa.Rows(0).Item(9)
-                    watts = consumo.Rows(0).Item(4)
+                    watts = consumo.Rows(indi).Item(4)
                     Dim tir As Decimal
                     Dim ter As Decimal
                     Dim tar As Decimal
@@ -1511,8 +1511,9 @@ Public Class GenerarReciboyConsulta
                     tar = 0
                     If (watts > medio) Then 'Excedente
                         tir = basico * pBasico
-                        ter = diff1 * pMedio
-                        tar = (watts - (diff1 + basico)) * pExcedente
+                        ter = medio * pMedio
+                        tar = (watts - (medio + basico))
+                        tar = tar * pExcedente
                         subtotal = tir + ter + tar
                     ElseIf (watts <= medio And watts > basico) Then 'Medio
                         tir = basico * pBasico
@@ -1656,8 +1657,9 @@ Public Class GenerarReciboyConsulta
                                 tar = 0
                                 If (watts > medio) Then 'Excedente
                                     tir = basico * pBasico
-                                    ter = diff1 * pMedio
-                                    tar = (watts - (diff1 + basico)) * pExcedente
+                                    ter = medio * pMedio
+                                    tar = (watts - (medio + basico))
+                                    tar = tar * pExcedente
                                     subtotal = tir + ter + tar
                                 ElseIf (watts <= medio And watts > basico) Then 'Medio
                                     tir = basico * pBasico
@@ -2081,7 +2083,7 @@ Public Class GenerarReciboyConsulta
 
             End If
 
-            Recibo = enlace.getdataReciboINFO(Tarifa.Rows(0).Item(0))
+            Recibo = enlace.getdataReciboINFO(Tarifa.Rows(0).Item(0), CURP)
 
             If (Recibo.Rows.Count > 0) Then
                 Label25_Medidor.Text = ComboBox2.Text
