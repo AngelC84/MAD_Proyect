@@ -240,39 +240,45 @@ create procedure GetDatoTarifas
 AS
 Begin
 Select
+
 ano'Año', 
 mes 'Mes',
 Precio_Watt_Bajo 'Basica',
 Precio_Watt_Medio 'Intermedio',
 Precio_Watt_Excedente 'Excedente'
 
+
+
 FROM ReporteTarifas where ano = @ano
 END
 go 
 
 
-Create procedure GetDatoConsumo
+
+
+
+create procedure GetDatoConsumo
 @ano int
 
 AS
 Begin
 Select
+
 ano'Año', 
 mes 'Mes',
 Numero_Medidor 'Medidor',
-Watt_Bajo 'Bajo',
-Watt_Medio 'Medio',
-Watt_Excedente 'Excedente'
+Watts 'Consumo en Watts'
+
 
 FROM ReporteConsumoV where ano = @ano
 END
 go 
 
 
-Create Procedure ConsumoHistorico
-@ano int = null,
-@Numero_Medidor int = null,
-@Numero_de_Servicio int = null
+create Procedure ConsumoHistorico
+@ano int =null,
+@Numero_Medidor int=null ,
+@Numero_de_Servicio bit =null
 
 as 
 begin
@@ -289,7 +295,6 @@ where (YEAR(Fecha) = @ano or @ano is null)  and (ConsumoHistoricoV.Numero_Medido
 
 end 
 go
-
 
 /*---------------------LOGIN ------------------------*/
 
@@ -536,8 +541,6 @@ go
 
 
 
-select * from RecibopdfV
-
 
 /*------------------------------------TARIFAS----------------------------------*/
 
@@ -578,6 +581,45 @@ insert into Contrato(Domicilio,Servicio,Fecha,Cliente,Activo) values (@Domicilio
 End
 go
 
+create procedure ConsumoTotalitario
+@ano int,
+@servicio bit
+
+as 
+begin
+select 
+ Fecha,
+ Watts,
+ Total,
+ Pendiente_Pago,
+ Pagado 
+  from Recibo
+  where  year(Fecha)=@ano  and Servicio= @servicio
+end
+go
+
+create procedure ConsumoTotalitarioMedidor
+@ano int,
+@numero int
+
+
+as 
+begin
+select 
+ Fecha,
+ Watts,
+ Total,
+ Pendiente_Pago,
+ Pagado  
+ from Recibo 
+ where  year(Fecha)=@ano and Numero_Medidor= @numero
+end
+go
+
+
+
+
+
 
 Create procedure getContratos
 AS
@@ -595,7 +637,7 @@ where Activo = 1
 END
 go
 
-Alter procedure getContratosMedidor
+create procedure getContratosMedidor
 @Medidor int
 
 AS
@@ -748,12 +790,12 @@ End
 go
 /*---------------------------------------------------------------------------------------------------------------*/
 
-Create procedure regConsumoMasivo
+create procedure regConsumoMasivo
 @tblConsumo ConsumoMasivo readonly
 as 
 begin
 set nocount on;
-insert into Consumo(ano,mes,Numero_Medidor,Watts) select ano, mes, NumMedidor,Watts from @tblConsumo
+insert into Consumo(ano,mes,Numero_Medidor,Watts) select ano, mes, Watts,NumMedidor from @tblConsumo
 end
 
 go
@@ -763,14 +805,14 @@ create procedure regTarifaMasivo
 as 
 begin
 set nocount on;
-insert into Tarifa(Precio_Watt_Bajo,Precio_Watt_Medio,Precio_Watt_Excedente,mes,ano,Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) select Precio_Medio, Precio_Bajo, Precio_Excedente ,ano,mes,Tipo_de_uso, Watt_Bajo,Watt_Medio, Watt_Excedente from @tblTarifa
+insert into Tarifa(Precio_Watt_Bajo,Precio_Watt_Medio,Precio_Watt_Excedente,mes,ano,Tipo_de_uso,Watt_Bajo,Watt_Medio,Watt_Excedente) select Precio_Bajo, Precio_Medio, Precio_Excedente ,mes,ano,Tipo_de_uso, Watt_Bajo,Watt_Medio, Watt_Excedente from @tblTarifa
 end
 
 
 go
 
 
-Alter procedure regRecibo
+Create procedure regRecibo
 @watts int,
 @medidor int,
 @servicio bit,
@@ -874,6 +916,9 @@ create procedure altContrato
    go
 
 
+insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values('admin','admin',3)
+
+insert into Administrador (Nombre_Usuario, Contraseña, Permiso) values('admin','admin',3)
 
 
 
@@ -883,13 +928,12 @@ create procedure altContrato
 
 Select * from Empleado   
 
- Select * from Recibo
+
 Select * from Consumo 
                                   
-
-
+ Select * from Recibo
 Select * from Tarifa      
-     Select * from Clientes      
+  Select * from Clientes      
 
 Select * from Contrato  
 Select * from Usuarios
@@ -901,7 +945,4 @@ update Clientes set Activo = 1
 
 update Consumo set Used = 0 where Id_Consumo = 302
 
-insert into Usuarios(Nombre_Usuario, Contraseña, Permiso) values('Alejandro Venegas','AdmiGenial',3)
-
-insert into Administrador (Nombre_Usuario, Contraseña, Permiso) values('UsuarioAdmin','AdmiGenial',3)
 

@@ -10,14 +10,14 @@
 go
 
 --CHECAR ESTAS VISTAS ---------------
-Create view ReporteConsumoV as 
+create view ReporteConsumoV as 
 
-	SELECT Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor, Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
+	SELECT Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor, Consumo.Watts
 	
 	FROM Tarifa 
 	join Consumo  
 	ON Consumo.ano = Tarifa.ano
-    group by Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor,Tarifa.Watt_Bajo, Tarifa.Watt_Medio, Tarifa.Watt_Excedente
+    group by Tarifa.ano, Tarifa.mes, Consumo.Numero_Medidor,Consumo.Watts
 
 go
 
@@ -33,6 +33,7 @@ Create view ConsumoHistoricoV as
 	
 	
 go
+
 ------------------------------------------------------------
 
 

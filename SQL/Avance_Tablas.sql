@@ -226,7 +226,6 @@ Watt_Excedente int
 
 
 
-
 create TABLE Recibo(
 Id_Recibo int identity (1000,1) Primary Key,
 Id_Consumo int, 
@@ -256,11 +255,13 @@ ano int
 )
 Go
 create type TarifaMasiva as table (
+ano int,
+mes int not null,
 Precio_Bajo float default (0.5)not null,
 Precio_Medio float default (1) not null,
 Precio_Excedente float default (1.5)not null,
-mes int not null,
-ano int,
+
+
 Tipo_de_uso bit default (1),
 Watt_Bajo int default (5000),         
 Watt_Medio int default (10000),
