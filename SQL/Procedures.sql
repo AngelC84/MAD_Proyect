@@ -464,7 +464,8 @@ go
 
 
 create procedure getdataReciboINFO
-@Tarifa  int
+@Tarifa  int,
+@CURP varchar(18)
 AS
 Begin
 Select 
@@ -483,9 +484,31 @@ Total,
 Pendiente_Pago,
 Pagado 
 
-FROM Recibo where Tarifa = @Tarifa and Pagado = 0
+FROM Recibo where Tarifa = @Tarifa and Pagado = 0 and Cliente=@CURP
 end
 go
+create procedure getRecibos
+
+AS
+Begin
+Select 
+
+Cliente,
+Id_Recibo,
+Iva,
+Fecha,
+Watts,
+Numero_Medidor,
+Servicio,
+Cliente,
+Tarifa ,
+Subtotal,
+Total,
+Pendiente_Pago,
+Pagado 
+
+FROM Recibo where Id_Recibo>0
+end
 
 
 create procedure ObtenerCliente
@@ -930,7 +953,8 @@ Select * from Empleado
 
 
 Select * from Consumo 
-                                  
+                            drop table Recibo
+							drop table Consumo
  Select * from Recibo
 Select * from Tarifa      
   Select * from Clientes      
@@ -939,7 +963,7 @@ Select * from Contrato
 Select * from Usuarios
 Select * from ReporteConsumoV  
 
-update Clientes set Activo = 1 
+update Usuarios set Activo = 0
 
 
 
